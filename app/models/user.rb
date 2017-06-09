@@ -10,4 +10,10 @@ class User < ApplicationRecord
     activity << questions
     activity.flatten
   end
+
+  def activity_path(activity)
+    if activity.class == Question(id: integer, user_id: integer, body: text, active: boolean, created_at: datetime, updated_at: datetime)
+      question_path(activity.id)
+    end
+  end
 end

@@ -4,12 +4,14 @@
     <th>Question</th>
     <th>Author</th>
     <th>Created At</th>
+    <th>Upvote Count</th>
   </tr>
   <% @questions.each do |question| %>
   <tr>
     <td><%= link_to question.body, question_path(question) %></td>
     <td><%= "#{question.user.first_name} #{question.user.last_name}" %></td>
     <td><%= question.created_at.strftime("%Y-%m-%d--%H:%M:%S") %></td>
+    <td><%= question.votes_for.size %></td>
   </tr>
   <% end %>
 </table>

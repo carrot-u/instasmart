@@ -1,0 +1,18 @@
+<h1><%= @question.body %></h1>
+<h5>Submitted by <%= link_to @question.user.full_name, user_path(@question.user.id) %> on <%= @question.created_at %></h5>
+<h4>Active: <%= @question.active %></h4>
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+<table>
+  <tr><td><h4><%= answer.body %></h4></td></tr>
+  <tr><td>Submitted by <%= link_to answer.user.full_name, user_path(answer.user.id) %> on <%= answer.created_at %></td></tr>
+  <tr><td><%= answer.votes_for.count %> Votes</td></tr>
+  <% answer.comments.each do |comment| %>
+    <tr><td><h5><%= comment.body%></h5></td></tr>
+    <tr><td>Submitted by <%= link_to comment.user.full_name, user_path(comment.user.id) %> on <%= comment.created_at %></td></tr>
+    <tr><td><%= comment.votes_for.count %> Votes</td></tr>
+  <% end %>
+</table>
+<hr>
+<%= link_to 'Back to All Questions', questions_path %>
+<% end %>
