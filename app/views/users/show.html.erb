@@ -1,0 +1,18 @@
+<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+<p><%= mail_to @user.email %></p>
+<p>Active? <%= @user.active.to_s.capitalize %></p>
+<h6>Created On: <%= @user.created_at.strftime("%d %B %Y") %></h6>
+<h2>Recent Activity</h2>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Body</th>
+  </tr>
+  <td></td>
+  <% @user.activities.each do |activity| %>
+  <tr>
+    <td><%= activity.class %></td>
+    <td><%= activity.body %></td>
+  </tr>
+  <% end %>
+</table>
