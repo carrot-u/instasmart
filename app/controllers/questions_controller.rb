@@ -1,8 +1,20 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   def index
     @questions = Question.all
+  end
+
+  def active
+    @questions = Question.all.where(active: true).order("created_at DESC")
+  end
+
+  def popular
+    @questions = Question.all.where(active: true).order("cached_votes_total DESC")
+  end
+
+  def inactive
+    @questions = Question.all.where(active: false)
   end
 
   def show
@@ -36,6 +48,11 @@ class QuestionsController < ApplicationController
 
   def like
     @question.liked_by User.first
+    redirect_to @question
+  end
+
+  def unlike
+    @question.unliked_by User.first
     redirect_to @question
   end
 

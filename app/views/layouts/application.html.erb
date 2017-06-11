@@ -3,11 +3,19 @@
   <head>
     <title>Instasmart</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+  <nav>
+    <%= link_to 'Ask', new_question_path %>
+    <%= link_to 'Recent', active_path %>
+    <%= link_to 'Popular', popular_path %>
+    <%= link_to 'All Questions', questions_path %>
+    <%= link_to 'Closed', inactive_path %>
+    <%= link_to 'All Tags', tags_path %>
+  </nav>
+  </header>
   <body>
     <%= yield %>
   </body>

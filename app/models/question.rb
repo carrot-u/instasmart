@@ -2,10 +2,12 @@ class Question < ApplicationRecord
   belongs_to :user, required: false
   has_many :answers, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   acts_as_votable
+
+  after_initialize :set_defaults, unless: :persisted?
 
   def tag_list
     self.tags.collect do |tag|
@@ -17,6 +19,10 @@ class Question < ApplicationRecord
     tag_names = tags_string.split(",").collect{|s| s.strip.downcase}.uniq
     new_or_found_tags = tag_names.collect { |name| Tag.find_or_create_by(name: name) }
     self.tags = new_or_found_tags
+  end
+
+  def set_defaults
+    self.active = true
   end
 
   # belongs_to :author, foreign_key: 'user_id', class_name: 'User',  required: false
