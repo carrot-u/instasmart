@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :answers
   has_many :comments
 
+  acts_as_voter
+
   def activities
     activity = []
     activity << comments

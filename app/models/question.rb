@@ -2,9 +2,10 @@ class Question < ApplicationRecord
   belongs_to :user, required: false
   has_many :answers, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :tag_taggings, class_name: 'ActsAsTaggableOn::Tagging'
+  has_many :tags, through: :taggings
 
-  acts_as_taggable
+
+  acts_as_taggable_on :tags
 
   acts_as_votable
 
