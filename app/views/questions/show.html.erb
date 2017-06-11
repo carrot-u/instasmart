@@ -1,9 +1,11 @@
 <h1><%= @question.body %></h1>
 <h5>Submitted by <%= link_to @question.user.full_name, user_path(@question.user.id) %> on <%= @question.created_at %></h5>
 <h4>Active: <%= @question.active %></h4>
-<h4>Tags: <%= @question.tag_list %></h4>
-<p><%=  @question.votes_for.count %> Votes</p>
-<p><%= link_to 'Add Vote', like_question_path(@question), method: :put %> </p>
+<h4>  Tags:
+  <% @question.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %></h4>
+<p><%=  @question.votes_for.count %> Votes <%= link_to 'Add Vote', like_question_path(@question), method: :put %> </p>
 
 <h2>Answers</h2>
 <% @question.answers.each do |answer| %>
