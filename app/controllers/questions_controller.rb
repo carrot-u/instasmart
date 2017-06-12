@@ -19,8 +19,8 @@ class QuestionsController < ApplicationController
 
   def show
   rescue ActiveRecord::RecordNotFound
-    flash.keep[:notice]="Couldn't find that question!"
-    redirect_to action: :index
+    flash[:notice] = "ERROR"
+    redirect_to(:action => 'index')
   end
 
   def new

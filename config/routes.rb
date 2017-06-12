@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
+
   resources :questions do
-    resources :comments
-    resources :answers
+    resources :answers do
+      resources :comments
+      member do
+        put "like", to: "answers#like"
+        put "unlike", to: "answers#unlike"
+      end
+    end
     member do
       put "like", to: "questions#like"
       put "unlike", to: "questions#unlike"
     end
   end
+
   resources :tags
 
   get '/active', to: 'questions#active'
