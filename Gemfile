@@ -35,7 +35,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
-gem "omniauth-google-oauth2", "~> 0.2.1"
 
 
 group :development, :test do
