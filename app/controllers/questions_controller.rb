@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :new_answer, only: :show
 
   def index
     @questions = Question.all
@@ -54,6 +55,10 @@ class QuestionsController < ApplicationController
   def unlike
     @question.unliked_by User.first
     redirect_to @question
+  end
+
+  def new_answer
+    @answer = Answer.new
   end
 
   private

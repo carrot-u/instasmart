@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :answers
+
   resources :tags
 
   get '/active', to: 'questions#active'
