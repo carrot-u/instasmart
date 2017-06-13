@@ -1,0 +1,21 @@
+<%=  form_for(question) do |f| %>
+<div class="field">
+  <%= f.label :user %><br />
+  <%= f.collection_select :user_id, User.order(:first_name), :id, :full_name,  include_blank: true %>
+</div>
+<div class="field">
+  <%= f.label :body %><br />
+  <%= f.text_area :body %>
+</div>
+<div class="field">
+  <%= f.label :active %>
+  <%= f.check_box :active%>
+</div>
+<p>
+  <%= f.label :tags %><br />
+  <%= f.text_area :tag_list %>
+</p>
+<div>
+  <%= f.submit %>
+</div>
+<% end %>

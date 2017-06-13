@@ -1,0 +1,119 @@
+/* SPACING */
+
+.card, .card-header {
+  max-height: 100%;
+}
+
+.scroll-area {
+  width:100%;
+  height:calc(100% - 200px);
+  float:left;
+  overflow-y:scroll;
+}
+
+.carousel-inner {
+  max-width: 750px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  max-width: 30px;
+}
+
+#user {
+  height:calc(100% - 1px);
+}
+
+/* IMAGES */
+
+.question, .jumbotron {
+  background-image: url(../img/bg-tp-food.png);
+  background-size: cover;
+}
+
+
+
+/* COLORS */
+
+nav {
+  background-color: #fff;
+}
+
+.btn-success, .badge-success, .bg-success {
+  background-color: #43B02A;
+  border-color: #43B02A;
+}
+
+.btn-outline-success {
+  border-color: #43B02A;
+  color: #43B02A;
+}
+
+.active {
+  color: #43B02A;
+}
+
+.card, .card-header {
+  color: #000;
+  border-color: #dedede;
+  background-color: #fff;
+  opacity: 0.85;
+}
+
+li a {
+  color:#909090;
+}
+
+li a:hover {
+  color:#43B02A;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #43B02A;
+}
+
+a {
+  color: #000;
+}
+
+
+
+/* FONTS */
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.jumbotron p {
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.comment-text {
+  font-size: .75rem;
+}
+
+.timestamp-text {
+  font-size: .75rem;
+  font-style: italic;
+}
+
+.navbar-nav {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.main_nav {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+
+
+/* STYLE */
+
+#question_title {
+  overflow: hidden;
+}
+
+

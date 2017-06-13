@@ -1,0 +1,18 @@
+<h1>All Questions</h1>
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Author</th>
+    <th>Created At</th>
+    <th>Vote Count</th>
+  </tr>
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= link_to question.body, question_path(question) %></td>
+      <td><%= question.user.full_name %></td>
+      <td><%= question.created_at.strftime("%Y-%m-%d--%H:%M:%S") %></td>
+      <td><%= question.votes_for.count %></td>
+    </tr>
+  <% end %>
+</table>
+

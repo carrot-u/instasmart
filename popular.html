@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Popular Questions</title>
+    <link rel="icon" type="image/png" href="img/carrot.png">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+  </head>
+  <!-- BODY -->
+  <body class="bg-success">
+
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid mb-0 pb-0">
+      <div class="container text-center">
+        <img src="./img/logo.png" class="img-fluid" width="500 " height="141">
+        <p>"learning how to carrot"</p>
+        <form class="form-group mb-0">
+          <input class="form-control form-control-lg my-3" type="text" placeholder="Search">
+            <!--   type="submit" doesn't allow for link         <button type="submit" class="btn btn-lg px-5 btn-success my-3">Search</button> -->
+            <a  href="search_result.html" class="btn btn-lg btn-success px-5 my-3">Search</a>
+        </form>
+      </div>
+    </div>
+    <!-- /jumbotron -->
+    <!-- navbar -->
+    <nav class="navbar navbar-toggleable-md">
+      <div class="mx-auto">
+        <ul class="navbar-nav row">
+          <li class="nav-item px-3 active">
+            <a class="main_nav nav-link" href="index.html">Recent</a>
+          </li>
+          <li class=" main_nav nav-item px-3">
+            <a class="nav-link active" href="#">Popular</a>
+          </li>
+          <li class=" main_nav nav-item px-3">
+            <a class="nav-link" href="tags.html">Tags</a>
+          </li>
+          <li class=" main_nav nav-item px-3">
+            <a href="#" class="nav-link" data-toggle="modal" data-target="#new_question">Ask</a>
+          </li>
+          <li class=" main_nav nav-item px-3">
+              <a href="user.html" class="nav-link">My Instasmart</a>
+          </li>
+        </ul>
+      </div>
+      </nav><!-- /navbar -->
+      <!-- container -->
+      <div class="container pt-3">
+
+        <!-- Carousel of Recent Questions -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner mx-auto" role="listbox">
+            <div class="carousel-item active">
+            <div id="question" class="card d-block img-fluid">
+            <a href="question.html">
+              <h3 class="card-header">Why is this the most popular question?</h3>
+            </a>
+              <div class="card-block" role="tab" id="headingOne">
+                <p class="card-text timestamp-text">Asked by Gretchen Wieners on May 26, 2017 at 4:17 PM
+                </p>
+              </div>
+              <!-- Tags -->
+              <div class="card-block">
+                <span class="badge badge-warning">faces</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">schmutz</span></h6>
+                <span class="badge badge-warning">hygiene</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">operations</span></h6>
+                <span class="badge badge-warning">business_casual</span></h6>
+                <span class="badge badge-warning">mirrors</span></h6>
+                <span class="badge badge-warning">tagging</span></h6>
+                <span class="badge badge-warning">face_wash</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">concealer</span></h6>
+                <span class="badge badge-warning">popular</span></h6>
+                <span class="badge badge-warning">vanity</span></h6>
+                <span class="badge badge-warning">hr</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">work_from_home</span></h6>
+                <span class="badge badge-warning">andros</span></h6>
+                <span class="badge badge-warning">tagging</span></h6>
+                </div><!-- /Tags -->
+                <div class="card-block">
+                  <h4 class="card-title">Top Answer</h4>
+                    <div class="card-text" role="tab" id="headingOne">
+                      <hr>
+                      <p class="card-text">
+                        Stop trying to make Multi-Item Carousels happen. They're never going to happen.
+                        <p class="timestamp-text">Answered by Regina George on May 26, 2017 at 5:36 PM</p>
+                      </p>
+                    </div>
+                <a href="question.html" class="btn btn-success">Answer</a>
+                <a href="question.html" class="btn btn-success">Comment</a>
+                <a href="#" class="btn btn-success">&#x1F44D</a>
+                <span class="badge badge-success badge-pill">89</span>
+                </div>
+              </div>
+            </div>
+           <div class="carousel-item">
+            <div id="question" class="card">
+              <h3 class="card-header d-block img-fluid">Question 2</h3>
+              <div class="card-block" role="tab" id="headingOne">
+                <p class="card-text timestamp-text">Asked by Jeremy Flanagan on May 26, 2017 at 4:17 PM
+                </p>
+              </div>
+              <!-- Tags -->
+              <div class="card-block">
+                <span class="badge badge-warning">faces</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">schmutz</span></h6>
+                <span class="badge badge-warning">hygiene</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">operations</span></h6>
+                <span class="badge badge-warning">business_casual</span></h6>
+                <span class="badge badge-warning">mirrors</span></h6>
+                <span class="badge badge-warning">tagging</span></h6>
+                <span class="badge badge-warning">face_wash</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">concealer</span></h6>
+                <span class="badge badge-warning">popular</span></h6>
+                <span class="badge badge-warning">vanity</span></h6>
+                <span class="badge badge-warning">hr</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">work_from_home</span></h6>
+                <span class="badge badge-warning">andros</span></h6>
+                <span class="badge badge-warning">tagging</span></h6>
+                </div><!-- /Tags -->
+                <div class="card-block">
+                  <h4 class="card-title">Top Answer</h4>
+                    <div class="card-text" role="tab" id="headingOne">
+                      <hr>
+                      <p class="card-text">
+                        My answer is totes the best answer because it has the most votes!
+                        <p class="timestamp-text">Answered by Jeremy Flanagan on May 26, 2017 at 4:17 PM</p>
+                      </p>
+                    </div>
+                <a href="#" class="btn btn-success">Answer</a>
+                <a href="#" class="btn btn-success">Comment</a>
+                <a href="#" class="btn btn-success">&#x1F44D</a>
+                <span class="badge badge-success badge-pill">89</span>
+                </div>
+              </div>
+            </div>
+           <div class="carousel-item">
+            <div id="question" class="card">
+              <h3 class="card-header d-block img-fluid">Question 3</h3>
+              <div class="card-block" role="tab" id="headingOne">
+                <p class="card-text timestamp-text">Asked by Jeremy Flanagan on May 26, 2017 at 4:17 PM
+                </p>
+              </div>
+              <!-- Tags -->
+              <div class="card-block">
+                <span class="badge badge-warning">faces</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">schmutz</span></h6>
+                <span class="badge badge-warning">hygiene</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">operations</span></h6>
+                <span class="badge badge-warning">business_casual</span></h6>
+                <span class="badge badge-warning">mirrors</span></h6>
+                <span class="badge badge-warning">tagging</span></h6>
+                <span class="badge badge-warning">face_wash</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">concealer</span></h6>
+                <span class="badge badge-warning">popular</span></h6>
+                <span class="badge badge-warning">vanity</span></h6>
+                <span class="badge badge-warning">hr</span></h6>
+                <span class="badge badge-warning">tags</span></h6>
+                <span class="badge badge-warning">work_from_home</span></h6>
+                <span class="badge badge-warning">andros</span></h6>
+                <span class="badge badge-warning">tagging</span></h6>
+                </div><!-- /Tags -->
+                <div class="card-block">
+                  <h4 class="card-title">Top Answer</h4>
+                    <div class="card-text" role="tab" id="headingOne">
+                      <hr>
+                      <p class="card-text">
+                        My answer is totes the best answer because it has the most votes!
+                        <p class="timestamp-text">Answered by Jeremy Flanagan on May 26, 2017 at 4:17 PM</p>
+                      </p>
+                    </div>
+                <a href="#" class="btn btn-success">Answer</a>
+                <a href="#" class="btn btn-success">Comment</a>
+                <a href="#" class="btn btn-success">&#x1F44D</a>
+                <span class="badge badge-success badge-pill">89</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <!-- /Carousel of Recent Questions -->
+
+              </div> <!-- /container -->
+              <!-- RELATED QUESTION MODAL -->
+              <div class="modal fade text-muted" id="new_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                      <h3 class="modal-title" id="new_question">Ask your question...</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="question_title" class="h4">Question</label>
+                          <textarea class="form-control" id="question_title" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="question_tags" class="h4">Tags</label>
+                          <textarea class="form-control" id="question_tags" rows="3" placeholder="Separate individual tags with a space..."></textarea>
+                        </div>
+                        <fieldset class="form-group">
+                          <legend class="h4">Notification Options</legend>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                              Notify me every time someone answers, comments on, or likes my question.
+                            </label>
+                          </div>
+                          <div class="form-check">
+                          <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                              Notify me only when some answers my question.
+                            </label>
+                          </div>
+                          <div class="form-check">
+                          <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                              Don't notify me.
+                            </label>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <a  href="question_edit.html">
+                        <button type="submit" onclick="Confirm()" class="btn btn-success">Ask!</button>
+                        <script>
+                        function Confirm() {
+                        alert("Are you sure?!");
+                        }
+                        </script>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /RELATED QUESTION MODAL -->
+              <!-- jQuery first, then Tether, then Bootstrap JS. -->
+              <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+            </body>
+          </html>

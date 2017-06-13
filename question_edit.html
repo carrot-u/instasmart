@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Question</title>
+    <link rel="icon" type="image/png" href="img/carrot.png">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+  </head>
+  <!-- BODY -->
+  <body class="question bg-success text-white">
+    <!-- navbar -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img src="./img/logo.png" width="150" height="41">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0 col-md-6">
+          <input class="form-control mr-sm-2 col-md-9" type="text" placeholder="Search">
+          <a href="search_result.html"><a href="search_result.html" class="btn btn-outline-success my-2 my-sm-0">Search</a>
+        </form>
+        <ul class="navbar-nav mr-auto row">
+          <li class="nav-item m-auto px-3">
+            <a class="nav-link" href="index.html">Recent</a>
+          </li>
+          <li class="nav-item m-auto px-3">
+            <a class="nav-link" href="popular.html">Popular</a>
+          </li>
+          <li class="nav-item m-auto px-3">
+            <a class="nav-link" href="tags.html">Tags</a>
+          </li>
+          <li class="nav-item m-auto px-3">
+            <a href="#" class="nav-link" data-toggle="modal" data-target="#new_question">Ask</a>
+          </li>
+          <li class="nav-item m-auto px-3">
+            <a class="nav-link" href="user.html">My Instasmart</a>
+          </li>
+        </ul>
+        <div class="navbar-brand dropdown">
+          <a class="nav-link" href="user.html">
+            <img src="img/profile_pic_notifications.png" class="img-fluid" width="29" height="30">
+          </a>
+        </div>
+      </div>
+      </nav><!-- /navbar -->
+      <div class="p-4"></div>
+      <!-- container -->
+      <div class="container pt-5">
+        <div class="row">
+          <!-- question box -->
+          <div class="col-md-7">
+            <div id="question" class="card card-outline-warning scroll-area">
+              <div class="card-block">
+                <a href="question_edit.html" onclick="Confirm()" class="btn btn-block btn-lg btn-success">Save
+                  <script>
+                  function Confirm() {
+                  alert("Are you sure?!");
+                  }
+                  </script>
+                </a>
+              </div>
+              <textarea id="question_title" class="h3 card-header">How many hours a week should I plan to spend on Carrot U?</textarea>
+              <div class="card-block" role="tab" id="headingOne">
+                <p class="card-text timestamp-text">Asked by you on May 26, 2017 at 4:17 PM
+                </p>
+              </div>
+              <!-- Tags -->
+              <div class="card-block">
+                <span class="badge badge-warning">faces <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">tags <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">schmutz <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">hygiene <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">tags <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">operations <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">business_casual <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">mirrors <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">tagging <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">face_wash <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">tags <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">concealer <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">popular <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">vanity <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">hr <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">tags <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">work_from_home <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">andros <strong>&#10006;</strong></span></h6>
+                <span class="badge badge-warning">tagging <strong>&#10006;</strong></span></h6>
+                </div><!-- /Tags -->
+                <!-- Answers will scroll but questions and question buttons won't -->
+                <div class="card-block scroll-area">
+                  <h4 class="card-title">Answers</h4>
+                  <div id="accordion" role="tablist">
+                    <div class="card-text" role="tab" id="headingOne">
+                      <hr>
+                      <p class="card-text">
+                        My answer is totes the best answer because it has the most votes!
+                        <p class="timestamp-text">Submitted by Jeremy Flanagan on May 26, 2017 at 4:17 PM</p>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          <p class="comment-text">View Comments</p>
+                        </a>
+                      </p>
+                    </div>
+                    <div id="collapseOne" class="collapse comment-text" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="container mt-2">
+                        <hr>
+                        <div>
+                          <p>Comment 1</p>
+                          <a href="#" class="btn btn-success btn-sm">Comment</a>
+                          <a href="#" class="btn btn-success btn-sm">&#x1F44D</a>
+                          <span class="badge badge-success badge-pill">2</span>
+                        </div>
+                        <hr>
+                        <p>Comment 2</p>
+                        <hr>
+                        <p>Comment 3</p>
+                        <hr>
+                        <p>Comment 4</p>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-success btn-sm">This Answered My Question!</a>
+                    <a href="#" class="btn btn-success btn-sm">Comment</a>
+                    <a href="#" class="btn btn-success btn-sm">&#x1F44D</a>
+                    <span class="badge badge-success badge-pill">14</span>
+                  </div>
+                  <hr>
+                  <p class="card-text">This answer is also fairly acceptable, especially if you like the fancier and more technical version.</p>
+                  <hr>
+                  <p class="card-text">I suppose if you're completely insane, you'd be down with this one..</p>
+                  <hr>
+                  <p class="card-text">My answer is totes the best answer because it has the most votes!</p>
+                  <hr>
+                  <p class="card-text">This answer is also fairly acceptable, especially if you like the fancier and more technical version.</p>
+                  <hr>
+                  <p class="card-text">I suppose if you're completely insane, you'd be down with this one..</p>
+                  <hr>
+                  <p class="card-text">This answer is also fairly acceptable, especially if you like the fancier and more technical version.</p>
+                  <hr>
+                  <p class="card-text">I suppose if you're completely insane, you'd be down with this one..</p>
+                  <hr>
+                  <p class="card-text">My answer is totes the best answer because it has the most votes!</p>
+                  <hr>
+                  <p class="card-text">This answer is also fairly acceptable, especially if you like the fancier and more technical version.</p>
+                  <hr>
+                  <p class="card-text">I suppose if you're completely insane, you'd be down with this one..</p>
+                </div>
+                <div class="card-block">
+                  <a href="question_edit.html" onclick="Confirm()" class="btn btn-block btn-lg btn-success">Save
+                    <script>
+                    function Confirm() {
+                    alert("Are you sure?!");
+                    }
+                    </script>
+                  </a>
+                </div>
+              </div>
+              </div><!-- /question box -->
+              <!-- related questions/stats -->
+              <div class="col-md-4">
+                <div id="related" class="card card-outline-warning">
+                  <h3 class="card-header">Stats</h3>
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      Answers
+                      <span class="badge badge-default badge-pill">37</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      Comments
+                      <span class="badge badge-default badge-pill">54</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      Visited
+                      <span class="badge badge-default badge-pill">103</span>
+                    </li>
+                  </ul>
+                  <h3 class="card-header">Related Questions</h3>
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-action justify-content-between" data-toggle="modal" data-target="#related_question1">
+                      When is your face?
+                      <span class="badge badge-default badge-pill">14</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      How is your face?
+                      <span class="badge badge-default badge-pill">2</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      What happened to your face?
+                      <span class="badge badge-default badge-pill">1</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      Why is your face like that?
+                      <span class="badge badge-default badge-pill">14</span>
+                    </li>
+                    <li class="list-group-item list-group-item-action justify-content-between">
+                      Why don't you wash your face?
+                      <span class="badge badge-default badge-pill">14</span>
+                    </li>
+                  </ul>
+                </div>
+                </div><!-- /related questions/stats -->
+              </div>
+              </div> <!-- /container -->
+              <!-- RELATED QUESTION MODAL -->
+              <div class="modal fade text-muted" id="related_question1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                      <h3 class="modal-title" id="related_question1">When is your face?</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body scroll-area">
+                      <p class="card-text">My answer is totes the best answer because it has the most votes!</p>
+                      <hr>
+                      <p class="card-text">This answer is also fairly acceptable, especially if you like the fancier and more technical version.</p>
+                      <hr>
+                      <p class="card-text">I suppose if you're completely insane, you'd be down with this one..</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success">View</button>
+                      <button type="button" class="btn btn-success">Answer</button>
+                      <button type="button" class="btn btn-success">&#x1F44D</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /RELATED QUESTION MODAL -->
+              <!-- NEW QUESTION MODAL -->
+              <div class="modal fade text-muted" id="new_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                      <h3 class="modal-title" id="new_question">Ask your question...</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="question_title" class="h4">Question</label>
+                          <textarea class="form-control" id="question_title" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="question_tags" class="h4">Tags</label>
+                          <textarea class="form-control" id="question_tags" rows="3" placeholder="Separate individual tags with a space..."></textarea>
+                        </div>
+                        <fieldset class="form-group">
+                          <legend class="h4">Notification Options</legend>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                              Notify me every time someone answers, comments on, or likes my question.
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                              Notify me only when some answers my question.
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                              Don't notify me—EVER.
+                            </label>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <a  href="question_edit.html">
+                        <button type="submit" onclick="Confirm()" class="btn btn-success">Ask!</button>
+                        <script>
+                        function Confirm() {
+                        alert("Are you sure?!");
+                        }
+                        </script>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /NEW QUESTION MODAL -->
+              <!-- jQuery first, then Tether, then Bootstrap JS. -->
+              <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+            </body>
+          </html>

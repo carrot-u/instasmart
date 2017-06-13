@@ -1,0 +1,110 @@
+Product Spec Discussion
+
+Code Challenge (Guessing Game)
+  # use more comments to denote what the program is doing
+  # since ruby is very english like, use logical functions when possible
+  # D.R.Y. coding = "Don't Repeat Yourself"
+
+Product Spec
+2 big Failures to avoid
+  1. Spec is not at all compatible or related to existing structure
+  2. What''s defined is not sufficiently well defined => open questions
+
+Open Question Possibilities
+  "Edge case" actually refers to "failure case"
+     only addresses when something works well
+
+"Users are determined to break your system"
+
+What can you do to prevent this?
+  What if this crashes all together?
+  What if the DB doesn''t respond?
+
+=> Code contingency
+
+In testing, people will do what you don''t expect and your code will break
+
+
+Bugs often come from code that is too trusting, not code that is bad
+
+TLM => may need to break spec down into specific task groups for engineers or teams
+    => select other technologies to allow implementation
+
+INTERVIEW TIP!
+  "Here''s a product spec. What''s the first thing you do?"
+    => "Look for what''s missing, fill in the blanks"
+    => "Google if there is already technology that does what this spec wants"
+        # Using an existing package that''s been tested can help avoid a lot of pitfalls
+
+The first step is NOT to sit down and write code.
+
+ESTIMATES
+  Figure out difficulty level
+  Put in wiggle room
+  If you guess 1 week, it''ll take 2
+  Must keep people in the loop
+
+HOW TO IMPLEMENT
+  "Waterfall Development"
+    Product M gives idea to Project M
+    Project M gives to Eng
+    Eng gives to QA
+    QA gives to beta customers
+  What''s the issue? # NO FEEDBACK LOOP
+    # cost to correct an error was exponentially higher the further back it occurred
+    # much cheaper to fix in initial spec and in planning
+
+  "Agile Development"
+    Everyone who is involved, is involved the whole way through
+      #conducive to early dscovery of issues
+    If an issue is encountered during dev, you go back to PM and change plan as needed
+    In SCRUM, break things down into the smallest possible pieces (tasks)
+    ||: implement the next piece and finish :||
+
+  "Top Down Development"
+    start with big picture and fill in details
+
+  "Bottom Up Development"
+    do little pieces and build up
+        #generally easier than Top Down because you don't understand what is needed on a granular level
+
+
+  "TDD" #Test Driven Development
+  "BDD" #Behavior Driven Devloment
+    design what the behavior is supposed to be and run tests against that
+    very time consuming, so not always ideal in start up
+    helps avoid production with bugs
+    tests won''t save you but should be used for anything that''s critical
+
+MY PRODUCT SPEC FEEDBACK
+  Does it align with goals?
+  What''s the cost? #I'm missing this
+    # what's the engineering input required
+    # risks associated with implementation
+        # could it break another system
+        # is it legal? breaking a contract?
+  What is it going to buy us? (benefits)
+
+Screenshots
+  Annotate with more user based info and potential coding/design needs
+
+Questions
+  can be for ANYONE!
+  should be updated throughout the process
+    # Spec should be a living doc through the entire process!
+
+Algorithm for tagging is the MOST complex solution
+
+"Don't over complicate"
+  # easier to make changes to a simple piece of code
+
+"Don't optimize until you need to"
+
+YAGNI = "You ain''t gonna need it!"
+
+
+
+
+
+
+

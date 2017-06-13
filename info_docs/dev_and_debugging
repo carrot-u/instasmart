@@ -1,0 +1,78 @@
+DEVELOPMENT AND DEBUGGING
+
+Starting a project
+
+How do we approach a new assignment?
+
+Ask questions
+Discuss the design with someone
+Google search/code base search
+Break it down into tasks
+Ask questions
+
+Understand the goal
+-get the problem they're trying to solve
+-ask questions to go beyond what they're asking for
+
+People rarely ask for what they really want
+Understand the limits
+Failure cases
+Remember, cheaper to discover issues now, this is not a waste of time!
+Discuss the design with someone
+
+Talk to your Co-workers to further understanding
+-Tech lead
+-Manager
+-"Rubber duck"
+-Google search/code base search (is this cheating?)
+  -study and dissect to figure out if will help solve your problem
+  -copy good; copy blind bad
+
+  No, this isn't cheating
+  You can learn from others
+  Make sure you understand what you're looking at
+  Potentially copy not so good code
+
+  Break it down into tasks
+  -verify each step before moving on
+  -Biggest mistake is to builf
+
+How?
+"Bird by Bird http://www.gradhacker.org/2014/04/02/taking-it-one-step-at-a-time-breaking-apart-big-tasks/"
+Overcome akrasia https://www.safaribooksonline.com/blog/2015/01/27/break-big-project-small-steps/
+
+GOL
+
+Create program spec without particulars first
+
+Try it in the console
+
+Build empty methods based on the program spec
+
+2 kinds of functions
+side effects: alters the state of the program
+fcns with return values you can do something with
+
+In Ruby, the arugment will transform when run through the function
+
+[[" "] * SIZE] * SIZE will yield 10 identical arrays and any changes will apply to all
+
+objects = abstract data types
+  = a representation of something that has functionality
+  ex. 1.to_s => "1"
+
+In ruby everything is an object
+
+objects are a great way to break down your tasks
+
+
+
+
+
+
+
+
+
+
+
+
