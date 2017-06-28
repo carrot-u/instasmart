@@ -20,10 +20,10 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: instasmart
 
 development:
   <<: *default
-  database: instasmart_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: instasmart_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +79,5 @@ test:
 #
 production:
   <<: *default
-  database: instasmart_production
   username: instasmart
   password: <%= ENV['INSTASMART_DATABASE_PASSWORD'] %>
