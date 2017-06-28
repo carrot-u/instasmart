@@ -80,5 +80,4 @@ test:
 #
 production:
   <<: *default
-  username: instasmart
-  password: <%= ENV['INSTASMART_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
