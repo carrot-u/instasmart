@@ -1,0 +1,37 @@
+ Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-family: 'Muli', sans-serif;
+/* font-family: 'Montserrat', sans-serif;
+
+*/}
+
+.instacart-green {
+	background-color: #68BF54!important;
+}
+
+.jumbotron {
+	margin-top: auto;
+	background: url('../img/carrots.jpg');
+	background-size: cover;
+	opacity: 0.7;
+    filter: alpha(opacity=50);
+}
+
+.text_color {
+	color: #fff
+}
+
+.form-group {
+  padding: 10px;
+  align-content: center;
+}
+
+.display-3 {
+	font-family: 'Muli', sans-serif;
+/*  font-family: 'Montserrat', sans-serif;		
+*/}
+
+
+
