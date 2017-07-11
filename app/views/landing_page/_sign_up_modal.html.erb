@@ -1,0 +1,46 @@
+<!--===================================
+  FORM MODAL
+====================================-->
+
+<div id="signup" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text_color bg-info instacart-green">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Sign up for InstaSmart</h4>
+      </div>
+      <div class="modal-body">
+
+        <!-- registration form -->            
+        <form>
+          <h5 class="m-b-2">Basic Info</h5>
+          <fieldset class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name">
+          </fieldset>
+           <label class="sr-only" for="inlineFormInputGroup">Username</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">@</div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+          </div>
+          <fieldset class="form-group has-danger">
+            <label for="mail" class="form-control-label p-l-0">Email:</label>
+            <input type="email" class="form-control form-control-danger" id="mail">
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="role">Current Role:</label>
+            <select class="c-select form-control" id="role" name="user_role">
+              <option value="carrotu mentor">CarrotU Mentor</option>      
+              <option value="carrotu student">CarrotU Student</option>                
+            </select>
+          </fieldset>
+          <hr class="m-b-2">
+          <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+          </form><!-- /registration form -->
+
+         </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->    

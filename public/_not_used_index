@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  
+  <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <!-- Google Font -->
+
+
+   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>InstaSmart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+    <body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top" style="background-color: #68BF54"">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">InstaSmart</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
+             <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Ask a Question</a>
+              <a class="dropdown-item" href="#">Top Questions</a>
+              <a class="dropdown-item" href="#">Unanswered Questions</a>
+              <a class="dropdown-item" href="#">By Category</a>
+               <a class="dropdown-item" href="#">By Tag</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Search Tags</a>
+              <a class="dropdown-item" href="#">Popular Tags</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Search by Username</a>
+              <a class="dropdown-item" href="#">Register</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button type="button" class="btn btn-outline-secondary">Search</button>        
+          </form>
+      </div>
+    </nav> <!-- NAV BAR  -->
+
+    <!-- JUMBOTRON-->
+    <div class="jumbotron text_color">
+      <div class="container">
+        <h1 class="display-3">Welcome to InstaSmart</h1>
+        <p>InstaSmart is an online forum created by the CarrotU class of Spring 2017. We welcome all software developers of any level, education or background. Sign up and start asking and answering questions now!</p>
+       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign Up Now</button>
+        </div>
+      </div>
+    </div><!-- JUMBOTRON -->
+
+
+      <!-- Questions Section -->
+      <div class="row">
+        <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">Top Questions</h3>
+            <p>Test your expertise and check out our top questions!</p>
+            <p class="card-text">
+            </p>
+            <a href="#" class="btn btn-primary">Answer</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">Popular Tags</h3>
+            <p class="card-text">Explore popular tags on InstaSmart</p>
+            <a href="#" class="btn btn-primary">Check it out</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">Top Users</h3>
+            <p class="card-text">Who is leading the scoreboard?
+            </p>
+            <a href="#" class="btn btn-primary">Let's find out</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- Questions Section -->
+
+    
+
+      <footer>
+        <p>&copy; Instacart 2017</p>
+      </footer>
+    </div> <!-- /container -->
+
+    <!--===================================
+      FORM MODAL
+    ====================================-->
+    
+    <div id="signup" class="modal fade">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text_color bg-info instacart-green">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Sign up for InstaSmart</h4>
+          </div>
+          <div class="modal-body">
+
+            <!-- registration form -->            
+            <form>
+              <h5 class="m-b-2">Basic Info</h5>
+              <fieldset class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name">
+              </fieldset>
+               <label class="sr-only" for="inlineFormInputGroup">Username</label>
+              <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <div class="input-group-addon">@</div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+              </div>
+              <fieldset class="form-group has-danger">
+                <label for="mail" class="form-control-label p-l-0">Email:</label>
+                <input type="email" class="form-control form-control-danger" id="mail">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="role">Current Role:</label>
+                <select class="c-select form-control" id="role" name="user_role">
+                  <option value="carrotu mentor">CarrotU Mentor</option>      
+                  <option value="carrotu student">CarrotU Student</option>                
+                </select>
+              </fieldset>
+              <hr class="m-b-2">
+              <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+              </form><!-- /registration form -->
+
+             </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
