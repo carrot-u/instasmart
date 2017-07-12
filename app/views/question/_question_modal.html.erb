@@ -1,34 +1,37 @@
 
 <div class="modal fade text-muted" id="new_question" tabindex="-1" role="dialog" aria-labelledby="New Question Modal">
 
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog question-modal" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success text-white">
-        <h3 class="modal-title" id="new_question">Ask a question:</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
+<!--         <h3 class="modal-title center-text" id="new_question"></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button> -->
       </div>
       <div class="modal-body">
         <%= form_for(question) do |q| %>
-          <label for="question_summary" class="h5">Question</label>
-          <%= q.text_area :summary, class: "form-control", id: "question_summary", rows: "3", placeholder: "Question" %>
+          <label for="question_summary" class="h3"><b>Question</b></label>
+          <%= q.text_area :summary, class: "form-control mb-4", id: "question_summary", rows: "3", placeholder: "Ask your question" %>
+
           <!-- <textarea class="form-control" id="question_title" rows="3"></textarea> -->
-          <label for="question_body" class="h5 pt-2"">Details</label><small> optional</small>
-          <%= q.text_area :body, class: "form-control", id: "question_body", rows: "3", placeholder: "Details..." %>
+          <label for="question_body" class="h5""><b>Details</b></label><small> optional</small>
+          <%= q.text_area :body, class: "form-control", id: "question_body", rows: "4", placeholder: "Add Question Details" %>
           <!-- <textarea class="form-control" id="question_title" rows="3"></textarea> -->
-          <label for="question_tags" class="h5 pt-2">Tags</label>
-          <textarea class="form-control" id="question_tags" rows="1" placeholder="Start typing"></textarea>
+          <!-- <label for="question_tags" class="h5 pt-2">Tags</label> -->
+          <input class="form-control" id="question_tags" rows="1" placeholder="Add Tags"></textarea>
           <%#= q.label :tag_list, "(separated by commas)" %><br />
           <%#= q.text_area :tag_list, class: "form-control tag-entry", placeholder: '"Happiness, Culture, etc..."', rows: "2" %>
  
           <div class="text-right">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <%= q.button 'Save', id: "save-button", :class => 'btn btn-primary' %>
+            <%= q.button 'Save', id: "save-button", :class => 'btn btn-success' %>
 
           </div>
         <% end %>
       </div>
+            <div class="modal-header bg-success text-white">
+            </div>
     </div>
   </div>
 </div>
