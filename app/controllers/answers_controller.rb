@@ -10,4 +10,18 @@ class AnswersController < ApplicationController
     @answer.question_id = params[:question_id]
   end
 
+  private
+
+    def answer_params
+      params.require(:answer).permit(:user_id, :question_id, :response)
+    end
+
+    def set_answer
+      @answer = Answer.find(params[:id])
+    end
+
+    def set_question
+      @question = Question.find(params[:question_id])
+    end
+
 end
