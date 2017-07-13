@@ -1,10 +1,10 @@
-class CreateAnswers < ActiveRecord::Migration
+class CreateComments < ActiveRecord::Migration
   def change
-    create_table :answers do |t|
+    create_table :comments do |t|
       t.references :user, index: true, foreign_key: true
       t.references :question, index: true, foreign_key: true
-      t.text :response
-      t.boolean :accepted
+      t.references :answer, index: true, foreign_key: true
+      t.text :body
 
       t.timestamps null: false
     end

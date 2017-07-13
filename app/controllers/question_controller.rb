@@ -9,10 +9,10 @@ class QuestionsController < ApplicationController
 	respond_to :html, :json
 
 	def index
-		@questions = Question.all
-	end	
+		@questions = Question.order("id DESC")
+	end
 
-	# New and create Questions 
+	# New and create Questions
 	def new
 		@question = Question.new
 	end
