@@ -1,10 +1,24 @@
-# instasmart
+# Instasmart
 
-1. Branch: Make comments polymorphic (leave user as is)
-2. Branch: Add lazy execution to questions and comments
-3. Branch: Add votable
+A Q&A Forum for Instacart Employees
+
+## Back End Design
+
+### Tables
++ Users
+    * Google Auth
+    * No Anonymity
+    * No restricted content
++ Questions
++ Answers
++ Comments
+    * Polymorphic to Questions and Answers
++ [Votes (ala 'votable')](https://github.com/ryanto/acts_as_votable)
+    * Likes/Dislikes for Questions, Answers, and Comments
++ Tags
 
 
-## How I Broke and Fixed the DB
 
-DELETE FROM schema_migrations WHERE version IN  ('20170714021925', '20170714021656', '20170713024933');
+
+
+
