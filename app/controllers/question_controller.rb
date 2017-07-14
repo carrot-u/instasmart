@@ -57,6 +57,26 @@ class QuestionsController < ApplicationController
 
 	end
 
+	def like
+    @question.liked_by @user
+    redirect_to @question
+  end
+
+  def dislike
+    @question.disliked_by @user
+    redirect_to @question
+  end
+
+  def unlike
+    @question.unliked_by @user
+    redirect_to @question
+  end
+
+  def undislike
+    @question.undisliked_by @user
+    redirect_to @question
+  end
+
 	private
 
 		# def set_question
