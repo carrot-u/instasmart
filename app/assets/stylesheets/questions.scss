@@ -144,6 +144,50 @@ body.fixed-nav nav {
 		background-color: #fff;
 	}
 
+}nav {
+  background-color: #fff;
+  top:0;
+  width: 100%;
+  transition:all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixed-nav .container {
+  transform: scale(1);
+}
+
+body.fixed-nav nav {
+  position: fixed;
+  box-shadow:0 5px 0 rgba(0,0,0,0.1);
+}
+
+li.hidden-nav {
+  opacity: 0;
+  overflow: hidden;
+  max-width:0;
+  padding: 0;
+  background: white;
+  transition: ease-out 0.4s;
+}
+
+
+li.hide-nav {
+  opacity: 1;
+  max-width:500px;
+  padding-right: 2rem;
+  transition: ease-out 0.4s;
+}
+
+.fixed-nav li.hide-nav  {
+  opacity: 0;
+  overflow: hidden;
+  max-width:0;
+  padding: 0;
+  background: white;
+  transition: ease-out 0.4s;
+  font-size: 1px
+
 }
 
 /******************* Questions Index Banner **********************************/
