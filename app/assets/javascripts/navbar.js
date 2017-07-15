@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-
     // Code for making a sticky nav when scroll below navbar position
     const nav = document.querySelector('.navbar');
     let topOfNav = nav.offsetTop;
@@ -14,28 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.paddingTop = 0;
       }
     }
-
-    function adjustOffset() {
-      topOfNav = nav.offsetTop;
-    }
-
     window.addEventListener('scroll', fixNav);
-    window.addEventListener('resize', adjustOffset);
-
 
     // // Code for adding Search button and expanding nav search bar
     // const searchNavField = document.querySelector('.nav-search-field');
     const searchNavBar = document.querySelector('.nav-search-bar');
-
-
     searchNavBar.addEventListener('focus', () => {
       nav.classList.add('condense-nav');
-      console.log("gain focus");
-
     });
     searchNavBar.addEventListener('blur', () => {
-      console.log("lose focus");
       nav.classList.remove('condense-nav');
     });
-
 });

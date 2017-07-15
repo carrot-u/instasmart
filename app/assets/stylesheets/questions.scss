@@ -260,3 +260,27 @@ li.hide-nav {
   	}
   }
 }
+
+/******************************** Question index Content ***********************************/
+
+.question-index{
+	margin-top: 400px;
+
+	.card{
+		border-radius: 0px;
+	}
+
+	.question-summary{
+		color: green;
+
+	}
+}
+
+@media(min-width: 768px){
+	.question-index{
+		margin-top: 80px;
+	}
+}
+
+
+

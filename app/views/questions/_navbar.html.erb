@@ -27,36 +27,41 @@
     </ul>
 </nav>  -->
 
-
 <nav class="navbar navbar-toggleable-md">
   <div class="mx-auto">
-    <ul class="list-inline nav-list row mb-0">
-      <li class="pull-left hidden-nav">
-        <a class="" href="index.html">
-          <%= image_tag("carrot_2.png", :class=>"navbar-logo", :alt => "logo", :width => '40', :height => '40') %>
-        </a>
-      </li>
-
-      <li class="padding-3">
-        <a class="nav-link" href="#">Recent</a>
-      </li>
-      <li class="padding-3">
-        <a class="nav-link" href="#">Most Answered</a>
-      </li>
-      <li class="padding-3">
-        <a class="nav-link" href="#">Most Commented</a>
-      </li>
-      <li class="padding-3 ">
-        <a class="nav-link" href="popular.html">Popular</a>
-      </li> 
-      <li class="padding-3">
-        <div class="">
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2 nav-search-bar" type="search" placeholder="Search">
-          </form>
-        </div>
-
-      </li>
-    </ul>
+    <!-- <div class="collapse navbar-collapse" id="navbarsExampleDefault"> -->
+      <ul class="list-inline nav-list row mb-0">
+        <li class="pull-left hidden-nav">
+          <a class="" href="index.html">
+            <%= image_tag("carrot_2.png", :class=>"navbar-logo", :alt => "logo", :width => '40', :height => '40') %>
+          </a>
+        </li>
+        <li class="padding-3">
+          <a class="nav-link" href="#">Recent</a>
+        </li>
+        <li class="padding-3">
+          <a class="nav-link" href="#">Most Answered</a>
+        </li>
+        <li class="padding-3">
+          <a class="nav-link" href="#">Most Commented</a>
+        </li>
+        <li class="padding-3 ">
+          <a class="nav-link" href="popular.html">Popular</a>
+        </li> 
+        <li class="padding-3">
+          <div class="">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2 nav-search-bar" type="search" placeholder="Search">
+            </form>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-success btn" data-toggle="modal" data-target="#new_question">Ask a Question</button>
+        </li>
+      </ul>
+    <!-- </div> -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </div>
-  </nav><!-- /navbar -->
+</nav><!-- /navbar -->

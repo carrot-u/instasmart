@@ -1,0 +1,57 @@
+
+<div id="question" class="card d-block img-fluid">
+  <div class="card-header">
+    <div class="row">
+    <%#= question.body %>
+      <div class="col-md-9">
+        <a href="question.html " class="question-summary">
+          <h3>How do we keep Amazon at Bay?</h3>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <small class="float-right"><i>Ask by Jeremy on May 26, 2017 at 5:36 PM</i></small>
+        <!--     <p class="card-text timestamp-text">
+              Asked by <%#= question.user.first_name %> <%#= question.user.last_name %> on <%#= question.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %> 
+            </p> -->
+      </div>
+    </div>
+    <!-- Tags -->
+    <div class="row pl-3">
+    <%# question.tag_list.each do |t| %>
+      <h6 class="pr-1"><span class="badge badge-warning">
+        <%#= t %>Competition
+      </span></h6>
+      <h6 class="pr-1"><span class="badge badge-warning">
+        <%#= t %>Barriers
+      </span></h6>
+      <h6><span class="badge badge-warning">
+        <%#= t %>War Time
+      </span></h6>
+      <%# end %>
+    </div>
+  </div>
+  <!-- /Tags -->
+  <div class="card-block">
+    <h4 class="card-title">Top Answer</h4>
+    <div class="card-text" role="tab" id="headingOne">
+      <div class="row ml-2 pb-2">
+        Anywhere from 20-60 hours a week, depending on your tolerance to caffeine and social awkwardness.
+        <small class=""><i>Answered by Muffy Barkocy on May 26, 2017 at 5:36 PM</i></small>
+      </div>
+      <small><a href="#"> See All Answers </a></small>
+    </div><!-- /card-text -->
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="badge badge-success badge-pill"><i class="fa fa-eye" aria-hidden="true"></i> 89</span>
+        <span class="badge badge-success badge-pill"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 12</span>
+        <span class="badge badge-success badge-pill"><i class="fa fa-comment" aria-hidden="true"></i> 5</span>
+        <span class="badge badge-success badge-pill"><i class="fa fa-pencil" aria-hidden="true"></i> 3</span>
+      </div>
+      <div class="col-sm-8">
+        <a href="question.html" class="btn btn-outline-success pull-right mr-1">like</a>
+        <a href="question.html" class="btn btn-outline-success pull-right mr-1">Comment</a>
+        <a href="question.html" class="btn btn-outline-success pull-right mr-1" data-toggle="modal" data-target="#submit_answer">Answer</a>
+      </div>
+    </div>
+  </div><!-- /card-block -->
+</div><!-- /question -->
