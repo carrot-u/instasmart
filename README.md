@@ -17,6 +17,12 @@ A Q&A Forum for Instacart Employees
     * Likes/Dislikes for Questions, Answers, and Comments
 + Tags
 
+### [Google Auth](https://richonrails.com/articles/google-authentication-in-ruby-on-rails/)
+
++ On the landing page, if not signed in, Nav Search Bar is replaced with a "Sign In" button.
++ Will create a new user if one does not exist.
+
+
 
 
 
