@@ -25,15 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // // Code for adding Search button and expanding nav search bar
     // const searchNavField = document.querySelector('.nav-search-field');
-    // const searchNavBar = document.querySelector('.nav-search-bar');
+    const searchNavBar = document.querySelector('.nav-search-bar');
 
 
-    // searchNavField.addEventListener('focus', () => {
-    //   searchNavBar.classList.add('nav-search-focus');
-    // });
-    // searchNavField.addEventListener('blur', () => {
-    //   console.log("lose focus");
-    //   searchNavBar.classList.remove('nav-search-focus');
-    // });
+    searchNavBar.addEventListener('focus', () => {
+      nav.classList.add('condense-nav');
+      console.log("gain focus");
+
+    });
+    searchNavBar.addEventListener('blur', () => {
+      console.log("lose focus");
+      nav.classList.remove('condense-nav');
+    });
 
 });

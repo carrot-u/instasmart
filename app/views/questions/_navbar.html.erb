@@ -1,11 +1,10 @@
-
+<!-- 
 <nav class="navbar navbar-toggleable-md navbar-inverse">
      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="index.html">
-      <!-- <img src="/images/logo.png" width="120" height="30" alt="logo"> -->
-      <%= image_tag("carrot_2.png", :class=>"navbar-logo hidden-nav", :alt => "logo", :width => '40', :height => '40') %>
+      <%#= image_tag("carrot_2.png", :class=>"navbar-logo hidden-nav", :alt => "logo", :width => '40', :height => '40') %>
     </a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -13,7 +12,6 @@
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search">
-            <!-- <button type="button" class="btn btn-outline-secondary">Search</button>         -->
           </form>
         </li>
         <li class="nav-item">
@@ -22,10 +20,43 @@
       </ul>
     </div>
     <ul class="list-inline nav-list mb-0">   
-     <%# if user_signed_in? %>
       <li class=" main_nav nav-item padding-3">
-        <%= link_to 'Profile', "#", class: "nav-link" %>
+        <%#= link_to 'Profile', "#", class: "nav-link" %>
 
       </li>
     </ul>
-</nav> 
+</nav>  -->
+
+
+<nav class="navbar navbar-toggleable-md">
+  <div class="mx-auto">
+    <ul class="list-inline nav-list row mb-0">
+      <li class="pull-left hidden-nav">
+        <a class="" href="index.html">
+          <%= image_tag("carrot_2.png", :class=>"navbar-logo", :alt => "logo", :width => '40', :height => '40') %>
+        </a>
+      </li>
+
+      <li class="padding-3">
+        <a class="nav-link" href="#">Recent</a>
+      </li>
+      <li class="padding-3">
+        <a class="nav-link" href="#">Most Answered</a>
+      </li>
+      <li class="padding-3">
+        <a class="nav-link" href="#">Most Commented</a>
+      </li>
+      <li class="padding-3 ">
+        <a class="nav-link" href="popular.html">Popular</a>
+      </li> 
+      <li class="padding-3">
+        <div class="">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 nav-search-bar" type="search" placeholder="Search">
+          </form>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+  </nav><!-- /navbar -->

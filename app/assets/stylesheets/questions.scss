@@ -4,13 +4,6 @@
 @import 'variables'; // colors, fonts etc...
 
 
- /******************* GENERAL **********************************/
-// body{
-// 	padding: 0px;
-// }
-
-
-
  /******************* ADD QUESTION MODAL **********************************/
 
 .question-modal{
@@ -69,7 +62,8 @@ body.fixed-nav nav {
 }
 
 .navbar{
-	background-color: #68BF54; // #008ba3; //#087f23;
+	// background-color: #68BF54; // #008ba3; //#087f23;
+	background-color: white;
 	width:100%;
 	position: relative;
 	box-shadow: 2px -5px 24px -6px rgba(0,0,0,0.75);
@@ -98,40 +92,32 @@ body.fixed-nav nav {
 	  background: white;
 	  transition: ease-out 0.4s;
 	  font-size: 1px
-
 	}
-
 
 	.navbar-logo{
 		background-color: white;
 		padding: 3px;
 		border-radius: 5px;
-		border-right: 0.3px solid rgba(20,50,40,.5);
-		border-bottom: 1px solid rgba(20,50,40,.5);
+		border-right: 0.5px solid rgba(20,50,40,.6);
+		border-bottom: 1px solid rgba(20,50,40,.6);
+		border-top: 0.5px solid rgba(20,50,40,.3);
+		border-left: 0.5px solid rgba(20,50,40,.3);
 		box-shadow: 2px 2px 4px -2px rgba(20,50,40,.5);
 		&:hover{
 			box-shadow: 4px 4px 4px -2px rgba(20,50,40,.5);
 		}
+		
 	}
 
 	input {
 		outline: none;
 	}
 	input[type=search]{
-		-webkit-appearance: textfield;
-		-webkit-box-sizing: content-box;
-		font-family: inherit;
-		font-size: 100%;
-	}
-
-
-	input[type=search]{
 		background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
 		border: solid 1px #ccc;
 		padding: 9px 10px 9px 32px;
 		width: 100px;
-				
-		transition:  0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+		transition:  0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
 	}
 	input[type=search]:focus{
 		width: 350px;
@@ -139,12 +125,29 @@ body.fixed-nav nav {
 		border-color: #66CC75;
 		box-shadow: 0 0 5px rgba(109,207,246,.5);
 	}
-
 	input[type=search]:hover{
 		background-color: #fff;
 	}
+}
 
-}nav {
+.fixed-nav{
+	input[type=search]{
+		width: 0px;
+		border-radius: 15px;
+	}
+}
+.condense-nav{
+	.nav-link{
+		font-size: 0px;
+		transition: ease-out 0.4s;
+	}
+	.navbar-logo{
+		margin-right: 0.5em;
+	}
+}
+
+
+nav {
   background-color: #fff;
   top:0;
   width: 100%;
@@ -171,11 +174,9 @@ li.hidden-nav {
   transition: ease-out 0.4s;
 }
 
-
 li.hide-nav {
   opacity: 1;
   max-width:500px;
-  padding-right: 2rem;
   transition: ease-out 0.4s;
 }
 
@@ -190,26 +191,36 @@ li.hide-nav {
 
 }
 
+@media (min-width: 900px){
+  .fixed-nav li.hidden-nav  {
+    opacity: 1;
+    max-width:500px;
+  }
+  input[type=search]{
+  	width: 400px;
+  }
+}
+
+.nav-link{
+	color: green;
+	transition: ease-out 0.4s;
+	&:hover{
+		color: rgb(15, 79, 26);
+	}
+}
+
 /******************* Questions Index Banner **********************************/
 
 .banner{
 	background: url("carrots.jpg")no-repeat center center fixed;
   background-size: cover;
-  // background-color: #4caf50;
-  // background-color: #00acc1;
-  // opacity: 1;
-  // filter:blur(1px);
-
 
   .overlay{
   	padding-bottom: 1em;
   	padding-left: 2em;
 		padding-top: $banner-top-padding-sm;
 		background-color: rgba(0,0,0,0.3);
-  // background-color: white;
-
   }
-
 
   .page-title{
   	display: -webkit-flex;
@@ -244,9 +255,8 @@ li.hide-nav {
 	  	font-size: $banner-text-lg;
   	}
   	.banner-image{
-  		width: 80px;
-  		height: 80px;
+  		width: 75px;
+  		height: 100px;
   	}
   }
-
 }
