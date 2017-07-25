@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :question
-  belongs_to :answer
+  belongs_to :commentable, polymorphic: true
+
+  acts_as_votable
 end

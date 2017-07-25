@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
 	before_action :authenticate_user!, except: [:index, :show]
-	before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+	before_action :question # only: [:show, :edit, :update, :destroy]
+	before_action :user
 
 
 	respond_to :html, :json
@@ -57,10 +57,47 @@ class QuestionsController < ApplicationController
 
 	end
 
+	def like
+    @question.liked_by @user
+    redirect_to @question
+  end
+
+  def dislike
+    @question.disliked_by @user
+    redirect_to @question
+  end
+
+  def unlike
+    @question.unliked_by @user
+    redirect_to @question
+  end
+
+  def undislike
+    @question.undisliked_by @user
+    redirect_to @question
+  end
+
 	private
-		def set_question
-			@question = Question.find(params[:id])
-		end
+
+		# def set_question
+		# 	@question = Question.find(params[:id])
+		# end
+
+		def question
+			@question ||= begin
+				question = params[:id] ? Question.find(params[:id]) : Question.new
+				if question_params && question_params.length > 0
+					question.update_attributes(question_params)
+				end
+			end
+ 		end
+
+ 		def user
+ 			@user ||=begin
+ 				raise "User id must be provided" unless params[:question_id]
+ 				Question.find(params[:question_id])
+ 			end
+ 		end
 
 		def question_params
 			params.require(:question).permit(:summary, :body)

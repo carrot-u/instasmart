@@ -14,6 +14,26 @@ class AnswersController < ApplicationController
     redirect_to question_path(@answer.question)
   end
 
+  def like
+    @answer.liked_by @user
+    redirect_to question_path(@answer.question)
+  end
+
+  def dislike
+    @answer.disliked_by @user
+    redirect_to question_path(@answer.question)
+  end
+
+  def unlike
+    @answer.unliked_by @user
+    redirect_to question_path(@answer.question)
+  end
+
+  def undislike
+    @answer.undisliked_by @user
+    redirect_to question_path(@answer.question)
+  end
+
   private
 
     def answer_params
