@@ -19,7 +19,8 @@ A Q&A Forum for Instacart Employees
     * Do we want to preserve the order of tags?
     * For the ask/edit question form, I suggest we use the ```parse: true``` option and a space delimited instead of a comma.
     * Added ```ActsAsTaggableOn::Tag.most_used``` to the Tag card on the landing page. Defaults to 20 tags shown.
-    * 
+    * Do we want to chcnage the default parser from "," to " "?
+    * Since only the author can add/remove tags, do we need to add the owned tag functionality?
 
 ### [Google Auth](https://richonrails.com/articles/google-authentication-in-ruby-on-rails/)
 

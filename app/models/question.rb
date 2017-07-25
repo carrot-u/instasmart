@@ -8,6 +8,8 @@ class Question < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable
   acts_as_taggable_on :tags
+
+  # For individual tag views
   scope :by_join_date, -> {
     order("created_at DESC")
   }

@@ -77,6 +77,10 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 
+  def tag_cloud
+    @tags = Question.tag_counts_on(:tags)
+  end
+
 	private
 
 		# def set_question
