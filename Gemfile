@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'acts_as_votable'
 
+gem 'acts-as-taggable-on'
+
 gem "omniauth-google-oauth2"
 
 # Use ActiveModel has_secure_password
