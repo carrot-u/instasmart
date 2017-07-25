@@ -1,35 +1,6 @@
-<!-- 
-<nav class="navbar navbar-toggleable-md navbar-inverse">
-     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="index.html">
-      <%#= image_tag("carrot_2.png", :class=>"navbar-logo hidden-nav", :alt => "logo", :width => '40', :height => '40') %>
-    </a>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          </form>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#new_question">Ask a Question</button>
-        </li>
-      </ul>
-    </div>
-    <ul class="list-inline nav-list mb-0">   
-      <li class=" main_nav nav-item padding-3">
-        <%#= link_to 'Profile', "#", class: "nav-link" %>
-
-      </li>
-    </ul>
-</nav>  -->
 
 <nav class="navbar navbar-toggleable-md">
-  <div class="mx-auto">
-    <!-- <div class="collapse navbar-collapse" id="navbarsExampleDefault"> -->
+  <div class="container-fluid">
       <ul class="list-inline nav-list row mb-0">
         <li class="pull-left hidden-nav">
           <a class="" href="index.html">
@@ -50,18 +21,14 @@
         </li> 
         <li class="padding-3">
           <div class="">
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-sm-0">
               <input class="form-control mr-sm-2 nav-search-bar" type="search" placeholder="Search">
             </form>
           </div>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-success btn" data-toggle="modal" data-target="#new_question">Ask a Question</button>
+          <button type="button" class="btn btn-success btn ask-button" data-toggle="modal" data-target="#new_question">Ask a Question</button>
         </li>
       </ul>
-    <!-- </div> -->
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </div>
 </nav><!-- /navbar -->
