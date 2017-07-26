@@ -26,6 +26,9 @@
          <div class="card-block">
            <h3 class="card-title">Popular Tags</h3>
            <ol class="list-unstyled">
+             <% ActsAsTaggableOn::Tag.most_used.each do |tag|  %>
+              <li class="m-1 badge badge-warning"><h3><%= tag %></h3></li>
+             <% end %>
              <li class="m-1 badge badge-info"><h3>Growth</h3></li>
              <li class="m-1 badge badge-info"><h3>Culture</h3></li>
              <li class="m-1 badge badge-info"><h4>Engineering</h4></li>
