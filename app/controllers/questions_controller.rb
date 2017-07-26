@@ -1,10 +1,8 @@
 class QuestionsController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
-	before_action :authenticate_user!, except: [:index, :show]
-	before_action :question # only: [:show, :edit, :update, :destroy]
-	before_action :user
-
+  before_action :current_user
+	before_action :question, only: [:show, :edit, :update, :destroy]
 
 	respond_to :html, :json
 
@@ -16,6 +14,7 @@ class QuestionsController < ApplicationController
 	def new
 		@question = Question.new
 	end
+
 	def create
 		@question = Question.new(question_params)
 		@question.user = current_user
@@ -38,7 +37,9 @@ class QuestionsController < ApplicationController
 
 	# change / edit / update
 	def edit
+
 	end
+
 	def update
 	  respond_to do |format|
 	    if @question.update(question_params)
@@ -50,8 +51,6 @@ class QuestionsController < ApplicationController
 	    end
 	  end
 	end
-
-
 
 	def destroy
 
@@ -77,12 +76,11 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 
+  def tag_cloud
+    @tags = Question.tag_counts_on(:tags)
+  end
+
 	private
-
-		# def set_question
-		# 	@question = Question.find(params[:id])
-		# end
-
 		def question
 			@question ||= begin
 				question = params[:id] ? Question.find(params[:id]) : Question.new
@@ -100,7 +98,6 @@ class QuestionsController < ApplicationController
  		end
 
 		def question_params
-			params.require(:question).permit(:summary, :body)
+			params.require(:question).permit(:summary, :body, :tag_list)
 		end
-
 end
