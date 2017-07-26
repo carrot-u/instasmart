@@ -31,5 +31,12 @@ A Q&A Forum for Instacart Employees
 + Doesn't record the user's email or separate first and last name when new user is created. Do we need this?
 
 
+## Tasks
+- [x] Add Google Image to User Auth Flow
+- [ ] Fix Auth-Model Specs
+- [ ] Tag Cloud Functionality
+- [ ] Refactor Questions Controller for #new and #create to use lazy execution
+- [ ] 
+
 
 
