@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
-  before_action :current_user
-	before_action :question, only: [:show, :edit, :update, :destroy]
+  before_action :current_user # move to application controller
+	before_action :set_question, only: [:new, :create, :show, :edit, :update, :destroy]
 
 	respond_to :html, :json
 
@@ -12,19 +12,18 @@ class QuestionsController < ApplicationController
 
 	# New and create Questions
 	def new
-		@question = Question.new
+
 	end
 
 	def create
-		@question = Question.new(question_params)
-		@question.user = current_user
+		question.user = current_user
 		respond_to do |format|
-			if @question.save!
+			if question.save!
 			  format.html { redirect_to questions_path }
 			  format.json { render result: "success!"}
 			else
 			  format.html { render :new }
-			  format.json { render json: @question.errors, status: :unprocessable_entity }
+			  format.json { render json: question.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -81,7 +80,7 @@ class QuestionsController < ApplicationController
   end
 
 	private
-		def question
+		def set_question
 			@question ||= begin
 				question = params[:id] ? Question.find(params[:id]) : Question.new
 				if question_params && question_params.length > 0
