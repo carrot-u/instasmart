@@ -36,7 +36,11 @@ A Q&A Forum for Instacart Employees
 - [ ] Fix Auth-Model Specs
 - [ ] Tag Cloud Functionality
 - [ ] Refactor Questions Controller for #new and #create to use lazy execution
-- [ ] 
-
+- [ ] move `current_user` to application controller
+- [ ] `set_question` changes:
+    - [ ] include find, new, not found, multiple
+    - [ ] inlcude assigning `question.user`  
+- [ ] add view_count column to questions table
+- [ ] adjust `set` methods in answers and comments   
 
 
