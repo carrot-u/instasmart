@@ -1,8 +1,7 @@
 class QuestionsController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
-  before_action :current_user # move to application controller
-	before_action :set_question, only: [:new, :create, :show, :edit, :update, :destroy]
+	before_action :set_question, only: [:show, :edit, :update, :destroy]
 
 	respond_to :html, :json
 
@@ -12,18 +11,19 @@ class QuestionsController < ApplicationController
 
 	# New and create Questions
 	def new
-
+    @question = Question.new
 	end
 
 	def create
-		question.user = current_user
+		@question = Question.new(question_params)
+    @question.user = current_user
 		respond_to do |format|
-			if question.save!
+			if @question.save!
 			  format.html { redirect_to questions_path }
 			  format.json { render result: "success!"}
 			else
 			  format.html { render :new }
-			  format.json { render json: question.errors, status: :unprocessable_entity }
+			  format.json { render json: @question.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -89,12 +89,12 @@ class QuestionsController < ApplicationController
 			end
  		end
 
- 		def user
- 			@user ||=begin
- 				raise "User id must be provided" unless params[:question_id]
- 				Question.find(params[:question_id])
- 			end
- 		end
+ 		# def user
+ 		# 	@user ||=begin
+ 		# 		raise "User id must be provided" unless params[:question_id]
+ 		# 		Question.find(params[:question_id])
+ 		# 	end
+ 		# end
 
 		def question_params
 			params.require(:question).permit(:summary, :body, :tag_list)
