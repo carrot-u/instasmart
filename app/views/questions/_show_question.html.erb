@@ -5,8 +5,9 @@
   <div class="card-header">
     <div class="row">
       <div class="col-md-9">
-        <a href="question.html " class="question-summary">
-           <h3><%= question.body %></h3>
+        <%= link_to question_path(question), :class => "question-summary" do %>
+           <h3><%= question.summary %></h3>
+        <% end %>
         </a>
       </div>
       <div class="col-md-3">

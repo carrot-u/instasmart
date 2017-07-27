@@ -1,0 +1,10 @@
+<% if q.user == current_user %>
+	<div class="container">
+		<div class="row">
+			<small><ul class="list-inline">
+				<li class="list-inline-item"><%= link_to "Edit", edit_question_path(q) %></li>
+				<li class="list-inline-item"><a href="#">Delete</a></li>
+			<ul></small>
+		</div>
+	</div>
+<% end %>
