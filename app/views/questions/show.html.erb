@@ -53,7 +53,7 @@
 			      <div class="col-sm-8">
 			        <%= link_to "Like", like_question_path(@question), method: :put, type: "button", class: "btn btn-outline-success pull-right mr-1" %>
 			        <a href="question.html" class="btn btn-outline-success pull-right mr-1">Comment</a>
-			        <a href="question.html" class="btn btn-outline-success pull-right mr-1" data-toggle="modal" data-target="#submit_answer">Answer</a>
+			        <%= button_to "Answer", new_question_answer_path(@question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
 			      </div>
 			    </div>
   				<%= render 'creator_options', q: @question %>

@@ -53,7 +53,10 @@ class QuestionsController < ApplicationController
 	end
 
 	def destroy
-
+	  if @question.user == current_user
+	  	@question.destroy
+		end
+	  redirect_to questions_path
 	end
 
 	def like
