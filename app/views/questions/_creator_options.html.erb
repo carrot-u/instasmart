@@ -1,0 +1,12 @@
+<% if q.user == current_user %>
+	<div class="container">
+		<div class="row">
+			<small><ul class="list-inline">
+				<li class="list-inline-item"><%= link_to "Edit", edit_question_path(q) %></li>
+				<li class="list-inline-item"><%= link_to @q, method: :delete, remote: true do %>
+                Delete
+              <% end %></li>
+			<ul></small>
+		</div>
+	</div>
+<% end %>

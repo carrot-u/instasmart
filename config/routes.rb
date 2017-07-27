@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   get 'home', to: 'landing_page#index'
 
   resources :questions do
+    member do
+      put "like" => "questions#like"
+      put "dislike" => "questions#dislike"
+      put "unlike" => "questions#unlike"
+      put "undislike" => "questions#undislike"
+    end
     resources :answers do
       resources :comments
     end

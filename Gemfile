@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'figaro'
 gem 'responders', '~> 2.0'
 gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
