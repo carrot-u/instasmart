@@ -4,11 +4,11 @@
   <div class="container question-index">
   	<div class="row">
   		<div class="col-md-10 offset-md-1">
-	  		<%# @questions.each do |q| %>
-	  		  <%#= render 'show_question', question: q %>
-	  		<%# end %>
-	  		  <%= render 'show_question' %>
-	  		  <%= render 'show_question' %>
+	  		<% @questions.each do |q| %>
+	  		  <%= render 'show_question', question: q %>
+	  		<% end %>
+	  		  <%#= render 'show_question' %>
+	  		  <%#= render 'show_question' %>
   		</div>
   	</div>
   </div>

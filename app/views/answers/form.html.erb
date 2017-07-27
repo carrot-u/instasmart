@@ -1,0 +1,15 @@
+<h2> Add Answer </h2>
+	<%= form_for([@question, @question.answers.build]) do |a| %>
+		<div class="form-group">
+			<div class="field">
+				<%= a.label :response %><br />
+				<%= a.text_area :response	 %>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="field">
+				<%= a.submit %>
+			</div>
+		</div>
+
+<% end %>

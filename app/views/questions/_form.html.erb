@@ -1,0 +1,16 @@
+<%= form_for(question) do |q| %>
+  <label for="question_summary" class="h3"><b>Question</b></label>
+  <%= q.text_area :summary, class: "form-control mb-4", id: "question_summary", rows: "3", placeholder: "Ask your question" %>
+
+  <label for="question_body" class="h5""><b>Details</b></label><small> optional</small>
+  <%= q.text_area :body, class: "form-control", id: "question_body", rows: "4", placeholder: "Add Question Details" %>
+  <!-- <input class="form-control" id="question_tags" rows="1" placeholder="Add Tags"></input> -->
+  <%#= q.label :tag_list, "(separated by commas)" %>
+  <%= q.text_field :tag_list, class: "form-control tag-entry", placeholder: '"Happiness, Culture, etc..."', rows: "1" %>
+
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <%= q.button 'Save', id: "save-button", :class => 'btn btn-success' %>
+
+  </div>
+<% end %>

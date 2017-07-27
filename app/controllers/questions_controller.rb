@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
 
 
 	def show
-
+		@question = Question.find(params[:id])
 	end
 
 	# change / edit / update
@@ -52,7 +52,10 @@ class QuestionsController < ApplicationController
 	end
 
 	def destroy
-
+	  if @question.user == current_user
+	  	@question.destroy
+		end
+	  redirect_to questions_path
 	end
 
 	def like
@@ -82,10 +85,11 @@ class QuestionsController < ApplicationController
 	private
 		def set_question
 			@question ||= begin
+				logger.debug "question params #{params}"
 				question = params[:id] ? Question.find(params[:id]) : Question.new
-				if question_params && question_params.length > 0
-					question.update_attributes(question_params)
-				end
+				# if question_params && question_params.length > 0
+				# 	question.update_attributes(question_params)
+				# end
 			end
  		end
 

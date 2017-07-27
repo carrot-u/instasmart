@@ -1,0 +1,66 @@
+
+  <div class="container question-index">
+  	<div class="row">
+  		<div class="col-md-12">
+
+			<div id="question" class="card d-block img-fluid">
+			  <div class="card-header">
+			    <div class="row">
+			      <div class="col-md-9">
+			        <div class="question-summary">
+			           <h3><%= @question.summary %></h3>
+			        </div>
+			      </div>
+			      <div class="col-md-3">
+			        <small class="float-right"><i>Asked by <%= @question.user.first_name %> <%= @question.user.last_name %> on <%= @question.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %> </i></small>
+
+			      </div>
+			    </div>
+			    <!-- Tags -->
+			    <div class="row pl-3">
+			    <% @question.tag_list.each do |t| %>
+			      <h6 class="pr-1"><span class="badge badge-warning">
+			        <%= t %>
+			      </span></h6>
+			      <% end %>
+			    </div>
+			  </div>
+			  <!-- /Tags -->
+			  <div class="card-block">
+			  	<% if @question.body? %>
+				    <h4 class="card-title">Detail:</h4>
+				    <div class="card-text" role="tab" id="headingOne">
+				      <div class="row ml-2 pb-2">
+				        
+				        <small class=""><i>Answered by Muffy Barkocy on May 26, 2017 at 5:36 PM</i></small>
+				      </div>
+				      <small><a href="#"> See All Answers </a></small>
+				    </div><!-- /card-text -->
+				  <% end %>
+			    <div class="row">
+			      <div class="col-sm-4">
+			        <span class="badge badge-success badge-pill"><i class="fa fa-eye" aria-hidden="true"></i> 89</span>
+			        <% if @question.cached_votes_score != 0 %>
+			          <span class="badge badge-success badge-pill"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <%= @question.cached_votes_score %></span>
+			        <% end %>
+			        <% if @question.comments.length != 0 %>
+			          <span class="badge badge-success badge-pill"><i class="fa fa-comment" aria-hidden="true"></i> <% @question.comments.length %></span>
+			        <% end %>
+			        <% if @question.answers.length != 0 %>
+			          <span class="badge badge-success badge-pill"><i class="fa fa-pencil" aria-hidden="true"></i> <%= @question.answers.length %></span>
+			        <% end %>
+			      </div>
+			      <div class="col-sm-8">
+			        <%= link_to "Like", like_question_path(@question), method: :put, type: "button", class: "btn btn-outline-success pull-right mr-1" %>
+			        <a href="question.html" class="btn btn-outline-success pull-right mr-1">Comment</a>
+			        <%= button_to "Answer", new_question_answer_path(@question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
+			      </div>
+			    </div>
+  				<%= render 'creator_options', q: @question %>
+
+			  </div><!-- /card-block -->
+			</div><!-- /question -->
+
+		</div>
+	</div>
+</div>
