@@ -42,5 +42,7 @@ A Q&A Forum for Instacart Employees
     - [ ] inlcude assigning `question.user`  
 - [ ] add view_count column to questions table
 - [ ] adjust `set` methods in answers and comments   
+- [ ] Move Google tokens to a something.yml file
+- [ ] Fix user.picture issue in SessionsController
 
 
