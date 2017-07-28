@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :answer, only: [:show, :edit, :update, :destroy, :like, :dislike, :undislike, :unlike]
+  before_action :answer, only: [:show, :update, :like, :dislike, :undislike, :unlike]
   before_action :question #, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -12,12 +12,39 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end
 
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    logger.debug "Question #{@question}, answer: #{@answer}"
+  end
+
+  def update
+    respond_to do |format|
+      if @answer.update(answer_params)
+        format.html { redirect_to @answer }
+        format.json { render json: @question}
+      else
+        format.html { render :edit }
+        format.json { render json: @answer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def create
     @answer = Answer.new(answer_params)
     @answer.question_id = params[:question_id]
     @answer.user = current_user
     @answer.save
     redirect_to question_path(@answer.question)
+  end
+
+
+  def destroy
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+   
+    redirect_to :back
   end
 
   def like

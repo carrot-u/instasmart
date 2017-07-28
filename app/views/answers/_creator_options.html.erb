@@ -2,10 +2,12 @@
 	<div class="container">
 		<div class="row">
 			<small><ul class="list-inline">
-				<li class="list-inline-item"><%= link_to "Edit", edit_answer_path(answer) %></li>
-				<li class="list-inline-item"><%= link_to answer, method: :delete, remote: true do %>
-                Delete
-              <% end %></li>
+				<li class="list-inline-item"><%= link_to "Edit", edit_question_answer_path(question, answer) %></li>
+				<li class="list-inline-item">
+					<%= link_to [question, answer], method: :delete, remote: true do %>
+				  	Delete
+					<% end %>
+				</li>
 			<ul></small>
 		</div>
 	</div>
