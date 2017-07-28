@@ -1,27 +1,23 @@
 class AnswersController < ApplicationController
   before_action :answer, only: [:show, :update, :like, :dislike, :undislike, :unlike]
-  before_action :question #, only: [:show, :edit, :update, :destroy]
+  before_action :question, only: [:new, :show, :edit, :update, :destroy]
 
   def new
-    # @answer = Answer.new
-    # @answer.question_id = @question.id
-    @question = Question.find(params[:question_id])
   end
 
   def show
-    @answer = Answer.find(params[:id])
+    # @answer = Answer.find(params[:id])
   end
 
   def edit
-    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
-    logger.debug "Question #{@question}, answer: #{@answer}"
   end
 
   def update
     respond_to do |format|
+      @answer = Answer.find(params[:id])
       if @answer.update(answer_params)
-        format.html { redirect_to @answer }
+        format.html { redirect_to @question }
         format.json { render json: @question}
       else
         format.html { render :edit }
@@ -40,7 +36,6 @@ class AnswersController < ApplicationController
 
 
   def destroy
-    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.destroy
    
@@ -80,8 +75,6 @@ class AnswersController < ApplicationController
     # end
 
     def answer
-      logger.debug "params: #{params}"
-
       @answer ||= begin
         answer = params[:id] ? Answer.find(params[:id]) : Answer.new
         if answer_params && answer_params.length > 0

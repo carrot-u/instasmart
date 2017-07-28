@@ -4,17 +4,26 @@
 	<h1>Question:</h1>
 		<%= question.summary %>
 	<hr />
-
-		<%= form_for([question, question.answers.build]) do |a| %>
-		<label for="answer_response" class="h3"><b>Answer</b></label>
-			<%= a.text_area :response, class: "form-control mb-4", id: "answer_response", rows: "3", placeholder: "Respond to the question" %>
-
-			<div class="text-right">
-				<%= link_to "Back", :back, type: "button", class: "btn btn-outline-secondary mr-1" %>
-
-			  <%= a.button 'Save', id: "save-button", :class => 'btn btn-success' %>
-
-			</div>
+		<% if !answer.nil? %>
+			<!-- edit existing answers -->
+			<%= form_for([question, answer]) do |a| %>
+				<label for="answer_response" class="h3"><b>Answer</b></label>
+					<%= a.text_area :response, class: "form-control mb-4", id: "answer_response", rows: "3", placeholder: "Respond to the question" %>
+					<div class="text-right">
+						<%= link_to "Back", :back, type: "button", class: "btn btn-outline-secondary mr-1" %>
+					  <%= a.button 'Save', id: "save-button", :class => 'btn btn-success' %>
+					</div>
+				<% end %>
+		<% else %>
+			<!-- for new answer -->
+			<%= form_for([question, question.answers.build]) do |a| %>
+				<label for="answer_response" class="h3"><b>Answer</b></label>
+					<%= a.text_area :response, class: "form-control mb-4", id: "answer_response", rows: "3", placeholder: "Respond to the question" %>
+					<div class="text-right">
+						<%= link_to "Back", :back, type: "button", class: "btn btn-outline-secondary mr-1" %>
+					  <%= a.button 'Save', id: "save-button", :class => 'btn btn-success' %>
+					</div>
+			<% end %>
 		<% end %>
 	</div>
 </div>
