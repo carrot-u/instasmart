@@ -23,6 +23,12 @@ Rails.application.routes.draw do
       put "undislike" => "questions#undislike"
     end
     resources :answers do
+      member do
+        put "like" => "answers#like"
+        put "dislike" => "answers#dislike"
+        put "unlike" => "answers#unlike"
+        put "undislike" => "answers#undislike"
+      end
       resources :comments
     end
   end
