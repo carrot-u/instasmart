@@ -34,7 +34,6 @@
 				        
 				        <small class=""><i>Answered by Muffy Barkocy on May 26, 2017 at 5:36 PM</i></small>
 				      </div>
-				      <small><a href="#"> See All Answers </a></small>
 				    </div><!-- /card-text -->
 				  <% end %>
 			    <div class="row">
@@ -60,7 +59,14 @@
 
 			  </div><!-- /card-block -->
 			</div><!-- /question -->
-
+			<%if @question.answers.length > 0 %>
+				<div class="card pt-2">
+					<h4 class="card-title pl-2">Answers</h4>
+					<% @question.answers.each do |a| %>
+						<%= render 'show_answer', answer: a %>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>

@@ -1,8 +1,18 @@
-<h4 class="card-title">Top Answer</h4>
-<div class="card-text" role="tab" id="headingOne">
-  <div class="row ml-2 pb-2">
-    Anywhere from 20-60 hours a week, depending on your tolerance to caffeine and social awkwardness.
-    <small class=""><i>Answered by Muffy Barkocy on May 26, 2017 at 5:36 PM</i></small>
-  </div>
-  <small><a href="#"> See All Answers </a></small>
-</div><!-- /card-text -->
+<div class="card">
+	<div class="card-block border-bottom-0">
+		<div class="card-text" role="tab" id="headingOne">
+		  <div class="row ml-2 pb-2">
+		    	<%= answer.response %>
+		  </div>
+		  <div class="row ml-2 pb-2">
+		    <small class=""><i>Answered by 
+		    <% if answer.user %>
+		    	<%= answer.user.first_name %> <%= answer.user.last_name %> on 
+		    <% end %>
+		    <%= answer.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %></i></small>
+		    <%= render "answers/creator_options", answer: answer %>
+		  </div>
+
+		</div><!-- /card-text -->
+	</div>
+</div>
