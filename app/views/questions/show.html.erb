@@ -16,7 +16,6 @@
 
 			      </div>
 			    </div>
-			    <!-- Tags -->
 			    <div class="row pl-3">
 			    <% @question.tag_list.each do |t| %>
 			      <h6 class="pr-1"><span class="badge badge-warning">
@@ -25,7 +24,6 @@
 			      <% end %>
 			    </div>
 			  </div>
-			  <!-- /Tags -->
 			  <div class="card-block">
 			  	<% if @question.body? %>
 				    <h4 class="card-title">Detail:</h4>
@@ -34,11 +32,13 @@
 				        
 				        <small class=""><i>Answered by Muffy Barkocy on May 26, 2017 at 5:36 PM</i></small>
 				      </div>
-				    </div><!-- /card-text -->
+				    </div>
 				  <% end %>
 			    <div class="row">
 			      <div class="col-sm-4">
-			        <span class="badge badge-success badge-pill"><i class="fa fa-eye" aria-hidden="true"></i> 89</span>
+				      <% if @question.views_count != 0 %>
+				        <span class="badge badge-success badge-pill"><i class="fa fa-eye" aria-hidden="true"></i> <%= @question.views_count %></span>
+				      <% end %>
 			        <% if @question.cached_votes_score != 0 %>
 			          <span class="badge badge-success badge-pill"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <%= @question.cached_votes_score %></span>
 			        <% end %>
@@ -60,12 +60,12 @@
 			      </div>
 			    </div>
   				<%= render 'creator_options', question: @question %>
-			  </div><!-- /card-block -->
+			  </div>
 			  <div class="container">
 				  <%= render partial: 'comments/comments_index', locals: {commentable: @question} %>
 
 				</div>
-			</div><!-- /question -->
+			</div>
 			<%if @question.answers.length > 0 %>
 				<div class="card pt-2">
 					<h4 class="card-title pl-2">Answers</h4>

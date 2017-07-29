@@ -6,6 +6,21 @@ class QuestionsController < ApplicationController
 
 	def index
 		@questions = Question.order("id DESC")
+
+
+		if params[:sort_by] == 'most_comments'
+		  @questions= @questions.order("comments.length desc")
+		end
+		if params[:sort_by] == 'most_answers'
+		  @questions= @questions.order("answers.length desc")
+		end
+		if params[:sort_by] == 'most_voted'
+		  @questions= @questions.order("cached_votes_score desc")
+		end
+		if params[:sort_by] == 'most_views'
+		  @questions = @question.order("views_count desc")
+		end
+
 	end
 
 	# New and create Questions
@@ -31,6 +46,8 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.find(params[:id])
+		@question.increment(:views_count, 1)
+		@question.save
 	end
 
 	# change / edit / update

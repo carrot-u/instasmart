@@ -1,8 +1,5 @@
 class CommentsController < ApplicationController
-  # before_action :comment # only: [:show, :edit, :update, :destroy]
-  # before_action :set_answer, only: [:show, :edit, :update, :destroy]
-  # before_action :set_question, only: [:new, :show, :edit, :update, :destroy]
-  # before_action :set_comment, except: [:create]
+  before_action :set_comment, only: [:edit, :update]
 
 
   def index
@@ -13,7 +10,31 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
       @comment.save
-      redirect_to :back
+      if @commentable.class.name == "Question"
+        format.html { redirect_to @commentable }
+      else
+        redirect_to questions_path
+      end
+  end
+
+  def edit
+    @comment = @commentable.comments.find(params[:id])
+  end
+
+  def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        if @commentable.class.name == "Question"
+          format.html { redirect_to @commentable }
+        else
+          redirect_to questions_path
+        end
+        format.json { render json: @commentable}
+      else
+        format.html { render :edit }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -49,29 +70,7 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:body)
     end
 
-    # def comment
-    #   @comment ||= begin
-    #     comment = params[:id] ? Comment.find(params[:id]) : Comment.new
-    #     if comment_params && comment_params.length > 0
-    #       comment.update_attributes(comment_params)
-    #    end
-    #   end
-    # end
-
-    # def set_commentable
-    #   resource, id = request.path.split('/')[1,2]
-    #   @commentable = resource.singularize.classify.constantize.find(id)
-    # end
-
-    # def set_comment
-    #   @comment = Comment.find(params[:id])
-    # end
-
-    # def set_answer
-    #   @answer = Answer.find(params)[:answer_id]
-    # end
-
-    # def set_question
-    #   @question = Question.find(params[:question_id])
-    # end
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
 end
