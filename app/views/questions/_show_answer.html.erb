@@ -17,7 +17,7 @@
 			          <span class="badge badge-success badge-pill"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <%= answer.cached_votes_score %></span>
 			        <% end %>
 			        <% if answer.comments.length != 0 %>
-			          <span class="badge badge-success badge-pill"><i class="fa fa-comment" aria-hidden="true"></i> <% answer.comments.length %></span>
+			          <span class="badge badge-success badge-pill"><i class="fa fa-comment" aria-hidden="true"></i> <%= answer.comments.length %></span>
 			        <% end %>
 			      </div>
 			      <div class="col-sm-5">
@@ -26,13 +26,17 @@
 			      <% else %>
 			        <%= link_to "Like", like_question_answer_path(question, answer), method: :put, type: "button", class: "btn btn-outline-success btn-sm pull-right mr-1" %>
 			      <% end %>
-			        <a href="answer.html" class="btn btn-outline-success btn-sm pull-right mr-1">Comment</a>
+			        <%= button_to "Comment", new_answer_comment_path(answer), :method => :get, :class => "btn btn-outline-success btn-sm  pull-right mr-1" %>
 			      </div>
 			    </div>
 
 			    <%= render "answers/creator_options", answer: answer, question: question %>
 		  	</div>
 		  </div>
+			<%= render partial: 'comments/comments_index', locals: {commentable: answer} %>
+			<%#= render partial: 'comments/form', locals: {commentable: answer} %>
+
+
 		</div><!-- /card-text -->
 	</div>
 </div>

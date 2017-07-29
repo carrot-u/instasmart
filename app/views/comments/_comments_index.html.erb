@@ -1,0 +1,13 @@
+
+<% if commentable.comments.length > 0 %>
+	<h4>Comments</h4>
+	<hr />
+	<% commentable.comments.each do |comment| %>
+		<div class="well">
+			<%= comment.body %>
+		</div>
+		<%= render "comments/creator_options", commentable: commentable, comment: comment %>
+
+		<hr />
+	<% end %>
+<% end %>

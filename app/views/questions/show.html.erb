@@ -43,7 +43,7 @@
 			          <span class="badge badge-success badge-pill"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <%= @question.cached_votes_score %></span>
 			        <% end %>
 			        <% if @question.comments.length != 0 %>
-			          <span class="badge badge-success badge-pill"><i class="fa fa-comment" aria-hidden="true"></i> <% @question.comments.length %></span>
+			          <span class="badge badge-success badge-pill"><i class="fa fa-comment" aria-hidden="true"></i> <%= @question.comments.length %></span>
 			        <% end %>
 			        <% if @question.answers.length != 0 %>
 			          <span class="badge badge-success badge-pill"><i class="fa fa-pencil" aria-hidden="true"></i> <%= @question.answers.length %></span>
@@ -55,12 +55,16 @@
 				      <% else %>
 				        <%= link_to "Like", like_question_path(@question), method: :put, type: "button", class: "btn btn-outline-success pull-right mr-1" %>
 				      <% end %>
-			        <a href="question.html" class="btn btn-outline-success pull-right mr-1">Comment</a>
+			        <%= button_to "Comment", new_question_comment_path(@question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
 			        <%= button_to "Answer", new_question_answer_path(@question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
 			      </div>
 			    </div>
-  				<%= render 'creator_options', q: @question %>
+  				<%= render 'creator_options', question: @question %>
 			  </div><!-- /card-block -->
+			  <div class="container">
+				  <%= render partial: 'comments/comments_index', locals: {commentable: @question} %>
+
+				</div>
 			</div><!-- /question -->
 			<%if @question.answers.length > 0 %>
 				<div class="card pt-2">
