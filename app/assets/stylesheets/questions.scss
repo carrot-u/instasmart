@@ -118,14 +118,14 @@ body.fixed-nav nav {
 		padding: 9px 10px 9px 32px;
 		width: 0px;
 		border-radius: 15px;
-		transition:  0.3s ease-out;
+		transition:  0.2s ease-out;
 	}
 	input[type=search]:focus{
 		width: 350px;
 		background-color: #fff;
 		border-color: #66CC75;
 		box-shadow: 0 0 5px rgba(109,207,246,.5);
-		transition:  0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+		transition:  ease-out 0.2s; //0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
 
 	}
 	input[type=search]:hover{
@@ -142,7 +142,7 @@ body.fixed-nav nav {
 .condense-nav{
 	.nav-link{
 		font-size: 0px;
-		transition: ease-out 0.4s;
+		transition: ease-out 0.2s;
 	}
 	.navbar-logo{
 		margin-right: 0.5em;

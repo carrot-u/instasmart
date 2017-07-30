@@ -1,0 +1,19 @@
+<% if comment.user == current_user %>
+	<div class="container">
+		<div class="row">
+			<small><ul class="list-inline">
+			<% if commentable.class.name == "Question" %>
+				<li class="list-inline-item"><%= link_to "Edit", edit_question_comment_path(commentable, comment) %></li>
+			<% end %>
+			<% if commentable.class.name == "Answer" %>
+				<li class="list-inline-item"><%= link_to "Edit", edit_answer_comment_path(commentable, comment) %></li>
+			<% end %>
+				<li class="list-inline-item">
+					<%= link_to [commentable, comment], method: :delete, remote: true do %>
+				  	Delete
+					<% end %>
+				</li>
+			<ul></small>
+		</div>
+	</div>
+<% end %>
