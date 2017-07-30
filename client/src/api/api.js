@@ -1,20 +1,20 @@
 import * as utils from './apiUtils';
 
-getQuestions(){
+export function getQuestions(){
 	utils.get('/questions').then(json=>{
 		return json;
 	});
 }
 
 // return question with answers and comments
-getQuestionById(id){
+export function getQuestionById(id){
 	utils.get(`/questions/${id}`).then(json=>{
 		return json;
 	});
 }
 
-getCommentsByAnswerID(id){
-	untils.get(`/answers/${id}/comments`).then(json=>{
+export function getCommentsByAnswerID(id){
+	utils.get(`/answers/${id}/comments`).then(json=>{
 		return json;
 	});
 }

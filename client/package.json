@@ -2,13 +2,14 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.10",
-    "proxy": "http://localhost:3001"
+    "concurrently": "^3.5.0",
+    "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
