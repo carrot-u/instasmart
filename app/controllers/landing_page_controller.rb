@@ -10,6 +10,6 @@ class LandingPageController < ApplicationController
 
 	private
 		def tags
-			@tags = Question.tag_counts_on(:tags)
+			@tags = Question.tag_counts_on(:tags).first(25)
 		end
 end
