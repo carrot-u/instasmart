@@ -41,6 +41,7 @@
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button type="button" class="btn btn-outline-secondary">Search</button>
           <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-outline-secondary mx-1" %>
+          <a href="<user_profile_page>"><%= image_tag current_user.image, class: "img-fluid profile_thumbnail" %></a>
         </form>
       <% else %>
         <%= link_to "Sign in", "/auth/google_oauth2", id: "sign_in", class: "btn btn-warning" %>
