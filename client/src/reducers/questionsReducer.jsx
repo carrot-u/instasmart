@@ -12,9 +12,9 @@ export default function questionsReducer(state = initialState, action){
 		case types.LOAD_QUESTIONS_SUCCESS:
 			console.log("action.questions: ", action.questions);
 			return {...state,
-				questions: [ 
-				Object.assign({}, action.questions)
-			]};
+				questions: action.questions,
+				isLoading: false,
+			};
 		case types.LOAD_QUESTIONS_START:
 			console.log("LOAD QUESTION START ");
 			return {...state, 

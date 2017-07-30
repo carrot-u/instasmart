@@ -3,10 +3,7 @@ import * as actions from '../actions/questionActions';
 
 export function getQuestions(){
 	return function(dispatch){
-	console.log("called getQuestions");
-
 		return utils.get('/questions').then(questions =>{
-			console.log("questions in getQuestion function", questions);
 			dispatch(actions.loadQuestionsSuccess(questions));
 		}).catch(error => {
 			throw(error);

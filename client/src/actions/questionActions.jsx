@@ -2,7 +2,6 @@ import * as types from './actionTypes';
 import * as api from '../api/api';
 
 export function loadQuestionsSuccess(questions){
-	console.log("loadQuestionsSuccess: ", questions);
 	return { type: types.LOAD_QUESTIONS_SUCCESS, questions};
 }
 

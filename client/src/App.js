@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
 import logo from './logo.svg';
 import './App.css';
 import * as questionActions from './actions/questionActions';
+import QuestionIndexRow from './components/questions/QuestionIndexRow';
 
 
 class App extends Component {
@@ -13,28 +13,24 @@ class App extends Component {
     this.state = {
       questions: null,
     };
-    this.showQuestions = this.showQuestions.bind(this);
+    this.logProps = this.logProps.bind(this);
   }
 
-  showQuestions(){
+  logProps(){
     console.log("questions: ", this.props.questions);
-    console.log("questions: ", this.props.isLoading);
-
-
+    console.log("loading: ", this.props.isLoading);
   }
 
   render() {
-
+    const listQuestions = this.props.questions.length > 0 ? this.props.questions.map(question => {
+      return(<QuestionIndexRow
+        question={question} />);
+    }) : null;
+    console.log("listQuestions: ", listQuestions);
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-           <code>src/App.js</code> and save to reload.
-        </p>
-        <button className="btn" onClick={this.showQuestions} >Log Questions</button>
+        {listQuestions}
+        <button className="btn" onClick={this.logProps} >Log Props</button>
       </div>
     );
   }
@@ -44,7 +40,7 @@ function mapStateToProps(state, ownProps){
   return {
     questions: state.questions.questions,
     isLoading: state.questions.isLoading,
-  }
+  };
 }
 function mapDispatchToProps(dispatch){
   return {

@@ -9,7 +9,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 store.dispatch(loadQuestions());
-console.log("store prior to render: ", store);
 
 ReactDOM.render(
 	<Provider store={store}>
