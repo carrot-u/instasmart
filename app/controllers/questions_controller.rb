@@ -1,12 +1,26 @@
 class QuestionsController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
-	before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+	before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike, :undislike]
 	respond_to :html, :json
 
 	def index
 		@questions = Question.order("id DESC")
+
+
+		if params[:sort_by] == 'most_comments'
+		  @questions= @questions.order("comments.length desc")
+		end
+		if params[:sort_by] == 'most_answers'
+		  @questions= @questions.order("answers.length desc")
+		end
+		if params[:sort_by] == 'most_voted'
+		  @questions= @questions.order("cached_votes_score desc")
+		end
+		if params[:sort_by] == 'most_views'
+		  @questions = @question.order("views_count desc")
+		end
+
 	end
 
 	# New and create Questions
@@ -32,6 +46,8 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.find(params[:id])
+		@question.increment(:views_count, 1)
+		@question.save
 	end
 
 	# change / edit / update
@@ -59,23 +75,23 @@ class QuestionsController < ApplicationController
 	end
 
 	def like
-    @question.liked_by @user
-    redirect_to @question
+    @question.liked_by current_user
+   	redirect_to questions_path
   end
 
   def dislike
-    @question.disliked_by @user
-    redirect_to @question
+    @question.disliked_by current_user
+    redirect_to questions_path
   end
 
   def unlike
-    @question.unliked_by @user
-    redirect_to @question
+    @question.unliked_by current_user
+    redirect_to questions_path
   end
 
   def undislike
-    @question.undisliked_by @user
-    redirect_to @question
+    @question.undisliked_by current_user
+    redirect_to questions_path
   end
 
   def tag_cloud
@@ -85,7 +101,6 @@ class QuestionsController < ApplicationController
 	private
 		def set_question
 			@question ||= begin
-				logger.debug "question params #{params}"
 				question = params[:id] ? Question.find(params[:id]) : Question.new
 				# if question_params && question_params.length > 0
 				# 	question.update_attributes(question_params)

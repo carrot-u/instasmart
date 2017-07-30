@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170728173358) do
 
   # These are extensions that must be enabled in order to support this database
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170728173358) do
     t.integer  "cached_votes_score", default: 0
     t.integer  "cached_votes_up",    default: 0
     t.integer  "cached_votes_down",  default: 0
+    t.integer  "views_count",        default: 0
   end
 
   add_index "questions", ["cached_votes_down"], name: "index_questions_on_cached_votes_down", using: :btree
