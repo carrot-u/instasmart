@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
 import logo from './logo.svg';
 import './App.css';
-import * as api from './api/api'
+import * as questionActions from './actions/questionActions';
+
 
 class App extends Component {
-  constructor(props){
-    super(props);
+  constructor(props, context){
+    super(props, context);
     this.state = {
       questions: null,
-    }
+    };
+    this.showQuestions = this.showQuestions.bind(this);
   }
 
-  componentDidMount(){
-    const questions = api.getQuestions();
-    this.setState({
-      questions: questions
-    });
+  showQuestions(){
+    console.log("questions: ", this.props.questions);
+    console.log("questions: ", this.props.isLoading);
+
+
   }
 
   render() {
-    console.log("questions: ", this.state.questions);
 
     return (
       <div className="App">
@@ -30,9 +34,22 @@ class App extends Component {
         <p className="App-intro">
            <code>src/App.js</code> and save to reload.
         </p>
+        <button className="btn" onClick={this.showQuestions} >Log Questions</button>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state, ownProps){
+  return {
+    questions: state.questions.questions,
+    isLoading: state.questions.isLoading,
+  }
+}
+function mapDispatchToProps(dispatch){
+  return {
+    actions: bindActionCreators(questionActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
