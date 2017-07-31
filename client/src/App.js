@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import './stylesheets/App.css';
 import * as questionActions from './actions/questionActions';
 import QuestionIndexRow from './components/questions/QuestionIndexRow';
+import PageBanner from './components/common/PageBanner';
 
 
 class App extends Component {
@@ -27,10 +28,12 @@ class App extends Component {
         question={question} />);
     }) : null;
     return (
-      <div className="container question-index">
-
-        {listQuestions}
-        <button className="btn" onClick={this.logProps} >Log Props</button>
+      <div>   
+        <PageBanner />
+        <div className="container question-index">
+          {listQuestions}
+          <button className="btn" onClick={this.logProps} >Log Props</button>
+        </div>
       </div>
     );
   }
