@@ -8,7 +8,7 @@ const QuestionIndexRow = (props) => {
 		    <div className="row">
 		      <div className="col-md-9">
 
-		        <a href="#" className="question-summary">
+		        <a href="" className="question-summary">
 		           <h3>{props.question.summary}</h3>
 		        </a>
 		      </div>

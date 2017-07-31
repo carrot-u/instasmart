@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import logo from './logo.svg';
-import './App.css';
+import './stylesheets/App.css';
 import * as questionActions from './actions/questionActions';
 import QuestionIndexRow from './components/questions/QuestionIndexRow';
 
@@ -24,11 +23,13 @@ class App extends Component {
   render() {
     const listQuestions = this.props.questions.length > 0 ? this.props.questions.map(question => {
       return(<QuestionIndexRow
+        key={question.id}
         question={question} />);
     }) : null;
-    console.log("listQuestions: ", listQuestions);
     return (
-      <div className="App">
+      <div className="question-index">
+          <script src="src/lib/js/bootstrap.min.js"></script>
+          <link rel="src/stylesheet" href="lib/css/bootstrap.min.css" />
         {listQuestions}
         <button className="btn" onClick={this.logProps} >Log Props</button>
       </div>
