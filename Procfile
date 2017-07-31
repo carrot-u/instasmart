@@ -1,1 +1,2 @@
-web: bundle exec rails server -p $PORT
+web: cd client && npm start
+api: bundle exec rails s -p 3001

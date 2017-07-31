@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'foreman'
 gem 'figaro'
 gem 'responders', '~> 2.0'
 gem "font-awesome-rails"
