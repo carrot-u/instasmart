@@ -27,9 +27,8 @@ class App extends Component {
         question={question} />);
     }) : null;
     return (
-      <div className="question-index">
-          <script src="src/lib/js/bootstrap.min.js"></script>
-          <link rel="src/stylesheet" href="lib/css/bootstrap.min.css" />
+      <div className="container question-index">
+
         {listQuestions}
         <button className="btn" onClick={this.logProps} >Log Props</button>
       </div>

@@ -8,6 +8,7 @@
   "description": "Instacart's internal question and answer app",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",

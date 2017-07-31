@@ -1,9 +1,8 @@
 import React from 'react';
 
 const QuestionIndexRow = (props) => {
-	console.log("props from index: ", props);
 	return (
-		<div id="question" className="card d-block img-fluid mb-2">
+		<div className="card d-block img-fluid mb-2">
 		  <div className="card-header">
 		    <div className="row">
 		      <div className="col-md-9">
