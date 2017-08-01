@@ -12,7 +12,7 @@ const PageBanner = (props) => {
 			</div>
 			NAVBAR - TODO
 		</div>
-	);
+  );
 }
 
 export default PageBanner;
