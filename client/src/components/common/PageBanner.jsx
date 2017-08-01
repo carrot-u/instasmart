@@ -1,4 +1,6 @@
 import React from 'react';
+import StickyNavbar from './StickyNavBar';
+import QuestionsNavContent from '../questions/QuestionsNavContent';
 import logo from '../../images/carrot_2.png';
 
 const PageBanner = (props) => {
@@ -10,9 +12,11 @@ const PageBanner = (props) => {
 					<p className="banner-text"><i>Questions</i></p>
 				</div>
 			</div>
-			NAVBAR - TODO
+			<StickyNavbar >
+				<QuestionsNavContent />
+			</StickyNavbar>
 		</div>
   );
-}
+};
 
 export default PageBanner;
