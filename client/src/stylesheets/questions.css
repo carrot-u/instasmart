@@ -169,7 +169,7 @@ li.hide-nav {
 
 @media (min-width: 1096px) {
   input[type=search] {
-    width: 100px !important;
+    width: 110px !important;
     border-radius: 2px !important; }
   input[type=search]:focus {
     width: 550px  !important; } }
@@ -222,4 +222,4 @@ li.hide-nav {
 
 @media (min-width: 768px) {
   .question-index {
-    margin-top: 500px; } }
+    margin-top: 10px; } }
