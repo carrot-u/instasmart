@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'foreman'
 gem 'figaro'
 gem 'responders', '~> 2.0'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'active_model_serializers'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use postgres as the database for Active Record

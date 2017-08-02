@@ -21,9 +21,11 @@ class QuestionsController < ApplicationController
 		  @questions = @question.order("views_count desc")
 		end
 
-		respond_to do |format|
-		  format.json { render json: @questions }
-		 end
+		# respond_to do |format|
+		#   format.json { render json: @questions }
+		#  end
+
+		 render json: @questions
 	end
 
 	# New and create Questions
