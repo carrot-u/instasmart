@@ -52,3 +52,28 @@ A Q&A Forum for Instacart Employees
 - [x] Add Google Image to User Auth Flow
 - [x] add view_count column to questions table
 - [x] Move Google tokens to a something.yml file
+
+## UI Tasks
+
+- [x] Add Client in React and test with api call
+- [x] Add Redux to client
+- [ ] Add React routing
+- [ ] Implement Landing page in react components
+- [ ] Tag cloud component
+- [ ] Make landing page banner component
+- [ ] Make landing page navbar component
+- [ ] Implement Questions index in react components
+- [ ] Create Navbar and make sticker
+- [ ] Create Question row components
+- [ ] Create Like / unlike button component
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create comment component button
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create transitions to show field on click
+- [ ] Create Answer component button
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create transitions to show field on click
+- [ ] Implement modal in react
+- [ ] Implement ask question
+- [ ] Implement tag dropdown
+- [ ] Implement tag query database for selections
