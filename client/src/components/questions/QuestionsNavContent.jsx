@@ -1,11 +1,15 @@
 import React from "react";
+import NavbarSearchField from '../common/NavbarSearchField';
+import logo from '../../images/carrot_2.png';
+
+
 
 const QuestionsNavContent = props => {
 	return (
 		<ul className="list-inline nav-list row mb-0">
 			<li className="pull-left hidden-nav">
 				<a className="" href="index.html">
-					<image src="carrot_2.png" className="navbar-logo" alt="logo" />
+					<img src={logo} className="navbar-logo" alt="logo" />
 				</a>
 			</li>
 			<li className="padding-3">
@@ -21,15 +25,10 @@ const QuestionsNavContent = props => {
 				<a className="nav-link" href="popular.html">Popular</a>
 			</li>
 			<li className="padding-3">
-				<div className="">
-					<form className="form-inline my-sm-0">
-						<input
-							className="form-control mr-sm-2 nav-search-bar"
-							type="search"
-							placeholder="Search"
-						/>
-					</form>
-				</div>
+				<NavbarSearchField 
+					handleOnSearchFocus={props.handleOnSearchFocus}
+					handleOnSearchBlur={props.handleOnSearchBlur}
+				/>
 			</li>
 			<li className="nav-item">
 				<button
