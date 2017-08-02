@@ -36,6 +36,7 @@ A Q&A Forum for Instacart Employees
 ### Larger Tasks
 - [ ] Add Serializers (8/1 - 8/6)
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+- [ ] Add validations for all user input (8/7 -8/13)
 - [ ] Test and Optimize for Performance (8/14-21)
 
 ### Smaller Tasks
@@ -45,6 +46,9 @@ A Q&A Forum for Instacart Employees
 - [ ] troubleshoot and implement lazy instantiation in controllers (8/7)
     - [ ] include find, new, not found, multiple
     - [ ] inlcude assigning `question.user`  
+- [ ] `current_user` guided access
+    - [ ] No content on landing page when signed out
+    - [ ] Edit permissions on questions/answers/comments, user profile  
 
 
 ### Completed Tasks
