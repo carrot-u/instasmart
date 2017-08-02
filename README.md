@@ -31,18 +31,24 @@ A Q&A Forum for Instacart Employees
 + Doesn't record the user's email or separate first and last name when new user is created. Do we need this?
 
 
-## Tasks
-- [x] Add Google Image to User Auth Flow
-- [ ] Fix Auth-Model Specs
-- [ ] Tag Cloud Functionality
-- [ ] Refactor Questions Controller for #new and #create to use lazy execution
-- [x] move `current_user` to application controller
-- [ ] `set_question` changes:
+## Database Tasks
+
+### Larger Tasks
+- [ ] Add Serializers (8/1 - 8/6)
+- [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+- [ ] Test and Optimize for Performance (8/14-21)
+
+### Smaller Tasks
+- [ ] Make sure spec files are working and passing (8/22)
+- [ ] Generate substantial fake data for testing (8/14)
+- [ ] Tag Cloud Functionality Testing (Does it not work because we don't have enough data?)(8/14)
+- [ ] troubleshoot and implement lazy instantiation in controllers (8/7)
     - [ ] include find, new, not found, multiple
     - [ ] inlcude assigning `question.user`  
-- [ ] add view_count column to questions table
-- [ ] adjust `set` methods in answers and comments   
-- [ ] Move Google tokens to a something.yml file
-- [ ] Fix user.picture issue in SessionsController
 
 
+### Completed Tasks
+- [x] move `current_user` to application controller
+- [x] Add Google Image to User Auth Flow
+- [x] add view_count column to questions table
+- [x] Move Google tokens to a something.yml file
