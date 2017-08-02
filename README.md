@@ -31,18 +31,49 @@ A Q&A Forum for Instacart Employees
 + Doesn't record the user's email or separate first and last name when new user is created. Do we need this?
 
 
-## Tasks
-- [x] Add Google Image to User Auth Flow
-- [ ] Fix Auth-Model Specs
-- [ ] Tag Cloud Functionality
-- [ ] Refactor Questions Controller for #new and #create to use lazy execution
-- [x] move `current_user` to application controller
-- [ ] `set_question` changes:
+## Database Tasks
+
+### Larger Tasks
+- [ ] Add Serializers (8/1 - 8/6)
+- [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+- [ ] Test and Optimize for Performance (8/14-21)
+
+### Smaller Tasks
+- [ ] Make sure spec files are working and passing (8/22)
+- [ ] Generate substantial fake data for testing (8/14)
+- [ ] Tag Cloud Functionality Testing (Does it not work because we don't have enough data?)(8/14)
+- [ ] troubleshoot and implement lazy instantiation in controllers (8/7)
     - [ ] include find, new, not found, multiple
     - [ ] inlcude assigning `question.user`  
-- [ ] add view_count column to questions table
-- [ ] adjust `set` methods in answers and comments   
-- [ ] Move Google tokens to a something.yml file
-- [ ] Fix user.picture issue in SessionsController
 
 
+### Completed Tasks
+- [x] move `current_user` to application controller
+- [x] Add Google Image to User Auth Flow
+- [x] add view_count column to questions table
+- [x] Move Google tokens to a something.yml file
+
+## UI Tasks
+
+- [x] Add Client in React and test with api call
+- [x] Add Redux to client
+- [ ] Add React routing
+- [ ] Implement Landing page in react components
+- [ ] Tag cloud component
+- [ ] Make landing page banner component
+- [ ] Make landing page navbar component
+- [ ] Implement Questions index in react components
+- [ ] Create Navbar and make sticker
+- [ ] Create Question row components
+- [ ] Create Like / unlike button component
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create comment component button
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create transitions to show field on click
+- [ ] Create Answer component button
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create transitions to show field on click
+- [ ] Implement modal in react
+- [ ] Implement ask question
+- [ ] Implement tag dropdown
+- [ ] Implement tag query database for selections
