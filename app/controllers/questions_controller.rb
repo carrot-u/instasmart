@@ -73,14 +73,14 @@ class QuestionsController < ApplicationController
 	def destroy
 	  if @question.user == current_user
 	  	@question.destroy
-		end
+	  end
 	  redirect_to questions_path
 	end
 
 	def like
     @question.liked_by current_user
    	redirect_to questions_path
-  end
+	end
 
   def dislike
     @question.disliked_by current_user
@@ -97,10 +97,6 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
-  def tag_cloud
-    @tags = Question.tag_counts_on(:tags)
-  end
-
 	private
 		def set_question
 			@question ||= begin
@@ -111,12 +107,6 @@ class QuestionsController < ApplicationController
 			end
  		end
 
- 		# def user
- 		# 	@user ||=begin
- 		# 		raise "User id must be provided" unless params[:question_id]
- 		# 		Question.find(params[:question_id])
- 		# 	end
- 		# end
 
 		def question_params
 			params.require(:question).permit(:summary, :body, :tag_list)
