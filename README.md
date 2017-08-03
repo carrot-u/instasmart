@@ -35,7 +35,17 @@ A Q&A Forum for Instacart Employees
 
 ### Larger Tasks
 - [ ] Add Serializers (8/1 - 8/6)
+    - [x] Questions, Comments, Answers 
+    - [x] Tags, Taggings
+    - [x] _Temporarily_ rendering `questions#index` and `questions#show` as json to test seralizer success. For ease of use, we may be able to strip our views down to this as well.
+    - [ ] Users
+    - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
+    - [ ] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
+    - [ ] Optimizing comments for polymorphic associations
+    - [ ] Why is the rendered json pulling all attributes despite the conditions set?
+    - [ ] Why are new seralizer models not automatically pulling in attributes and associations?
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+- [ ] Add validations for all user input (8/7 -8/13)
 - [ ] Test and Optimize for Performance (8/14-21)
 
 ### Smaller Tasks
@@ -45,6 +55,9 @@ A Q&A Forum for Instacart Employees
 - [ ] troubleshoot and implement lazy instantiation in controllers (8/7)
     - [ ] include find, new, not found, multiple
     - [ ] inlcude assigning `question.user`  
+- [ ] `current_user` guided access
+    - [ ] No content on landing page when signed out
+    - [ ] Edit permissions on questions/answers/comments, user profile  
 
 
 ### Completed Tasks
