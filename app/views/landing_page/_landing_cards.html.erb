@@ -23,12 +23,17 @@
          </div>
        </div>
        <div class="card">
+          <div class="card-block">
+            <h2>Actual Tag Cloud</h2>
+              <ul class="list-unstyled">
+              <% tag_cloud(@tags, %w(h5 h4 h3 h2)) do |tag, css_class| %>
+                <li class="m-1 badge badge-warning css_class"><%= link_to tag.name, { :id => tag.name }, :class => "css_class" %></li>
+              <% end %>
+              </ul>
+         </div>
          <div class="card-block">
-           <h3 class="card-title">Popular Tags</h3>
+           <h2>Mock Up Tag Cloud</h2>
            <ol class="list-unstyled">
-             <% ActsAsTaggableOn::Tag.most_used.each do |tag|  %>
-              <li class="m-1 badge badge-warning"><h3><%= tag %></h3></li>
-             <% end %>
              <li class="m-1 badge badge-info"><h3>Growth</h3></li>
              <li class="m-1 badge badge-info"><h3>Culture</h3></li>
              <li class="m-1 badge badge-info"><h4>Engineering</h4></li>

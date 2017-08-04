@@ -31,45 +31,61 @@ A Q&A Forum for Instacart Employees
 + Doesn't record the user's email or separate first and last name when new user is created. Do we need this?
 
 
-## Tasks
-- [x] Add Google Image to User Auth Flow
-- [ ] Fix Auth-Model Specs
-- [ ] Tag Cloud Functionality
-- [ ] Refactor Questions Controller for #new and #create to use lazy execution
-- [x] move `current_user` to application controller
-- [ ] `set_question` changes:
+## Database Tasks
+
+### Larger Tasks
+- [ ] Add Serializers (8/1 - 8/6)
+    - [x] Questions, Comments, Answers 
+    - [x] Tags, Taggings
+    - [x] _Temporarily_ rendering `questions#index` and `questions#show` as json to test seralizer success. For ease of use, we may be able to strip our views down to this as well.
+    - [ ] Users
+    - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
+    - [ ] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
+    - [ ] Optimizing comments for polymorphic associations
+    - [ ] Why is the rendered json pulling all attributes despite the conditions set?
+    - [ ] Why are new seralizer models not automatically pulling in attributes and associations?
+- [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+- [ ] Add validations for all user input (8/7 -8/13)
+- [ ] Test and Optimize for Performance (8/14-21)
+
+### Smaller Tasks
+- [ ] Make sure spec files are working and passing (8/22)
+- [ ] Generate substantial fake data for testing (8/14)
+- [ ] Tag Cloud Functionality Testing (Does it not work because we don't have enough data?)(8/14)
+- [ ] troubleshoot and implement lazy instantiation in controllers (8/7)
     - [ ] include find, new, not found, multiple
     - [ ] inlcude assigning `question.user`  
-- [ ] add view_count column to questions table
-- [ ] adjust `set` methods in answers and comments   
-- [ ] Move Google tokens to a something.yml file
-- [ ] Fix user.picture issue in SessionsController
-## UI TODOs
+- [ ] `current_user` guided access
+    - [ ] No content on landing page when signed out
+    - [ ] Edit permissions on questions/answers/comments, user profile  
+
+
+- [x] move `current_user` to application controller
+- [x] Add Google Image to User Auth Flow
+- [x] add view_count column to questions table
+- [x] Move Google tokens to a something.yml file
+
+## UI Tasks
+
 - [x] Add Client in React and test with api call
 - [x] Add Redux to client
 - [ ] Add React routing
 - [ ] Implement Landing page in react components
-    - [ ] Tag cloud component
-    - [ ] Make landing page banner component
-    - [ ] Make landing page navbar component
+- [ ] Tag cloud component
+- [ ] Make landing page banner component
+- [ ] Make landing page navbar component
 - [ ] Implement Questions index in react components
-    - [ ] Create Navbar and make sticker
-    - [ ] Create Question row components
+- [ ] Create Navbar and make sticker
+- [ ] Create Question row components
 - [ ] Create Like / unlike button component
-    - [ ] Plug in redux to update store and perform API call
+- [ ] Plug in redux to update store and perform API call
 - [ ] Create comment component button
-    - [ ] Plug in redux to update store and perform API call
-    - [ ] Create transitions to show field on click 
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create transitions to show field on click
 - [ ] Create Answer component button
-    - [ ] Plug in redux to update store and perform API call
-    - [ ] Create transitions to show field on click
+- [ ] Plug in redux to update store and perform API call
+- [ ] Create transitions to show field on click
 - [ ] Implement modal in react
 - [ ] Implement ask question
-    - [ ] Implement tag dropdown 
-    - [ ] Implement tag query database for selections
-
-
-
-
-
-
+- [ ] Implement tag dropdown
+- [ ] Implement tag query database for selections
