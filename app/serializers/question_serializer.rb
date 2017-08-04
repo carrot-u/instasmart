@@ -1,7 +1,6 @@
 class QuestionSerializer < ActiveModel::Serializer
-	include ActionView::Helpers::DateHelper
   attributes :id, :summary, :body, :user_id, :cached_votes_up, :cached_votes_down, :answers, :comments, :tags
-
+  
   private
 	  def answers
 	  	AnswerSerializer.new(object.answers).attributes
