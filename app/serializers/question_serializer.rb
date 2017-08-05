@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :summary, :body, :user, :cached_votes_up, :cached_votes_down, :answers, :comments, :tags, :created_at
+  attributes :id, :summary, :body, :user, :cached_votes_up, :cached_votes_down, :answers, :comments, :taggings, :created_at
   
   private
 	  def answers
