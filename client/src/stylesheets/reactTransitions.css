@@ -1,0 +1,14 @@
+/**************** form transitions ******************/
+.form-transition-enter {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in; }
+
+.form-transition-enter.form-transition-enter-active {
+  opacity: 1; }
+
+.form-transition-leave {
+  opacity: 1;
+  transition: opacity 0.2s ease-in; }
+
+.form-transition-leave.form-transition-leave-active {
+  opacity: 0.01; }

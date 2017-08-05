@@ -1,14 +1,36 @@
+import React from 'react';
+
+const IconStats = props => {
+  return(
+    <div>
+      {props.question.views_count > 0 &&
+        <span className="badge badge-success badge-pill mr-1">
+          <i className="fa fa-eye" aria-hidden="true" />
+          {' '} {props.question.views_count}
+        </span>
+      }
+      {props.question.cached_votes_score > 0 &&
+        <span className="badge badge-success badge-pill mr-1">
+          <i className="fa fa-thumbs-up" aria-hidden="true" />
+          {' '} { props.question.cached_votes_score}
+        </span>
+      }
+      {props.question.comments.length > 0 &&
+        <span className="badge badge-success badge-pill mr-1">
+          <i className="fa fa-comment" aria-hidden="true" />
+          {' '} { props.question.comments.length}
+        </span>
+      }
+      {props.question.answers.length> 0 &&
+        <span className="badge badge-success badge-pill">
+          <i className="fa fa-pencil" aria-hidden="true" />
+          {' '} { props.question.answers.length}
+        </span>
+      }
+    </div>
+  );  
+}
 
 
-<% if question.views_count > 0 %>
-  <span className="badge badge-success badge-pill"><i className="fa fa-eye" aria-hidden="true"></i> <%= question.views_count %></span>
-<% end %>
-<% if question.cached_votes_score != 0 %>
-  <span className="badge badge-success badge-pill"><i className="fa fa-thumbs-up" aria-hidden="true"></i> <%= question.cached_votes_score %></span>
-<% end %>
-<% if question.comments.length > 0 %>
-  <span className="badge badge-success badge-pill"><i className="fa fa-comment" aria-hidden="true"></i> <%= question.comments.length %></span>
-<% end %>
-<% if question.answers.length > 0 %>
-  <span className="badge badge-success badge-pill"><i className="fa fa-pencil" aria-hidden="true"></i> <%= question.answers.length %></span>
-<% end %>
+export default IconStats;
+
