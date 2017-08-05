@@ -5,43 +5,43 @@ import logo from '../../images/carrot_2.png';
 
 
 const QuestionsNavContent = props => {
-	return (
-		<ul className="list-inline nav-list row mb-0">
-			<li className="pull-left hidden-nav">
-				<a className="" href="index.html">
-					<img src={logo} className="navbar-logo" alt="logo" />
-				</a>
-			</li>
-			<li className="padding-3">
-				<a className="nav-link" href="#">Recent</a>
-			</li>
-			<li className="padding-3">
-				<a className="nav-link" href="#">Most Answered</a>
-			</li>
-			<li className="padding-3">
-				<a className="nav-link" href="#">Most Commented</a>
-			</li>
-			<li className="padding-3 ">
-				<a className="nav-link" href="popular.html">Popular</a>
-			</li>
-			<li className="padding-3">
-				<NavbarSearchField 
-					handleOnSearchFocus={props.handleOnSearchFocus}
-					handleOnSearchBlur={props.handleOnSearchBlur}
-				/>
-			</li>
-			<li className="nav-item">
-				<button
-					type="button"
-					className="btn btn-success btn ask-button"
-					data-toggle="modal"
-					data-target="#new_question"
-				>
-					Ask a Question
-				</button>
-			</li>
-		</ul>
-	);
+  return (
+    <ul className="list-inline nav-list row mb-0">
+      <li className="pull-left hidden-nav">
+        <a className="" href="index.html">
+          <img src={logo} className="navbar-logo" alt="logo" />
+        </a>
+      </li>
+      <li className="padding-3">
+        <a className="nav-link" href="#">Recent</a>
+      </li>
+      <li className="padding-3">
+        <a className="nav-link" href="#">Most Answered</a>
+      </li>
+      <li className="padding-3">
+        <a className="nav-link" href="#">Most Commented</a>
+      </li>
+      <li className="padding-3 ">
+        <a className="nav-link" href="popular.html">Popular</a>
+      </li>
+      <li className="padding-3">
+        <NavbarSearchField 
+          handleOnSearchFocus={props.handleOnSearchFocus}
+          handleOnSearchBlur={props.handleOnSearchBlur}
+        />
+      </li>
+      <li className="nav-item">
+        <button
+          type="button"
+          className="btn btn-success btn ask-button"
+          data-toggle="modal"
+          data-target="#new_question"
+        >
+          Ask a Question
+        </button>
+      </li>
+    </ul>
+  );
 };
 
 export default QuestionsNavContent;
