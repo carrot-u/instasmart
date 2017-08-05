@@ -89,3 +89,21 @@ A Q&A Forum for Instacart Employees
 - [ ] Implement ask question
 - [ ] Implement tag dropdown
 - [ ] Implement tag query database for selections
+- [ ] 
+
+## Notes and Ideas
+
+### Front End/UI
+- [ ] To transition or not to transition
+- [ ] Parting of the nav bar red sea
+- [ ] Navbar at mobile width 
+- [ ] Overall Font and Relative Sizing
+- [ ] Instamart Logo?
+- [ ] card styles
+- [ ] Search bar rounded corners should match Ask Question button
+- [ ] Ask and Search should be separate buttons, no?
+- [ ] body background color for contrast with nav
+- [ ] Nav item font size should be bigger in sm/md width
+- [ ] Remove text-decoration on hovered links (replace with darken of main instacart color?)
+- [ ] 
+- [ ] 
