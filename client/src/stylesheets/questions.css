@@ -78,7 +78,9 @@ body.fixed-nav nav {
     border-bottom: 1px solid rgba(20, 50, 40, 0.6);
     border-top: 0.5px solid rgba(20, 50, 40, 0.3);
     border-left: 0.5px solid rgba(20, 50, 40, 0.3);
-    box-shadow: 2px 2px 4px -2px rgba(20, 50, 40, 0.5); }
+    box-shadow: 2px 2px 4px -2px rgba(20, 50, 40, 0.5);
+    max-width: 40px;
+    max-height: 40px; }
     .navbar .navbar-logo:hover {
       box-shadow: 4px 4px 4px -2px rgba(20, 50, 40, 0.5); }
   .navbar input {
@@ -167,7 +169,7 @@ li.hide-nav {
 
 @media (min-width: 1096px) {
   input[type=search] {
-    width: 100px !important;
+    width: 110px !important;
     border-radius: 2px !important; }
   input[type=search]:focus {
     width: 550px  !important; } }
@@ -212,7 +214,7 @@ li.hide-nav {
 
 /******************************** Question index Content ***********************************/
 .question-index {
-  margin-top: 100px; }
+  margin-top: 10px; }
   .question-index .card {
     border-radius: 0px; }
   .question-index .question-summary {
@@ -220,4 +222,4 @@ li.hide-nav {
 
 @media (min-width: 768px) {
   .question-index {
-    margin-top: 80px; } }
+    margin-top: 10px; } }

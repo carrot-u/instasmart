@@ -1,6 +1,6 @@
 class QuestionSerializer < ActiveModel::Serializer
   attributes :id, :summary, :body, :user_id, :cached_votes_up, :cached_votes_down, :answers, :comments, :tags
-
+  
   private
 	  def answers
 	  	AnswerSerializer.new(object.answers).attributes
@@ -13,4 +13,5 @@ class QuestionSerializer < ActiveModel::Serializer
 	  def taggings
 	  	TaggingSerializer.new(object.taggings).attributes
 	  end
+
 end

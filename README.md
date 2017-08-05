@@ -60,7 +60,6 @@ A Q&A Forum for Instacart Employees
     - [ ] Edit permissions on questions/answers/comments, user profile  
 
 
-### Completed Tasks
 - [x] move `current_user` to application controller
 - [x] Add Google Image to User Auth Flow
 - [x] add view_count column to questions table
