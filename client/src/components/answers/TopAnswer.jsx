@@ -4,8 +4,7 @@ import React from 'react';
 const TopAnswer = props => {
   const showTopAnswer = 'response' in props.answer ? true : false;
   const answerBy = 'user' in props.answer ? 
-      (<div>Answered by {props.answer.user.name}  
-        (TODO: user name) on {props.answer.created_at}
+      (<div>Answered by {props.answer.user.name} on {props.answer.created_at}
        </div>) : 
       (<div> Answered on {props.answer.created_at}</div>);
   return(

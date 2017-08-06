@@ -41,11 +41,11 @@ A Q&A Forum for Instacart Employees
     - [x] Users (for questions, answers, comments)
     - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
     - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
-    - [ ] Optimizing comments for polymorphic associations
     - [ ] Why is the rendered json pulling all attributes despite the conditions set?
     - [ ] Why are new seralizer models not automatically pulling in attributes and associations?
     - [ ] Format timestamps in serializer
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+    - [ ] Streamilining comment controllers to support polymorphic associations
     - [ ] show method for users
     - [ ] remove landing page stuffs?
     - [ ] lazy instantiation revist
