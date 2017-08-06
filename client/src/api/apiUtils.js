@@ -1,3 +1,4 @@
+
 function _fetch(url, options) {
   return fetch(url, options)
     .then(response=>{
@@ -8,6 +9,7 @@ function _fetch(url, options) {
       console.log(err);
     });
 }
+
 
 export function get(url, options={}) {
 
@@ -27,7 +29,7 @@ export function post(url, payload, options) {
     method: 'POST',
     body: JSON.stringify(payload),
     headers: {
-      'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
+      // 'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
       'Accept':       'application/json',
       'Content-Type': 'application/json'
     },

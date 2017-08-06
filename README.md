@@ -47,6 +47,7 @@ A Q&A Forum for Instacart Employees
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
 - [ ] Add validations for all user input (8/7 -8/13)
 - [ ] Test and Optimize for Performance (8/14-21)
+- [ ] Find alternative solution for csrf or method for passing token 
 
 ### Smaller Tasks
 - [ ] Make sure spec files are working and passing (8/22)
@@ -74,17 +75,17 @@ A Q&A Forum for Instacart Employees
 - [ ] Tag cloud component
 - [ ] Make landing page banner component
 - [ ] Make landing page navbar component
-- [ ] Implement Questions index in react components
-- [ ] Create Navbar and make sticker
-- [ ] Create Question row components
+- [x] Implement Questions index in react components
+- [x] Create Navbar and make sticky
+- [x] Create Question row components
 - [ ] Create Like / unlike button component
-- [ ] Plug in redux to update store and perform API call
+    - [ ] Plug in redux to update store and perform API call
 - [ ] Create comment component button
-- [ ] Plug in redux to update store and perform API call
-- [ ] Create transitions to show field on click
-- [ ] Create Answer component button
-- [ ] Plug in redux to update store and perform API call
-- [ ] Create transitions to show field on click
+    - [ ] Plug in redux to update store and perform API call
+    - [ ] Create transitions to show field on click
+- [x] Create Answer component button
+    - [ ] Plug in redux to update store and perform API call
+    - [x] Create transitions to show field on click
 - [ ] Implement modal in react
 - [ ] Implement ask question
 - [ ] Implement tag dropdown

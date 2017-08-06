@@ -23,7 +23,8 @@ class QuestionIndex extends React.Component {
             <QuestionIndexRow 
               key={question.id} 
               question={question} 
-              showAnswerForm={true} />
+              showAnswerForm={true} 
+              createAnswer={this.props.actions.createAnswer} />
           );
         })
       : null;

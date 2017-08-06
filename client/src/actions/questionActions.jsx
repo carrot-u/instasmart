@@ -14,4 +14,15 @@ export function loadQuestions(){
     dispatch(api.getQuestions());
     dispatch(loadQuestionsStart());
 	};
+}
+
+export function createAnswerSuccess(updatedQuestion){
+  return { type: types.CREATE_ANSWER_SUCCESS, updatedQuestion };
 } 
+
+
+export function createAnswer(questionId, payload){
+  return dispatch => {
+    dispatch(api.answerQuestion(questionId, payload));
+  };
+}

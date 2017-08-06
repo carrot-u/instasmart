@@ -5,27 +5,54 @@ import IconStats from "../common/IconStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
 import QuestionAnswerForm from "./QuestionAnswerForm";
 import QuestionButtons from "./QuestionButtons";
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 class QuestionIndexRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAnswerForm: false
+      showAnswerForm: false,
+      answerResponse: null
     };
     this.onClickAnswer = this.onClickAnswer.bind(this);
+    this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
+    this.updateAnswerState = this.updateAnswerState.bind(this);
   }
 
-  onClickAnswer() {
+
+  /************** Answer Functions *********************/
+  onClickAnswer(e) {
+    e.preventDefault();
+    this.setState({ showAnswerForm: !this.state.showAnswerForm });
+  }
+
+  updateAnswerState(e){
+    this.setState({answerResponse: e.target.value});
+  }
+
+  handleSubmitAnswer(e){
+    e.preventDefault();
+    const payload = {
+      answer: {
+        response: this.state.answerResponse
+      }
+    };
+    this.props.createAnswer(this.props.question.id, payload);
     this.setState({ showAnswerForm: !this.state.showAnswerForm });
   }
 
   render() {
     const showAnswer = this.props.question.answers.length > 0
       ? <TopAnswer answer={this.props.question.answers[0]} />
-      : <h5>No answers submitted yet. Be the first!</h5>;
+      : <h6><i>No answers submitted yet. Be the first!</i></h6>;
 
-    const anwserForm = this.state.showAnswerForm ? <QuestionAnswerForm /> : null;
+    const anwserForm = this.state.showAnswerForm ? 
+      <QuestionAnswerForm 
+        handleHideForm={this.onClickAnswer}
+        handleSubmitAnswer={this.handleSubmitAnswer}
+        updateAnswerState={this.updateAnswerState}
+        /> 
+      : null;
 
     return (
       <div className="card d-block img-fluid mb-2">
@@ -48,8 +75,7 @@ class QuestionIndexRow extends React.Component {
             <ReactCSSTransitionGroup
               transitionName="form-transition"
               transitionEnterTimeout={300}
-              transitionLeaveTimeout={200}
-            >
+              transitionLeaveTimeout={200}>
               {anwserForm}
             </ReactCSSTransitionGroup>
         </div>
