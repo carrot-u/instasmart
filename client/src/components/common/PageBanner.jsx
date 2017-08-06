@@ -2,15 +2,20 @@ import React from "react";
 import StickyNavbar from "./StickyNavBar";
 import QuestionsNavContent from "../questions/QuestionsNavContent";
 import logo from "../../images/carrot_2.png";
+import NewQuestionModal from "./NewQuestionModal";
+
 
 class PageBanner extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      condenseNav: false
+      condenseNav: false,
+      showNewQuestionModal: false,
     };
     this.handleOnSearchFocus = this.handleOnSearchFocus.bind(this);
     this.handleOnSearchBlur = this.handleOnSearchBlur.bind(this);
+    this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
+    this.onToggleModal = this.onToggleModal.bind(this);
   }
 
   handleOnSearchFocus() {
@@ -21,6 +26,14 @@ class PageBanner extends React.Component {
   handleOnSearchBlur() {
     console.log("search is blur");
     this.setState({ condenseNav: false });
+  }
+
+  onClickNewQuestion(){
+    this.setState({ showNewQuestionModal: true });
+  }
+
+  onToggleModal(){
+    this.setState({ showNewQuestionModal: !this.state.showNewQuestionModal });
   }
 
   render() {
@@ -38,8 +51,15 @@ class PageBanner extends React.Component {
           <QuestionsNavContent 
             handleOnSearchFocus={this.handleOnSearchFocus}
             handleOnSearchBlur={this.handleOnSearchBlur}
+            onClickNewQuestion={this.onClickNewQuestion}
+          />
+          <NewQuestionModal 
+            isOpen={this.state.showNewQuestionModal} 
+            onToggleModal={this.onToggleModal}
           />
         </StickyNavbar>
+
+
       </div>
     );
   }

@@ -12,9 +12,10 @@ class QuestionIndex extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      questions: null
+      questions: null,
     };
   }
+
 
   render() {
     const listQuestions = this.props.questions.length > 0
