@@ -8,29 +8,29 @@ const initialState = {
 
 
 export default function questionsReducer(state = initialState, action){
-	switch(action.type){
-		case types.LOAD_QUESTIONS_SUCCESS:
-			return {...state,
-				questions: action.questions,
-				isLoading: false,
-			};
-		case types.LOAD_QUESTIONS_START:
-			return {...state, 
-				isLoading: true,
-			};
-		case types.CREATE_ANSWER_SUCCESS:
-		  const newQuestions = [
-		    ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
-		    Object.assign({}, action.updatedQuestion)
-		  ];
-		  return {
-		  	questions: newQuestions,
-		  	isLoading: state.isLoading,
-		  	error: state.error
-		  };
+  switch(action.type){
+    case types.LOAD_QUESTIONS_SUCCESS:
+      return {...state,
+        questions: action.questions,
+        isLoading: false,
+      };
+    case types.LOAD_QUESTIONS_START:
+      return {...state, 
+        isLoading: true,
+      };
+    case types.CREATE_ANSWER_SUCCESS:
+      const newQuestions = [
+        ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
+        Object.assign({}, action.updatedQuestion)
+      ];
+      return {
+        questions: newQuestions,
+        isLoading: state.isLoading,
+        error: state.error
+      };
 
 
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 }
