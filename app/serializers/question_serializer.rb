@@ -7,3 +7,4 @@ class QuestionSerializer < ActiveModel::Serializer
   has_many :taggings, include_nested_associations: true
 
 end
+
