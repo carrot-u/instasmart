@@ -5,6 +5,7 @@ class QuestionSerializer < ActiveModel::Serializer
   has_many :answers, include_nested_associations: true
   has_many :comments, include_nested_associations: true
   has_many :taggings, include_nested_associations: true
+  has_many :tags, include_nested_associations: true
 
 end
 
