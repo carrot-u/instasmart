@@ -1,21 +1,10 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :summary, :body, :user, :cached_votes_up, :cached_votes_down, :answers, :comments, :tags, :created_at
-  
-  private
-    def answers
-      AnswerSerializer.new(object.answers).attributes
-    end
+  attributes :id, :summary, :body, :user, :cached_votes_up, :cached_votes_down, :answers, :comments, :taggings, :created_at
 
-    def comments
-      CommentSerializer.new(object.comments).attributes
-    end
-
-    def taggings
-      TaggingSerializer.new(object.taggings).attributes
-    end
-
-	  def user
-	  	UserSerializer.new(object.user).attributes
-	  end
+  has_one :user
+  has_many :answers, include_nested_associations: true
+  has_many :comments, include_nested_associations: true
+  has_many :taggings, include_nested_associations: true
 
 end
+

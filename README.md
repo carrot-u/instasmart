@@ -38,17 +38,19 @@ A Q&A Forum for Instacart Employees
     - [x] Questions, Comments, Answers 
     - [x] Tags, Taggings
     - [x] _Temporarily_ rendering `questions#index` and `questions#show` as json to test seralizer success. For ease of use, we may be able to strip our views down to this as well.
-    - [ ] Users
+    - [x] Users (for questions, answers, comments)
     - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
-    - [ ] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
-    - [ ] Optimizing comments for polymorphic associations
+    - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
     - [ ] Why is the rendered json pulling all attributes despite the conditions set?
     - [ ] Why are new seralizer models not automatically pulling in attributes and associations?
     - [ ] Format timestamps in serializer
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+    - [ ] Streamilining comment controllers to support polymorphic associations
     - [ ] show method for users
     - [ ] remove landing page stuffs?
     - [ ] lazy instantiation revist
+    - [ ] seed DB with test data
+    - [ ] Can I move all the like/dislike methods to the application controller and use `@self`?
 - [ ] Add validations for all user input (8/7 -8/13)
     - [ ] only current_user can access edit on show page/ user profile page
 - [ ] Test and Optimize for Performance (8/14-21)
