@@ -10,7 +10,7 @@ const IndexQuestionDetail = props => {
       </div>
       <div className="col-md-2">
         <small className="float-right">
-          <i>Asked by {props.question.user_id} on {props.question.created_at} TODO: NEED USER NAME IN serializer</i>
+          <i>Asked by {props.question.user.name} on {props.question.created_at}</i>
         </small>
       </div>
     </div>

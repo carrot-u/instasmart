@@ -44,8 +44,13 @@ A Q&A Forum for Instacart Employees
     - [ ] Optimizing comments for polymorphic associations
     - [ ] Why is the rendered json pulling all attributes despite the conditions set?
     - [ ] Why are new seralizer models not automatically pulling in attributes and associations?
+    - [ ] Format timestamps in serializer
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+    - [ ] show method for users
+    - [ ] remove landing page stuffs?
+    - [ ] lazy instantiation revist
 - [ ] Add validations for all user input (8/7 -8/13)
+    - [ ] only current_user can access edit on show page/ user profile page
 - [ ] Test and Optimize for Performance (8/14-21)
 - [ ] Find alternative solution for csrf or method for passing token 
 
@@ -90,3 +95,24 @@ A Q&A Forum for Instacart Employees
 - [ ] Implement ask question
 - [ ] Implement tag dropdown
 - [ ] Implement tag query database for selections
+- [ ] 
+
+## Notes and Ideas
+
+### Front End
+- [ ] To transition or not to transition
+- [ ] Parting of the nav bar red sea
+- [ ] Navbar at mobile width 
+- [ ] Overall Font and Relative Sizing
+- [ ] Instamart Logo?
+- [ ] card styles
+- [ ] Search bar rounded corners should match Ask Question button
+- [ ] Ask and Search should be separate buttons, no?
+- [ ] body background color for contrast with nav
+- [ ] Nav item font size should be bigger in sm/md width
+- [ ] Remove text-decoration on hovered links (replace with darken of main instacart color?)
+- [ ] 
+
+### Back End
+- [ ] Remove Landing Page Controllers and Views?
+- [ ] Format date in serializer
