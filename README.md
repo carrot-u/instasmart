@@ -43,6 +43,7 @@ A Q&A Forum for Instacart Employees
     - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
     - [ ] Format timestamps in serializer
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+    - [ ] set tag_list params for create, edit, destroy 
     - [ ] Streamilining comment controllers to support polymorphic associations
     - [ ] show method for users
     - [ ] remove landing page stuffs?
@@ -56,6 +57,7 @@ A Q&A Forum for Instacart Employees
 - [ ] Find alternative solution for csrf or method for passing token 
 
 ### Smaller Tasks
+- [x] Add package-lock.json to .gitignore
 - [ ] Make sure spec files are working and passing (8/22)
 - [ ] Generate substantial fake data for testing (8/14)
 - [ ] Tag Cloud Functionality Testing (Does it not work because we don't have enough data?)(8/14)
@@ -119,3 +121,4 @@ A Q&A Forum for Instacart Employees
 - [ ] Format date in serializer
 - [ ] change tagging delimiter from comma to space
 - [ ] should tagging convention be hyphens or underscore?
+- [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
