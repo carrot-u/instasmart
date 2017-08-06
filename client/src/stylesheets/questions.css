@@ -56,19 +56,19 @@ body.fixed-nav nav {
     max-width: 0;
     padding: 0;
     background: white;
-    transition: ease-out 0.4s; }
+    transition: ease-out 0.2s; }
   .navbar .hide-nav {
     opacity: 1;
     max-width: 500px;
     padding-right: 2rem;
-    transition: ease-out 0.4s; }
+    transition: ease-out 0.2s; }
   .navbar .fixed-nav a.hide-nav {
     opacity: 0;
     overflow: hidden;
     max-width: 0;
     padding: 0;
     background: white;
-    transition: ease-out 0.4s;
+    transition: ease-out 0.2s;
     font-size: 1px; }
   .navbar .navbar-logo {
     background-color: white;

@@ -19,7 +19,13 @@ class QuestionIndex extends React.Component {
   render() {
     const listQuestions = this.props.questions.length > 0
       ? this.props.questions.map(question => {
-          return <QuestionIndexRow key={question.id} question={question} />;
+          return (
+            <QuestionIndexRow 
+              key={question.id} 
+              question={question} 
+              showAnswerForm={true} 
+              createAnswer={this.props.actions.createAnswer} />
+          );
         })
       : null;
 

@@ -26,7 +26,8 @@ const TopAnswer = props => {
             </div>
             <small><a href=""> See All Answers</a></small>
           </div>
-         </div>)}
+         </div>)
+      }
    </div>
   );
 }

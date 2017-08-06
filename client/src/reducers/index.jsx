@@ -3,7 +3,7 @@ import questionsReducer from './questionsReducer';
 
 
 const rootReducer = combineReducers({
-	questions: questionsReducer,
+  questions: questionsReducer,
 });
 
 export default rootReducer;
