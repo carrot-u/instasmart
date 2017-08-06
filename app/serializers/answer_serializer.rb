@@ -3,8 +3,5 @@ class AnswerSerializer < ActiveModel::Serializer
 
 has_one :user
 has_many :comments
-  # private
-		# def user
-		# 	UserSerializer.new(object.user).attributes
-		# end
+
 end

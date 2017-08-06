@@ -1,7 +1,7 @@
 import React from 'react';
 
 const QuestionIndexTags = props => {
-  const tags = props.question.tags.map(tag => {
+  const tags = props.question.taggings.map(tag => {
     return (
       <h6 key={tag.id} className="pr-1">
         <span className="badge badge-warning">{tag.name}</span>
