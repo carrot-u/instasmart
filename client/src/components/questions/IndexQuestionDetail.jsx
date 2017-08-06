@@ -1,6 +1,11 @@
 import React from 'react';
 
 const IndexQuestionDetail = props => {
+  const askedBy = props.question.user ? 
+    (<i>Asked by {props.question.user.name} on {props.question.created_at}</i>) 
+    :
+    (<i>Asked on {props.question.created_at}</i>);
+
   return (
     <div className="row">
       <div className="col-md-10">
@@ -10,7 +15,7 @@ const IndexQuestionDetail = props => {
       </div>
       <div className="col-md-2">
         <small className="float-right">
-          <i>Asked by {props.question.user.name} on {props.question.created_at}</i>
+          {askedBy}
         </small>
       </div>
     </div>

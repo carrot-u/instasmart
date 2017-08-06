@@ -32,7 +32,9 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <PageBanner />
+        <PageBanner
+          actions={this.props.actions}
+        />
         <div className="container question-index">
           {listQuestions}
         </div>

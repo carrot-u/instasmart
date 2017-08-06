@@ -1,5 +1,7 @@
-import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React from "react";
+import TextArea from './TextArea';
+import TextInput from './TextInput';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class NewQuestionModal extends React.Component {
   constructor(props) {
@@ -10,10 +12,9 @@ class NewQuestionModal extends React.Component {
     this.changeBackdrop = this.changeBackdrop.bind(this);
   }
 
-
   changeBackdrop(e) {
     let value = e.target.value;
-    if (value !== 'static') {
+    if (value !== "static") {
       value = JSON.parse(value);
     }
     this.setState({ backdrop: value });
@@ -22,32 +23,58 @@ class NewQuestionModal extends React.Component {
   render() {
     return (
       <div>
-        <Modal isOpen={this.props.isOpen} toggle={this.props.onToggleModal} className="modal-dialog question-modal">
-          <ModalHeader toggle={this.toggle}>{this.props.modalHeader} </ModalHeader>
+        <Modal
+          isOpen={this.props.isOpen}
+          toggle={this.props.onToggleModal}
+          className="modal-dialog question-modal"
+        >
+          <ModalHeader toggle={this.toggle}>
+            {this.props.modalHeader}{" "}
+          </ModalHeader>
           <ModalBody>
             <form>
-              <label htmlFor="question_summary" className="h3"><b>Question</b></label>
-              <textarea 
-                className="form-control mb-4" 
-                id="question_summary" rows="3" 
-                placeholder="Ask your question" />
+              <TextArea
+                label="Question"
+                labelClass="h3"
+                className="form-control mb-4"
+                name="summary"
+                rows="3"
+                placeholder={"Ask your question..."}
+                onChange={this.props.onChange}
+                error={this.props.errors.summary}
+              />
 
-              <label htmlFor="question_body" className="h5"><b>Details</b></label><small> optional</small>
-              <textarea 
-                className="form-control mb-1" 
-               id="question_body"
-               rows="4"
-               placeholder="Add Question Details" />
-              <label htmlFor="question_body" className="h5"><b>Tags</b></label><small> optional</small>
-              <input
-               className="form-control tag-entry " 
-               placeholder='"Happiness", "Culture", etc...' 
-               rows="1" />
+              <TextArea
+                label="Details"
+                labelClass="h5"
+                optional={true}
+                className="form-control mb-1"
+                name="body"
+                rows="4"
+                placeholder="Add Question Details..."
+                onChange={this.props.onChange}
+                error={this.props.errors.body}
+
+              />
+
+              <TextInput
+                label="Tags"
+                labelClass="h5"
+                optional={true}
+                className="form-control mb-1"
+                name="tag_list"
+                placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."
+                onChange={this.props.onChange}
+                error={this.props.errors.tags}
+
+              />
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="success" onClick={this.onSubmit}>Submit</Button>{' '}
-            <Button color="secondary" onClick={this.props.onToggleModal}>Cancel</Button>
+            <Button color="success" onClick={this.props.onSubmit}>Submit</Button>{" "}
+            <Button color="secondary" onClick={this.props.onToggleModal}>
+              Cancel
+            </Button>
           </ModalFooter>
         </Modal>
       </div>

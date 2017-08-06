@@ -19,6 +19,14 @@ export function answerQuestion(questionId, payload){
   };
 }
 
+export function newQuestion(payload){
+  return function(dispatch){
+      utils.post(`/questions`, payload).then(question => {
+        dispatch(actions.createQuestionSuccess(question));
+      });
+  };
+}
+
 // return question with answers and comments
 export function getQuestionById(id){
   utils.get(`/questions/${id}`).then(json=>{
