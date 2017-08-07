@@ -7,5 +7,8 @@ class QuestionSerializer < ActiveModel::Serializer
   has_many :taggings, include_nested_associations: true
   has_many :tags, include_nested_associations: true
 
+  def created_at
+  	self.object.created_at.strftime("%Y/%m/%d %H:%M:%S")
+  end
 end
 
