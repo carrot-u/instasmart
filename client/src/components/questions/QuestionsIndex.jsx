@@ -18,7 +18,7 @@ class QuestionIndex extends React.Component {
 
 
   render() {
-    const listQuestions = this.props.questions.length > 0
+    const listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {
           return (
             <QuestionIndexRow 
@@ -28,7 +28,7 @@ class QuestionIndex extends React.Component {
               createAnswer={this.props.actions.createAnswer} />
           );
         })
-      : null;
+      : <h2><i> No Questions Avaliable </i></h2>;
 
     return (
       <div>
