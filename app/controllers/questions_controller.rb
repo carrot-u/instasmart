@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
 	before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike, :undislike]
+	before_action :set_tag_list, only: [:create, :update, :destroy]
 	respond_to :html, :json
 
 	def index
@@ -113,8 +114,12 @@ class QuestionsController < ApplicationController
 			end
  		end
 
+ 		def set_tag_list
+ 			@question.tag_list = params[:tag_list]
+ 		end
+
 
 		def question_params
-			params.require(:question).permit(:summary, :body, :tag_list)
+			params.require(:question).permit(:summary, :body, :tag_list, :user)
 		end
 end

@@ -5,6 +5,7 @@ import logo from "../../images/carrot_2.png";
 import NewQuestionModal from "./NewQuestionModal";
 
 
+
 class PageBanner extends React.Component {
   constructor(props) {
     super(props);

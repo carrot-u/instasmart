@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
   end
 
   def show
+    render json: @answer
   end
 
   def edit
@@ -76,6 +77,10 @@ class AnswersController < ApplicationController
         raise "Question id must be provided" unless params[:question_id]
         Question.find(params[:question_id])
       end
+    end
+
+    def answer_to_json
+      render json: @answer
     end
 
 end
