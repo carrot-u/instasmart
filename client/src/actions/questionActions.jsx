@@ -26,3 +26,13 @@ export function createAnswer(questionId, payload){
     dispatch(api.answerQuestion(questionId, payload));
   };
 }
+
+export function createQuestionSuccess(newQuestion){
+  return { type: types.CREATE_QUESTION_SUCCESS, newQuestion };
+} 
+
+export function createQuestion(payload){
+  return dispatch => {
+    dispatch(api.newQuestion(payload));
+  };
+}

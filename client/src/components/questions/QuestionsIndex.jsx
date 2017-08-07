@@ -12,9 +12,10 @@ class QuestionIndex extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      questions: null
+      questions: null,
     };
   }
+
 
   render() {
     const listQuestions = (this.props.questions && this.props.questions.length > 0)
@@ -27,11 +28,13 @@ class QuestionIndex extends React.Component {
               createAnswer={this.props.actions.createAnswer} />
           );
         })
-      : null;
+      : <h2><i> No Questions Avaliable </i></h2>;
 
     return (
       <div>
-        <PageBanner />
+        <PageBanner
+          actions={this.props.actions}
+        />
         <div className="container question-index">
           {listQuestions}
         </div>

@@ -18,6 +18,15 @@ export default function questionsReducer(state = initialState, action){
       return {...state, 
         isLoading: true,
       };
+    case types.CREATE_QUESTION_SUCCESS:
+      return {
+        questions: [
+          ...state.questions,
+          Object.assign({}, action.newQuestion)
+        ],
+        isLoading: state.isLoading,
+        error: state.error
+      };
     case types.CREATE_ANSWER_SUCCESS:
       const newQuestions = [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
