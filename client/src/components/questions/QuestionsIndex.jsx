@@ -17,7 +17,7 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
-    const listQuestions = this.props.questions.length > 0
+    const listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {
           return (
             <QuestionIndexRow 

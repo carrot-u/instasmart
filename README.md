@@ -41,15 +41,16 @@ A Q&A Forum for Instacart Employees
     - [x] Users (for questions, answers, comments)
     - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
     - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
-    - [ ] Why is the rendered json pulling all attributes despite the conditions set?
-    - [ ] Why are new seralizer models not automatically pulling in attributes and associations?
     - [ ] Format timestamps in serializer
+    - [ ] Add auth tokens to users serializer
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
+    - [ ] set tag_list params for create, edit, destroy 
     - [ ] Streamilining comment controllers to support polymorphic associations
     - [ ] show method for users
     - [ ] remove landing page stuffs?
     - [ ] lazy instantiation revist
-    - [ ] seed DB with test data
+    - [x] seed DB with test data
+        - [ ] Add more with Faker if needed
     - [ ] Can I move all the like/dislike methods to the application controller and use `@self`?
 - [ ] Add validations for all user input (8/7 -8/13)
     - [ ] only current_user can access edit on show page/ user profile page
@@ -57,6 +58,7 @@ A Q&A Forum for Instacart Employees
 - [ ] Find alternative solution for csrf or method for passing token 
 
 ### Smaller Tasks
+- [x] Add package-lock.json to .gitignore
 - [ ] Make sure spec files are working and passing (8/22)
 - [ ] Generate substantial fake data for testing (8/14)
 - [ ] Tag Cloud Functionality Testing (Does it not work because we don't have enough data?)(8/14)
@@ -113,8 +115,11 @@ A Q&A Forum for Instacart Employees
 - [ ] body background color for contrast with nav
 - [ ] Nav item font size should be bigger in sm/md width
 - [ ] Remove text-decoration on hovered links (replace with darken of main instacart color?)
-- [ ] 
+- [ ] change tagging delimiter from comma to space
 
 ### Back End
 - [ ] Remove Landing Page Controllers and Views?
 - [ ] Format date in serializer
+- [ ] change tagging delimiter from comma to space
+- [ ] should tagging convention be hyphens or underscore?
+- [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
