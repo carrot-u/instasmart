@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarSearchField from '../common/NavbarSearchField';
-import logo from '../../images/carrot_2.png';
+import logo from '../../images/carrot.png';
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import StickyNavbar from "./StickyNavBar";
 import QuestionsNavContent from "../questions/QuestionsNavContent";
-import logo from "../../images/carrot_2.png";
+import logo from "../../images/carrot.png";
 import NewQuestionModal from "./NewQuestionModal";
 
 
