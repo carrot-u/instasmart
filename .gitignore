@@ -20,4 +20,8 @@
 /config/application.yml
 
 /client/node_modules
-/package-lock.json
+
+
+package-lock.json
+public/
+

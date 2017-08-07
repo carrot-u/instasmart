@@ -110,7 +110,7 @@ A Q&A Forum for Instacart Employees
 - [ ] Overall Font and Relative Sizing
 - [ ] Instamart Logo?
 - [ ] card styles
-- [ ] Search bar rounded corners should match Ask Question button
+- [x] Search bar rounded corners should match Ask Question button
 - [ ] Ask and Search should be separate buttons, no?
 - [ ] body background color for contrast with nav
 - [ ] Nav item font size should be bigger in sm/md width

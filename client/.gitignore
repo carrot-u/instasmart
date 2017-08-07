@@ -23,3 +23,5 @@ yarn-error.log*
 
 # not using customized config currently
 webpack.config.dev.js
+
+package-lock.json

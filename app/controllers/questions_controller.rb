@@ -36,11 +36,14 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = Question.new(question_params)
+		logger.debug "Current user: #{current_user}"
     @question.user = current_user
+    @question.tag_list = params[:tag_list]
+
 		respond_to do |format|
 			if @question.save!
 			  format.html { redirect_to questions_path }
-			  format.json { render result: "success!"}
+			  format.json { render json: @question}
 			else
 			  format.html { render :new }
 			  format.json { render json: @question.errors, status: :unprocessable_entity }
