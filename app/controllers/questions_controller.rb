@@ -115,7 +115,9 @@ class QuestionsController < ApplicationController
  		end
 
  		def set_tag_list
- 			@question.tag_list = params[:tag_list]
+ 			if !params[:tag_list].nil?
+ 				@question.tag_list = params[:tag_list]
+ 			end
  		end
 
 
