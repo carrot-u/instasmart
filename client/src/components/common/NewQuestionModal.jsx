@@ -36,7 +36,7 @@ class NewQuestionModal extends React.Component {
               <TextArea
                 label="Question"
                 labelClass="h3"
-                className="form-control mb-4"
+                className="form-control"
                 name="summary"
                 rows="3"
                 placeholder={"Ask your question..."}
@@ -48,7 +48,7 @@ class NewQuestionModal extends React.Component {
                 label="Details"
                 labelClass="h5"
                 optional={true}
-                className="form-control mb-1"
+                className="form-control"
                 name="body"
                 rows="4"
                 placeholder="Add Question Details..."
@@ -61,7 +61,7 @@ class NewQuestionModal extends React.Component {
                 label="Tags"
                 labelClass="h5"
                 optional={true}
-                className="form-control mb-1"
+                className="form-control"
                 name="tag_list"
                 placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."
                 onChange={this.props.onChange}

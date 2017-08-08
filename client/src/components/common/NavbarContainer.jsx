@@ -1,7 +1,8 @@
 import React from "react";
 import StickyNavbar from "./StickyNavBar";
 import QuestionsNavContent from "../questions/QuestionsNavContent";
-import NewQuestionModal from "./NewQuestionModal";
+import QuestionModalContainer from "./QuestionModalContainer";
+
 
 
 class NavbarContainer extends React.Component {
@@ -22,9 +23,6 @@ class NavbarContainer extends React.Component {
     this.handleOnSearchBlur = this.handleOnSearchBlur.bind(this);
     this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
     this.onToggleModal = this.onToggleModal.bind(this);
-    this.updateQuestionState = this.updateQuestionState.bind(this);
-    this.submitQuestion = this.submitQuestion.bind(this);
-    this.questionFormIsValid = this.questionFormIsValid.bind(this);
   }
 
   handleOnSearchFocus() {
@@ -45,38 +43,6 @@ class NavbarContainer extends React.Component {
     this.setState({ showNewQuestionModal: !this.state.showNewQuestionModal });
   }
 
-  updateQuestionState(event) {
-    const field = event.target.name;
-    let newQuestion = Object.assign({}, this.state.newQuestion);
-    newQuestion[field] = event.target.value;
-    return this.setState({newQuestion: newQuestion});
-  }
-
-  questionFormIsValid(){
-    let formIsValid = true;
-    let errors = {};
-
-    if (this.state.newQuestion.summary.length < 10) {
-      errors.summary = 'The question must be at least 10 characters.';
-      formIsValid = false;
-    }
-
-    this.setState({errors: errors});
-    return formIsValid;
-  }
-
-
-  submitQuestion(event) {
-    event.preventDefault();
-    if (!this.questionFormIsValid()) {
-      return;
-    }
-    this.setState({saving: true});
-
-    this.props.actions.createQuestion(this.state.newQuestion);
-    this.onToggleModal();
-  }
-
   render() {
     return (
       <StickyNavbar
@@ -87,12 +53,11 @@ class NavbarContainer extends React.Component {
           handleOnSearchBlur={this.handleOnSearchBlur}
           onClickNewQuestion={this.onClickNewQuestion}
         />
-        <NewQuestionModal 
-          isOpen={this.state.showNewQuestionModal} 
+        <QuestionModalContainer
+          onClickNewQuestion={this.onClickNewQuestion}
           onToggleModal={this.onToggleModal}
-          onChange={this.updateQuestionState}
-          onSubmit={this.submitQuestion}
-          errors={this.state.errors}
+          showNewQuestionModal={this.state.showNewQuestionModal}
+          actions={this.props.actions}
         />
       </StickyNavbar>
     );

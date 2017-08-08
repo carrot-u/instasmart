@@ -212,6 +212,10 @@ li.hide-nav {
       height: 100px; } }
 
 /******************************** Question index Content ***********************************/
+.loading-questions {
+  font-size: 2em;
+  color: green; }
+
 .question-index {
   margin-top: 10px; }
   .question-index .card {
@@ -222,6 +226,54 @@ li.hide-nav {
 @media (min-width: 768px) {
   .question-index {
     margin-top: 10px; } }
+
+/*Move down content because we have a fixed navbar that is 50px tall */
+.instacart-green {
+  background-color: #68BF54 !important; }
+
+.text_color {
+  color: #fff; }
+
+.form-group {
+  padding: 10px;
+  align-content: center; }
+
+.display-3 {
+  font-family: 'Muli', sans-serif;
+  /*  font-family: 'Montserrat', sans-serif;    
+*/ }
+
+footer {
+  /*background-color: white; */ }
+
+body,
+.landing-page {
+  height: 100%;
+  padding-bottom: 0px;
+  font-family: 'Muli', sans-serif;
+  /*font-family: 'Montserrat', sans-serif;*/ }
+  body .overlay,
+  .landing-page .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    height: 100%; }
+  body .jumbotron,
+  .landing-page .jumbotron {
+    margin-top: 50px;
+    background-color: transparent;
+    background-size: cover;
+    /*opacity: .9;*/
+    /*filter: alpha(opacity=50);*/
+    text-shadow: 1.5px 1px 0 black;
+    padding-bottom: 1em; }
+
+.landing-page {
+  background: url("../images/carrots.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+.profile_thumbnail {
+  width: 55px;
+  height: 55px; }
 
 /**************** form transitions ******************/
 .form-transition-enter {

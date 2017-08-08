@@ -1,18 +1,22 @@
 import React from "react";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import "./stylesheets/App.css";
 import QuestionsIndex from './components/questions/QuestionsIndex';
+import LandingPage from './components/landing_page/LandingPage';
+
 
 
 const App = () => {
 
     return (
       <Router>
-        <div>
-          <Route exact path="/" component={QuestionsIndex} />
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path='/questions' component={QuestionsIndex}/>
+          
 
-        </div>
+        </Switch>
       </Router>
     );
 }

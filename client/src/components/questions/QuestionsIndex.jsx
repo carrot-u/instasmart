@@ -18,7 +18,17 @@ class QuestionIndex extends React.Component {
 
 
   render() {
-    const listQuestions = (this.props.questions && this.props.questions.length > 0)
+    let listQuestions = null;
+    if (this.props.isLoading){
+      listQuestions = (<div className="container loading-questions row mt-4">
+              <div className="col-3 offset-5">
+                <i className="fa fa-spinner fa-spin fa-4x fa-fw mb-3"></i>
+                {' '}Loading...
+              </div>          
+            </div>);
+
+    } else {
+      listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {
           return (
             <QuestionIndexRow 
@@ -28,7 +38,9 @@ class QuestionIndex extends React.Component {
               createAnswer={this.props.actions.createAnswer} />
           );
         })
-      : <h2><i> No Questions Avaliable </i></h2>;
+      : <i>No Questions available</i>;
+    }
+
 
     return (
       <div>
