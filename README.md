@@ -42,9 +42,9 @@ A Q&A Forum for Instacart Employees
     - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
     - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
     - [ ] Format timestamps in serializer
-    - [ ] Add auth tokens to users serializer
+    - [x] Add auth tokens to users serializer
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
-    - [ ] set tag_list params for create, edit, destroy 
+    - [x] allow both tag and tagless questions through controller
     - [ ] Streamilining comment controllers to support polymorphic associations
     - [ ] show method for users
     - [ ] remove landing page stuffs?
