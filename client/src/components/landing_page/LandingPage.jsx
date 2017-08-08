@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 import Jumbotron from './Jumbotron';
 import QuestionModalContainer from '../common/QuestionModalContainer';
 import * as questionActions from "../../actions/questionActions";
+import LandingNavbar from './LandingNavbar';
 
 
 
@@ -32,6 +33,7 @@ class LandingPage extends React.Component{
     return(
       <div className="landing-page">
         <div className="overlay">
+          <LandingNavbar />
           <Jumbotron 
             onClickNewQuestion={this.onClickNewQuestion}
           />
