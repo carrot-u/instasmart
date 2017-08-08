@@ -4,10 +4,6 @@
 
  /******************* ADD QUESTION MODAL **********************************/
 
-body{
-  background-color: red;
-}
-
 .question-modal{
   .modal-content, .modal-body{
     border-radius: 0px;
@@ -20,6 +16,8 @@ body{
     padding-top: 10px;
     padding-bottom: 5px;
     border: none;
+    background-color: green;
+
   }
 
   form{
@@ -222,7 +220,8 @@ li.hide-nav {
   }
   input[type=search]{
     width: 110px !important;
-    border-radius: 2px !important;
+    border-radius: .25rem !important;
+    height: 40px !important;
   }
   input[type=search]:focus{
     width: 550px  !important;
@@ -276,8 +275,8 @@ li.hide-nav {
       font-size: $banner-text-lg;
     }
     .banner-image{
-      width: 75px;
-      height: 100px;
+      width: $banner-width-lg;
+      height: $banner-height-lg;
     }
   }
 }

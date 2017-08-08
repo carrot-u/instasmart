@@ -1,8 +1,5 @@
 /***************** Offsets **********************/
 /******************* ADD QUESTION MODAL **********************************/
-body {
-  background-color: red; }
-
 .question-modal .modal-content, .question-modal .modal-body {
   border-radius: 0px;
   border: none; }
@@ -12,7 +9,8 @@ body {
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 5px;
-  border: none; }
+  border: none;
+  background-color: green; }
 
 .question-modal form textarea {
   border-radius: 0px;
@@ -170,7 +168,8 @@ li.hide-nav {
 @media (min-width: 1096px) {
   input[type=search] {
     width: 110px !important;
-    border-radius: 2px !important; }
+    border-radius: .25rem !important;
+    height: 40px !important; }
   input[type=search]:focus {
     width: 550px  !important; } }
 
@@ -209,8 +208,8 @@ li.hide-nav {
     .banner .banner-text {
       font-size: 96px; }
     .banner .banner-image {
-      width: 75px;
-      height: 100px; } }
+      width: 150px;
+      height: 150px; } }
 
 /******************************** Question index Content ***********************************/
 .question-index {

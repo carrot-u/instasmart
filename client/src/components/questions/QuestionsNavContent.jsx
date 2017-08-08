@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarSearchField from '../common/NavbarSearchField';
-import logo from '../../images/carrot_2.png';
+import logo from '../../images/carrot.png';
 
 
 
@@ -32,12 +32,11 @@ const QuestionsNavContent = props => {
       </li>
       <li className="nav-item">
         <button
-          type="button"
+          onClick={props.onClickNewQuestion}
           className="btn btn-success btn ask-button"
-          data-toggle="modal"
-          data-target="#new_question"
         >
           Ask a Question
+
         </button>
       </li>
     </ul>
