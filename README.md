@@ -43,6 +43,7 @@ A Q&A Forum for Instacart Employees
     - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
     - [ ] Format timestamps in serializer
     - [x] Add auth tokens to users serializer
+    - [ ] VIEW COUNTS!!!
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
     - [x] allow both tag and tagless questions through controller
     - [ ] Streamilining comment controllers to support polymorphic associations
@@ -126,3 +127,7 @@ A Q&A Forum for Instacart Employees
 - [ ] change tagging delimiter from comma to space
 - [ ] should tagging convention be hyphens or underscore?
 - [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
+- [ ] 
+
+### Which end is up?
+- [ ] slugs in the show page urls?

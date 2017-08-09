@@ -1,7 +1,7 @@
 class AnswerSerializer < ActiveModel::Serializer
-  attributes :id, :response, :user, :accepted, :cached_votes_up, :cached_votes_down, :created_at, :comments
+  attributes :id, :response, :accepted, :cached_votes_up, :cached_votes_down, :created_at
 
-has_one :user
-has_many :comments
+	has_one :user
+	has_many :comments
 
 end
