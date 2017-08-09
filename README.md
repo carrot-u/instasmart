@@ -46,13 +46,16 @@ A Q&A Forum for Instacart Employees
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
     - [x] allow both tag and tagless questions through controller
     - [ ] Streamilining comment controllers to support polymorphic associations
-    - [ ] show method for users
+    - [ ] users controller 
+        - [ ] show method for users
+        - [ ] include :questions, :answers, :comments as activity
     - [ ] remove landing page stuffs?
     - [ ] lazy instantiation revist
     - [x] seed DB with test data
         - [ ] Add more with Faker if needed
     - [ ] Can I move all the like/dislike methods to the application controller and use `@self`?
-- [ ] Add validations for all user input (8/7 -8/13)
+    - [ ] Does the serializer trump the need for precompile/eager loading?
+- [ ] Add validations for all user input (8/7 -8/13) (or is this client?)
     - [ ] only current_user can access edit on show page/ user profile page
 - [ ] Test and Optimize for Performance (8/14-21)
 - [ ] Find alternative solution for csrf or method for passing token 
