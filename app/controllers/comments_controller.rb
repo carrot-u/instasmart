@@ -1,9 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update]
 
+ 
+  # def index
+  #   @comments = @commentable.comments
+  # end
 
-  def index
-    @comments = @commentable.comments
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def create
