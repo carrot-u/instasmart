@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   acts_as_voter
   acts_as_tagger
 
+  def self.default_scope
+    where(active: true).order("name ASC")
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
