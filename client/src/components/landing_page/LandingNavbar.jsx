@@ -1,5 +1,5 @@
 import React from 'react';
-import * as api from '../../api/apiUtils';
+// import * as api from '../../api/apiUtils';
 
 class LandingNavbar extends React.Component{
   constructor(props) {

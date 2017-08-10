@@ -11,7 +11,7 @@ const LandingPageCardsContainer = props => {
                <p>Test your expertise and check out our top questions!</p>
                <p className="card-text">
                </p>
-               <a href="#" className="btn btn-primary">Answer</a>
+               <a href="" className="btn btn-primary">Answer</a>
              </div>
              <div className="card-footer">
              </div>
@@ -20,7 +20,7 @@ const LandingPageCardsContainer = props => {
              <div className="card-block">
                <h3 className="card-title">Popular Tags</h3>
                <p className="card-text">Explore popular tags on InstaSmart</p>
-               <a href="#" className="btn btn-primary">Check it out</a>
+               <a href="" className="btn btn-primary">Check it out</a>
              </div>
              <div className="card-footer">
              </div>

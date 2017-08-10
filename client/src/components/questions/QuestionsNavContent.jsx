@@ -13,13 +13,13 @@ const QuestionsNavContent = props => {
         </a>
       </li>
       <li className="padding-3">
-        <a className="nav-link" href="#">Recent</a>
+        <a className="nav-link" href="">Recent</a>
       </li>
       <li className="padding-3">
-        <a className="nav-link" href="#">Most Answered</a>
+        <a className="nav-link" href="">Most Answered</a>
       </li>
       <li className="padding-3">
-        <a className="nav-link" href="#">Most Commented</a>
+        <a className="nav-link" href="">Most Commented</a>
       </li>
       <li className="padding-3 ">
         <a className="nav-link" href="popular.html">Popular</a>

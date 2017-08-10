@@ -4,9 +4,7 @@ import NavbarContainer from './NavbarContainer';
 
 
 class PageBanner extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
   render(){
     return(
       <div className="banner">
