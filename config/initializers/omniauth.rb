@@ -18,7 +18,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       fetch_info: true,
       image_aspect_ratio: "square",
       image_size: 50,
-      client_id: ENV["INSTASMART_GAUTH_CLIENT_ID"],
+      client_id: ENV["HEROKU_OAUTH_ID"],
       hd: 'instacart.com',
       client_options:
       {ssl:
