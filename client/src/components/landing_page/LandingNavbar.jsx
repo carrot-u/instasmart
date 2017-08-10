@@ -1,6 +1,18 @@
 import React from 'react';
+import * as api from '../../api/apiUtils';
 
 class LandingNavbar extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      signedIn: false
+    };
+    this.onClickSignIn = this.onClickSignIn.bind(this);
+  }
+
+  onClickSignIn(){
+    api.get("/auth/google_oauth2");
+  }
 
   render(){
     return(
@@ -8,41 +20,40 @@ class LandingNavbar extends React.Component{
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="#">InstaSmart</a>
+        <a className="navbar-brand" href="">InstaSmart</a>
 
         <div className="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+              <a className="nav-link" href="">Home <span className="sr-only">(current)</span></a>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
+              <a className="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
                <div className="dropdown-menu" aria-labelledby="dropdown01">
-                <a className="dropdown-item" href="#">Ask a Question</a>
-                <a className="dropdown-item" href="#">Top Questions</a>
-                <a className="dropdown-item" href="#">Unanswered Questions</a>
-                <a className="dropdown-item" href="#">By Category</a>
-                 <a className="dropdown-item" href="#">By Tag</a>
+                <a className="dropdown-item" href="">Ask a Question</a>
+                <a className="dropdown-item" href="">Top Questions</a>
+                <a className="dropdown-item" href="">Unanswered Questions</a>
+                <a className="dropdown-item" href="">By Category</a>
+                 <a className="dropdown-item" href="">By Tag</a>
                 </div>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>
+              <a className="nav-link dropdown-toggle" href="" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>
               <div className="dropdown-menu" aria-labelledby="dropdown01">
-                <a className="dropdown-item" href="#">Search Tags</a>
-                <a className="dropdown-item" href="#">Popular Tags</a>
+                <a className="dropdown-item" href="">Search Tags</a>
+                <a className="dropdown-item" href="">Popular Tags</a>
                 </div>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
               <div className="dropdown-menu" aria-labelledby="dropdown01">
-                <a className="dropdown-item" href="#">Search by Username</a>
-                <a className="dropdown-item" href="#">Register</a>
+                <a className="dropdown-item" href="">Search by Username</a>
+                <a className="dropdown-item" href="">Register</a>
               </div>
             </li>
           </ul>
 
-
-              <button id="sign_in" className="btn btn-warning" >Sign in</button>
+              <button id="signinButton" className="btn btn-warning" onClick={this.onClickSignIn}>Sign in</button>
           </div>
       </nav>
 

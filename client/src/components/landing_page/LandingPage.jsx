@@ -8,6 +8,7 @@ import Jumbotron from './Jumbotron';
 import QuestionModalContainer from '../common/QuestionModalContainer';
 import * as questionActions from "../../actions/questionActions";
 import LandingNavbar from './LandingNavbar';
+import LandingPageCardsContainer from './LandingPageCardsContainer';
 
 
 
@@ -43,6 +44,8 @@ class LandingPage extends React.Component{
             showNewQuestionModal={this.state.showNewQuestionModal}
             actions={this.props.actions}
           />
+          <LandingPageCardsContainer />
+
         </div>
       </div>
     );
