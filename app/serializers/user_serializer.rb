@@ -1,10 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :image, :email, :oauth_token, :oauth_expires_at, :user_activity
 
-  # has_many :questions
-  # has_many :answers
-  # has_many :comments
-
 def user_activity
   activity = []
 
