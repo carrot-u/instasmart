@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :summary, :body, :user, :cached_votes_up, :cached_votes_down, :answers, :comments, :taggings, :tags, :created_at
+  attributes :id, :summary, :body, :created_at, :cached_votes_up, :cached_votes_down, :views_count
 
   has_one :user
   has_many :answers, include_nested_associations: true
