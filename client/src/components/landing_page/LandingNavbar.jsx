@@ -11,7 +11,7 @@ class LandingNavbar extends React.Component{
   }
 
   onClickSignIn(){
-    api.get("/auth/google_oauth2");
+    // api.post("/auth/google_oauth2");
   }
 
   render(){
@@ -53,7 +53,7 @@ class LandingNavbar extends React.Component{
             </li>
           </ul>
 
-              <button id="signinButton" className="btn btn-warning" onClick={this.onClickSignIn}>Sign in</button>
+              <button id="signinButton" className="btn btn-warning googleplus-login" onClick={this.onClickSignIn}>Sign in</button>
           </div>
       </nav>
 
