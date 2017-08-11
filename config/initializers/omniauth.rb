@@ -12,6 +12,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       },
       client_id: ENV["GOOGLE_CLIENT_ID"],
       :provider_ignores_state => true,
+      name: 'google',
       hd: 'instacart.com'
     }
 

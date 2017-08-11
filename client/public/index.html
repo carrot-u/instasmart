@@ -44,17 +44,17 @@
           // google authentication succeed, now post data to server.
           console.log(response);
           delete response['g-oauth-window'];
-          console.log("after delete g auth-window",response);
 
+          console.log("after delete g auth-window",response);
 
           jQuery.ajax(
           {
             type: 'POST', 
-            url: 'http://localhost:3001/auth/google_oauth2/callback', 
+            url: 'http://localhost:3001/auth/google', 
             data: response, 
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
-
+              'Access-Control-Allow-Origin': 'http://localhost:5000',
             },
             contentType: 'application/octet-stream; charset=utf-8',
             success: function(data) {
