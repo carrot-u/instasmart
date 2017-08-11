@@ -47,10 +47,16 @@
           console.log("after delete g auth-window",response);
 
 
-          jQuery.ajax({type: 'POST', url: 'http://localhost:3001/auth/google_oauth2/callback', data: response, 
+          jQuery.ajax(
+          {
+            type: 'POST', 
+            url: 'http://localhost:3001/auth/google_oauth2/callback', 
+            data: response, 
             headers: {
-              'X-Requested-With': 'XMLHttpRequest'
+              'X-Requested-With': 'XMLHttpRequest',
+
             },
+            contentType: 'application/octet-stream; charset=utf-8',
             success: function(data) {
               console.log(data);
               // response from server

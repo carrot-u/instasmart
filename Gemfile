@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem 'rack-cors', :require => 'rack/cors'
+
 gem 'puma'
 gem 'foreman'
 gem 'figaro'

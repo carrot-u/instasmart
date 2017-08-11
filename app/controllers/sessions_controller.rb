@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-  before_action: set_omniauth_header
+  skip_before_action: verify_authenticity_token
 
 
   def create
+    logger.debug "Params = #{params}"
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     redirect_to root_path
@@ -13,7 +14,4 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def set_omniauth_header
-    response.headers["Access-Control-Allow-Origin"] = "*"
-  end
 end

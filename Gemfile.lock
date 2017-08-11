@@ -176,6 +176,7 @@ GEM
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (1.6.8)
+    rack-cors (1.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.8)
@@ -292,6 +293,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pg
   puma
+  rack-cors
   rails (= 4.2.8)
   responders (~> 2.0)
   rspec-rails
