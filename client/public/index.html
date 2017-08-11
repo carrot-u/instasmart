@@ -6,9 +6,29 @@
   </script>
   <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
   </script>
+  <meta name="google-signin-client_id" content="602810834708-kgljrjbjf0apqrqmdmutuhej3vsgl1mp.apps.googleusercontent.com"> 
   <!-- END Pre-requisites -->
-  <script>
+<script>
+  function onSignIn(googleUser) {  
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); 
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); 
 
+    var id_token = googleUser.getAuthResponse().id_token;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3001/auth/google_oauth2');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+    console.log('Signed in as: ' + xhr.responseText);
+    };
+    xhr.send('code=' + id_token);
+  }
+
+</script>
+
+<!--   <script>
   // Basic hybrid auth example following the pattern at:
   // https://developers.google.com/api-client-library/javascript/features/authentication#Authexample
   jQuery(function() {
@@ -70,7 +90,7 @@
       });
     });
   };
-  </script>
+  </script> -->
   <!-- END Pre-requisites -->
 
     <meta charset="utf-8">
@@ -94,6 +114,7 @@
     <title>InstaSmart</title>
   </head>
   <body>
+  l
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
