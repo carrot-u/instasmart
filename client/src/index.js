@@ -15,7 +15,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 const store = configureStore();
-store.dispatch(loadQuestions());
+
 
 ReactDOM.render(
   <Provider store={store}>

@@ -16,6 +16,10 @@ class QuestionIndex extends React.Component {
     };
   }
 
+  componentWillMount(){
+    this.props.actions.loadQuestions();
+  }
+
 
   render() {
     let listQuestions = null;
