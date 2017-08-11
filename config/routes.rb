@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'home', to: 'landing_page#index'
 
+  resources :users
+
   resources :questions do
     member do
       put "like" => "questions#like"

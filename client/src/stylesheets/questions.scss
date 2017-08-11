@@ -275,8 +275,8 @@ li.hide-nav {
       font-size: $banner-text-lg;
     }
     .banner-image{
-      width: 75px;
-      height: 100px;
+      width: $banner-width-lg;
+      height: $banner-height-lg;
     }
   }
 }

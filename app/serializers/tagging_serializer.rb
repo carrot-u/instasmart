@@ -1,3 +1,3 @@
 class TaggingSerializer < ActiveModel::Serializer
-  attributes :id, :tag_id, :taggable_id, :taggable_type, :tagger_id
+  attributes :id, :tag_id, :taggable_id, :tagger_id
 end

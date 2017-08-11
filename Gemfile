@@ -36,6 +36,7 @@ gem 'acts_as_votable'
 gem 'acts-as-taggable-on'
 
 gem 'omniauth-google-oauth2'
+gem 'omniauth-heroku'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

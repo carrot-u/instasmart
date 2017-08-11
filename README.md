@@ -42,17 +42,21 @@ A Q&A Forum for Instacart Employees
     - [ ] Votes (may not need these since `cached_votes_up` and `cached_votes_down` are columns on each of the relevant models)
     - [x] [Caching is Broken](https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/caching.md) so we'll forego for now
     - [ ] Format timestamps in serializer
-    - [ ] Add auth tokens to users serializer
+    - [x] Add auth tokens to users serializer
+    - [ ] VIEW COUNTS!!!
 - [ ] Optimize and Refactor Controllers and Models (8/7-8/13)
-    - [ ] set tag_list params for create, edit, destroy 
+    - [x] allow both tag and tagless questions through controller
     - [ ] Streamilining comment controllers to support polymorphic associations
-    - [ ] show method for users
+    - [ ] users controller 
+        - [ ] show method for users
+        - [ ] include :questions, :answers, :comments as activity
     - [ ] remove landing page stuffs?
     - [ ] lazy instantiation revist
     - [x] seed DB with test data
         - [ ] Add more with Faker if needed
     - [ ] Can I move all the like/dislike methods to the application controller and use `@self`?
-- [ ] Add validations for all user input (8/7 -8/13)
+    - [ ] Does the serializer trump the need for precompile/eager loading?
+- [ ] Add validations for all user input (8/7 -8/13) (or is this client?)
     - [ ] only current_user can access edit on show page/ user profile page
 - [ ] Test and Optimize for Performance (8/14-21)
 - [ ] Find alternative solution for csrf or method for passing token 
@@ -123,3 +127,7 @@ A Q&A Forum for Instacart Employees
 - [ ] change tagging delimiter from comma to space
 - [ ] should tagging convention be hyphens or underscore?
 - [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
+- [ ] Do we need an "activity_count" or "up_votes_count" column on the user model, for user default scope stuffs?
+
+### Which end is up?
+- [ ] slugs in the show page urls?
