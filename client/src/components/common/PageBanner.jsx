@@ -1,14 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import logo from "../../images/carrot.png";
 import NavbarContainer from './NavbarContainer';
-=======
-import StickyNavbar from "./StickyNavBar";
-import QuestionsNavContent from "../questions/QuestionsNavContent";
-import logo from "../../images/carrot.png";
-import NewQuestionModal from "./NewQuestionModal";
-
->>>>>>> e38e3bd2e1f8e2713d8ce259ae57093feb96126b
 
 
 class PageBanner extends React.Component {
