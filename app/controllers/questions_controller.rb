@@ -37,7 +37,6 @@ class QuestionsController < ApplicationController
 		@question = Question.new(question_params)
 		logger.debug "Current user: #{current_user}"
     @question.user = current_user
-
     @question.tag_list = (params[:tag_list])
  		@question.tag_list ||= []
 

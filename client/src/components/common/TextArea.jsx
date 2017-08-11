@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 const TextArea = ({name, className, optional, labelClass, rows, label, onChange, placeholder, value, error}) => {
   let wrapperClass = 'form-group';

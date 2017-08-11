@@ -10,7 +10,11 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       client_options:
       {ssl:
         {ca_file: Rails.root.join("cacert.pem").to_s}
-      }
+      },
+      client_id: ENV["GOOGLE_CLIENT_ID"],
+      :provider_ignores_state => true,
+      name: 'google',
+      hd: 'instacart.com'
     } 
 
   provider :heroku, ENV["HEROKU_OAUTH_ID"], ENV["HEROKU_OAUTH_SECRET"],
@@ -25,6 +29,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
         {ca_file: Rails.root.join("cacert.pem").to_s}
       }
     } 
-
 end
 
