@@ -1,15 +1,35 @@
 import React from 'react';
 
 const QuestionForm = props => {
-
+  let formatter = {};
+  if(props.formType === "comment"){
+    formatter = {
+      rows: "2",
+      placeholder: "Comment on the question...",
+      labelClass: "h4",
+      labelStyle: {
+        color: "darkgreen"
+      },
+      textareaClass: "form-control mb-2"
+    };
+  }else{
+    formatter = {
+      rows: "3",
+      placeholder: "Respond to question...",
+      labelClass: "h3",
+      labelStyle: {
+        color: "darkblue"
+      },
+      textareaClass: "form-control mb-3"
+    };
+  }
   return(
-    
     <form onSubmit={props.handleSubmitPost} className="mt-4">
-      <label htmlFor="answer_response" className="h3"><b>Add {props.formType}:</b></label>
+      <label htmlFor="response" className={formatter.labelClass} style={formatter.labelStyle}><b>Add {props.formType}:</b></label>
       <textarea 
-        className="form-control mb-4" 
-        id="answer_response" rows="3" 
-        placeholder="Respond to question..." 
+        className={formatter.textareaClass} 
+        id="response" rows={formatter.rows} 
+        placeholder={formatter.placeholder}  
         onChange={props.updatePostState}
       />
       <div className='form-group'>
