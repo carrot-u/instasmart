@@ -7,29 +7,19 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   gauth_config = {
       image_aspect_ratio: "square",
       image_size: 50,
-      #client_id: gauth_client_id,
-      hd: 'instacart.com',
+      client_id: gauth_client_id,
+      hd: "instacart.com",
+      access_type: "offline",
       client_options:
       {ssl:
         {ca_file: Rails.root.join("cacert.pem").to_s}
       }
       #:provider_ignores_state => true,
-      # name: 'google'
   } 
+
   provider :google_oauth2, gauth_client_id, gauth_client_secret, gauth_config
 
 
-  # provider :heroku, ENV["HEROKU_OAUTH_ID"], ENV["HEROKU_OAUTH_SECRET"],
-  #     {
-  #     fetch_info: true,
-  #     image_aspect_ratio: "square",
-  #     image_size: 50,
-  #     client_id: ENV["HEROKU_OAUTH_ID"],
-  #     hd: 'instacart.com',
-  #     client_options:
-  #     {ssl:
-  #       {ca_file: Rails.root.join("cacert.pem").to_s}
-  #     }
-  #   } 
+  provider :heroku, gauth_client_id, gauth_client_secret, gauth_config
 end
 

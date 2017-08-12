@@ -20,7 +20,7 @@
       return $.ajax({
         url: 'https://apis.google.com/js/client:plus.js?onload=gpAsyncInit',
         dataType: 'script',
-        cache: true
+        cache: true,
       });
     });
 
@@ -33,7 +33,17 @@
     }, function(response) {
       if (response && !response.error) {
         // google authentication succeed, now post data to server.
-        jQuery.ajax({type: 'POST', url: 'http://localhost:3001/auth/google_oauth2/', data: response,
+        jQuery.ajax({
+          type: 'POST', 
+          url: 'http://localhost:3001/auth/google_oauth2/callback',
+          headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Access-Control-Allow-Origin': 'https://instasmart.herokuapp.com/',
+              'Access-Control-Allow-Credentials': 'true'
+            }, 
+          data: response,
+          xhrFields: { withCredentials: true },
+          contentType: 'application/octet-stream; charset=utf-8',
           success: function(data) {
             // response from server
           }
