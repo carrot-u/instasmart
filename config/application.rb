@@ -23,11 +23,11 @@ module Instasmart
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.middleware.insert_before 0, "Rack::Cors" do
-      allow do
-        origins 'http://localhost:5000', 'https://instasmart.herokuapp.com/'
-        resource '*', :headers => :any, :credentials => :true, :methods => [:get, :post, :options]
-      end
-    end
+    # config.middleware.insert_before 0, "Rack::Cors" do
+    #   allow do
+    #     origins 'http://localhost:5000', 'https://instasmart.herokuapp.com/'
+    #     resource '*', :headers => :any, :credentials => :true, :methods => [:get, :post, :options]
+    #   end
+    # end
   end
 end

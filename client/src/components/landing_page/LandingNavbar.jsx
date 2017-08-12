@@ -20,6 +20,7 @@ class LandingNavbar extends React.Component{
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
+        <div className="g-signin2" data-onsuccess="onSignIn"></div>
         <a className="navbar-brand" href="">InstaSmart</a>
 
         <div className="collapse navbar-collapse" id="navbarsExampleDefault">
