@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 import NavbarSearchField from '../common/NavbarSearchField';
 import logo from '../../images/carrot.png';
 
@@ -8,9 +10,9 @@ const QuestionsNavContent = props => {
   return (
     <ul className="list-inline nav-list row mb-0">
       <li className="pull-left hidden-nav">
-        <a className="" href="index.html">
+        <Link to="/">
           <img src={logo} className="navbar-logo" alt="logo" />
-        </a>
+        </Link>
       </li>
       <li className="padding-3">
         <a className="nav-link" href="">Recent</a>
