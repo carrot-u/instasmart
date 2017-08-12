@@ -8,6 +8,7 @@ import * as questionActions from "../../actions/questionActions";
 import * as modalActions from "../../actions/modalActions";
 import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
+import * as utils from "../common/utils";
 
 class QuestionIndex extends React.Component {
   constructor(props, context) {
@@ -17,6 +18,7 @@ class QuestionIndex extends React.Component {
     };
 
     this.onEditQuestion = this.onEditQuestion.bind(this);
+    this.sort = this.sort.bind(this);
   }
 
   componentWillMount(){
@@ -27,7 +29,16 @@ class QuestionIndex extends React.Component {
     this.props.modalActions.selectEditQuestion(question);
   }
 
+  sort(array, sortType){
+    switch(sortType){
+      default:
+        return utils.sortByUpdateDate(array);
+
+    }
+  }
+
   render() {
+
     let listQuestions = null;
     if (this.props.isLoading){
       listQuestions = (<div className="container loading-questions row mt-4">
@@ -39,7 +50,7 @@ class QuestionIndex extends React.Component {
 
     } else {
       listQuestions = (this.props.questions && this.props.questions.length > 0)
-      ? this.props.questions.map(question => {
+      ? this.sort(this.props.questions, "").map(question => {
           return (
             <QuestionIndexRow 
               key={question.id} 

@@ -3,7 +3,8 @@ import * as types from '../actions/actionTypes';
 const initialState = {
   questions: [],
   isLoading: false,
-  error: null, //#A
+  error: null, 
+  sort: 'recent',
 };
 
 
