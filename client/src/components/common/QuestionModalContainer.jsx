@@ -18,14 +18,6 @@ class QuestionModalContainer extends React.Component {
   }
 
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.editQuestion != nextProps.editQuestion) {
-  //     // Necessary to populate form when existing editQuestion is loaded directly.
-  //     this.setState({question: Object.assign({}, ...nextProps.editQuestion)});
-  //   }
-  // }
-
-
   onClickNewQuestion(){
     this.props.onClickNewQuestion();
   }
@@ -37,7 +29,6 @@ class QuestionModalContainer extends React.Component {
   updateQuestionState(event) {
     const field = event.target.name;
     let newQuestion = Object.assign({}, this.state.question);
-    console.log("newQuestion", newQuestion);
 
     newQuestion[field] = event.target.value;
     return this.setState({question: newQuestion});
@@ -47,7 +38,7 @@ class QuestionModalContainer extends React.Component {
     let formIsValid = true;
     let errors = {};
 
-    if(this.props.editQuestion.summary === null && this.state.question.summary === null){
+    if(this.state.question.summary === null){
       errors.summary = 'Please add a question.';
       formIsValid = false;
     }else{
@@ -76,7 +67,6 @@ class QuestionModalContainer extends React.Component {
         id: this.props.editQuestion.id,
         ...this.state.question,
       };
-      console.log("Question Modal edit payload", payload);
 
       this.props.actions.editQuestion(payload);
     }else{
