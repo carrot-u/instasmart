@@ -52,7 +52,7 @@ class QuestionIndexRow extends React.Component {
   }
 
   render() {
-    const showAnswer = this.props.question.answers.length > 0
+    const showAnswer = (this.props.question.answers && this.props.question.answers.length > 0)
       ? <TopAnswer answer={this.props.question.answers[0]} />
       : <h6><i>No answers submitted yet. Be the first!</i></h6>;
 
@@ -79,7 +79,7 @@ class QuestionIndexRow extends React.Component {
               <QuestionCreatorOptions 
                 onDeleteQuestion={this.onDeleteQuestion}
                 onEditQuestion={this.props.onEditQuestion}
-                id={this.props.question.id}/>
+                question={this.props.question}/>
             </div>
             <div className="col-sm-8">
               <QuestionButtons onClickAnswer={this.onClickAnswer} />

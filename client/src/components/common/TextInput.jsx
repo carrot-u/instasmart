@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextInput = ({name, className, optional, labelClass, label, onChange, placeholder, value, error}) => {
+const TextInput = ({name, className, style, defaultValue, optional, labelClass, label, onChange, placeholder, value, error}) => {
   let wrapperClass = 'form-group';
   if (error && error.length > 0) {
     wrapperClass += " " + 'has-error';
@@ -15,9 +15,11 @@ const TextInput = ({name, className, optional, labelClass, label, onChange, plac
         <input
           type="text"
           name={name}
+          style={style}
           className={className}
           placeholder={placeholder}
           value={value}
+          defaultValue={defaultValue}
           onChange={onChange}/>
         {error && <div className="alert alert-danger">{error}</div>}
       </div>

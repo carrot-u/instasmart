@@ -14,22 +14,7 @@ import LandingPageCardsContainer from './LandingPageCardsContainer';
 
 
 class LandingPage extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      showNewQuestionModal: false,
-    };
-    this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
-    this.onToggleModal = this.onToggleModal.bind(this);
-  }
 
-  onClickNewQuestion(){
-    this.setState({ showNewQuestionModal: true });
-  }
-
-  onToggleModal(){
-    this.setState({ showNewQuestionModal: !this.state.showNewQuestionModal });
-  }
 
   render(){
     return(

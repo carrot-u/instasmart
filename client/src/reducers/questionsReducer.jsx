@@ -44,8 +44,13 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
-
-
+    case types.EDIT_QUESTION_SUCCESS:
+      return {
+        questions:[...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)],
+        isLoading: state.isLoading,
+        error: state.error,
+      };
 
     default:
       return state;

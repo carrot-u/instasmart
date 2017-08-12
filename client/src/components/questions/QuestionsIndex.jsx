@@ -14,7 +14,6 @@ class QuestionIndex extends React.Component {
     super(props, context);
     this.state = {
       questions: null,
-      editQuestionId: null,
     };
 
     this.onEditQuestion = this.onEditQuestion.bind(this);
@@ -24,9 +23,8 @@ class QuestionIndex extends React.Component {
     this.props.actions.loadQuestions();
   }
 
-  onEditQuestion(id){
-    this.setState({editQuestionId: id});
-    console.log("edit question:", id);
+  onEditQuestion(question){
+    this.props.modalActions.selectEditQuestion(question);
   }
 
   render() {

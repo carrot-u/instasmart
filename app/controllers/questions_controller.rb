@@ -66,10 +66,14 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    
     respond_to do |format|
+      logger.debug "format = #{format}"
       if @question.update(question_params)
+        @question.tag_list = (params[:tag_list])
+        @question.tag_list ||= []
         format.html { redirect_to @question }
-        format.json { render result: "success!"}
+        format.json { render json: @question}
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -82,7 +86,7 @@ class QuestionsController < ApplicationController
       if @question.user == current_user
         @question.destroy
         format.html { questions_path }
-        format.json { render result: "success!"}
+        format.json { render json: "success!"}
       else
         format.html { questions_path }
         format.json { render result: "failure!"}

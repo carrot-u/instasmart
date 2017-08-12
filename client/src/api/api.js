@@ -35,6 +35,15 @@ export function deleteQuestion(payload){
   };
 }
 
+export function editQuestion(payload){
+  return function(dispatch){
+      utils.put(`/questions/${payload.id}/update`, "", payload).then((question) => {
+        console.log("question gets returned?", question);
+        dispatch(actions.editQuestionSuccess(question));
+      });
+  };
+}
+
 // return question with answers and comments
 export function getQuestionById(id){
   utils.get(`/questions/${id}`).then(json=>{

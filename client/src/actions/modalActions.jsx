@@ -8,3 +8,7 @@ export function showModal(){
 export function toggleModal(){
   return { type: types.TOGGLE_MODAL_SUCCESS};
 }
+
+export function selectEditQuestion(question){
+  return { type: types.SELECT_EDIT_QUESTION, question};
+}

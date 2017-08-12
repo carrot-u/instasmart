@@ -15,7 +15,6 @@ class NavbarContainer extends React.Component {
     super(props);
     this.state = {
       condenseNav: false,
-      showNewQuestionModal: false,
       saving: false,
       newQuestion: {
         summary: null,
@@ -26,8 +25,6 @@ class NavbarContainer extends React.Component {
     };
     this.handleOnSearchFocus = this.handleOnSearchFocus.bind(this);
     this.handleOnSearchBlur = this.handleOnSearchBlur.bind(this);
-    this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
-    this.onToggleModal = this.onToggleModal.bind(this);
   }
 
   handleOnSearchFocus() {
@@ -40,13 +37,6 @@ class NavbarContainer extends React.Component {
     this.setState({ condenseNav: false });
   }
 
-  onClickNewQuestion(){
-    this.setState({ showNewQuestionModal: true });
-  }
-
-  onToggleModal(){
-    this.setState({ showNewQuestionModal: !this.state.showNewQuestionModal });
-  }
 
   render() {
     return (
@@ -63,6 +53,7 @@ class NavbarContainer extends React.Component {
           onToggleModal={this.props.modalActions.toggleModal}
           showNewQuestionModal={this.props.showQuestionModal}
           actions={this.props.actions}
+          editQuestion={this.props.editQuestion}
         />
       </StickyNavbar>
     );
@@ -71,7 +62,8 @@ class NavbarContainer extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    showQuestionModal: state.modal.showQuestionModal
+    showQuestionModal: state.modal.showQuestionModal,
+    editQuestion: state.modal.editQuestion,
   };
 }
 function mapDispatchToProps(dispatch) {

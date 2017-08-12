@@ -2,7 +2,7 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
   showQuestionModal: false,
-  editQuestionId: null,
+  editQuestion: null,
 };
 
 
@@ -11,12 +11,18 @@ export default function questionsReducer(state = initialState, action){
     case types.SHOW_MODAL_SUCCESS:
       return {
         showQuestionModal: true,
-        editQuestionId: state.editQuestionId,
+        editQuestion: null,
       };
     case types.TOGGLE_MODAL_SUCCESS:
       return {
         showQuestionModal: state.showNewQuestionModal,
-        editQuestionId: state.editQuestionId,
+        editQuestion: state.editQuestion,
+      };
+    case types.SELECT_EDIT_QUESTION:
+      console.log("action.question", action.question);
+      return {
+        showQuestionModal: true,
+        editQuestion: action.question,
       };
 
     default:
