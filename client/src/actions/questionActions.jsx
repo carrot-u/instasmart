@@ -16,14 +16,14 @@ export function loadQuestions(){
   };
 }
 
-export function createAnswerSuccess(updatedQuestion){
-  return { type: types.CREATE_ANSWER_SUCCESS, updatedQuestion };
+export function createPostSuccess(updatedQuestion){
+  return { type: types.CREATE_POST_ON_QUESTION_SUCCESS, updatedQuestion };
 } 
 
 
-export function createAnswer(questionId, payload){
+export function createOnQuestionPost(questionId, payload, type){
   return dispatch => {
-    dispatch(api.answerQuestion(questionId, payload));
+    dispatch(api.postOnQuestion(questionId, payload, type));
   };
 }
 

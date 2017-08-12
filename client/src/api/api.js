@@ -11,10 +11,10 @@ export function getQuestions(){
   };
 }
 
-export function answerQuestion(questionId, payload){
+export function postOnQuestion(questionId, payload, type){
   return function(dispatch){
-      utils.post(`/questions/${questionId}/answers`, payload).then(question => {
-        dispatch(actions.createAnswerSuccess(question));
+      utils.post(`/questions/${questionId}/${type}`, payload).then(question => {
+        dispatch(actions.createPostSuccess(question));
       });
   };
 }
@@ -46,7 +46,6 @@ export function editQuestion(payload){
 
 export function likeUnlikeQuestion(questionId, type){
   return function(dispatch){
-      console.log("call", `/questions/${questionId}/${type}`);
       utils.put(`/questions/${questionId}/${type}`).then(question => {
         dispatch(actions.likeUnlikeQuestionSuccess(question));
       });

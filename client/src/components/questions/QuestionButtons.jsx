@@ -4,8 +4,10 @@ import React from 'react';
 const QuestionButtons = props => {
   return(
       <div>
-        <button className="btn btn-outline-success pull-right mr-1"> Comment </button>
-        <button className="btn btn-outline-success pull-right mr-1" onClick={props.onClickAnswer}> 
+        <button className="btn btn-outline-success pull-right mr-1" onClick={(e) => props.onClickPost(e, "comment")}> 
+          Comment 
+        </button>
+        <button className="btn btn-outline-success pull-right mr-1" onClick={(e) => props.onClickPost(e, "answer")}> 
           Answer 
         </button>
         {(!props.liked && <button className="btn btn-outline-success pull-right mr-1" onClick={props.onClickLike}> Like </button>)}

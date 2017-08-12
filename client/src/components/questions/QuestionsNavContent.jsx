@@ -10,7 +10,7 @@ const QuestionsNavContent = props => {
   return (
     <ul className="list-inline nav-list row mb-0">
       <li className="pull-left hidden-nav">
-        <Link to="/">
+        <Link to='/'>
           <img src={logo} className="navbar-logo" alt="logo" />
         </Link>
       </li>

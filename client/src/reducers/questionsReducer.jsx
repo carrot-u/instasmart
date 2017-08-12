@@ -28,7 +28,7 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
-    case types.CREATE_ANSWER_SUCCESS:
+    case types.CREATE_POST_ON_QUESTION_SUCCESS:
       const newQuestions = [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
@@ -53,7 +53,6 @@ export default function questionsReducer(state = initialState, action){
         error: state.error,
       };
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
-      console.log("LIKE_UNLIKE_QUESTION_SUCCESS question", action.question);
       return {
         questions:[...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)],

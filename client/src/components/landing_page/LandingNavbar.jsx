@@ -21,6 +21,7 @@ class LandingNavbar extends React.Component{
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
+        <div className="g-signin2" data-onsuccess="onSignIn"></div>
         <a className="navbar-brand" href="">InstaSmart</a>
 
         <div className="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -29,7 +30,7 @@ class LandingNavbar extends React.Component{
               <a className="nav-link" href="">Home <span className="sr-only">(current)</span></a>
             </li>
             <li className="nav-item dropdown">
-              <Link className="nav-link" to="/questions">Questions</Link>
+              <Link className="nav-link" to='/questions'>Questions</Link>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>
