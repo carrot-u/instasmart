@@ -128,6 +128,7 @@ A Q&A Forum for Instacart Employees
 - [ ] should tagging convention be hyphens or underscore?
 - [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
 - [ ] Do we need an "activity_count" or "up_votes_count" column on the user model, for user default scope stuffs?
+- [ ] Instacart standard for ruby is to use double quotes 
 
 ### Which end is up?
 - [ ] slugs in the show page urls?

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'pry-byebug'
+gem 'pry-rails'
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'puma'
