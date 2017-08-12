@@ -23,7 +23,7 @@ class NewQuestionModal extends React.Component {
 
   tagsString(tags){
     return tags.map(tag => {
-      return `${tag.name}, `;
+      return `${tag.name} `;
     });
   }
 

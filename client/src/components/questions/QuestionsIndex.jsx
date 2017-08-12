@@ -31,6 +31,9 @@ class QuestionIndex extends React.Component {
 
   sort(array, sortType){
     switch(sortType){
+      case "answered":
+        return utils.sortByAnwerCount(array);
+
       default:
         return utils.sortByUpdateDate(array);
 
