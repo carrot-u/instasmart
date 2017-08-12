@@ -3,6 +3,7 @@ import React from 'react';
 const QuestionForm = props => {
 
   return(
+    
     <form onSubmit={props.handleSubmitPost} className="mt-4">
       <label htmlFor="answer_response" className="h3"><b>Add {props.formType}:</b></label>
       <textarea 

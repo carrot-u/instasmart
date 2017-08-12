@@ -38,14 +38,23 @@ class QuestionIndexRow extends React.Component {
     this.setState({postResponse: e.target.value});
   }
 
-  handleSubmitPost(e, type){
+  handleSubmitPost(e){
     e.preventDefault();
-    const payload = {
-      type: {
-        response: this.state.postResponse
-      }
-    };
-    this.props.actions.createPostOnQuestion(this.props.question.id, payload, "answers");
+    let payload= '';
+    if(this.state.postType === "comment"){
+      payload = {
+        comment: {
+          response: this.state.postResponse
+        }
+      };
+    }else{
+      payload = {
+        answer: {
+          response: this.state.postResponse
+        }
+      };
+    }
+    this.props.actions.createPostOnQuestion(this.props.question.id, payload, `${this.state.postType}s`);
     this.setState({ showForm: !this.state.showForm });
   }
 

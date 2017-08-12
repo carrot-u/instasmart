@@ -21,7 +21,7 @@ export function createPostSuccess(updatedQuestion){
 } 
 
 
-export function createOnQuestionPost(questionId, payload, type){
+export function createPostOnQuestion(questionId, payload, type){
   return dispatch => {
     dispatch(api.postOnQuestion(questionId, payload, type));
   };
