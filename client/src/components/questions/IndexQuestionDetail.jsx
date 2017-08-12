@@ -4,7 +4,7 @@ const IndexQuestionDetail = props => {
   const askedBy = props.question.user ? 
     (<i>Asked by {props.question.user.name} on {props.question.created_at}</i>) 
     :
-    (<i>Asked on {props.question.created_at}</i>);
+    (<i>Asked {props.question.created_at}</i>);
 
   return (
     <div className="row">

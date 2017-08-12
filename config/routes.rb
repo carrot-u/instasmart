@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :users
 
+  put "questions/:id/update" => "questions#update"
   resources :questions do
+
     member do
       put "like" => "questions#like"
       put "dislike" => "questions#dislike"

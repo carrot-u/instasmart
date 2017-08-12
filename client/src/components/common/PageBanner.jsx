@@ -14,9 +14,7 @@ class PageBanner extends React.Component {
             <p className="banner-text"><i>Questions</i></p>
           </div>
         </div>
-        <NavbarContainer 
-          actions={this.props.actions}
-        />
+        <NavbarContainer />
       </div>
     );
   }

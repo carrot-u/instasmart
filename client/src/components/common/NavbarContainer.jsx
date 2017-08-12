@@ -1,8 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+//Project imports
 import StickyNavbar from "./StickyNavBar";
 import QuestionsNavContent from "../questions/QuestionsNavContent";
 import QuestionModalContainer from "./QuestionModalContainer";
-
+import * as modalActions from "../../actions/modalActions";
+import * as questionActions from "../../actions/questionActions";
 
 
 class NavbarContainer extends React.Component {
@@ -10,7 +15,6 @@ class NavbarContainer extends React.Component {
     super(props);
     this.state = {
       condenseNav: false,
-      showNewQuestionModal: false,
       saving: false,
       newQuestion: {
         summary: null,
@@ -21,8 +25,6 @@ class NavbarContainer extends React.Component {
     };
     this.handleOnSearchFocus = this.handleOnSearchFocus.bind(this);
     this.handleOnSearchBlur = this.handleOnSearchBlur.bind(this);
-    this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
-    this.onToggleModal = this.onToggleModal.bind(this);
   }
 
   handleOnSearchFocus() {
@@ -35,13 +37,6 @@ class NavbarContainer extends React.Component {
     this.setState({ condenseNav: false });
   }
 
-  onClickNewQuestion(){
-    this.setState({ showNewQuestionModal: true });
-  }
-
-  onToggleModal(){
-    this.setState({ showNewQuestionModal: !this.state.showNewQuestionModal });
-  }
 
   render() {
     return (
@@ -51,17 +46,31 @@ class NavbarContainer extends React.Component {
         <QuestionsNavContent 
           handleOnSearchFocus={this.handleOnSearchFocus}
           handleOnSearchBlur={this.handleOnSearchBlur}
-          onClickNewQuestion={this.onClickNewQuestion}
+          onClickNewQuestion={this.props.modalActions.showModal}
         />
         <QuestionModalContainer
-          onClickNewQuestion={this.onClickNewQuestion}
-          onToggleModal={this.onToggleModal}
-          showNewQuestionModal={this.state.showNewQuestionModal}
+          onClickNewQuestion={this.props.modalActions.showModal}
+          onToggleModal={this.props.modalActions.toggleModal}
+          showNewQuestionModal={this.props.showQuestionModal}
           actions={this.props.actions}
+          editQuestion={this.props.editQuestion}
         />
       </StickyNavbar>
     );
   }
 }
 
-export default NavbarContainer;
+function mapStateToProps(state, ownProps) {
+  return {
+    showQuestionModal: state.modal.showQuestionModal,
+    editQuestion: state.modal.editQuestion,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(questionActions, dispatch),
+    modalActions: bindActionCreators(modalActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);

@@ -5,6 +5,7 @@ import IconStats from "../common/IconStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
 import QuestionAnswerForm from "./QuestionAnswerForm";
 import QuestionButtons from "./QuestionButtons";
+import QuestionCreatorOptions from "./QuestionCreatorOptions";
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 class QuestionIndexRow extends React.Component {
@@ -17,6 +18,7 @@ class QuestionIndexRow extends React.Component {
     this.onClickAnswer = this.onClickAnswer.bind(this);
     this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
     this.updateAnswerState = this.updateAnswerState.bind(this);
+    this.onDeleteQuestion = this.onDeleteQuestion.bind(this);
   }
 
 
@@ -37,12 +39,20 @@ class QuestionIndexRow extends React.Component {
         response: this.state.answerResponse
       }
     };
-    this.props.createAnswer(this.props.question.id, payload);
+    this.props.actions.createAnswer(this.props.question.id, payload);
     this.setState({ showAnswerForm: !this.state.showAnswerForm });
   }
 
+  onDeleteQuestion(e){
+    e.preventDefault();
+    const payload = {
+      question: this.props.question
+    }
+    this.props.actions.deleteQuestion(payload);
+  }
+
   render() {
-    const showAnswer = this.props.question.answers.length > 0
+    const showAnswer = (this.props.question.answers && this.props.question.answers.length > 0)
       ? <TopAnswer answer={this.props.question.answers[0]} />
       : <h6><i>No answers submitted yet. Be the first!</i></h6>;
 
@@ -66,6 +76,10 @@ class QuestionIndexRow extends React.Component {
           <div className="row">
             <div className="col-sm-4">
               <IconStats question={this.props.question} />
+              <QuestionCreatorOptions 
+                onDeleteQuestion={this.onDeleteQuestion}
+                onEditQuestion={this.props.onEditQuestion}
+                question={this.props.question}/>
             </div>
             <div className="col-sm-8">
               <QuestionButtons onClickAnswer={this.onClickAnswer} />

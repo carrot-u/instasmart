@@ -10,6 +10,7 @@ class NewQuestionModal extends React.Component {
       backdrop: true
     };
     this.changeBackdrop = this.changeBackdrop.bind(this);
+    this.tagsString = this.tagsString.bind(this);
   }
 
   changeBackdrop(e) {
@@ -20,7 +21,17 @@ class NewQuestionModal extends React.Component {
     this.setState({ backdrop: value });
   }
 
+  tagsString(tags){
+    return tags.map(tag => {
+      return `${tag.name} `;
+    });
+  }
+
   render() {
+    let tagsValue = '';
+    if(this.props.question){
+      tagsValue = this.tagsString(this.props.question.tags);
+    } 
     return (
       <div>
         <Modal
@@ -37,10 +48,12 @@ class NewQuestionModal extends React.Component {
                 label="Question"
                 labelClass="h3"
                 className="form-control"
+                style={this.props.question && {color: "red"}}
                 name="summary"
                 rows="3"
                 placeholder={"Ask your question..."}
                 onChange={this.props.onChange}
+                defaultValue={this.props.question ? this.props.question.summary : ''}
                 error={this.props.errors.summary}
               />
 
@@ -48,11 +61,13 @@ class NewQuestionModal extends React.Component {
                 label="Details"
                 labelClass="h5"
                 optional={true}
+                style={this.props.question && {color: "red"}}
                 className="form-control"
                 name="body"
                 rows="4"
                 placeholder="Add Question Details..."
                 onChange={this.props.onChange}
+                defaultValue={this.props.question ?  this.props.question.body : ''}
                 error={this.props.errors.body}
 
               />
@@ -61,10 +76,12 @@ class NewQuestionModal extends React.Component {
                 label="Tags"
                 labelClass="h5"
                 optional={true}
+                style={this.props.question && {color: "red"}}
                 className="form-control"
                 name="tag_list"
                 placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."
                 onChange={this.props.onChange}
+                defaultValue={tagsValue}
                 error={this.props.errors.tags}
 
               />

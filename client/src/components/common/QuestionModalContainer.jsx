@@ -7,11 +7,7 @@ class QuestionModalContainer extends React.Component {
     super(props);
     this.state = {
       saving: false,
-      newQuestion: {
-        summary: null,
-        body: null,
-        tag_list: null,
-      },
+      question: Object.assign({}, this.props.editQuestion),
       errors: {},
     };
     this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
@@ -20,6 +16,7 @@ class QuestionModalContainer extends React.Component {
     this.submitQuestion = this.submitQuestion.bind(this);
     this.questionFormIsValid = this.questionFormIsValid.bind(this);
   }
+
 
   onClickNewQuestion(){
     this.props.onClickNewQuestion();
@@ -31,18 +28,24 @@ class QuestionModalContainer extends React.Component {
 
   updateQuestionState(event) {
     const field = event.target.name;
-    let newQuestion = Object.assign({}, this.state.newQuestion);
+    let newQuestion = Object.assign({}, this.state.question);
+
     newQuestion[field] = event.target.value;
-    return this.setState({newQuestion: newQuestion});
+    return this.setState({question: newQuestion});
   }
 
   questionFormIsValid(){
     let formIsValid = true;
     let errors = {};
 
-    if (this.state.newQuestion.summary.length < 10) {
-      errors.summary = 'The question must be at least 10 characters.';
+    if(this.state.question.summary === null){
+      errors.summary = 'Please add a question.';
       formIsValid = false;
+    }else{
+      if (this.state.question.summary && this.state.question.summary.length < 10) {
+        errors.summary = 'The question must be at least 10 characters.';
+        formIsValid = false;
+      }
     }
 
     this.setState({errors: errors});
@@ -56,8 +59,19 @@ class QuestionModalContainer extends React.Component {
       return;
     }
     this.setState({saving: true});
+      console.log("question", this.state.question);
 
-    this.props.actions.createQuestion(this.state.newQuestion);
+    //Check if this is a new question or an edit
+    if(this.props.editQuestion){
+      const payload={
+        id: this.props.editQuestion.id,
+        ...this.state.question,
+      };
+
+      this.props.actions.editQuestion(payload);
+    }else{
+      this.props.actions.createQuestion(this.state.question);
+    }
     this.onToggleModal();
   }
 
@@ -69,6 +83,7 @@ class QuestionModalContainer extends React.Component {
           onChange={this.updateQuestionState}
           onSubmit={this.submitQuestion}
           errors={this.state.errors}
+          question={this.props.editQuestion}
         />
     );
   }

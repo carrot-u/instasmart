@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 // import * as api from '../../api/apiUtils';
 
 class LandingNavbar extends React.Component{
@@ -29,14 +31,7 @@ class LandingNavbar extends React.Component{
               <a className="nav-link" href="">Home <span className="sr-only">(current)</span></a>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
-               <div className="dropdown-menu" aria-labelledby="dropdown01">
-                <a className="dropdown-item" href="">Ask a Question</a>
-                <a className="dropdown-item" href="">Top Questions</a>
-                <a className="dropdown-item" href="">Unanswered Questions</a>
-                <a className="dropdown-item" href="">By Category</a>
-                 <a className="dropdown-item" href="">By Tag</a>
-                </div>
+              <Link className="nav-link" to='/questions'>Questions</Link>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>

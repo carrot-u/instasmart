@@ -27,6 +27,23 @@ export function newQuestion(payload){
   };
 }
 
+export function deleteQuestion(payload){
+  return function(dispatch){
+      utils.deleteRequest(`/questions/${payload.question.id}`, "", payload).then(() => {
+        dispatch(actions.deleteQuestionSuccess(payload.question.id));
+      });
+  };
+}
+
+export function editQuestion(payload){
+  return function(dispatch){
+      utils.put(`/questions/${payload.id}/update`, "", payload).then((question) => {
+        console.log("question gets returned?", question);
+        dispatch(actions.editQuestionSuccess(question));
+      });
+  };
+}
+
 // return question with answers and comments
 export function getQuestionById(id){
   utils.get(`/questions/${id}`).then(json=>{
@@ -41,6 +58,7 @@ export function getCommentsByAnswerID(id){
     return json;
   });
 }
+
 
 
 

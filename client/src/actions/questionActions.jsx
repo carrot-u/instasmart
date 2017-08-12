@@ -36,3 +36,28 @@ export function createQuestion(payload){
     dispatch(api.newQuestion(payload));
   };
 }
+
+export function deleteQuestionSuccess(questionId){
+  return { type: types.DELETE_QUESTION_SUCCESS, questionId };
+} 
+
+export function deleteQuestion(payload){
+  return dispatch => {
+    dispatch(api.deleteQuestion(payload));
+  };
+}
+
+export function editQuestionSuccess(question){
+  return { type: types.EDIT_QUESTION_SUCCESS, question };
+} 
+
+export function editQuestion(payload){
+  console.log("editquestion action payload", payload);
+  return dispatch => {
+    dispatch(api.editQuestion(payload));
+  };
+}
+
+export function selectEditQuestion(question){
+  return { type: types.EDIT_QUESTION_SUCCESS, question };
+} 

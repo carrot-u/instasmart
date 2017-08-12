@@ -5,8 +5,10 @@ import { bindActionCreators } from "redux";
 
 // Project File
 import * as questionActions from "../../actions/questionActions";
+import * as modalActions from "../../actions/modalActions";
 import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
+import * as utils from "../common/utils";
 
 class QuestionIndex extends React.Component {
   constructor(props, context) {
@@ -14,14 +16,32 @@ class QuestionIndex extends React.Component {
     this.state = {
       questions: null,
     };
+
+    this.onEditQuestion = this.onEditQuestion.bind(this);
+    this.sort = this.sort.bind(this);
   }
 
   componentWillMount(){
     this.props.actions.loadQuestions();
   }
 
+  onEditQuestion(question){
+    this.props.modalActions.selectEditQuestion(question);
+  }
+
+  sort(array, sortType){
+    switch(sortType){
+      case "answered":
+        return utils.sortByAnwerCount(array);
+
+      default:
+        return utils.sortByUpdateDate(array);
+
+    }
+  }
 
   render() {
+
     let listQuestions = null;
     if (this.props.isLoading){
       listQuestions = (<div className="container loading-questions row mt-4">
@@ -33,13 +53,15 @@ class QuestionIndex extends React.Component {
 
     } else {
       listQuestions = (this.props.questions && this.props.questions.length > 0)
-      ? this.props.questions.map(question => {
+      ? this.sort(this.props.questions, "").map(question => {
           return (
             <QuestionIndexRow 
               key={question.id} 
               question={question} 
               showAnswerForm={true} 
-              createAnswer={this.props.actions.createAnswer} />
+              actions={this.props.actions}
+              onEditQuestion={this.onEditQuestion}
+              />
           );
         })
       : <i>No Questions available</i>;
@@ -48,9 +70,7 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <PageBanner
-          actions={this.props.actions}
-        />
+        <PageBanner />
         <div className="container question-index">
           {listQuestions}
         </div>
@@ -62,12 +82,14 @@ class QuestionIndex extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     questions: state.questions.questions,
-    isLoading: state.questions.isLoading
+    isLoading: state.questions.isLoading,
+    showQuestionModal: state.modal.showQuestionModal
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(questionActions, dispatch)
+    actions: bindActionCreators(questionActions, dispatch),
+    modalActions: bindActionCreators(modalActions, dispatch)
   };
 }
 

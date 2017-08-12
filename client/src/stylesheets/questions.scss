@@ -26,13 +26,15 @@
       background-color: white;    
       border-right: none;
       border-top: none; 
-      line-height: 30%;
+      height: 30px;
       transition: all 0.2s linear;
 
       &:focus{
         background-color: rgba(223, 255, 175, 0.2);
         border-left: none;
-        line-height: 100%;
+        height: 100px;
+        rows: 3;
+
         transition: all 0.2s linear;
       }
       &:hover{

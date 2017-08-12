@@ -3,7 +3,8 @@ import * as types from '../actions/actionTypes';
 const initialState = {
   questions: [],
   isLoading: false,
-  error: null, //#A
+  error: null, 
+  sort: 'recent',
 };
 
 
@@ -38,6 +39,19 @@ export default function questionsReducer(state = initialState, action){
         error: state.error
       };
 
+    case types.DELETE_QUESTION_SUCCESS:
+      return {
+        questions: [...state.questions.filter(question => question.id !== action.questionId)],
+        isLoading: state.isLoading,
+        error: state.error
+      };
+    case types.EDIT_QUESTION_SUCCESS:
+      return {
+        questions:[...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)],
+        isLoading: state.isLoading,
+        error: state.error,
+      };
 
     default:
       return state;
