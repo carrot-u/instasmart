@@ -35,7 +35,7 @@
         // google authentication succeed, now post data to server.
         jQuery.ajax({
           type: 'POST', 
-          url: 'http://localhost:3001/auth/google_oauth2/callback',
+          url: '/auth/google_oauth2/callback',
           headers: {
               'X-Requested-With': 'XMLHttpRequest',
               'Access-Control-Allow-Origin': 'https://instasmart.herokuapp.com/',
