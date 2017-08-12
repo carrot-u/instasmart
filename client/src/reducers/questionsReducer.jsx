@@ -38,6 +38,14 @@ export default function questionsReducer(state = initialState, action){
         error: state.error
       };
 
+    case types.DELETE_QUESTION_SUCCESS:
+      return {
+        questions: [...state.questions.filter(question => question.id !== action.questionId)],
+        isLoading: state.isLoading,
+        error: state.error
+      };
+
+
 
     default:
       return state;

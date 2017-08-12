@@ -1,8 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+//Project imports
 import StickyNavbar from "./StickyNavBar";
 import QuestionsNavContent from "../questions/QuestionsNavContent";
 import QuestionModalContainer from "./QuestionModalContainer";
-
+import * as modalActions from "../../actions/modalActions";
+import * as questionActions from "../../actions/questionActions";
 
 
 class NavbarContainer extends React.Component {
@@ -51,12 +56,12 @@ class NavbarContainer extends React.Component {
         <QuestionsNavContent 
           handleOnSearchFocus={this.handleOnSearchFocus}
           handleOnSearchBlur={this.handleOnSearchBlur}
-          onClickNewQuestion={this.onClickNewQuestion}
+          onClickNewQuestion={this.props.modalActions.showModal}
         />
         <QuestionModalContainer
-          onClickNewQuestion={this.onClickNewQuestion}
-          onToggleModal={this.onToggleModal}
-          showNewQuestionModal={this.state.showNewQuestionModal}
+          onClickNewQuestion={this.props.modalActions.showModal}
+          onToggleModal={this.props.modalActions.toggleModal}
+          showNewQuestionModal={this.props.showQuestionModal}
           actions={this.props.actions}
         />
       </StickyNavbar>
@@ -64,4 +69,16 @@ class NavbarContainer extends React.Component {
   }
 }
 
-export default NavbarContainer;
+function mapStateToProps(state, ownProps) {
+  return {
+    showQuestionModal: state.modal.showQuestionModal
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(questionActions, dispatch),
+    modalActions: bindActionCreators(modalActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);

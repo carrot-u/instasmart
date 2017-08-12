@@ -6,7 +6,7 @@ const TopAnswer = props => {
   const answerBy = 'user' in props.answer ? 
       (props.answer.user && <div>Answered by {props.answer.user.name} on {props.answer.created_at}
        </div>) : 
-      (<div> Answered on {props.answer.created_at}</div>);
+      (<div> Answered {props.answer.created_at}</div>);
   return(
     <div>
       {showTopAnswer &&

@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 
 // Project File
 import * as questionActions from "../../actions/questionActions";
+import * as modalActions from "../../actions/modalActions";
 import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
 
@@ -13,13 +14,20 @@ class QuestionIndex extends React.Component {
     super(props, context);
     this.state = {
       questions: null,
+      editQuestionId: null,
     };
+
+    this.onEditQuestion = this.onEditQuestion.bind(this);
   }
 
   componentWillMount(){
     this.props.actions.loadQuestions();
   }
 
+  onEditQuestion(id){
+    this.setState({editQuestionId: id});
+    console.log("edit question:", id);
+  }
 
   render() {
     let listQuestions = null;
@@ -39,7 +47,9 @@ class QuestionIndex extends React.Component {
               key={question.id} 
               question={question} 
               showAnswerForm={true} 
-              createAnswer={this.props.actions.createAnswer} />
+              actions={this.props.actions}
+              onEditQuestion={this.onEditQuestion}
+              />
           );
         })
       : <i>No Questions available</i>;
@@ -48,9 +58,7 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <PageBanner
-          actions={this.props.actions}
-        />
+        <PageBanner />
         <div className="container question-index">
           {listQuestions}
         </div>
@@ -62,12 +70,14 @@ class QuestionIndex extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     questions: state.questions.questions,
-    isLoading: state.questions.isLoading
+    isLoading: state.questions.isLoading,
+    showQuestionModal: state.modal.showQuestionModal
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(questionActions, dispatch)
+    actions: bindActionCreators(questionActions, dispatch),
+    modalActions: bindActionCreators(modalActions, dispatch)
   };
 }
 

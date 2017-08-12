@@ -36,3 +36,13 @@ export function createQuestion(payload){
     dispatch(api.newQuestion(payload));
   };
 }
+
+export function deleteQuestionSuccess(questionId){
+  return { type: types.DELETE_QUESTION_SUCCESS, questionId };
+} 
+
+export function deleteQuestion(payload){
+  return dispatch => {
+    dispatch(api.deleteQuestion(payload));
+  };
+}
