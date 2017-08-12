@@ -6,72 +6,64 @@
   </script>
   <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
   </script>
+  <meta name="google-signin-client_id" content="602810834708-kgljrjbjf0apqrqmdmutuhej3vsgl1mp.apps.googleusercontent.com"> 
   <!-- END Pre-requisites -->
-  <script>
+<script>
+  function onSignIn(googleUser) {  
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); 
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); 
 
-  // Basic hybrid auth example following the pattern at:
-  // https://developers.google.com/api-client-library/javascript/features/authentication#Authexample
-  jQuery(function() {
-    return $.ajax({
-      url: 'https://apis.google.com/js/client:plus.js?onload=gpAsyncInit',
-      dataType: 'script',
-      cache: true
-    });
-  });
-
-  window.gpAsyncInit = function() {
-    gapi.auth.authorize({
-      immediate: true,
-      response_type: 'code',
-      cookie_policy: 'none',
-      client_id: '602810834708-kgljrjbjf0apqrqmdmutuhej3vsgl1mp.apps.googleusercontent.com',
-      scope: 'email profile',
-      redirect_uri: 'http://localhost:5000'
-    }, function(response) {
-      return;
-    });
-    $('.googleplus-login').click(function(e) {
-      e.preventDefault();
-      gapi.auth.authorize({
-        immediate: false,
-        response_type: 'code',
-        cookie_policy: 'single_host_origin',
-        client_id: '602810834708-kgljrjbjf0apqrqmdmutuhej3vsgl1mp.apps.googleusercontent.com',
-        scope: 'email profile'
-      }, function(response) {
-
-        if (response && !response.error) {
-          // google authentication succeed, now post data to server.
-          console.log(response);
-          delete response['g-oauth-window'];
-
-          console.log("after delete g auth-window",response);
-
-          jQuery.ajax(
-          {
-            type: 'POST', 
-            url: 'http://localhost:3001/auth/google', 
-            data: response, 
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'Access-Control-Allow-Origin': 'http://localhost:5000',
-            },
-            contentType: 'application/octet-stream; charset=utf-8',
-            success: function(data) {
-              console.log(data);
-              // response from server
-            }
-          }).fail(() =>{
-            console.log("failed");
-          });
-        } else {
-          // google authentication failed
-        }
+    jQuery(function() {
+      return $.ajax({
+        url: 'https://apis.google.com/js/client:plus.js?onload=gpAsyncInit',
+        dataType: 'script',
+        cache: true,
       });
     });
-  };
-  </script>
-  <!-- END Pre-requisites -->
+
+    gapi.auth.authorize({
+      immediate: false,
+      response_type: 'code',
+      cookie_policy: 'single_host_origin',
+      client_id: '602810834708-kgljrjbjf0apqrqmdmutuhej3vsgl1mp.apps.googleusercontent.com',
+      scope: 'email profile'
+    }, function(response) {
+      if (response && !response.error) {
+        // google authentication succeed, now post data to server.
+        jQuery.ajax({
+          type: 'POST', 
+          url: '/auth/google_oauth2/callback',
+          headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Access-Control-Allow-Origin': 'https://instasmart.herokuapp.com/',
+              'Access-Control-Allow-Credentials': 'true'
+            }, 
+          data: response,
+          xhrFields: { withCredentials: true },
+          contentType: 'application/octet-stream; charset=utf-8',
+          success: function(data) {
+            // response from server
+          }
+        });
+      } else {
+        // google authentication failed
+      }
+    });
+    // var id_token = googleUser.getAuthResponse().id_token;
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'http://localhost:3001/auth/google_oauth2');
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.onload = function() {
+    // console.log('Signed in as: ' + xhr.responseText);
+    // };
+    // xhr.send('code=' + id_token);
+  }
+
+</script>
+
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

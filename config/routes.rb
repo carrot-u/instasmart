@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
-
-  get 'auth/:provider', to: 'sessions#create'
+  post '/auth/:provider/callback', to: 'sessions#create'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
+  # resource :home, only: [:show]
 
   get 'sessions/create'
 
   get 'sessions/destroy'
 
-  get 'home', to: 'landing_page#index'
+  #get 'home', to: 'landing_page#index'
+  root  "landing_page#index"
 
   resources :users
 

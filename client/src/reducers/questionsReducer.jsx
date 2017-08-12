@@ -52,6 +52,14 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error,
       };
+    case types.LIKE_UNLIKE_QUESTION_SUCCESS:
+      console.log("LIKE_UNLIKE_QUESTION_SUCCESS question", action.question);
+      return {
+        questions:[...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)],
+        isLoading: state.isLoading,
+        error: state.error,
+      };
 
     default:
       return state;

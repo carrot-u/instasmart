@@ -13,11 +13,13 @@ class QuestionIndexRow extends React.Component {
     super(props);
     this.state = {
       showAnswerForm: false,
-      answerResponse: null
+      answerResponse: null,
+      liked: false
     };
     this.onClickAnswer = this.onClickAnswer.bind(this);
     this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
     this.updateAnswerState = this.updateAnswerState.bind(this);
+    this.onClickLike = this.onClickLike.bind(this);
     this.onDeleteQuestion = this.onDeleteQuestion.bind(this);
   }
 
@@ -41,6 +43,17 @@ class QuestionIndexRow extends React.Component {
     };
     this.props.actions.createAnswer(this.props.question.id, payload);
     this.setState({ showAnswerForm: !this.state.showAnswerForm });
+  }
+
+
+  /************** Question Functions *********************/
+  onClickLike(){
+    if(this.state.liked){
+      this.props.actions.likeUnlikeQuestion(this.props.question.id, "unlike");
+    }else{
+      this.props.actions.likeUnlikeQuestion(this.props.question.id, "like");
+    }
+    this.setState({ liked: !this.state.liked });
   }
 
   onDeleteQuestion(e){
@@ -82,7 +95,11 @@ class QuestionIndexRow extends React.Component {
                 question={this.props.question}/>
             </div>
             <div className="col-sm-8">
-              <QuestionButtons onClickAnswer={this.onClickAnswer} />
+              <QuestionButtons 
+                onClickAnswer={this.onClickAnswer} 
+                onClickLike={this.onClickLike}
+                liked={this.state.liked}
+              />
             </div>
           </div>
           

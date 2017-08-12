@@ -8,7 +8,9 @@ const QuestionButtons = props => {
         <button className="btn btn-outline-success pull-right mr-1" onClick={props.onClickAnswer}> 
           Answer 
         </button>
-        <button className="btn btn-outline-success pull-right mr-1"> Like </button>
+        {(!props.liked && <button className="btn btn-outline-success pull-right mr-1" onClick={props.onClickLike}> Like </button>)}
+        {(props.liked && <button className="btn btn-outline-primary pull-right mr-1" onClick={props.onClickLike}> Unlike </button>)}
+
     </div>
   );
 };

@@ -52,7 +52,6 @@ export function editQuestionSuccess(question){
 } 
 
 export function editQuestion(payload){
-  console.log("editquestion action payload", payload);
   return dispatch => {
     dispatch(api.editQuestion(payload));
   };
@@ -61,3 +60,13 @@ export function editQuestion(payload){
 export function selectEditQuestion(question){
   return { type: types.EDIT_QUESTION_SUCCESS, question };
 } 
+
+export function likeUnlikeQuestionSuccess(question){
+  return { type: types.LIKE_UNLIKE_QUESTION_SUCCESS, question };
+} 
+
+export function likeUnlikeQuestion(questionId, type){
+  return dispatch => {
+    dispatch(api.likeUnlikeQuestion(questionId, type));
+  };
+}

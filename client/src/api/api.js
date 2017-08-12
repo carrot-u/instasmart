@@ -44,6 +44,17 @@ export function editQuestion(payload){
   };
 }
 
+export function likeUnlikeQuestion(questionId, type){
+  return function(dispatch){
+      console.log("call", `/questions/${questionId}/${type}`);
+      utils.put(`/questions/${questionId}/${type}`).then(question => {
+        dispatch(actions.likeUnlikeQuestionSuccess(question));
+      });
+  };
+}
+
+
+
 // return question with answers and comments
 export function getQuestionById(id){
   utils.get(`/questions/${id}`).then(json=>{
