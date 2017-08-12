@@ -53,7 +53,7 @@ class LandingNavbar extends React.Component{
             </li>
           </ul>
 
-              <button id="signinButton" className="btn btn-warning googleplus-login" onClick={this.onClickSignIn}>Sign in</button>
+              <div className="g-signin2" data-onsuccess="onSignIn"></div>
           </div>
       </nav>
 
