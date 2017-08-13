@@ -45,22 +45,10 @@ class AnswersController < ApplicationController
     redirect_to question_path(@answer.question)
   end
 
-  def dislike
-    @answer.disliked_by current_user
-    redirect_to question_path(@answer.question)
-  end
-
   def unlike
     @answer.unliked_by current_user
     redirect_to question_path(@answer.question)
   end
-
-  def undislike
-    @answer.undisliked_by current_user
-    redirect_to question_path(@answer.question)
-  end
-
-
 
   private
 

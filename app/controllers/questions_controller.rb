@@ -8,16 +8,19 @@ class QuestionsController < ApplicationController
     @questions = Question.order("id DESC")
 
 
-    if params[:sort_by] == 'most_comments'
+    if params[:sort_by] == "most_comments"
       @questions= @questions.order("comments.length desc")
     end
-    if params[:sort_by] == 'most_answers'
+
+    if params[:sort_by] == "most_answers"
       @questions= @questions.order("answers.length desc")
     end
-    if params[:sort_by] == 'most_voted'
+
+    if params[:sort_by] == "most_voted"
       @questions= @questions.order("cached_votes_score desc")
     end
-    if params[:sort_by] == 'most_views'
+
+    if params[:sort_by] == "most_views"
       @questions = @question.order("views_count desc")
     end
 
@@ -28,7 +31,6 @@ class QuestionsController < ApplicationController
     render json: @questions
   end
 
-  # New and create Questions
   def new
     @question = Question.new
   end
@@ -50,8 +52,6 @@ class QuestionsController < ApplicationController
       end
     end
   end
-  #end of new/create
-
 
   def show
     @question = Question.find(params[:id])
@@ -60,13 +60,10 @@ class QuestionsController < ApplicationController
     render json: @question
   end
 
-  # change / edit / update
   def edit
-
   end
 
-  def update
-    
+  def update  
     respond_to do |format|
       logger.debug "format = #{format}"
       if @question.update(question_params)
@@ -99,18 +96,8 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
-  def dislike
-    @question.disliked_by current_user
-    redirect_to questions_path
-  end
-
   def unlike
     @question.unliked_by current_user
-    redirect_to questions_path
-  end
-
-  def undislike
-    @question.undisliked_by current_user
     redirect_to questions_path
   end
 
@@ -118,17 +105,8 @@ class QuestionsController < ApplicationController
     def set_question
       @question ||= begin
         question = params[:id] ? Question.find(params[:id]) : Question.new
-        # if question_params && question_params.length > 0
-        #   question.update_attributes(question_params)
-        # end
       end
     end
-
-    # Would like to use this versus a direct call in the create method
-    # def set_tag_list
-    #   @question.tag_list.add(params[:tag_list])
-    #   @question.tag_list ||= []
-    # end
 
 
     def question_params

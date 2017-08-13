@@ -129,6 +129,15 @@ A Q&A Forum for Instacart Employees
 - [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
 - [ ] Do we need an "activity_count" or "up_votes_count" column on the user model, for user default scope stuffs?
 - [ ] Instacart standard for ruby is to use double quotes 
+- [ ] answers_controller.rb: why do we need `answer_to_json`?
+- [ ] Do we really need `format.html { render :edit }`?
+- [ ] Delete home_controller.rb?
+- [ ] Delete landing_pagecontroller.rb?
+- [ ] QuestionController
+    - [ ] Can question sorts be done in the serializer or as a case statement?
+    - [ ] which is better? `render json: @questions` or `respond_to { |format| format.json {render json: @questions}}`?
+    - [ ] will we need tag_list params with new front end?  
 
 ### Which end is up?
 - [ ] slugs in the show page urls?
+- [ ] Direct root_path to sign in page

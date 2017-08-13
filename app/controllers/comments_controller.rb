@@ -1,11 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update]
 
- 
-  # def index
-  #   @comments = @commentable.comments
-  # end
-
   def show
     @comment = Comment.find(params[:id])
   end
@@ -53,18 +48,8 @@ class CommentsController < ApplicationController
     redirect_to question_path(@comment.question)
   end
 
-  def dislike
-    @comment.disliked_by current_user
-    redirect_to question_path(@comment.question)
-  end
-
   def unlike
     @comment.unliked_by current_user
-    redirect_to question_path(@comment.question)
-  end
-
-  def undislike
-    @comment.undisliked_by current_user
     redirect_to question_path(@comment.question)
   end
 
