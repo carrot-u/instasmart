@@ -59,10 +59,10 @@
 			        <%= button_to "Answer", new_question_answer_path(@question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
 			      </div>
 			    </div>
-  				<%= render 'creator_options', question: @question %>
+  				<%= render "creator_options", question: @question %>
 			  </div>
 			  <div class="container">
-				  <%= render partial: 'comments/comments_index', locals: {commentable: @question} %>
+				  <%= render partial: "comments/comments_index", locals: {commentable: @question} %>
 
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 					<h4 class="card-title pl-2">Answers</h4>
 					<div class="container">
 						<% @question.answers.each do |a| %>
-							<%= render 'show_answer', answer: a, question: @question %>
+							<%= render "show_answer", answer: a, question: @question %>
 						<% end %>
 					</div>
 				</div>

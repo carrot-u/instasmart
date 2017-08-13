@@ -16,7 +16,7 @@ def user_activity
     activity.push(comment)
   end
 
-  activity.sort_by! { |activity| activity.created_at }.reverse!
+  activity.sort_by! { |activity| activity.created_at }.reverse!.take(3)
   return activity
 end
 
