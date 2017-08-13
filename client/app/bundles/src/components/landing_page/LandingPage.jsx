@@ -2,6 +2,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from 'react-router-dom';
+
 
 // Project File
 import Jumbotron from './Jumbotron';
@@ -15,11 +17,11 @@ import LandingPageCardsContainer from './LandingPageCardsContainer';
 
 class LandingPage extends React.Component{
 
-
   render(){
     return(
       <div className="landing-page">
         <div className="overlay">
+          <Link to="/questions">Questions</Link>
           <Jumbotron 
             onClickNewQuestion={this.props.modalActions.showModal}
           />

@@ -10,10 +10,9 @@ import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import '../node_modules/bootstrap/js/dist/*.js';
 
 
-const store = configureStore();
 
 const Index = props => (
-  <Provider store={store}>
+  <Provider store={configureStore(props)}>
     <App />
   </Provider>
 )

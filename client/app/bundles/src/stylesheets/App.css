@@ -260,7 +260,7 @@ body,
     height: 100%; }
   body .jumbotron,
   .landing-page .jumbotron {
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     background-color: transparent;
     background-size: cover;
     /*opacity: .9;*/

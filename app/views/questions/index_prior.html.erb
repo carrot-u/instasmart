@@ -1,0 +1,19 @@
+<body>
+  <%= render 'banner' %>
+
+  <div class="container question-index">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <% @questions.each do |q| %>
+          <%= render 'show_question', question: q %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="content" style="height: 2000px; background-color: #F5F5F6">
+  </div>
+  <%= javascript_include_tag 'navbar', 'data-turbolinks-track' => true %>
+
+
+</body>
