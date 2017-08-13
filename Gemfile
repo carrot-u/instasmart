@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem "react_on_rails"
+
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'rack-cors', :require => 'rack/cors'
