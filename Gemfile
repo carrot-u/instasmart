@@ -71,3 +71,6 @@ end
 group :test do
   gem 'capybara'
 end
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'

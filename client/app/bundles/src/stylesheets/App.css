@@ -1,0 +1,314 @@
+/***************** Offsets **********************/
+/******************* ADD QUESTION MODAL **********************************/
+.question-modal .modal-content, .question-modal .modal-body {
+  border-radius: 0px;
+  border: none; }
+
+.question-modal .modal-header {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border: none;
+  background-color: green; }
+
+.question-modal form textarea {
+  border-radius: 0px;
+  background-color: white;
+  border-right: none;
+  border-top: none;
+  height: 30px;
+  transition: all 0.2s linear; }
+  .question-modal form textarea:focus {
+    background-color: rgba(223, 255, 175, 0.2);
+    border-left: none;
+    height: 100px;
+    rows: 3;
+    transition: all 0.2s linear; }
+  .question-modal form textarea:hover {
+    box-shadow: 0px 4px 5px -6px rgba(0, 0, 0, 0.75); }
+
+.question-modal label {
+  border-bottom: 0.5px solid rgba(220, 220, 220, 0.7);
+  color: #0f771a;
+  box-shadow: 0px 4px 5px -6px rgba(0, 0, 0, 0.75); }
+
+.question-modal input {
+  border-radius: 0px;
+  border-top: none; }
+
+/******************* Questions Index Navbar **********************************/
+body.fixed-nav nav {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+  width: 100%; }
+
+.navbar {
+  background-color: white;
+  width: 100%;
+  position: relative;
+  box-shadow: 2px -5px 24px -6px rgba(0, 0, 0, 0.75); }
+  .navbar .hidden-nav {
+    opacity: 0;
+    overflow: hidden;
+    max-width: 0;
+    padding: 0;
+    background: white;
+    transition: ease-out 0.2s; }
+  .navbar .hide-nav {
+    opacity: 1;
+    max-width: 500px;
+    padding-right: 2rem;
+    transition: ease-out 0.2s; }
+  .navbar .fixed-nav a.hide-nav {
+    opacity: 0;
+    overflow: hidden;
+    max-width: 0;
+    padding: 0;
+    background: white;
+    transition: ease-out 0.2s;
+    font-size: 1px; }
+  .navbar .navbar-logo {
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+    border-right: 0.5px solid rgba(20, 50, 40, 0.6);
+    border-bottom: 1px solid rgba(20, 50, 40, 0.6);
+    border-top: 0.5px solid rgba(20, 50, 40, 0.3);
+    border-left: 0.5px solid rgba(20, 50, 40, 0.3);
+    box-shadow: 2px 2px 4px -2px rgba(20, 50, 40, 0.5);
+    max-width: 40px;
+    max-height: 40px; }
+    .navbar .navbar-logo:hover {
+      box-shadow: 4px 4px 4px -2px rgba(20, 50, 40, 0.5); }
+  .navbar input {
+    outline: none; }
+  .navbar input[type=search] {
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 0px;
+    border-radius: 15px;
+    transition: 0.2s ease-out; }
+  .navbar input[type=search]:focus {
+    width: 350px;
+    background-color: #fff;
+    border-color: #66CC75;
+    box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+    transition: ease-out 0.2s; }
+  .navbar input[type=search]:hover {
+    background-color: #fff; }
+
+.fixed-nav input[type=search] {
+  width: 0px;
+  border-radius: 15px; }
+
+.condense-nav .nav-link {
+  font-size: 0px;
+  transition: ease-out 0.2s; }
+
+.condense-nav .navbar-logo {
+  margin-right: 0.5em; }
+
+nav {
+  background-color: #fff;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1; }
+
+body.fixed-nav .container {
+  transform: scale(1); }
+
+body.fixed-nav nav {
+  position: fixed;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1); }
+
+li.hidden-nav {
+  opacity: 0;
+  overflow: hidden;
+  max-width: 0;
+  padding: 0;
+  background: white;
+  transition: ease-out 0.4s; }
+
+li.hide-nav {
+  opacity: 1;
+  max-width: 500px;
+  transition: ease-out 0.4s; }
+
+.fixed-nav li.hide-nav {
+  opacity: 0;
+  overflow: hidden;
+  max-width: 0;
+  padding: 0;
+  background: white;
+  transition: ease-out 0.2s;
+  font-size: 1px; }
+
+.nav-link {
+  color: green;
+  transition: ease-out 0.4s; }
+  .nav-link:hover {
+    color: #0f4f1a; }
+
+.navbar, .ask-button, input[type=search] {
+  font-size: 12px !important; }
+
+@media (min-width: 1096px) {
+  .navbar, .ask-button, input[type=search] {
+    font-size: 18px !important; } }
+
+@media (min-width: 1096px) and (min-width: 900px) {
+  .fixed-nav li.hidden-nav {
+    opacity: 1;
+    max-width: 500px; } }
+
+@media (min-width: 1096px) {
+  input[type=search] {
+    width: 110px !important;
+    border-radius: .25rem !important;
+    height: 40px !important; }
+  input[type=search]:focus {
+    width: 550px  !important; } }
+
+/******************* Questions Index Banner **********************************/
+.banner {
+  background: url("../images/carrots.jpg") no-repeat center center fixed;
+  background-size: cover; }
+  .banner .overlay {
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-top: 10px;
+    background-color: rgba(0, 0, 0, 0.3); }
+  .banner .page-title {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    /* works with row or column */
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
+  .banner .banner-image {
+    flex: 1;
+    width: 60px;
+    height: 60px; }
+  .banner .banner-text {
+    flex: 8;
+    font-family: 'Muli', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-shadow: 1.5px 1.5px 0 black;
+    margin-bottom: 0px;
+    font-size: 46px; }
+  @media (min-width: 768px) {
+    .banner .banner-text {
+      font-size: 96px; }
+    .banner .banner-image {
+      width: 150px;
+      height: 150px; } }
+
+/******************************** Question index Content ***********************************/
+.loading-questions {
+  font-size: 2em;
+  color: green; }
+
+.question-index {
+  margin-top: 10px; }
+  .question-index .card {
+    border-radius: 0px; }
+  .question-index .question-summary {
+    color: green; }
+
+@media (min-width: 768px) {
+  .question-index {
+    margin-top: 10px; } }
+
+/*Move down content because we have a fixed navbar that is 50px tall */
+.instacart-green {
+  background-color: #68BF54 !important; }
+
+.text_color {
+  color: #fff; }
+
+.form-group {
+  padding: 10px;
+  align-content: center; }
+
+.display-3 {
+  font-family: 'Muli', sans-serif;
+  /*  font-family: 'Montserrat', sans-serif;    
+*/ }
+
+footer {
+  /*background-color: white; */ }
+
+body,
+.landing-page {
+  height: 100%;
+  padding-bottom: 0px;
+  font-family: 'Muli', sans-serif;
+  /*font-family: 'Montserrat', sans-serif;*/ }
+  body .overlay,
+  .landing-page .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    height: 100%; }
+  body .jumbotron,
+  .landing-page .jumbotron {
+    margin-top: 50px;
+    background-color: transparent;
+    background-size: cover;
+    /*opacity: .9;*/
+    /*filter: alpha(opacity=50);*/
+    text-shadow: 1.5px 1px 0 black;
+    padding-bottom: 1em; }
+
+.landing-page {
+  background: url("../images/carrots.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+.profile_thumbnail {
+  width: 55px;
+  height: 55px; }
+
+/**************** form transitions ******************/
+.form-transition-enter {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in; }
+
+.form-transition-enter.form-transition-enter-active {
+  opacity: 1; }
+
+.form-transition-leave {
+  opacity: 1;
+  transition: opacity 0.2s ease-in; }
+
+.form-transition-leave.form-transition-leave-active {
+  opacity: 0.01; }
+
+.App {
+  text-align: center; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px; }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white; }
+
+.App-intro {
+  font-size: large; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
