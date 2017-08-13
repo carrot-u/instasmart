@@ -95,23 +95,25 @@ class QuestionsController < ApplicationController
   end
 
   def like
-    @question.liked_by current_user
-    redirect_to questions_path
+    # @question.liked_by current_user
+    @question.liked_by User.first
+    render json: @question
   end
 
   def dislike
     @question.disliked_by current_user
-    redirect_to questions_path
+    render json: @question
   end
 
   def unlike
-    @question.unliked_by current_user
-    redirect_to questions_path
+    # @question.unliked_by current_user
+    @question.unliked_by User.first
+    render json: @question
   end
 
   def undislike
     @question.undisliked_by current_user
-    redirect_to questions_path
+    render json: @question
   end
 
   private

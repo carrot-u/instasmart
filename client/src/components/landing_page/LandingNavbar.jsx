@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 // import * as api from '../../api/apiUtils';
 
 class LandingNavbar extends React.Component{

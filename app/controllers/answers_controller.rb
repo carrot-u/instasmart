@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
         format.html { redirect_to @question }
         format.json { render json: @question}
       else
-        format.html { render :edit }
+        format.html { redirect_to @question }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end

@@ -14,10 +14,14 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
       @comment.save
-      if @commentable.class.name == "Question"
-        format.html { redirect_to @commentable }
-      else
-        redirect_to questions_path
+      respond_to do |format|
+        if @commentable.class.name == "Question"
+          format.html { redirect_to @commentable }
+          format.json { render json: @commentable }
+        else
+          format.html { redirect_to @question }
+          format.json { render json: @commentable.errors, status: :unprocessable_entity }
+        end
       end
   end
 
