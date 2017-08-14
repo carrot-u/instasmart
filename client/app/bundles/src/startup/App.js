@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import "../stylesheets/App.css";
+import "../stylesheets/App.scss";
 import QuestionsIndex from '../components/questions/QuestionsIndex';
 import LandingPage from '../components/landing_page/LandingPage';
 

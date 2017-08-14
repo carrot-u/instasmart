@@ -3,10 +3,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 import ReactOnRails from 'react-on-rails';
-import routes from '../routes/routes';
+import routes from './routes';
+import configureStore from '../store/configureStore';
+import '../stylesheets/index.scss';
 
-export default (_props, railsContext) => {
-  const store = ReactOnRails.getStore('routerCommentsStore');
+ const ServerRouterApp = (props, railsContext) => {
+  // const store = ReactOnRails.getStore('routerCommentsStore');
+  const store = configureStore(props);
 
   let error;
   let redirectLocation;
@@ -35,3 +38,5 @@ export default (_props, railsContext) => {
     </Provider>
   );
 };
+
+export default ServerRouterApp;

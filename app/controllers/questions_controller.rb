@@ -23,7 +23,12 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @questions }
-
+      format.html do
+        render component: 'QuestionsIndex', props: {
+          questions: prepareArray(@questions),
+          # user:      current_user && prepare(current_user)
+        }, tag: 'div'
+      end
     end
 
   end
@@ -125,6 +130,24 @@ class QuestionsController < ApplicationController
         # end
       end
     end
+
+
+    def prepareArray(array)
+      ActiveModel::Serializer::CollectionSerializer.new(array, each_serializer: serializer(array))
+    end
+
+    def prepare(resource)
+      serializer(resource).new(resource)
+    end
+
+    def serializer(resource)
+      if resource.respond_to? :name
+        "#{resource.name}Serializer".safe_constantize
+      else
+        "#{resource.class}Serializer".safe_constantize
+      end
+    end
+
     def question_params
       params.require(:question).permit(:summary, :body, :tag_list, :user)
     end
