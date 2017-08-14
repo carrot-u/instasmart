@@ -41,6 +41,7 @@
     "redux-thunk": "^2.2.0",
     "toastr": "^2.1.2",
     "sass-loader": "^6.0.6",
+    "node-sass": "^4.5.3",
     "webpack": "^2.3.3",
     "image-webpack-loader": "^3.3.1",
     "webpack-manifest-plugin": "^1.1.0"
