@@ -42,25 +42,9 @@
     "toastr": "^2.1.2",
     "sass-loader": "^6.0.6",
     "node-sass": "^4.5.3",
-    "webpack": "^2.3.3",
+    "webpack": "^3.4.1",
     "image-webpack-loader": "^3.3.1",
     "webpack-manifest-plugin": "^1.1.0"
   },
-  "devDependencies": {
-    "babel-preset-react-hmre": "^1.1.1",
-    "concurrently": "^3.5.0",
-    "eslint": "^4.3.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-watch": "^3.1.2",
-    "image-webpack-loader": "^3.3.1",
-    "mocha": "^3.4.2",
-    "node-sass": "^4.5.3",
-    "react-scripts": "1.0.10",
-    "redux-immutable-state-invariant": "^2.0.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.4.1",
-    "webpack-dev-middleware": "^1.11.0",
-    "webpack-hot-middleware": "^2.18.2"
-  }
+  "devDependencies": {}
 }
