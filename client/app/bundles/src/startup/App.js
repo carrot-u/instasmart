@@ -15,7 +15,6 @@ const App = () => {
           <Route exact path="/" component={LandingPage} />
           <Route path='/questions' component={QuestionsIndex}/>
           
-
         </Switch>
       </Router>
     );

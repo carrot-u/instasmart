@@ -73,10 +73,7 @@ class QuestionsController < ApplicationController
   def update
     
     respond_to do |format|
-      logger.debug "format = #{format}"
       if @question.update(question_params)
-        @question.tag_list = (params[:tag_list])
-        @question.tag_list ||= []
         format.html { redirect_to @question }
         format.json { render json: @question}
       else
@@ -149,6 +146,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:summary, :body, :tag_list, :user)
+      params.permit(:summary, :body, :tag_list, :user)
     end
 end

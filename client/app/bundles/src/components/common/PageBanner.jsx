@@ -11,9 +11,9 @@ class PageBanner extends React.Component {
       <div className="banner">
         <div className="overlay">
           <div className="page-title">
-            <Link to="/">
+            <a onClick={() => {window.location.href="/"}} >
               <img src={logo} alt="carrot icon" className="banner-image" />
-            </Link>
+            </a>
             <p className="banner-text"><i>Questions</i></p>
           </div>
         </div>

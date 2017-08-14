@@ -21,7 +21,6 @@ class LandingPage extends React.Component{
     return(
       <div className="landing-page">
         <div className="overlay">
-          <Link to="/questions">Questions</Link>
           <Jumbotron 
             onClickNewQuestion={this.props.modalActions.showModal}
           />

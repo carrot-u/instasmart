@@ -7,16 +7,20 @@ const IndexQuestionDetail = props => {
     (<i>Asked {props.question.created_at}</i>);
 
   return (
-    <div className="row">
-      <div className="col-md-10">
-        <a href="" className="question-summary">
-          <h3>{props.question.summary}</h3>
-        </a>
+    <div>
+      <div className="row">
+        <div className="col-md-12 pr-0">
+          <a href="" className="question-summary">
+            <h3>{props.question.summary}</h3>
+          </a>
+        </div>
       </div>
-      <div className="col-md-2">
-        <small className="float-right">
-          {askedBy}
-        </small>
+      <div className="row">
+        <div className="col-md-4 offset-md-7">
+          <small className="float-right">
+            {askedBy}
+          </small>
+        </div>
       </div>
     </div>
   );
