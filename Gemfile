@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem "react_on_rails"
 gem 'bootstrap-sass', '~> 3.3.6'
 
-
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'rack-cors', :require => 'rack/cors'

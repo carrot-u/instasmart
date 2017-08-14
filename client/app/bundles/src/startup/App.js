@@ -8,7 +8,7 @@ import LandingPage from '../components/landing_page/LandingPage';
 
 
 const App = () => {
-
+    console.log("made it to app");
     return (
       <Router>
         <Switch>
@@ -24,3 +24,5 @@ const App = () => {
 
 
 export default App;
+
+

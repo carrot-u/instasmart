@@ -21,11 +21,11 @@ class QuestionsController < ApplicationController
       @questions = @question.order("views_count desc")
     end
 
-    # respond_to do |format|
-    #   format.json { render json: @questions }
-    #  end
+    respond_to do |format|
+      format.json { render json: @questions }
 
-    render json: @questions
+    end
+
   end
 
   # New and create Questions
@@ -125,14 +125,6 @@ class QuestionsController < ApplicationController
         # end
       end
     end
-
-    # Would like to use this versus a direct call in the create method
-    # def set_tag_list
-    #   @question.tag_list.add(params[:tag_list])
-    #   @question.tag_list ||= []
-    # end
-
-
     def question_params
       params.require(:question).permit(:summary, :body, :tag_list, :user)
     end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'hello_world', to: 'hello_world#index'
   post '/auth/:provider/callback', to: 'sessions#create'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'home', to: 'home#index'
   root to: 'home#index'
+  get 'questions', to: 'questions#index'
+
   resources :users
 
   put "questions/:id/update" => "questions#update"
