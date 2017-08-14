@@ -1,0 +1,37 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-faded" style="background-color: #68BF54">
+  <button class="navbar-toggler navbar-toggler-right mt-1 mb-2" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand navbar-toggler my-2" href="#">InstaSmart</a>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link navbar-brand" href="#">InstaSmart <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#">Questions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tags</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#">Users</a>
+
+      </li>
+    </ul>
+
+    <div class="">
+      <% if current_user %>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button type="button" class="btn btn-primary">Search</button>
+          <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-secondary mx-1" %>
+          <a href="<user_profile_page>"><%= image_tag current_user.image, class: "img-fluid profile_thumbnail" %></a>
+        </form>
+      <% else %>
+        <%= link_to "Sign in", "/auth/google_oauth2", id: "sign_in", class: "btn btn-warning" %>
+      <% end %>
+    </div>
+  </div>
+</nav> <!-- NAV BAR  -->

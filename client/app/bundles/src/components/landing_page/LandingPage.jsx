@@ -2,6 +2,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from 'react-router-dom';
+
 
 // Project File
 import Jumbotron from './Jumbotron';
@@ -15,12 +17,10 @@ import LandingPageCardsContainer from './LandingPageCardsContainer';
 
 class LandingPage extends React.Component{
 
-
   render(){
     return(
       <div className="landing-page">
         <div className="overlay">
-          <LandingNavbar />
           <Jumbotron 
             onClickNewQuestion={this.props.modalActions.showModal}
           />
@@ -51,3 +51,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+
+          // <LandingNavbar />

@@ -21,11 +21,16 @@ class QuestionsController < ApplicationController
       @questions = @question.order("views_count desc")
     end
 
-    # respond_to do |format|
-    #   format.json { render json: @questions }
-    #  end
+    respond_to do |format|
+      format.json { render json: @questions }
+      format.html do
+        render component: 'QuestionsIndex', props: {
+          questions: prepareArray(@questions),
+          # user:      current_user && prepare(current_user)
+        }, tag: 'div'
+      end
+    end
 
-    render json: @questions
   end
 
   # New and create Questions
@@ -68,10 +73,7 @@ class QuestionsController < ApplicationController
   def update
     
     respond_to do |format|
-      logger.debug "format = #{format}"
       if @question.update(question_params)
-        @question.tag_list = (params[:tag_list])
-        @question.tag_list ||= []
         format.html { redirect_to @question }
         format.json { render json: @question}
       else
@@ -126,14 +128,24 @@ class QuestionsController < ApplicationController
       end
     end
 
-    # Would like to use this versus a direct call in the create method
-    # def set_tag_list
-    #   @question.tag_list.add(params[:tag_list])
-    #   @question.tag_list ||= []
-    # end
 
+    def prepareArray(array)
+      ActiveModel::Serializer::CollectionSerializer.new(array, each_serializer: serializer(array))
+    end
+
+    def prepare(resource)
+      serializer(resource).new(resource)
+    end
+
+    def serializer(resource)
+      if resource.respond_to? :name
+        "#{resource.name}Serializer".safe_constantize
+      else
+        "#{resource.class}Serializer".safe_constantize
+      end
+    end
 
     def question_params
-      params.require(:question).permit(:summary, :body, :tag_list, :user)
+      params.permit(:summary, :body, :tag_list, :user)
     end
 end

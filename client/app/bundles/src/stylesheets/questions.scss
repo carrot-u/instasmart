@@ -223,7 +223,6 @@ li.hide-nav {
   input[type=search]{
     width: 110px !important;
     border-radius: .25rem !important;
-    height: 40px !important;
   }
   input[type=search]:focus{
     width: 550px  !important;
@@ -292,7 +291,7 @@ li.hide-nav {
 }
 
 .question-index{
-  margin-top: 10px;
+  margin-top: 60px;
 
   .card{
     border-radius: 0px;
@@ -305,7 +304,7 @@ li.hide-nav {
 
 @media(min-width: 768px){
   .question-index{
-    margin-top: 10px;
+    margin-top: 65px;
   }
 }
 

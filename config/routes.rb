@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  # resource :home, only: [:show]
 
   get 'sessions/create'
 
   get 'sessions/destroy'
 
-  #get 'home', to: 'landing_page#index'
-  root  "landing_page#index"
+  get 'home', to: 'home#index'
+  root to: 'home#index'
+  get 'questions', to: 'questions#index'
 
   resources :users
 
