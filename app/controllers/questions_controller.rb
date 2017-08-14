@@ -40,11 +40,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    logger.debug "Current user: #{current_user}"
     @question.user = current_user
-    @question.tag_list = (params[:tag_list])
-    @question.tag_list ||= []
-
     respond_to do |format|
       if @question.save!
         format.html { redirect_to questions_path }
@@ -146,6 +142,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.permit(:summary, :body, :tag_list, :user)
+      params.permit(:summary, :body, :tag_list)
     end
 end
