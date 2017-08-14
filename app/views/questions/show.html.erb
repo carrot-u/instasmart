@@ -12,7 +12,7 @@
 			        </div>
 			      </div>
 			      <div class="col-md-3">
-			        <small class="float-right"><i>Asked by <%= @question.user.first_name %> <%= @question.user.last_name %> on <%= @question.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %> </i></small>
+			        <small class="float-right"><i>Asked by <%= @question.user.name %> on <%= @question.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %> </i></small>
 
 			      </div>
 			    </div>

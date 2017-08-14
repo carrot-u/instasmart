@@ -58,7 +58,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.increment(:views_count, 1)
     @question.save
-    render json: @question
+    #render json: @question
   end
 
   # change / edit / update
