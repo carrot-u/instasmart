@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Jumbotron = props => {
@@ -12,11 +13,13 @@ const Jumbotron = props => {
         className="btn btn-primary btn-lg px-5" 
         onClick={props.onClickNewQuestion}
        >Ask a Question</button>
-       <button 
-        type="button" 
-        className="btn btn-secondary btn-lg px-5 ml-1" 
-        onClick={() => {window.location.href='/questions'}}
-       >See All Questions</button>
+       <Link to="/questions">
+         <button 
+          type="button" 
+          className="btn btn-secondary btn-lg px-5 ml-1" 
+          onClick={() => {window.location.href='/questions'}}
+         >See All Questions</button>
+       </Link>
       </div>
     </div>
   );
