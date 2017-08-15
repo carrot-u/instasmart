@@ -1,0 +1,5 @@
+<% @comments.each do |comment| %>
+	<p><%= comment.body %></p>
+	<p><%= comment.user.name %></p>
+	<p><%= comment.commentable_type %></p>
+<% end %>
