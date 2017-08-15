@@ -82,3 +82,32 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 end
+
+
+# questions/comments_controller.rb
+# class Questions::CommentsController < CommentsController
+#   before_action :set_commentable
+
+#   private
+
+
+#     def set_commentable
+#       @commentable = Question.find(params[:question_id])
+#     end
+# end
+
+# answers/comments_controller.rb
+# class Answers::CommentsController < CommentsController
+#   before_action :set_commentable
+
+
+
+
+#   private
+
+#     def set_commentable
+#       logger.debug "params: #{params}"
+#       @commentable = Answer.find(params[:answer_id])
+#     end
+# end
+
