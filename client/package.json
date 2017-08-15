@@ -40,7 +40,7 @@
     "redux-immutable-state-invariant": "^2.0.0",
     "redux-thunk": "^2.2.0",
     "toastr": "^2.1.2",
-    "sass-loader": "^6.0.6",
+    "sass-loader": "^4.0.0",
     "node-sass": "^4.5.3",
     "webpack": "^3.4.1",
     "image-webpack-loader": "^3.3.1",
