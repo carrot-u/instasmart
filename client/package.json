@@ -44,6 +44,7 @@
     "node-sass": "^4.5.3",
     "webpack": "^3.4.1",
     "image-webpack-loader": "^3.3.1",
+    "node-sass": "^4.5.3",
     "webpack-manifest-plugin": "^1.1.0"
   },
   "devDependencies": {}
