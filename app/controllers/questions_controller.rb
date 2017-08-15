@@ -23,12 +23,12 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @questions }
-      format.html do
-        render component: 'QuestionsIndex', props: {
-          questions: prepareArray(@questions),
-          # user:      current_user && prepare(current_user)
-        }, tag: 'div'
-      end
+      # format.html do
+      #   render component: 'Index', props: {
+      #     questions: prepareArray(@questions),
+      #     # user:      current_user && prepare(current_user)
+      #   }, tag: 'div'
+      # end
     end
 
   end
@@ -62,7 +62,15 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.increment(:views_count, 1)
     @question.save
-    render json: @question
+
+    respond_to do |format|
+      # format.html do
+      #   render component: 'Question', props: {
+      #     question:  prepare(@question),
+      #   }, tag: 'div'
+      # end
+      format.json { render json: @question }
+    end
   end
 
   # change / edit / update
@@ -129,21 +137,21 @@ class QuestionsController < ApplicationController
     end
 
 
-    def prepareArray(array)
-      ActiveModel::Serializer::CollectionSerializer.new(array, each_serializer: serializer(array))
-    end
+    # def prepareArray(array)
+    #   ActiveModel::Serializer::CollectionSerializer.new(array, each_serializer: serializer(array))
+    # end
 
-    def prepare(resource)
-      serializer(resource).new(resource)
-    end
+    # def prepare(resource)
+    #   serializer(resource).new(resource)
+    # end
 
-    def serializer(resource)
-      if resource.respond_to? :name
-        "#{resource.name}Serializer".safe_constantize
-      else
-        "#{resource.class}Serializer".safe_constantize
-      end
-    end
+    # def serializer(resource)
+    #   if resource.respond_to? :name
+    #     "#{resource.name}Serializer".safe_constantize
+    #   else
+    #     "#{resource.class}Serializer".safe_constantize
+    #   end
+    # end
 
     def question_params
       params.permit(:summary, :body, :tag_list, :user)

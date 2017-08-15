@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const IndexQuestionDetail = props => {
   const askedBy = props.question.user ? 
@@ -10,14 +12,14 @@ const IndexQuestionDetail = props => {
     <div>
       <div className="row">
         <div className="col-md-12 pr-0">
-          <a href="" className="question-summary">
+          <Link to={`/question/${props.question.id}`} className="question-summary">
             <h3>{props.question.summary}</h3>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="row">
-        <div className="col-md-4 offset-md-7">
-          <small className="float-right">
+        <div className="col-md-8 ">
+          <small className="pl-3">
             {askedBy}
           </small>
         </div>

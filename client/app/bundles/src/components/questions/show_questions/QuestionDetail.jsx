@@ -1,0 +1,20 @@
+import React from 'react';
+
+const QuestionDetail = props => {
+  const askedBy = props.question.user ? 
+    (<i>Asked by {props.question.user.name} on {props.question.created_at}</i>) 
+    :
+    (<i>Asked {props.question.created_at}</i>);
+    
+  return (
+    <div className="row">
+      <div className="col-md-8 offset-md-2 pr-0">
+        <a href="" className="question-summary">
+          <h3>{props.question.summary}</h3>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+export default QuestionDetail;
