@@ -36,9 +36,9 @@ class CommentsController < ApplicationController
 	    if params[:question_id]
 	      id = params[:question_id]
 	      Question.find(params[:question_id])
-	    # else
-	    #   id = params[:answer_id]
-	    #   Answer.find(params[:answer_id])
+	    elsif params[:answer_id]
+	      id = params[:answer_id]
+	      Answer.find(params[:answer_id])
     end
   end
 

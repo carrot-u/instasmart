@@ -47,9 +47,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :answers do 
+    resources :comments
+  end
+
   resources :comments
-  # resources :answers do
-  #   # resources :comments, module: :answers
-  # end
+
 
 end

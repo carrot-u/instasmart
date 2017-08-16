@@ -1,0 +1,7 @@
+<h2>Answer to Question <%= @question.id %></h2>
+<p><%= @answer.response %></p>
+
+<div class="col-sm-8">
+  <%= button_to "Comment", new_answer_comment_path(@answer), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
+
+</div>
