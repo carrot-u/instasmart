@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   def create
   	@context = context
   	@comment = @context.comments.new(comment_params)
+    @comment.user_id = current_user.id
 
   	if @comment.save
   		redirect_to context_url(context), notice: "The comment has been successfully created."
