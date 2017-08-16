@@ -12,7 +12,7 @@ const IndexQuestionDetail = props => {
     <div>
       <div className="row">
         <div className="col-md-12 pr-0">
-          <Link to={`/question/${props.question.id}`} className="question-summary">
+          <Link to={`/questions/${props.question.id}`} className="question-summary">
             <h3>{props.question.summary}</h3>
           </Link>
         </div>

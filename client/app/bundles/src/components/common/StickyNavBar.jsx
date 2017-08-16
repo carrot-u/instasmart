@@ -36,6 +36,12 @@ class StickyNavbar extends React.Component{
     window.addEventListener('scroll', this.fixNav);
   }
 
+  componentWillUnmount(){
+    document.body.classList.remove('fixed-nav');
+    document.body.style.paddingTop = 0;
+    window.removeEventListener('scroll', this.fixNav);
+  }
+
   render(){
     return(
       <nav className={"navbar navbar-toggleable-md" + (this.props.isCondensed ? " condense-nav" : '')}>

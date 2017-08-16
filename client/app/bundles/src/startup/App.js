@@ -16,7 +16,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path='/questions' component={QuestionsIndex}/>
+          <Route exact path='/questions' component={QuestionsIndex}/>
           <Route path='/questions/:id' component={ShowQuestionContainer}/>
         </Switch>
       </Router>
