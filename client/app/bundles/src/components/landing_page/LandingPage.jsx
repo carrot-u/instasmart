@@ -12,6 +12,8 @@ import * as questionActions from "../../actions/questionActions";
 import * as modalActions from "../../actions/modalActions";
 import LandingNavbar from './LandingNavbar';
 import LandingPageCardsContainer from './LandingPageCardsContainer';
+import ScrollToTopOnMount from '../common/ScrollToTop';
+
 
 
 
@@ -20,6 +22,7 @@ class LandingPage extends React.Component{
   render(){
     return(
       <div className="landing-page">
+        <ScrollToTopOnMount />
         <div className="overlay">
           <Jumbotron 
             onClickNewQuestion={this.props.modalActions.showModal}

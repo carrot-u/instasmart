@@ -29,7 +29,7 @@ export function post(url, payload, options) {
     method: 'POST',
     body: JSON.stringify(payload),
     headers: {
-      // 'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
+      'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
       'Accept':       'application/json',
       'Content-Type': 'application/json'
     },
@@ -45,7 +45,7 @@ export function put(url, options, payload){
     method: 'PUT',
     body: JSON.stringify(payload),
     headers: {
-      // 'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
+      'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
       'Accept':       'application/json',
       'Content-Type': 'application/json'
     },
@@ -61,7 +61,7 @@ export function deleteRequest(url, options, payload){
     method: 'DELETE',
     body: JSON.stringify(payload),
     headers: {
-      // 'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
+      'X-CSRF-Token':  document.getElementsByName("csrf-token")[0].content,
       'Accept':       'application/json',
       'Content-Type': 'application/json'
     },

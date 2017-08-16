@@ -17,7 +17,7 @@ const Jumbotron = props => {
          <button 
           type="button" 
           className="btn btn-secondary btn-lg px-5 ml-1" 
-          onClick={() => {window.location.href='/questions'}}
+          onClick={() => {window.location.href='#/questions'}}
          >See All Questions</button>
        </Link>
       </div>
