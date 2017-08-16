@@ -108,9 +108,6 @@ class QuestionsController < ApplicationController
     def set_question
       @question ||= begin
         question = params[:id] ? Question.find(params[:id]) : Question.new
-        # if question_params && question_params.length > 0
-        #   question.update_attributes(question_params)
-        # end
       end
     end
 
@@ -135,3 +132,4 @@ class QuestionsController < ApplicationController
       params.permit(:summary, :body, :tag_list)
     end
 end
+
