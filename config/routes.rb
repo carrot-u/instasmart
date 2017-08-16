@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
   post '/auth/:provider/callback', to: 'sessions#create'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
