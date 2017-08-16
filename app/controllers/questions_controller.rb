@@ -56,10 +56,9 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.json { render json: @question }
     end
-
+  end
   # change / edit / update
   def edit
-
   end
 
   def update

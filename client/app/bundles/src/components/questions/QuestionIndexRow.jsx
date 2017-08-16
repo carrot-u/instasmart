@@ -1,6 +1,5 @@
 import React from "react";
 import TopAnswer from "../answers/TopAnswer";
-import IndexQuestionTags from "../tags/IndexQuestionTags";
 import IconStats from "../common/IconStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
 import QuestionForm from "./QuestionForm";
@@ -94,8 +93,7 @@ class QuestionIndexRow extends React.Component {
     return (
       <div className="card d-block img-fluid mb-2">
         <div className="card-header">
-          <IndexQuestionDetail question={this.props.question} />
-          <IndexQuestionTags question={this.props.question} />
+            <IndexQuestionDetail question={this.props.question} />
         </div>
         <div className="card-block">
           {showAnswer}

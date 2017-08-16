@@ -9,7 +9,8 @@ class QuestionSerializer < ActiveModel::Serializer
 
 
   def voted_for?
-  	current_user.voted_for? self.object	
+  	# current_user.voted_for? self.object	
+    true
   end
 end
 
