@@ -58,7 +58,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.increment(:views_count, 1)
     @question.save
-    #render json: @question
+    # render json: @question
   end
 
   # change / edit / update
@@ -93,24 +93,14 @@ class QuestionsController < ApplicationController
   end
 
   def like
-    # @question.liked_by current_user
-    @question.liked_by User.first
-    render json: @question
-  end
-
-  def dislike
-    @question.disliked_by current_user
+    @question.liked_by current_user
+    # @question.liked_by User.first
     render json: @question
   end
 
   def unlike
-    # @question.unliked_by current_user
-    @question.unliked_by User.first
-    render json: @question
-  end
-
-  def undislike
-    @question.undisliked_by current_user
+    @question.unliked_by current_user
+    # @question.unliked_by User.first
     render json: @question
   end
 

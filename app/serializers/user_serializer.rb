@@ -16,8 +16,12 @@ def user_activity
     activity.push(comment)
   end
 
+  self.object.votes.each do |vote|
+    activity.push(vote)
+  end
+
   activity.sort_by! { |activity| activity.created_at }.reverse!
-  return activity
+  return activity.take(10)
 end
 
 end
