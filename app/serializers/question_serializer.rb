@@ -8,7 +8,7 @@ class QuestionSerializer < ActiveModel::Serializer
   has_many :tags, include_nested_associations: true
 
   def voted_for?
-  	current_user.voted_for? self.object	
+  	User.first.voted_for? self.object	
   end
 end
 
