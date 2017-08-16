@@ -1,8 +1,9 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :like, :dislike, :undislike, :unlike]
-  # before_action :question, only: [:new, :show, :edit, :update, :destroy]
+  #before_action :set_question_id, only: [:new, :show, :edit, :update, :destroy]
 
   def new
+    @answer = Answer.new
   end
 
   def show
@@ -71,6 +72,7 @@ class AnswersController < ApplicationController
 
     def set_answer
       @answer = Answer.find(params[:id])
+      @question = Question.find(@answer.question_id)
     end
 
     def set_question_id

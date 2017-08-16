@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
     if Question === context
       question_path(context)
     else
-      answer_path(context)
+      question_path(Question.find(context.question_id))
     end
   end
 end
