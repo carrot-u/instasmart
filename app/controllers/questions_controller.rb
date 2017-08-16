@@ -40,11 +40,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    logger.debug "Current user: #{current_user}"
     @question.user = current_user
-    @question.tag_list = (params[:tag_list])
-    @question.tag_list ||= []
-
     respond_to do |format|
       if @question.save!
         format.html { redirect_to questions_path }
@@ -62,7 +58,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.increment(:views_count, 1)
     @question.save
-    render json: @question
+    # render json: @question
   end
 
   # change / edit / update
@@ -97,24 +93,14 @@ class QuestionsController < ApplicationController
   end
 
   def like
-    # @question.liked_by current_user
-    @question.liked_by User.first
-    render json: @question
-  end
-
-  def dislike
-    @question.disliked_by current_user
+    @question.liked_by current_user
+    # @question.liked_by User.first
     render json: @question
   end
 
   def unlike
-    # @question.unliked_by current_user
-    @question.unliked_by User.first
-    render json: @question
-  end
-
-  def undislike
-    @question.undisliked_by current_user
+    @question.unliked_by current_user
+    # @question.unliked_by User.first
     render json: @question
   end
 
@@ -146,6 +132,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.permit(:summary, :body, :tag_list, :user)
+      params.permit(:summary, :body, :tag_list)
     end
 end
