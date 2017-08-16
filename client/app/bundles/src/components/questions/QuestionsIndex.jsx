@@ -9,10 +9,12 @@ import * as modalActions from "../../actions/modalActions";
 import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
 import * as utils from "../common/utils";
+import ScrollToTopOnMount from '../common/ScrollToTop';
+
 
 class QuestionIndex extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       questions: null,
     };
@@ -70,6 +72,7 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
+        <ScrollToTopOnMount />
         <PageBanner />
         <div className="container question-index">
           {listQuestions}

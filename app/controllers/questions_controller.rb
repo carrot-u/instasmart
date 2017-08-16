@@ -23,12 +23,6 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @questions }
-      format.html do
-        render component: 'QuestionsIndex', props: {
-          questions: prepareArray(@questions),
-          # user:      current_user && prepare(current_user)
-        }, tag: 'div'
-      end
     end
 
   end
@@ -58,12 +52,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.increment(:views_count, 1)
     @question.save
-    # render json: @question
-  end
 
+    respond_to do |format|
+      format.json { render json: @question }
+    end
+  end
   # change / edit / update
   def edit
-
   end
 
   def update
@@ -108,23 +103,6 @@ class QuestionsController < ApplicationController
     def set_question
       @question ||= begin
         question = params[:id] ? Question.find(params[:id]) : Question.new
-      end
-    end
-
-
-    def prepareArray(array)
-      ActiveModel::Serializer::CollectionSerializer.new(array, each_serializer: serializer(array))
-    end
-
-    def prepare(resource)
-      serializer(resource).new(resource)
-    end
-
-    def serializer(resource)
-      if resource.respond_to? :name
-        "#{resource.name}Serializer".safe_constantize
-      else
-        "#{resource.class}Serializer".safe_constantize
       end
     end
 

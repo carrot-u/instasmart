@@ -1,8 +1,10 @@
 import React from 'react';
 
 const IconStats = props => {
+  const addClass = props.addClass ? props.addClass : "";
+
   return(
-    <div>
+    <div className={addClass}>
       {props.question.views_count > 0 &&
         <span className="badge badge-success badge-pill mr-1">
           <i className="fa fa-eye" aria-hidden="true" />

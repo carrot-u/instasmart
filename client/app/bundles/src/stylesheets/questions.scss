@@ -308,5 +308,26 @@ li.hide-nav {
   }
 }
 
+/******************************** Show Question *********************************************/
+
+.center-items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-question{
+  // background-color: rgba(240, 250, 240, .8);
+}
+
+.show-question-detail{
+
+  background-color: rgba(200, 200, 200, .5);
+  border-bottom: 1px solid lightgrey; 
+  .question-summary{
+    color: darkgreen;
+  }
+}
+
 
 

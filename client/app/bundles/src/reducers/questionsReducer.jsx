@@ -2,6 +2,7 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
   questions: [],
+  showQuestion: null,
   isLoading: false,
   error: null, 
   sort: 'recent',
@@ -18,6 +19,15 @@ export default function questionsReducer(state = initialState, action){
     case types.LOAD_QUESTIONS_START:
       return {...state, 
         isLoading: true,
+      };
+    case types.LOAD_QUESTIONS_BY_ID_START:
+      return {...state, 
+        isLoading: true,
+      };
+    case types.LOAD_QUESTIONS_BY_ID_SUCCESS:
+      return {...state,
+        showQuestion: action.question,
+        isLoading: false,
       };
     case types.CREATE_QUESTION_SUCCESS:
       return {
