@@ -9,10 +9,14 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
       @comment.save
-      if @commentable.class.name == "Question"
-        format.html { redirect_to @commentable }
-      else
-        redirect_to questions_path
+      respond_to do |format|
+        if @commentable.class.name == "Question"
+          format.html { redirect_to @commentable }
+          format.json { render json: @commentable }
+        else
+          format.html { redirect_to @question }
+          format.json { render json: @commentable.errors, status: :unprocessable_entity }
+        end
       end
   end
 
@@ -63,3 +67,32 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 end
+
+
+# questions/comments_controller.rb
+# class Questions::CommentsController < CommentsController
+#   before_action :set_commentable
+
+#   private
+
+
+#     def set_commentable
+#       @commentable = Question.find(params[:question_id])
+#     end
+# end
+
+# answers/comments_controller.rb
+# class Answers::CommentsController < CommentsController
+#   before_action :set_commentable
+
+
+
+
+#   private
+
+#     def set_commentable
+#       logger.debug "params: #{params}"
+#       @commentable = Answer.find(params[:answer_id])
+#     end
+# end
+

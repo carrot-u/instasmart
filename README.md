@@ -60,6 +60,7 @@ A Q&A Forum for Instacart Employees
     - [ ] only current_user can access edit on show page/ user profile page
 - [ ] Test and Optimize for Performance (8/14-21)
 - [ ] Find alternative solution for csrf or method for passing token 
+- [ ] Provide way to see if current user has voted on question / answer. Pass to frontend
 
 ### Smaller Tasks
 - [x] Add package-lock.json to .gitignore
