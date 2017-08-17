@@ -1,7 +1,7 @@
 import React from 'react';
 
 const QuestionStats = props => {
-  const statClass = "stat-box center-items my-1";
+  const statClass = "stat-box center-items";
 
   const views = (<div className={statClass}> Views: {props.question.views_count} </div>);
   const votes = (<div className={statClass}> Likes: {props.question.cached_votes_score} </div>);

@@ -18,8 +18,14 @@ const QuestionDetail = props => {
           <div className="question-summary col-md-10 pb-2">
             <h2 className="py-1 question-summary">{props.question.summary}</h2>
             <i><h4 className="py-1 question-detail">{props.question.body}</h4></i>
-            
-            <QuestionButtons pullRight=""/>
+            <div className="row">
+              <div className="col-md-9">
+               <QuestionButtons pullRight=""/>
+              </div>
+              <div className="col-md-3">
+                  <QuestionStats question={props.question} />
+              </div>
+            </div>
           </div>
           <div className="col-md-2 pull-right">
           </div>

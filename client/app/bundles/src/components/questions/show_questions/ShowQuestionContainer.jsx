@@ -41,7 +41,7 @@ class ShowQuestionConatiner extends React.Component {
         </div>
       );
       tags = (
-        <div className="tags-container">
+        <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />
         </div>
       );
@@ -55,9 +55,10 @@ class ShowQuestionConatiner extends React.Component {
             {showQuestion}
             {showAnswers}
           </div>
-          <div className="col-md-2 show-question">
-            {stats}
-            {tags}
+          <div className="col-md-2 stat-tags-col px-0">
+            <div className="pt-2">
+              {tags}
+            </div>
           </div>
         </div>
       </div>
