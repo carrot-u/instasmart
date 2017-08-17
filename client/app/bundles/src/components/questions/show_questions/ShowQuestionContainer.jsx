@@ -7,7 +7,10 @@ import { bindActionCreators } from "redux";
 import QuestionDetail from "./QuestionDetail";
 import * as questionActions from "../../../actions/questionActions";
 import ScrollToTopOnMount from "../../common/ScrollToTop";
-import AllAnswers from '../../answers/AllAnswers';
+import AllAnswers from "../../answers/AllAnswers";
+import QuestionStats from "./QuestionStats";
+import IndexQuestionTags from "../../tags/IndexQuestionTags";
+
 
 class ShowQuestionConatiner extends React.Component {
   constructor(props) {
@@ -19,7 +22,7 @@ class ShowQuestionConatiner extends React.Component {
   }
 
   render() {
-    let showQuestion, showAnswers = null;
+    let showQuestion, showAnswers, stats, tags = null;
     if (this.props.isLoading || !this.props.showQuestion) {
       showQuestion = (
         <div className="container loading-questions row mt-4">
@@ -32,14 +35,30 @@ class ShowQuestionConatiner extends React.Component {
     } else {
       showQuestion = <QuestionDetail question={this.props.showQuestion} />;
       showAnswers = <AllAnswers answers={this.props.showQuestion.answers} />;
+      stats = (
+        <div className="stats-container">
+          <QuestionStats question={this.props.showQuestion} />
+        </div>
+      );
+      tags = (
+        <div className="tags-container">
+           <IndexQuestionTags question={this.props.showQuestion} />
+        </div>
+      );
     }
 
     return (
-      <div className="">
-        <div className="container show-question">
+      <div className="container">
+        <div className="row">
           <ScrollToTopOnMount />
-          {showQuestion}
-          {showAnswers}
+          <div className="col-md-10 show-question">
+            {showQuestion}
+            {showAnswers}
+          </div>
+          <div className="col-md-2 show-question">
+            {stats}
+            {tags}
+          </div>
         </div>
       </div>
     );
