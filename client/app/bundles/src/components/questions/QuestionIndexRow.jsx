@@ -24,7 +24,7 @@ class QuestionIndexRow extends React.Component {
   }
 
 
-  /************** Answer Functions *********************/
+  /************** Comment/Answer Functions *********************/
   onClickPost(e, type) {
     e.preventDefault();
     this.setState({ 
@@ -43,7 +43,7 @@ class QuestionIndexRow extends React.Component {
     if(this.state.postType === "comment"){
       payload = {
         comment: {
-          response: this.state.postResponse
+          body: this.state.postResponse
         }
       };
     }else{

@@ -13,7 +13,6 @@ export function getQuestions(){
 
 // return question with answers and comments
 export function getQuestionById(id){
-  console.log("start get request");
   return function(dispatch){
     return utils.get(`/questions/${id}`).then(question =>{
       dispatch(actions.loadQuestionByIdSuccess(question));

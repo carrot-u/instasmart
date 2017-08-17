@@ -329,23 +329,29 @@ li.hide-nav {
 
 }
 
+.show-question-top-container{
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
 .show-question-detail{
   background-color: rgba(0,0,0,.03);
   border-bottom: 2px solid lightgrey; 
   .question-summary{
     color: darkgreen;
   }
+  .badge{
+    background-color: #28a745;
+    margin-left: 4px;
+    padding: 1px 5px;
+    font-size: 0.8em;
+  }
 }
 
-.stats-container{
-  // height: $show-question-banner-height-lg;
-}
-
-.question-stats{
-  .stat-box{
-    // height: $show-question-banner-height-lg / 4;
-    color: #39739d;
-    // background-color: #E1ECF4;
+.question-author-container{
+  .profile-image{
+    border-radius: 10px;
+    border: 1px solid darkgreen;
   }
 
 }
