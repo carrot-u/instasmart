@@ -53,7 +53,8 @@ class QuestionIndex extends React.Component {
               </div>          
             </div>);
 
-    } else {
+    } else { 
+      console.log(this.props.questions);
       listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.sort(this.props.questions, "").map(question => {
           return (

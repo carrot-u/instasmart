@@ -35,8 +35,8 @@ class ShowQuestionConatiner extends React.Component {
     }
 
     return (
-      <div className="show-question">
-        <div className="container">
+      <div className="">
+        <div className="container show-question">
           <ScrollToTopOnMount />
           {showQuestion}
           {showAnswers}

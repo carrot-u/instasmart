@@ -317,15 +317,42 @@ li.hide-nav {
 }
 
 .show-question{
-  // background-color: rgba(240, 250, 240, .8);
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 2px; 
+
 }
 
 .show-question-detail{
+  // position: fixed;
+  // margin: auto;
+  // width: 100%;
+  // top: 0;
+  // left: 0;
+  // position: -webkit-sticky;
+  // position: -moz-sticky;
+  // position: -ms-sticky;
+  // position: -o-sticky;
+  // position: sticky;
+  // top: 20;
+  // height: $show-question-banner-height;
+  // z-index: 100;
 
-  background-color: rgba(200, 200, 200, .5);
-  border-bottom: 1px solid lightgrey; 
+
+
+  background-color: rgba(255, 255, 255, .9);
+  
+  border-bottom: 2px solid lightgrey; 
   .question-summary{
     color: darkgreen;
+  }
+
+  .question-stats{
+    .stat-box{
+      
+      border: 1px solid black;
+    }
+
   }
 }
 

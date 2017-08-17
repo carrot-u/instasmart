@@ -18,7 +18,7 @@ const AllAnswers = props => {
   });
 
   return (
-    <div className="mt-1">
+    <div className="mt-1 all-answers">
       <h3>{props.answers.length} Answers </h3> 
       {answersListing}
     </div>
