@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   respond_to :html, :json
 
   def index
+    byebug
     @questions = Question.order("id DESC")
 
 
@@ -21,9 +22,9 @@ class QuestionsController < ApplicationController
       @questions = @question.order("views_count desc")
     end
 
-    respond_to do |format|
-      format.json { render json: @questions }
-    end
+    # respond_to do |format|
+    #   format.json { render json: @questions }
+    # end
 
   end
 

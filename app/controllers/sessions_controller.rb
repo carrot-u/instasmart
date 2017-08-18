@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+before_action :current_user
 
 	def new
 		unless current_user.nil?
