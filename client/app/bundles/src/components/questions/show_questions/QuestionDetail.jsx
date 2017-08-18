@@ -20,8 +20,8 @@ const QuestionDetail = props => {
       <button className="btn btn-outline-secondary btn-sm py-0">Back</button>
     </Link>
       <div className="question-summary col-md-12 pb-2 ml-2">
-        <h2 className="py-1 question-summary">{props.question.summary}</h2>
-        <i><h4 className="py-1 question-detail">{props.question.body}</h4></i>
+        <h3 className="py-1 question-summary">{props.question.summary}</h3>
+        <i><h6 className="py-1 question-detail">{props.question.body}</h6></i>
         <div className="row ">
            <QuestionStatButtons 
             question={props.question} 
