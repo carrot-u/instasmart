@@ -24,8 +24,7 @@ const config = {
       './app/bundles/src/startup/registration',
     ],
   },
-  devtool: 'eval-source-map',
-  devtool: 'source-map',
+
   output: {
     // Name comes from the entry section.
     filename: '[name]-[hash].js',
@@ -91,8 +90,10 @@ const config = {
           test: /\.scss$/,
           use: [{
               loader: "style-loader" // creates style nodes from JS strings
-          }, { 
-              loader: 'sass-loader', options: { sourceMap: true }  // compiles Sass to CSS
+          }, {
+              loader: "css-loader" // translates CSS into CommonJS
+          }, {
+              loader: "sass-loader" // compiles Sass to CSS
           }]
         },
         {
