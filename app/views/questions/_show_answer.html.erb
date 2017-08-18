@@ -7,7 +7,7 @@
 		  <div class="ml-2 pb-2">
 		    <small class=""><i>Answered by 
 		    <% if answer.user %>
-		    	<%= answer.user.first_name %> <%= answer.user.last_name %> on 
+		    	<%= answer.user.name  %> on 
 		    <% end %>
 		    <%= answer.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %></i></small>
 		    <div class="card-block pb-0">
