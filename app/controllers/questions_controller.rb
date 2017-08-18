@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
 
 
   def index
-    byebug
     @questions = Question.order("id DESC")
 
     if params[:sort_by] == 'most_comments'
