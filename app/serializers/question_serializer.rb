@@ -12,6 +12,5 @@ class QuestionSerializer < ActiveModel::Serializer
       # current_user.voted_for? self.object	
       true
     end
-
 end
 
