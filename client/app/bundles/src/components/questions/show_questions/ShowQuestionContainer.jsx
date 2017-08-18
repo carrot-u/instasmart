@@ -25,7 +25,7 @@ class ShowQuestionConatiner extends React.Component {
       showForm: false,
       postType: null,
       postResponse: null,
-      liked: false
+      questionliked: false
     }
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
@@ -77,7 +77,7 @@ class ShowQuestionConatiner extends React.Component {
     }else{
       this.props.actions.likeUnlikeQuestion(this.props.showQuestion.id, "like");
     }
-    this.setState({ liked: !this.state.liked });
+    this.setState({ questionLiked: !this.state.questionliked });
   }
 
 

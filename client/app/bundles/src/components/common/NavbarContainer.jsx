@@ -28,12 +28,10 @@ class NavbarContainer extends React.Component {
   }
 
   handleOnSearchFocus() {
-    console.log("search in focus");
     this.setState({ condenseNav: true });
   }
 
   handleOnSearchBlur() {
-    console.log("search is blur");
     this.setState({ condenseNav: false });
   }
 

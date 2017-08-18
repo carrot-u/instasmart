@@ -46,7 +46,7 @@ export default function questionsReducer(state = initialState, action){
       return {
         questions: newQuestions,
         showQuestion: action.updatedQuestion,
-        isLoading: false,
+        isLoading: state.isLoading,
         error: state.error
       };
 
