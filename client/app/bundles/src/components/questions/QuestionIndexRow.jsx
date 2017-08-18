@@ -24,7 +24,7 @@ class QuestionIndexRow extends React.Component {
   }
 
 
-  /************** Answer Functions *********************/
+  /************** Comment/Answer Functions *********************/
   onClickPost(e, type) {
     e.preventDefault();
     this.setState({ 
@@ -43,7 +43,7 @@ class QuestionIndexRow extends React.Component {
     if(this.state.postType === "comment"){
       payload = {
         comment: {
-          response: this.state.postResponse
+          body: this.state.postResponse
         }
       };
     }else{
@@ -60,7 +60,7 @@ class QuestionIndexRow extends React.Component {
 
   /************** Question Functions *********************/
   onClickLike(){
-    if(this.state.liked){
+    if(this.props.question.liked){
       this.props.actions.likeUnlikeQuestion(this.props.question.id, "unlike");
     }else{
       this.props.actions.likeUnlikeQuestion(this.props.question.id, "like");
@@ -111,6 +111,7 @@ class QuestionIndexRow extends React.Component {
                 onClickPost={this.onClickPost} 
                 onClickLike={this.onClickLike}
                 liked={this.state.liked}
+                pullRight={true}
               />
             </div>
           </div>

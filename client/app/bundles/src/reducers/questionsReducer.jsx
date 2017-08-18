@@ -45,7 +45,8 @@ export default function questionsReducer(state = initialState, action){
       ];
       return {
         questions: newQuestions,
-        isLoading: state.isLoading,
+        showQuestion: action.updatedQuestion,
+        isLoading: false,
         error: state.error
       };
 
@@ -67,6 +68,7 @@ export default function questionsReducer(state = initialState, action){
         questions:[...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)],
         isLoading: state.isLoading,
+        showQuestion: action.question,
         error: state.error,
       };
 
