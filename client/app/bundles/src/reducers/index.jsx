@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 import questionsReducer from './questionsReducer';
+import currentUserReducer from './currentUserReducer';
 import questionModalReducer from './questionModalReducer';
 
 
@@ -7,7 +8,7 @@ import questionModalReducer from './questionModalReducer';
 const rootReducer = combineReducers({
   questions: questionsReducer,
   modal: questionModalReducer,
-  currentUser: null,
+  currentUser: currentUserReducer,
 });
 
 export default rootReducer;

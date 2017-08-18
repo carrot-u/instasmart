@@ -63,6 +63,7 @@ class QuestionIndex extends React.Component {
               showAnswerForm={true} 
               actions={this.props.actions}
               onEditQuestion={this.onEditQuestion}
+              currentUser={this.props.currentUser}
               />
           );
         })
@@ -86,7 +87,8 @@ function mapStateToProps(state, ownProps) {
   return {
     questions: state.questions.questions,
     isLoading: state.questions.isLoading,
-    showQuestionModal: state.modal.showQuestionModal
+    showQuestionModal: state.modal.showQuestionModal,
+    currentUser: state.currentUser.currentUser,
   };
 }
 function mapDispatchToProps(dispatch) {
