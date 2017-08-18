@@ -1,6 +1,1 @@
-<%#= react_component("Index", props: {questions: @questions, currentUser: current_user } , prerender: false) %>
-
-<% @questions.each do |question| %>
-	question
-	byebug
-<% end %>
+<%= react_component("Index", props: {questions: @questions, currentUser: current_user } , prerender: false) %>

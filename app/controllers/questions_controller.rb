@@ -3,11 +3,12 @@ class QuestionsController < ApplicationController
 
   before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike, :undislike]
   respond_to :html, :json
+  before_action :current_user
+
 
   def index
     byebug
     @questions = Question.order("id DESC")
-
 
     if params[:sort_by] == 'most_comments'
       @questions= @questions.order("comments.length desc")
@@ -22,10 +23,9 @@ class QuestionsController < ApplicationController
       @questions = @question.order("views_count desc")
     end
 
-    # respond_to do |format|
-    #   format.json { render json: @questions }
-    # end
-
+    respond_to do |format|
+      format.json { render json: @questions }
+    end
   end
 
   # New and create Questions
