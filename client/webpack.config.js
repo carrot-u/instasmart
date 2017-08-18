@@ -24,7 +24,8 @@ const config = {
       './app/bundles/src/startup/registration',
     ],
   },
-
+  devtool: 'eval-source-map',
+  devtool: 'source-map',
   output: {
     // Name comes from the entry section.
     filename: '[name]-[hash].js',
