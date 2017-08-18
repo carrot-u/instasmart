@@ -92,8 +92,8 @@ const config = {
               loader: "style-loader" // creates style nodes from JS strings
           }, {
               loader: "css-loader" // translates CSS into CommonJS
-          }, {
-              loader: "sass-loader" // compiles Sass to CSS
+          }, { 
+              loader: 'sass-loader', options: { sourceMap: true }  // compiles Sass to CSS
           }]
         },
         {
