@@ -35,6 +35,3 @@ const QuestionDetail = props => {
 
 export default QuestionDetail;
 
-// <div className="col-md-4">
-//   <QuestionAuthor question={props.question}/>
-// </div>

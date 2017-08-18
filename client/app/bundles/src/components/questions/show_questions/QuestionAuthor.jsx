@@ -1,7 +1,6 @@
 import React from 'react';
 
 const QuestionAuthor = props => {
-  console.log(props.question.user);
   let image, userInfo = "";
   if(props.question.user){
     image = <img src={props.question.user.image} className="profile-image mr-1"/>;
