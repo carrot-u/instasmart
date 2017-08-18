@@ -2,6 +2,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import { Link } from 'react-router-dom';
+
+
 
 // project files
 import QuestionDetail from "./QuestionDetail";
@@ -11,7 +15,7 @@ import AllAnswers from "../../answers/AllAnswers";
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
 import QuestionForm from "../QuestionForm";
 import QuestionAuthor from './QuestionAuthor';
-
+import AllComments from '../../comments/AllComments';
 
 
 class ShowQuestionConatiner extends React.Component {
@@ -78,7 +82,7 @@ class ShowQuestionConatiner extends React.Component {
 
 
   render() {
-    let showQuestion, showAnswers, stats, tags, author = null;
+    let showQuestion, showAnswers, stats, tags, author, comments = null;
     const showForm = this.state.showForm ? 
       <QuestionForm 
         formType={this.state.postType}
@@ -109,15 +113,23 @@ class ShowQuestionConatiner extends React.Component {
         </div>
       ) : "";
       author = this.props.showQuestion.user ? <QuestionAuthor question={this.props.showQuestion}/> : "";
+      comments = this.props.showQuestion.comments ? <AllComments comments={this.props.showQuestion.comments} /> : "";
+
     }
 
     return (
       <div className="show-question-top-container">
+        <ScrollToTopOnMount />
         <div className="row">
-          <ScrollToTopOnMount />
-          <div className="col-md-10 show-question">
+          <div className="col-md-10 show-question pr-0">
             {showQuestion}
-            {showForm}
+            <ReactCSSTransitionGroup
+              transitionName="form-transition"
+              transitionEnterTimeout={300}
+              transitionLeaveTimeout={200}>
+              {showForm}
+            </ReactCSSTransitionGroup>
+            {comments}
             {showAnswers}
           </div>
           <div className="col-md-2 stat-tags-col">
