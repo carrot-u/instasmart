@@ -77,6 +77,8 @@ class QuestionIndexRow extends React.Component {
   }
 
   render() {
+    const createdByCurrent = (this.props.question.user && 
+      this.props.currentUser.id === this.props.question.user.id) ? true : false;
     const showAnswer = (this.props.question.answers && this.props.question.answers.length > 0)
       ? <TopAnswer answer={this.props.question.answers[0]} />
       : <h6><i>No answers submitted yet. Be the first!</i></h6>;
@@ -93,7 +95,7 @@ class QuestionIndexRow extends React.Component {
     return (
       <div className="card d-block img-fluid mb-2">
         <div className="card-header">
-            <IndexQuestionDetail question={this.props.question} />
+            <IndexQuestionDetail question={this.props.question} addClass="pb-2"/>
         </div>
         <div className="card-block">
           {showAnswer}
@@ -101,10 +103,10 @@ class QuestionIndexRow extends React.Component {
           <div className="row">
             <div className="col-sm-4">
               <IconStats question={this.props.question} />
-              <QuestionCreatorOptions 
+              {createdByCurrent && <QuestionCreatorOptions 
                 onDeleteQuestion={this.onDeleteQuestion}
                 onEditQuestion={this.props.onEditQuestion}
-                question={this.props.question}/>
+                question={this.props.question}/>}
             </div>
             <div className="col-sm-8">
               <QuestionButtons 

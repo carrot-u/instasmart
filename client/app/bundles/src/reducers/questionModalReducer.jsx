@@ -19,7 +19,6 @@ export default function questionsReducer(state = initialState, action){
         editQuestion: state.editQuestion,
       };
     case types.SELECT_EDIT_QUESTION:
-      console.log("action.question", action.question);
       return {
         showQuestionModal: true,
         editQuestion: action.question,

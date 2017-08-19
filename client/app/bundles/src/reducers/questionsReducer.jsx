@@ -1,4 +1,5 @@
 import * as types from '../actions/actionTypes';
+import * as utils from '../components/common/utils';
 
 const initialState = {
   questions: [],
@@ -46,7 +47,7 @@ export default function questionsReducer(state = initialState, action){
       return {
         questions: newQuestions,
         showQuestion: action.updatedQuestion,
-        isLoading: false,
+        isLoading: state.isLoading,
         error: state.error
       };
 
@@ -70,6 +71,12 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         showQuestion: action.question,
         error: state.error,
+      };
+
+    case types.SORT_QUESTIONS_SUCCESS:
+      return {
+        ...state,
+        questions: utils.sort(action.sortType, state.questions),
       };
 
     default:

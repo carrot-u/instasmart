@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
     if params[:sort_by] == 'most_views'
       @questions = @question.order("views_count desc")
     end
-
+    
     respond_to do |format|
       format.json { render json: @questions }
     end
