@@ -16,6 +16,21 @@ export function loadQuestions(){
   };
 }
 
+export function loadQuestionByIdSuccess(question){
+  return { type: types.LOAD_QUESTIONS_BY_ID_SUCCESS, question};
+}
+
+export function loadQuestionByIdStart(){
+  return { type: types.LOAD_QUESTIONS_BY_ID_START};
+}
+
+export function loadQuestionById(id){
+  return dispatch => {
+    dispatch(api.getQuestionById(id));
+    dispatch(loadQuestionByIdStart());
+  };
+}
+
 export function createPostSuccess(updatedQuestion){
   return { type: types.CREATE_POST_ON_QUESTION_SUCCESS, updatedQuestion };
 } 

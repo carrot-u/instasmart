@@ -1,6 +1,5 @@
 import React from "react";
 import TopAnswer from "../answers/TopAnswer";
-import IndexQuestionTags from "../tags/IndexQuestionTags";
 import IconStats from "../common/IconStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
 import QuestionForm from "./QuestionForm";
@@ -25,7 +24,7 @@ class QuestionIndexRow extends React.Component {
   }
 
 
-  /************** Answer Functions *********************/
+  /************** Comment/Answer Functions *********************/
   onClickPost(e, type) {
     e.preventDefault();
     this.setState({ 
@@ -44,7 +43,7 @@ class QuestionIndexRow extends React.Component {
     if(this.state.postType === "comment"){
       payload = {
         comment: {
-          response: this.state.postResponse
+          body: this.state.postResponse
         }
       };
     }else{
@@ -61,7 +60,7 @@ class QuestionIndexRow extends React.Component {
 
   /************** Question Functions *********************/
   onClickLike(){
-    if(this.state.liked){
+    if(this.props.question.liked){
       this.props.actions.likeUnlikeQuestion(this.props.question.id, "unlike");
     }else{
       this.props.actions.likeUnlikeQuestion(this.props.question.id, "like");
@@ -94,8 +93,7 @@ class QuestionIndexRow extends React.Component {
     return (
       <div className="card d-block img-fluid mb-2">
         <div className="card-header">
-          <IndexQuestionDetail question={this.props.question} />
-          <IndexQuestionTags question={this.props.question} />
+            <IndexQuestionDetail question={this.props.question} />
         </div>
         <div className="card-block">
           {showAnswer}
@@ -113,6 +111,7 @@ class QuestionIndexRow extends React.Component {
                 onClickPost={this.onClickPost} 
                 onClickLike={this.onClickLike}
                 liked={this.state.liked}
+                pullRight={true}
               />
             </div>
           </div>

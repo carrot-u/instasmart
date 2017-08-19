@@ -1,12 +1,16 @@
 class SessionsController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+before_action :current_user
 
+	def new
+		unless current_user.nil?
+			redirect_to home_path
+		end
+	end
 
   def create
-    # binding.pry
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_path
+    redirect_to home_path
   end
 
   def destroy

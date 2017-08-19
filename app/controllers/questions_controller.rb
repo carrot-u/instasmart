@@ -3,10 +3,11 @@ class QuestionsController < ApplicationController
 
   before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike, :undislike]
   respond_to :html, :json
+  before_action :current_user
+
 
   def index
     @questions = Question.order("id DESC")
-
 
     if params[:sort_by] == 'most_comments'
       @questions= @questions.order("comments.length desc")
@@ -23,14 +24,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @questions }
-      format.html do
-        render component: 'QuestionsIndex', props: {
-          questions: prepareArray(@questions),
-          # user:      current_user && prepare(current_user)
-        }, tag: 'div'
-      end
     end
-
   end
 
   # New and create Questions
@@ -58,12 +52,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.increment(:views_count, 1)
     @question.save
-    # render json: @question
-  end
 
+    respond_to do |format|
+      format.json { render json: @question }
+    end
+  end
   # change / edit / update
   def edit
-
   end
 
   def update
@@ -108,26 +103,6 @@ class QuestionsController < ApplicationController
     def set_question
       @question ||= begin
         question = params[:id] ? Question.find(params[:id]) : Question.new
-        # if question_params && question_params.length > 0
-        #   question.update_attributes(question_params)
-        # end
-      end
-    end
-
-
-    def prepareArray(array)
-      ActiveModel::Serializer::CollectionSerializer.new(array, each_serializer: serializer(array))
-    end
-
-    def prepare(resource)
-      serializer(resource).new(resource)
-    end
-
-    def serializer(resource)
-      if resource.respond_to? :name
-        "#{resource.name}Serializer".safe_constantize
-      else
-        "#{resource.class}Serializer".safe_constantize
       end
     end
 

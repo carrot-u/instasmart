@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'comments/new'
 
   get 'comments/create'
@@ -8,22 +9,24 @@ Rails.application.routes.draw do
 
   get 'comments/update'
 
+  root to: 'sessions#new'
+
   post '/auth/:provider/callback', to: 'sessions#create'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :sessions, only: [:create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   get 'sessions/create'
 
   get 'sessions/destroy'
 
   get 'home', to: 'home#index'
-  root to: 'home#index'
-  get 'questions', to: 'questions#index'
 
   resources :users
+
+  get 'questions', to: 'questions#index'
 
   put "questions/:id/update" => "questions#update"
   resources :questions do

@@ -2,6 +2,7 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
   questions: [],
+  showQuestion: null,
   isLoading: false,
   error: null, 
   sort: 'recent',
@@ -19,6 +20,15 @@ export default function questionsReducer(state = initialState, action){
       return {...state, 
         isLoading: true,
       };
+    case types.LOAD_QUESTIONS_BY_ID_START:
+      return {...state, 
+        isLoading: true,
+      };
+    case types.LOAD_QUESTIONS_BY_ID_SUCCESS:
+      return {...state,
+        showQuestion: action.question,
+        isLoading: false,
+      };
     case types.CREATE_QUESTION_SUCCESS:
       return {
         questions: [
@@ -35,7 +45,8 @@ export default function questionsReducer(state = initialState, action){
       ];
       return {
         questions: newQuestions,
-        isLoading: state.isLoading,
+        showQuestion: action.updatedQuestion,
+        isLoading: false,
         error: state.error
       };
 
@@ -57,6 +68,7 @@ export default function questionsReducer(state = initialState, action){
         questions:[...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)],
         isLoading: state.isLoading,
+        showQuestion: action.question,
         error: state.error,
       };
 

@@ -8,9 +8,10 @@ const QuestionIndexTags = props => {
       </h6>
     );
   });
+  const addClass = props.addClass ? props.addClass : "";
 
   return (
-    <div className="row pl-3">
+    <div className={`row pl-3 ${addClass}`}>
       {tags}
     </div>
   );

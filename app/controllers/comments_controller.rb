@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:edit, :update]
+
   def new
   	@context = context
   	@comment = @context.comments.new
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def create
@@ -27,26 +33,33 @@ class CommentsController < ApplicationController
     end
   end
 
-	private
-	  def comment_params
-	    params.require(:comment).permit(:commentable_type, :commentable_id, :body)
-	  end
+  def destroy
+    @comment = @commentable.comments.find(params[:id])
+    @comment.destroy
+   
+    redirect_to context_url(context), notice: "The comment has been deleted"
+  end
+
+  private
+    def comment_params
+      params.require(:comment).permit(:commentable_type, :commentable_id, :body)
+    end
 
     def context
-	    if params[:question_id]
-	      id = params[:question_id]
-	      Question.find(params[:question_id])
-	    elsif params[:answer_id]
-	      id = params[:answer_id]
-	      Answer.find(params[:answer_id])
+      if params[:question_id]
+        id = params[:question_id]
+        Question.find(params[:question_id])
+      elsif params[:answer_id]
+        id = params[:answer_id]
+        Answer.find(params[:answer_id])
+      end
     end
-  end
 
-  def context_url(context)
-    if Question === context
-      question_path(context)
-    else
-      question_path(Question.find(context.question_id))
+    def context_url(context)
+      if Question === context
+        question_path(context)
+      else
+        question_path(Question.find(context.question_id))
+      end
     end
-  end
 end
