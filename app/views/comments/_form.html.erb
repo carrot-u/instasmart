@@ -1,11 +1,8 @@
+<%= form_for [@context, @comment] do |f| %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control", placeholder: "Enter your comment here", rows: 10 %>
+  </div>
 
-<div class="container">
-	<div class="mt-4">
-			<%= form_for [commentable, comment] do |f| %>
-				<div class="form-group">
-					<%= f.text_area :body, class: "form-control", placeholder: "Add a comment" %>
-				</div>
-				<%= f.submit class: "btn btn-primary" %>
-			<% end %>
-	</div>
-</div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

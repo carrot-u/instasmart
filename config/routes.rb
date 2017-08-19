@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  root to: 'sessions#new'
+
   post '/auth/:provider/callback', to: 'sessions#create'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
@@ -12,10 +23,10 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   get 'home', to: 'home#index'
-  root to: 'sessions#new'
-  get 'questions', to: 'questions#index'
 
   resources :users
+
+  get 'questions', to: 'questions#index'
 
   put "questions/:id/update" => "questions#update"
   resources :questions do
@@ -26,7 +37,7 @@ Rails.application.routes.draw do
       put "unlike" => "questions#unlike"
       put "undislike" => "questions#undislike"
     end
-    resources :comments, module: :questions
+    resources :comments
 
     resources :answers do
       member do
@@ -35,12 +46,15 @@ Rails.application.routes.draw do
         put "unlike" => "answers#unlike"
         put "undislike" => "answers#undislike"
       end
+      resources :comments
     end
-
-
   end
-  resources :answers do
-    resources :comments, module: :answers
+
+  resources :answers do 
+    resources :comments
   end
+
+  resources :comments
+
 
 end

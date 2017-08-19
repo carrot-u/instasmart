@@ -9,23 +9,22 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.order("id DESC")
 
+    if params[:sort_by] == 'most_comments'
+      @questions= @questions.order("comments.length desc")
+    end
+    if params[:sort_by] == 'most_answers'
+      @questions= @questions.order("answers.length desc")
+    end
+    if params[:sort_by] == 'most_voted'
+      @questions= @questions.order("cached_votes_score desc")
+    end
+    if params[:sort_by] == 'most_views'
+      @questions = @question.order("views_count desc")
+    end
 
-    # if params[:sort_by] == 'most_comments'
-    #   @questions= @questions.order("comments.length desc")
-    # end
-    # if params[:sort_by] == 'most_answers'
-    #   @questions= @questions.order("answers.length desc")
-    # end
-    # if params[:sort_by] == 'most_voted'
-    #   @questions= @questions.order("cached_votes_score desc")
-    # end
-    # if params[:sort_by] == 'most_views'
-    #   @questions = @question.order("views_count desc")
-    # end
     respond_to do |format|
       format.json { render json: @questions }
     end
-
   end
 
   # New and create Questions
