@@ -16,9 +16,15 @@ const AnswerDetail = props => {
             Answered {answerBy} on {props.answer.created_at}
           </i></small>
       </div>
-      <div className="col-sm-10 pt-2">
-          {props.answer.response}
-          <AnswerButtons />
+      <div className="col-sm-10 pt-2 container">
+        <div className="row" style={{height: "100%"}}>
+          <div className="pl-3" style={{width: "100%"}}>
+            {props.answer.response}
+          </div>
+          <div className="align-self-end mb-2 pl-3">
+            <AnswerButtons />
+          </div>
+        </div>
       </div>
 
     </div>
