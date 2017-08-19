@@ -89,3 +89,14 @@ export function likeUnlikeQuestion(questionId, type){
 export function sortQuestions(sortType){
   return { type: types.SORT_QUESTIONS_SUCCESS, sortType};
 }
+
+export function commentOnAnswerSuccess(question){
+  return { type: types.CREATE_ANSWER_COMMENT_SUCCESS, question };
+}
+
+export function createCommentOnAnswer(answerId, questionId, payload){
+  console.log("createCommentOnAnswer", answerId, questionId, payload);
+  return dispatch => {
+    dispatch(api.commentOnAnswer(answerId, questionId, payload));
+  };
+}

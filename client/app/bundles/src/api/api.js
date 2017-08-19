@@ -15,6 +15,7 @@ export function getQuestions(){
 export function getQuestionById(id){
   return function(dispatch){
     return utils.get(`/questions/${id}`).then(question =>{
+      console.log("repulling question: ", question);
       dispatch(actions.loadQuestionByIdSuccess(question));
     }).catch(error => {
       throw(error);
@@ -50,7 +51,6 @@ export function deleteQuestion(payload){
 export function editQuestion(payload){
   return function(dispatch){
       utils.put(`/questions/${payload.id}/update`, "", payload).then((question) => {
-        console.log("question gets returned?", question);
         dispatch(actions.editQuestionSuccess(question));
       });
   };
@@ -64,8 +64,14 @@ export function likeUnlikeQuestion(questionId, type){
   };
 }
 
-
-
+export function commentOnAnswer(answerId, questionId, payload){
+  return function(dispatch){
+    utils.post(`/answers/${answerId}/comments`, payload).then(() => {
+      console.log("do we get to comment on Answer?");
+      dispatch(getQuestionById(questionId));
+    });
+  };
+}
 
 export function getCommentsByAnswerID(id){
   utils.get(`/answers/${id}/comments`).then(json=>{
