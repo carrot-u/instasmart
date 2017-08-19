@@ -12,6 +12,5 @@ class QuestionSerializer < ActiveModel::Serializer
       User.first.voted_for? self.object	
     
     end
-
 end
 

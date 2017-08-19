@@ -98,4 +98,3 @@ class QuestionsController < ApplicationController
       params.permit(:summary, :body, :tag_list)
     end
 end
-

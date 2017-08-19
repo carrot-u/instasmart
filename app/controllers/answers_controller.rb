@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
     @answer.question_id = params[:question_id]
     @answer.user = current_user
     @answer.save
-    redirect_to question_path(@answer.question)
+    render json: @answer
   end
 
 
