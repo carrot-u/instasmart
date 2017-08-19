@@ -45,6 +45,8 @@ class NavbarContainer extends React.Component {
           handleOnSearchFocus={this.handleOnSearchFocus}
           handleOnSearchBlur={this.handleOnSearchBlur}
           onClickNewQuestion={this.props.modalActions.showModal}
+          sort={this.props.sort}
+          sortedBy={this.props.sortedBy}
         />
         <QuestionModalContainer
           onClickNewQuestion={this.props.modalActions.showModal}

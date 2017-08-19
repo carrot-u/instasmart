@@ -17,10 +17,11 @@ class QuestionIndex extends React.Component {
     super(props);
     this.state = {
       questions: null,
+      sortedBy: "recent"
     };
 
     this.onEditQuestion = this.onEditQuestion.bind(this);
-    this.sort = this.sort.bind(this);
+    this.sortQuestions = this.sortQuestions.bind(this);
   }
 
   componentWillMount(){
@@ -31,15 +32,9 @@ class QuestionIndex extends React.Component {
     this.props.modalActions.selectEditQuestion(question);
   }
 
-  sort(array, sortType){
-    switch(sortType){
-      case "answered":
-        return utils.sortByAnwerCount(array);
-
-      default:
-        return utils.sortByUpdateDate(array);
-
-    }
+  sortQuestions(sortType = "recent"){
+    this.setState({sortedBy: sortType});
+    this.props.actions.sortQuestions(sortType);
   }
 
   render() {
@@ -55,7 +50,7 @@ class QuestionIndex extends React.Component {
 
     } else { 
       listQuestions = (this.props.questions && this.props.questions.length > 0)
-      ? this.sort(this.props.questions, "").map(question => {
+      ? this.props.questions.map(question => {
           return (
             <QuestionIndexRow 
               key={question.id} 
@@ -74,7 +69,7 @@ class QuestionIndex extends React.Component {
     return (
       <div>
         <ScrollToTopOnMount />
-        <PageBanner />
+        <PageBanner sort={this.sortQuestions} sortedBy={this.state.sortedBy}/>
         <div className="container question-index">
           {listQuestions}
         </div>

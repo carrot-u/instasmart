@@ -85,3 +85,7 @@ export function likeUnlikeQuestion(questionId, type){
     dispatch(api.likeUnlikeQuestion(questionId, type));
   };
 }
+
+export function sortQuestions(sortType){
+  return { type: types.SORT_QUESTIONS_SUCCESS, sortType};
+}

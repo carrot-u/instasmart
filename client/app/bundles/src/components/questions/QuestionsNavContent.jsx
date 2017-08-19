@@ -7,6 +7,14 @@ import logo from '../../images/carrot.png';
 
 
 const QuestionsNavContent = props => {
+  function handleActiveClass(currentButton){
+    let classString = "nav-link";
+    if(currentButton === props.sortedBy){
+      classString += " active";
+    }
+    return classString;
+  }
+
   return (
     <div className="navbar-nav" style={{width: "100%"}}>
         <li className="hidden-nav">
@@ -14,33 +22,53 @@ const QuestionsNavContent = props => {
             <img src={logo} className="navbar-logo" alt="logo" />
           </Link>
         </li>
-        <li className="padding-3 nav-item">
-          <a className="nav-link" href="">Recent</a>
+        <li className="padding-3 nav-item ">
+          <a className={handleActiveClass("recent")} href="" onClick={(e) => {
+            e.preventDefault();
+            props.sort("recent");}
+          }>
+            Recent
+          </a>
         </li>
-        <li className="padding-3 nav-item">
-          <a className="nav-link" href="">Most Answered</a>
+        <li className="padding-3 nav-item ">
+          <a className={handleActiveClass("answered")} href="" onClick={(e) => {
+            e.preventDefault();
+            props.sort("answered");}
+          }>
+            Most Answered
+          </a>
         </li>
-        <li className="padding-3 nav-item">
-          <a className="nav-link" href="">Most Commented</a>
+        <li className="padding-3 nav-item ">
+          <a className={handleActiveClass("commented")} href="" onClick={(e) => {
+            e.preventDefault();
+            props.sort("commented");}
+          }>
+            Most Commented
+          </a>
         </li>
-        <li className="padding-3 nav-item">
-          <a className="nav-link" href="popular.html">Popular</a>
+        <li className="padding-3 nav-item ">
+          <a className={handleActiveClass("votes")} href="" onClick={(e) => {
+            e.preventDefault();
+            props.sort("votes");}
+          }>
+            Popular
+          </a>
         </li>
       <li className=" navbar-nav pull-right nav-item ml-auto">
-        <li className="nav-item padding-3">
+        <div className="nav-item padding-3">
           <NavbarSearchField 
             handleOnSearchFocus={props.handleOnSearchFocus}
             handleOnSearchBlur={props.handleOnSearchBlur}
           />
-        </li>
-        <li className="nav-item">
+        </div>
+        <div className="nav-item">
           <button
             onClick={props.onClickNewQuestion}
             className="btn btn-success btn ask-button"
           >
             Ask a Question
           </button>
-        </li>
+        </div>
       </li>
     </div>
   );
@@ -48,5 +76,3 @@ const QuestionsNavContent = props => {
 
 export default QuestionsNavContent;
 
-// </ul>
-// <ul className="nav-list navbar-nav pull-right">

@@ -120,6 +120,9 @@ body.fixed-nav nav {
         right: 5px;
       }
     }
+    .active{
+      color: darkorange;
+    }
   }
 
   input {
@@ -218,6 +221,11 @@ li.hide-nav {
   font-size: 12px !important;
 }
 
+@media (min-width: 1200px){
+  input[type=search]:focus{
+    width: 1100px  !important;
+  }
+}
 
 @media (min-width: 1096px){
   .navbar, .ask-button, input[type=search]{
@@ -229,18 +237,18 @@ li.hide-nav {
     border-radius: .25rem !important;
   }
   input[type=search]:focus{
-    width: 800px  !important;
+    width: 900px  !important;
   }
 }
 @media (min-width: 900px){
   input[type=search]:focus{
-    width: 700px  !important;
+    width: 700px ;
   }
 }
 
 @media (min-width: 700px){
   input[type=search]:focus{
-    width: 500px  !important;
+    width: 500px;
   }
 }
 
@@ -307,7 +315,7 @@ li.hide-nav {
 
 .question-index{
   margin-top: 60px;
-
+  font-size: .8em;
   .card{
     border-radius: 0px;
   }
