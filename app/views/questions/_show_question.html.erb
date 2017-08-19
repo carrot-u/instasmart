@@ -37,8 +37,7 @@
           <small class=""><i>
           <% if question.answers.first.user %>
             Answered by 
-            <%= question.answers.first.user.first_name %> 
-            <%= question.answers.first.user.last_name %>
+            <%= question.answers.first.user.name %>
           <% end %>
           on <%= question.answers.first.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %e, %Y at %l:%M %p") %> </i></small>
         </div>
@@ -66,8 +65,9 @@
       <% else %>
         <%= link_to "Like", like_question_path(question), method: :put, type: "button", class: "btn btn-outline-success pull-right mr-1" %>
       <% end %>
-        <%= button_to "Comment", new_question_comment_path(question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
+        <%= button_to "Comment", new_comment_path(question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
         <%= button_to "Answer", new_question_answer_path(question), :method => :get, :class => "btn btn-outline-success pull-right mr-1" %>
+
       </div>
     </div>
   </div><!-- /card-block -->

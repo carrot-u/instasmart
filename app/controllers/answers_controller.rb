@@ -1,12 +1,14 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :like, :dislike, :undislike, :unlike]
-  before_action :question, only: [:new, :show, :edit, :update, :destroy]
+  #before_action :set_question_id, only: [:new, :show, :edit, :update, :destroy]
 
   def new
+    @answer = Answer.new
   end
 
   def show
-    render json: @answer
+    set_question_id
+    # render json: @answer
   end
 
   def edit
@@ -58,13 +60,11 @@ class AnswersController < ApplicationController
 
     def set_answer
       @answer = Answer.find(params[:id])
+      @question = Question.find(@answer.question_id)
     end
 
-    def question
-      @question ||= begin
-        raise "Question id must be provided" unless params[:question_id]
-        Question.find(params[:question_id])
-      end
+    def set_question_id
+      @question = Question.find(@answer.question_id)
     end
 
     def answer_to_json
