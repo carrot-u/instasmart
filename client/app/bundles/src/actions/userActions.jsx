@@ -10,7 +10,7 @@ export function loadUserByIdSuccess(user){
   return { type: types.LOAD_USER_BY_ID_SUCCESS, user};
 }
 
-export function loadQuestionById(id){
+export function loadUserById(id){
   return dispatch => {
     dispatch(api.getUserById(id));
     dispatch(loadUserByIdStart());

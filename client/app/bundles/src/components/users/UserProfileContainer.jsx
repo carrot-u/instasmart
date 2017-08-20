@@ -3,24 +3,55 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // Import project files
-import * as questionActions from "../../actions/userActions";
-
+import * as userActions from "../../actions/userActions";
+import ScrollToTopOnMount from "../common/ScrollToTop";
+import UserProfile from './UserProfile';
+import UserStats from './UserStats';
 
 class UserProfileContainer extends React.Component {
 
+  componentWillMount() {
+    this.props.actions.loadUserById(this.props.match.params.id);
+  }
+
+
   render(){
+    let showProfile, profileInfo, stats = "";
+    if (this.props.isLoading || !this.props.showUser) {
+      showProfile = (
+        <div className="container loading-questions row mt-4">
+          <div className="col-3 offset-5">
+            <i className="fa fa-spinner fa-spin fa-4x fa-fw mb-3" />
+            {" "}Loading...
+          </div>
+        </div>
+      );
+    }else{
+      profileInfo = <UserProfile user={this.props.showUser} />;
+      stats = <UserStats user={this.props.showUser} />;
+
+    }
+
+    console.log("user profile props: ", this.props);
     return(
-      <div className="show-question-top-container">
-      Hello!
+      <div className="show-question-top-container container">
+        <ScrollToTopOnMount />
+        <div className="row">
+          <div className="col-md-12 show-question pr-0">
+            {showProfile}
+            {profileInfo}
+            {stats}
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps){
-  console.log("state in user profile", state);
   return {
     showUser: state.users.showUser,
+    currentUser: state.users.currentUser,
     isLoading: state.users.isLoading,
   };
 }

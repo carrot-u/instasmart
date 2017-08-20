@@ -1,10 +1,12 @@
 import * as utils from './apiUtils';
-import * as actions from '../actions/questionActions';
+import * as questionActions from '../actions/questionActions';
+import * as userActions from '../actions/userActions';
+
 
 export function getQuestions(){
   return function(dispatch){
     return utils.get('/questions').then(questions =>{
-      dispatch(actions.loadQuestionsSuccess(questions));
+      dispatch(questionActions.loadQuestionsSuccess(questions));
     }).catch(error => {
       throw(error);
     });
@@ -15,7 +17,7 @@ export function getQuestions(){
 export function getQuestionById(id){
   return function(dispatch){
     return utils.get(`/questions/${id}`).then(question =>{
-      dispatch(actions.loadQuestionByIdSuccess(question));
+      dispatch(questionActions.loadQuestionByIdSuccess(question));
     }).catch(error => {
       throw(error);
     });
@@ -26,7 +28,7 @@ export function getQuestionById(id){
 export function postOnQuestion(questionId, payload, type){
   return function(dispatch){
       utils.post(`/questions/${questionId}/${type}`, payload).then(question => {
-        dispatch(actions.createPostSuccess(question));
+        dispatch(questionActions.createPostSuccess(question));
       });
   };
 }
@@ -34,7 +36,7 @@ export function postOnQuestion(questionId, payload, type){
 export function newQuestion(payload){
   return function(dispatch){
       utils.post(`/questions`, payload).then(question => {
-        dispatch(actions.createQuestionSuccess(question));
+        dispatch(questionActions.createQuestionSuccess(question));
       });
   };
 }
@@ -42,7 +44,7 @@ export function newQuestion(payload){
 export function deleteQuestion(payload){
   return function(dispatch){
       utils.deleteRequest(`/questions/${payload.question.id}`, "", payload).then(() => {
-        dispatch(actions.deleteQuestionSuccess(payload.question.id));
+        dispatch(questionActions.deleteQuestionSuccess(payload.question.id));
       });
   };
 }
@@ -50,7 +52,7 @@ export function deleteQuestion(payload){
 export function editQuestion(payload){
   return function(dispatch){
       utils.put(`/questions/${payload.id}/update`, "", payload).then((question) => {
-        dispatch(actions.editQuestionSuccess(question));
+        dispatch(questionActions.editQuestionSuccess(question));
       });
   };
 }
@@ -58,7 +60,7 @@ export function editQuestion(payload){
 export function likeUnlikeQuestion(questionId, type){
   return function(dispatch){
       utils.put(`/questions/${questionId}/${type}`).then(question => {
-        dispatch(actions.likeUnlikeQuestionSuccess(question));
+        dispatch(questionActions.likeUnlikeQuestionSuccess(question));
       });
   };
 }
@@ -66,7 +68,7 @@ export function likeUnlikeQuestion(questionId, type){
 export function likeUnlikeQuestionAnswer(answerId, questionId, type){
   return function(dispatch){
       utils.put(`/questions/${questionId}/answers/${answerId}/${type}`).then(question => {
-        dispatch(actions.likeUnlikeQuestionSuccess(question));
+        dispatch(questionActions.likeUnlikeQuestionSuccess(question));
       });
   };
 }
@@ -88,7 +90,7 @@ export function getCommentsByAnswerID(id){
 export function getUserById(id){
   return function(dispatch){
     return utils.get(`/users/${id}`).then(user =>{
-      dispatch(actions.loadUserByIdSuccess(user));
+      dispatch(userActions.loadUserByIdSuccess(user));
     }).catch(error => {
       throw(error);
     });
