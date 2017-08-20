@@ -18,8 +18,8 @@ const AllAnswers = props => {
   });
 
   return (
-    <div className="mt-1 all-answers">
-      <h3>{props.answers.length} Answers </h3> 
+    <div className="mt-5 all-answers">
+      <h3>Answers ({props.answers.length})</h3>
       {answersListing}
     </div>
   );

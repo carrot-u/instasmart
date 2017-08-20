@@ -9,13 +9,15 @@ const QuestionAuthor = props => {
 
   return (
     <div>
-      <div className="question-author-container center-items pr-2 row">
-        <div className="col-md-8">
+      <div className="question-author-container">
+        <div>
           {image}
+        </div>
+        <div>
           {userInfo}
         </div>
-        <div className="col-md-8">
-          <small><i>Created on {props.question.created_at}</i></small>
+        <div>
+          <small><i>Asked on {props.question.created_at}</i></small>
         </div>
       </div>
     </div>
