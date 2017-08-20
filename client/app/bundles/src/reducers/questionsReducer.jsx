@@ -78,6 +78,11 @@ export default function questionsReducer(state = initialState, action){
         ...state,
         questions: utils.sort(action.sortType, state.questions),
       };
+    case types.CREATE_ANSWER_COMMENT_SUCCESS:
+      return {...state,
+        showQuestion: action.question,
+        isLoading: false,
+      };
 
     default:
       return state;

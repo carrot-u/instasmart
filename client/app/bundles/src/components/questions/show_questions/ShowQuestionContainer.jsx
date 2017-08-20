@@ -106,7 +106,10 @@ class ShowQuestionConatiner extends React.Component {
           question={this.props.showQuestion} 
           onClickLike={this.onClickLike}
           onClickPost={this.onClickPost}/>);
-      showAnswers = this.props.showQuestion.answers ? <AllAnswers answers={this.props.showQuestion.answers} /> : "";
+      showAnswers = this.props.showQuestion.answers ? 
+        <AllAnswers 
+          answers={this.props.showQuestion.answers} 
+          questionId={this.props.showQuestion.id}/> : "";
       tags = this.props.showQuestion.tags ? (
         <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />

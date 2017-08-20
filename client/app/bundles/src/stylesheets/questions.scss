@@ -237,7 +237,7 @@ li.hide-nav {
     border-radius: .25rem !important;
   }
   input[type=search]:focus{
-    width: 900px  !important;
+    width: 800px  !important;
   }
 }
 @media (min-width: 900px){
@@ -315,7 +315,6 @@ li.hide-nav {
 
 .question-index{
   margin-top: 60px;
-  font-size: .8em;
   .card{
     border-radius: 0px;
   }
@@ -373,12 +372,6 @@ li.hide-nav {
   .quesiton-detail {
     color: #666666;
   }
-  .badge{
-    background-color: #28a745;
-    margin-left: 4px;
-    padding: 1px 5px;
-    font-size: 0.8em;
-  }
 }
 
 .question-author-container{
@@ -408,6 +401,19 @@ li.hide-nav {
   color: white;
   background-color: #ff9b32;
 }
+
+.badge{
+  background-color: #28a745;
+  margin-left: 4px;
+  padding: 1px 5px;
+  font-size: 0.8em;
+}
+
+.profile-image{
+  border-radius: 10px;
+  border: 1px solid darkgreen;
+}
+
 
 
 
