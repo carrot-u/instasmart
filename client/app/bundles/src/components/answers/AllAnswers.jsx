@@ -7,7 +7,6 @@ import { bindActionCreators } from "redux";
 import AnswerDetail from './AnswerDetail';
 import * as questionActions from "../../actions/questionActions";
 
-
 class AllAnswers extends React.Component {
 
   render(){

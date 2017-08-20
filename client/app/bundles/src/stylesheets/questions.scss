@@ -379,6 +379,37 @@ li.hide-nav {
     border-radius: 10px;
     border: 1px solid darkgreen;
   }
+  .quesiton-detail {
+    color: #666666;
+  }
+}
+
+.question-author-container{
+  .profile-image{
+    border-radius: 10px;
+    border: 1px solid darkgreen;
+  }
+}
+
+.list-inline-item{
+  color:black;
+}
+
+.list-inline-item button {
+  color: #43b02a;
+  font-weight: 200;
+  border: 1px solid #43b02a;
+  background-color: #ffffff;
+}
+
+.list-inline-item button:hover {
+  background-color: #d9efd4;
+  color: #2E7B1D;
+  font-weight: 400;
+}
+#back-btn {
+  color: white;
+  background-color: #ff9b32;
 }
 
 .list-inline-item{
