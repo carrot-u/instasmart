@@ -135,7 +135,7 @@ class ShowQuestionConatiner extends React.Component {
             {comments}
             {showAnswers}
           </div>
-          <div className="col-md-2 stat-tags-col">
+          <div id= "author-info" className="col-md-2 stat-tags-col">
             <div className="pt-2">
               {author}
               <hr />
