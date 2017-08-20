@@ -84,24 +84,23 @@ A Q&A Forum for Instacart Employees
 
 - [x] Add Client in React and test with api call
 - [x] Add Redux to client
-- [ ] Add React routing
-- [ ] Implement Landing page in react components
+- [x] Add React routing
+- [x] Implement Landing page in react components
 - [ ] Tag cloud component
-- [ ] Make landing page banner component
-- [ ] Make landing page navbar component
+- [x] Make landing page banner component
 - [x] Implement Questions index in react components
 - [x] Create Navbar and make sticky
 - [x] Create Question row components
-- [ ] Create Like / unlike button component
-    - [ ] Plug in redux to update store and perform API call
-- [ ] Create comment component button
-    - [ ] Plug in redux to update store and perform API call
-    - [ ] Create transitions to show field on click
-- [x] Create Answer component button
-    - [ ] Plug in redux to update store and perform API call
+- [x] Create Like / unlike button component
+    - [x] Plug in redux to update store and perform API call
+- [x] Create comment component button
+    - [x] Plug in redux to update store and perform API call
     - [x] Create transitions to show field on click
-- [ ] Implement modal in react
-- [ ] Implement ask question
+- [x] Create Answer component button
+    - [x] Plug in redux to update store and perform API call
+    - [x] Create transitions to show field on click
+- [x] Implement modal in react
+- [x] Implement ask question
 - [ ] Implement tag dropdown
 - [ ] Implement tag query database for selections
 - [ ] 
@@ -113,7 +112,7 @@ A Q&A Forum for Instacart Employees
 - [ ] Parting of the nav bar red sea
 - [ ] Navbar at mobile width 
 - [ ] Overall Font and Relative Sizing
-- [ ] Instamart Logo?
+- [x] Instamart Logo?
 - [ ] card styles
 - [x] Search bar rounded corners should match Ask Question button
 - [ ] Ask and Search should be separate buttons, no?
