@@ -14,7 +14,6 @@ class QuestionIndexRow extends React.Component {
       showForm: false,
       postType: null,
       postResponse: null,
-      liked: false
     };
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
@@ -60,12 +59,11 @@ class QuestionIndexRow extends React.Component {
 
   /************** Question Functions *********************/
   onClickLike(){
-    if(this.props.question.liked){
+    if(this.props.liked){
       this.props.actions.likeUnlikeQuestion(this.props.question.id, "unlike");
     }else{
       this.props.actions.likeUnlikeQuestion(this.props.question.id, "like");
     }
-    this.setState({ liked: !this.state.liked });
   }
 
   onDeleteQuestion(e){
@@ -112,7 +110,7 @@ class QuestionIndexRow extends React.Component {
               <QuestionButtons 
                 onClickPost={this.onClickPost} 
                 onClickLike={this.onClickLike}
-                liked={this.state.liked}
+                liked={this.props.liked}
                 pullRight={true}
               />
             </div>

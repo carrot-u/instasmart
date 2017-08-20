@@ -38,7 +38,6 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
-
     let listQuestions = null;
     if (this.props.isLoading){
       listQuestions = (<div className="container loading-questions row mt-4">
@@ -49,8 +48,11 @@ class QuestionIndex extends React.Component {
             </div>);
 
     } else { 
+      console.log("questions props", this.props.questions);
+
       listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {
+          const liked = utils.checkLikedByUser(question.votes_for, this.props.currentUser.id);
           return (
             <QuestionIndexRow 
               key={question.id} 
@@ -59,6 +61,7 @@ class QuestionIndex extends React.Component {
               actions={this.props.actions}
               onEditQuestion={this.onEditQuestion}
               currentUser={this.props.currentUser}
+              liked={liked}
               />
           );
         })

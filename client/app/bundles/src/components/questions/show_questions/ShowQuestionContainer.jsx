@@ -115,7 +115,10 @@ class ShowQuestionConatiner extends React.Component {
            <IndexQuestionTags question={this.props.showQuestion} />
         </div>
       ) : "";
-      author = this.props.showQuestion.user ? <QuestionAuthor question={this.props.showQuestion}/> : "";
+      author = this.props.showQuestion.user ? 
+        <Link to={`/users/${this.props.showQuestion.user.id}`} >
+          <QuestionAuthor question={this.props.showQuestion}/> 
+        </Link> : "";
       comments = this.props.showQuestion.comments ? <AllComments comments={this.props.showQuestion.comments} /> : "";
 
     }

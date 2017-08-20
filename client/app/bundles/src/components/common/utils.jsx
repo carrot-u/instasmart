@@ -1,5 +1,11 @@
-//general helper utils and functions
+// HELPER LIKE FUNCTIONS
+export function checkLikedByUser(likesArray, UserId){
+  return (likesArray.filter(like => (like.voter_id === UserId)).length > 0);
+}
 
+
+
+// HELPER SORT FUNCTIONS
 export function sort(sortType, array){
   switch(sortType){
     case "answered":

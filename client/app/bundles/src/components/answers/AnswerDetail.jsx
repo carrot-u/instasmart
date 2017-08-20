@@ -4,7 +4,7 @@ import AnswerButtons from './AnswerButtons';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 // Import project files
-import QuestionForm from "../Questions/QuestionForm";
+import QuestionForm from "../questions/QuestionForm";
 import AllComments from '../Comments/AllComments';
 
 

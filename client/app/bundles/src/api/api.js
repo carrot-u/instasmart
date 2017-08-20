@@ -85,6 +85,16 @@ export function getCommentsByAnswerID(id){
   });
 }
 
+export function getUserById(id){
+  return function(dispatch){
+    return utils.get(`/users/${id}`).then(user =>{
+      dispatch(actions.loadUserByIdSuccess(user));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
 
 
 
