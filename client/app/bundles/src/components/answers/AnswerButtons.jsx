@@ -1,10 +1,10 @@
 import React from "react";
 
 const AnswerButtons = props => {
-  const classInput = "btn btn-outline-success btn-sm mr-1 py-0";
+  const classInput = "btn btn-sm mr-1 py-0";
 
   return (
-    <div className="col mb-2">
+    <div className="p-0 col mb-2 show-action-buttons">
       <button className={classInput} onClick={props.onClickComment}>
         {" "}
         Comment{" "}
