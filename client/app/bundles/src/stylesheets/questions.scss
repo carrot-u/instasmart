@@ -315,7 +315,6 @@ li.hide-nav {
 
 .question-index{
   margin-top: 60px;
-  font-size: .8em;
   .card{
     border-radius: 0px;
   }
@@ -363,14 +362,14 @@ li.hide-nav {
   .question-summary{
     color: darkgreen;
   }
-  .badge{
-    background-color: #28a745;
-    margin-left: 4px;
-    padding: 1px 5px;
-    font-size: 0.8em;
-  }
 }
 
+.badge{
+  background-color: #28a745;
+  margin-left: 4px;
+  padding: 1px 5px;
+  font-size: 0.8em;
+}
 
 .profile-image{
   border-radius: 10px;

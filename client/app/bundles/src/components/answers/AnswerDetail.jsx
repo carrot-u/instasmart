@@ -46,9 +46,9 @@ class AnswerDetail extends React.Component{
 
   onClickLike(){
     if(this.props.answer.liked){
-      this.props.actions.likeUnlikeAnswer(this.props.answer.id, "unlike");
+      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "unlike");
     }else{
-      this.props.actions.likeUnlikeAnswer(this.props.answer.id, "like");
+      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "like");
     }
     this.setState({ answerLiked: !this.state.answerliked });
   }
@@ -75,6 +75,9 @@ class AnswerDetail extends React.Component{
       answerBy = `by ${this.props.answer.user.first_name} ${this.props.answer.user.last_name}`;
       authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
     }
+    const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
+
+
     return (
       <div className="show-answer pr-4 row">
         <div className="col-sm-2 pt-2">
@@ -95,7 +98,11 @@ class AnswerDetail extends React.Component{
               </ReactCSSTransitionGroup>
             </div>
             <div className="align-self-end pl-3" style={{width: "100%"}}>
-              <AnswerButtons onClickComment={this.onClickComment}/>
+              <AnswerButtons 
+                onClickComment={this.onClickComment}
+                onClickLike={this.onClickLike}
+                cached_votes_score={this.props.answer.cached_votes_score}
+                commentCount={commentCount}/>
               {comments}
 
             </div>
