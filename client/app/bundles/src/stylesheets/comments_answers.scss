@@ -9,9 +9,9 @@
   }
 }
 
-.comment-row:nth-child(odd){
-  background-color: #f4f2f2;
-}
+// .comment-row:nth-child(odd){
+//   background-color: #ecf7e9;
+// }
 
 .comment-row{
 
@@ -19,7 +19,8 @@
   flex-direction: row;
   border-bottom: 1px solid #CCC;
   padding-top: 8px;
-  background-color: rgba(244, 246, 250, .99) !important;
+  // background-color: rgba(244, 246, 250, .99) !important;
+  background-color: #ecf7e9;
   padding-left: 10px;
   font-size: .75em;
 
@@ -27,6 +28,6 @@
     padding-left: 10px;
     padding-bottom: 3px;
     font-size: .75em;
-    color: darkblue;
+    color: #2e7b1d;
   }
 }

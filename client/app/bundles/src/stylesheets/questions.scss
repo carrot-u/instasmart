@@ -340,7 +340,13 @@ li.hide-nav {
 
 .show-question{
   margin-top: 10px;
-  border: 1px solid grey;
+  border: 1px solid #358c21;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#author-info{
+  border-radius: 10px;
 }
 
 .stat-tags-col{
@@ -357,11 +363,43 @@ li.hide-nav {
 
 }
 .show-question-detail{
-  background-color: rgba(0,0,0,.03);
+  background-color: rgba(0,0,0,.03); // Why does this round the edges?
+  border-radius: 10px;
   border-bottom: 2px solid lightgrey; 
-  .question-summary{
-    color: darkgreen;
+  .question-summary {
+    color: #323232;
   }
+  .quesiton-detail {
+    color: #666666;
+  }
+}
+
+.question-author-container{
+  .profile-image{
+    border-radius: 10px;
+    border: 1px solid darkgreen;
+  }
+}
+
+.list-inline-item{
+  color:black;
+}
+
+.list-inline-item button {
+  color: #43b02a;
+  font-weight: 200;
+  border: 1px solid #43b02a;
+  background-color: #ffffff;
+}
+
+.list-inline-item button:hover {
+  background-color: #d9efd4;
+  color: #2E7B1D;
+  font-weight: 400;
+}
+#back-btn {
+  color: white;
+  background-color: #ff9b32;
 }
 
 .badge{
@@ -375,6 +413,3 @@ li.hide-nav {
   border-radius: 10px;
   border: 1px solid darkgreen;
 }
-
-
-

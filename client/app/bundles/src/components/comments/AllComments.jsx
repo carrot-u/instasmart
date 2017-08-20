@@ -11,7 +11,8 @@ const AllComments = props => {
     });
 
   return(
-    <div className="ml-3" style={{borderTop: "1px solid grey"}}>
+    <div className="mx-5">
+      <h5 className="mt-2">Comments ({props.comments.length})</h5>
       {commentsListing}
     </div>
   );
