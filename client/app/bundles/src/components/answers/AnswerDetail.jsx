@@ -72,7 +72,7 @@ class AnswerDetail extends React.Component{
       : null;
 
     if(this.props.answer.user){
-      answerBy = `by ${this.props.answer.user.first_name} ${this.props.answer.user.last_name}`;
+      answerBy = `${this.props.answer.user.first_name} ${this.props.answer.user.last_name}`;
       authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
@@ -80,16 +80,17 @@ class AnswerDetail extends React.Component{
 
     return (
       <div className="show-answer pr-4 row">
-        <div className="col-sm-2 pt-2">
+        <div className="col-sm-1 pt-2">
             {authorImage} <br />
-            <small className=""><i>
-              Answered {answerBy} on {this.props.answer.created_at}
-            </i></small>
+            
         </div>
-        <div className="col-sm-10 pt-2 container">
+        <div className="col-sm-11 pt-2 container">
           <div className="row" style={{height: "100%"}}>
             <div className="pl-3" style={{width: "100%"}}>
-              {this.props.answer.response}
+              <small className=""><i>
+              {answerBy} on {this.props.answer.created_at}
+            </i></small>
+              <p>{this.props.answer.response}</p>
               <ReactCSSTransitionGroup
                 transitionName="form-transition"
                 transitionEnterTimeout={300}

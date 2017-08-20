@@ -369,17 +369,7 @@ li.hide-nav {
   .question-summary {
     color: #323232;
   }
-  .quesiton-detail {
-    color: #666666;
-  }
-}
-
-.question-author-container{
-  .profile-image{
-    border-radius: 10px;
-    border: 1px solid darkgreen;
-  }
-  .quesiton-detail {
+  .question-detail {
     color: #666666;
   }
 }
@@ -395,14 +385,14 @@ li.hide-nav {
   color:black;
 }
 
-.list-inline-item button {
+.show-action-buttons button {
   color: #43b02a;
   font-weight: 200;
   border: 1px solid #43b02a;
   background-color: #ffffff;
-}
+} // Applies to both question-detail AND answer/comments
 
-.list-inline-item button:hover {
+.show-action-buttons button:hover {
   background-color: #d9efd4;
   color: #2E7B1D;
   font-weight: 400;
@@ -443,4 +433,6 @@ li.hide-nav {
 .profile-image{
   border-radius: 10px;
   border: 1px solid darkgreen;
+  width: 40px;
+  height: 40px;
 }
