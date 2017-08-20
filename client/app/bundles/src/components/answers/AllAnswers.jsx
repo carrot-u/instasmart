@@ -1,28 +1,54 @@
+// Module Imports
 import React from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
+// Project Files
 import AnswerDetail from './AnswerDetail';
+import * as questionActions from "../../actions/questionActions";
 
-const AllAnswers = props => {
-      console.log(" props.answer", props.answers);
 
-  const answersListing = props.answers.map(answer => {
-    if(answer){
-      return (
-        <div key={answer.id}>
-          <AnswerDetail  answer={answer} />
-        </div>);
-    }else{
-      console.log(" not making it");
-      <div />
-    }
-  });
+class AllAnswers extends React.Component {
 
-  return (
-    <div className="mt-1 all-answers">
-      <h3>{props.answers.length} Answers </h3> 
-      {answersListing}
-    </div>
-  );
+  render(){
+    console.log(" this.props.answer", this.props.answers);
+
+    const answersListing = this.props.answers.map(answer => {
+      if(answer){
+        return (
+          <div key={answer.id}>
+            <AnswerDetail  
+              answer={answer} 
+              actions={this.props.actions}
+              onClickComment={this.onClickComment}
+              questionId={this.props.questionId}/>
+          </div>);
+      }else{
+        console.log(" not making it");
+        <div />
+      }
+    });
+
+    return (
+      <div className="mt-1 all-answers">
+        <h3>{this.props.answers.length} Answers </h3> 
+        {answersListing}
+      </div>
+    );
+  }
 }
 
-export default AllAnswers;
+
+function mapStateToProps(state, ownProps) {
+  return {
+    isLoading: state.questions.isLoading,
+    showQuestion: state.questions.showQuestion
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(questionActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllAnswers);

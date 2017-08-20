@@ -68,7 +68,6 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <ScrollToTopOnMount />
         <PageBanner sort={this.sortQuestions} sortedBy={this.state.sortedBy}/>
         <div className="container question-index">
           {listQuestions}

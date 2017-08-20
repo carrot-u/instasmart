@@ -14,7 +14,7 @@ const IndexQuestionDetail = props => {
     <div className="row">
         <div className="col-md-8 pr-0">
           <Link to={`/questions/${props.question.id}`} className="question-summary">
-            <h3>{props.question.summary}</h3>
+            <h5>{props.question.summary}</h5>
           </Link>
           <IndexQuestionTags question={props.question} />
         </div>
