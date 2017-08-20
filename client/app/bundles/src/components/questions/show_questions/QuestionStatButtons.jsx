@@ -2,8 +2,8 @@ import React from "react";
 
 const QuestionStatButtons = props => {
   const classInput = props.pullRight
-    ? "btn btn-outline-success mr-1 pull-right"
-    : "btn btn-outline-success mr-1";
+    ? "btn mr-1 pull-right"
+    : "btn mr-1";
 
   const views = <div> Views: <span className="badge">{props.question.views_count}</span> </div>;
   const commentCount = props.question.comments
