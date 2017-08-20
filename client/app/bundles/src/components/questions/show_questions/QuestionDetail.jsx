@@ -34,4 +34,3 @@ const QuestionDetail = props => {
 }
 
 export default QuestionDetail;
-
