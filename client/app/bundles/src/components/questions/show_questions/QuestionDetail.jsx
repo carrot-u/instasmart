@@ -15,9 +15,9 @@ const QuestionDetail = props => {
     (<i>Asked {props.question.created_at}</i>);
 
   return (
-    <div className="row pt-1 pl-1 mr-0 show-question-detail">
+    <div className="row pt-1 pl-1 mr-0 show-question-detail bg-faded">
     <Link to="/questions">
-      <button className="btn btn-outline-secondary btn-sm py-0">Back</button>
+      <button id="back-btn" className="btn m-2">Back</button>
     </Link>
       <div className="question-summary col-md-12 pb-2 ml-2">
         <h3 className="py-1 question-summary">{props.question.summary}</h3>
