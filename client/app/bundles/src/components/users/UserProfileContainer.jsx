@@ -28,7 +28,7 @@ class UserProfileContainer extends React.Component {
       );
     }else{
       profileInfo = <UserProfile user={this.props.showUser} />;
-      stats = <UserStats user={this.props.showUser} />;
+      stats = <UserStats user={this.props.showUser} activity={this.props.showUser.user_activity} />;
 
     }
 

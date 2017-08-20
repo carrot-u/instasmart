@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image, :email, :oauth_token, :oauth_expires_at, :user_activity
+  attributes :id, :name, :image, :email, :created_at, :user_activity
 
 def user_activity
   activity = []
@@ -21,7 +21,7 @@ def user_activity
   end
 
   activity.sort_by! { |activity| activity.created_at }.reverse!
-  return activity.take(10)
+  return activity
 end
 
 end
