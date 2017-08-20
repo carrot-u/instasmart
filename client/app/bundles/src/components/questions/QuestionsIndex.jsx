@@ -85,7 +85,7 @@ function mapStateToProps(state, ownProps) {
     questions: state.questions.questions,
     isLoading: state.questions.isLoading,
     showQuestionModal: state.modal.showQuestionModal,
-    currentUser: state.currentUser.currentUser,
+    currentUser: state.users.currentUser,
   };
 }
 function mapDispatchToProps(dispatch) {
