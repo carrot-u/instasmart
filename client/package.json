@@ -31,6 +31,7 @@
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
+    "react-animate-height": "^0.10.0",
     "react-dom": "^15.6.1",
     "react-on-rails": "8.0.5",
     "react-redux": "^5.0.5",

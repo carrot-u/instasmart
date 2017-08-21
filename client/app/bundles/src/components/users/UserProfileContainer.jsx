@@ -16,7 +16,7 @@ class UserProfileContainer extends React.Component {
 
 
   render(){
-    let showProfile, profileInfo, stats = "";
+    let showProfile, profileInfo, stats, joinedDate = "";
     if (this.props.isLoading || !this.props.showUser) {
       showProfile = (
         <div className="container loading-questions row mt-4">
@@ -28,8 +28,7 @@ class UserProfileContainer extends React.Component {
       );
     }else{
       profileInfo = <UserProfile user={this.props.showUser} />;
-      stats = <UserStats user={this.props.showUser} activity={this.props.showUser.user_activity} />;
-
+      stats = <UserStats user={this.props.showUser} user={this.props.showUser} />;
     }
 
     console.log("user profile props: ", this.props);
