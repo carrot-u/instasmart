@@ -5,7 +5,7 @@ import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 // Import project files
 import QuestionForm from "../questions/QuestionForm";
-import AllComments from '../Comments/AllComments';
+import AllComments from '../comments/AllComments';
 
 
 class AnswerDetail extends React.Component{
