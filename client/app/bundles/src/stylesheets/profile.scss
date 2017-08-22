@@ -5,3 +5,29 @@
     width: 100px;
     height: 100px;
 }
+
+.activity-header{
+  border-bottom: 2px solid darkgrey;
+
+}
+
+.activity-row{
+  border-bottom: 1px solid grey;
+  .activity-main-content{
+    color: darkgreen;
+  }
+  .activity-secondary-content{
+    font-size: .8em; 
+    color: darkgreen;
+  }
+  .created-date{
+    font-size: .75em;
+    color: grey;
+  }
+  .activity-link{
+    text-decoration: none;
+    &:hover{
+      font-size: 1.05em;
+    }
+  }
+}
