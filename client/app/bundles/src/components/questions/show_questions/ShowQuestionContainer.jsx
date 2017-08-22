@@ -116,7 +116,7 @@ class ShowQuestionConatiner extends React.Component {
         </div>
       ) : "";
       author = this.props.showQuestion.user ? 
-        <Link to={`/users/${this.props.showQuestion.user.id}`} >
+        <Link to={`/users/${this.props.showQuestion.user.id}`} style={{color: "#555544", textDecoration: "none"}} >
           <QuestionAuthor question={this.props.showQuestion}/> 
         </Link> : "";
       comments = this.props.showQuestion.comments ? <AllComments comments={this.props.showQuestion.comments} /> : "";

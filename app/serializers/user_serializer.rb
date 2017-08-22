@@ -10,11 +10,11 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def user_answer_activity
-    self.object.questions
+    self.object.answers
   end
 
   def user_comment_activity
-    self.object.questions
+    self.object.comments
   end
 
   def user_activity
