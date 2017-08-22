@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike, :unlike, :undislike]
+  before_action :set_question, only: [:show, :update, :like, :dislike, :unlike, :undislike]
+  before_action :set_questions_for_edit_and_destroy, only: [:edit, :destroy]
   respond_to :html, :json
   before_action :current_user
 
@@ -108,5 +109,9 @@ class QuestionsController < ApplicationController
 
     def question_params
       params.permit(:summary, :body, :tag_list)
+    end
+
+    def set_questions_for_edit_and_destroy
+      current_user.questions.find(params[:id])
     end
 end
