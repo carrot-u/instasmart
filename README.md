@@ -103,7 +103,6 @@ A Q&A Forum for Instacart Employees
 - [x] Implement ask question
 - [ ] Implement tag dropdown
 - [ ] Implement tag query database for selections
-- [ ] 
 
 ## Notes and Ideas
 
@@ -122,25 +121,22 @@ A Q&A Forum for Instacart Employees
 - [ ] change tagging delimiter from comma to space
 
 ### Back End
-- [ ] Remove Landing Page Controllers and Views?
-- [ ] Format date in serializer
-- [ ] change tagging delimiter from comma to space
-- [ ] should tagging convention be hyphens or underscore?
-- [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
-- [ ] Do we need an "activity_count" or "up_votes_count" column on the user model, for user default scope stuffs?
-- [ ] Instacart standard for ruby is to use double quotes 
-- [ ] answers_controller.rb: why do we need `answer_to_json`?
-- [ ] Do we really need `format.html { render :edit }`?
-- [ ] Delete Home Controller and Views?
-- [ ] Landing Page Removals?
-    - [ ] landing_pagecontroller.rb?
-    - [ ] landing_page_helper.rb
+- [ ] Remove Landing Page/Home Controllers and Views? @logan I'm assuming we need these now with the new client setup.
+- [ ] Only author can edit/delete
+- [ ] Format date in serializer: making changes to the initializer file is not changing the date format
+- [ ] limit on user activity array length (take(n) not working)
 - [ ] QuestionController
     - [ ] Can question sorts be done in the serializer or as a case statement?
     - [ ] which is better? `render json: @questions` or `respond_to { |format| format.json {render json: @questions}}`?
-    - [ ] will we need tag_list params with new front end?  
+    - [x] will we need tag_list params with new front end?  
+- [ ] cascade destroy of taggings with question (`dependent: :destroy`?)
+- [ ] Do we really need `format.html { render :edit }`?
 - [ ] question.rb: What is this for? `scope :by_join_date, -> { order("created_at DESC")}`
-- [ ] limit on user activity array length (take(n) not working)
+- [ ] Instacart standard for ruby is to use double quotes (mostly done, but will go through once more)
+- [ ] change tagging delimiter from comma to space
+- [x] should tagging convention be hyphens or underscore?
+- [x] ~~Do we need an "activity_count" or "up_votes_count" column on the user model, for user default scope stuffs?~~ Using user activity array instead
+- [ ] answers_controller.rb: why do we need `answer_to_json`? Isn't this handled in 
 - [ ] Can secrets.yml and application.yml be consolidated?
 - [ ] Can we delete the test dir?
 
