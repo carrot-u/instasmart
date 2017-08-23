@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const QuestionCreatorOptions = props => {
   return (
@@ -18,7 +19,7 @@ const QuestionCreatorOptions = props => {
               </a>
             </li>
             <li className="list-inline-item">
-              <a href="" onClick={props.onDeleteQuestion}>Delete</a>
+              <Link to="/questions" onClick={props.onDeleteQuestion}>Delete</Link>
             </li>
           </ul>
         </small>

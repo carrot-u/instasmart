@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionForm = props => {
+const PostForm = props => {
   let formatter = {};
   if(props.formType === "comment"){
     formatter = {
@@ -42,4 +42,4 @@ const QuestionForm = props => {
   );
 };
 
-export default QuestionForm;
+export default PostForm;

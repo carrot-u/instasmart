@@ -48,7 +48,7 @@ class NewQuestionModal extends React.Component {
                 label="Question"
                 labelClass="h3"
                 className="form-control"
-                style={this.props.question && {color: "red"}}
+                style={this.props.question && {color: "darkgreen"}}
                 name="summary"
                 rows="3"
                 placeholder={"Ask your question..."}
@@ -61,7 +61,7 @@ class NewQuestionModal extends React.Component {
                 label="Details"
                 labelClass="h5"
                 optional={true}
-                style={this.props.question && {color: "red"}}
+                style={this.props.question && {color: "darkgreen"}}
                 className="form-control"
                 name="body"
                 rows="4"
@@ -76,7 +76,7 @@ class NewQuestionModal extends React.Component {
                 label="Tags"
                 labelClass="h5"
                 optional={true}
-                style={this.props.question && {color: "red"}}
+                style={this.props.question && {color: "darkgreen"}}
                 className="form-control"
                 name="tag_list"
                 placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."

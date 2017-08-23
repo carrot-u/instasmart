@@ -14,7 +14,6 @@ class UserProfileContainer extends React.Component {
     this.props.actions.loadUserById(this.props.match.params.id);
   }
 
-
   render(){
     let showProfile, profileInfo, stats, joinedDate = "";
     if (this.props.isLoading || !this.props.showUser) {
@@ -30,8 +29,6 @@ class UserProfileContainer extends React.Component {
       profileInfo = <UserProfile user={this.props.showUser} />;
       stats = <UserStats user={this.props.showUser} user={this.props.showUser} />;
     }
-
-    console.log("user profile props: ", this.props);
     return(
       <div className="show-question-top-container container">
         <ScrollToTopOnMount />

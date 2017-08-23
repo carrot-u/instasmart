@@ -61,7 +61,8 @@ export default function questionsReducer(state = initialState, action){
       return {
         questions:[...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)],
-        isLoading: state.isLoading,
+        isLoading: false,
+        showQuestion: Object.assign({}, action.question),
         error: state.error,
       };
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:

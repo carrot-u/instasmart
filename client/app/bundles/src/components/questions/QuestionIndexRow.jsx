@@ -2,7 +2,7 @@ import React from "react";
 import TopAnswer from "../answers/TopAnswer";
 import IconStats from "../common/IconStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
-import QuestionForm from "./QuestionForm";
+import PostForm from "./PostForm";
 import QuestionButtons from "./QuestionButtons";
 import QuestionCreatorOptions from "./QuestionCreatorOptions";
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
@@ -82,7 +82,7 @@ class QuestionIndexRow extends React.Component {
       : <h6><i>No answers submitted yet. Be the first!</i></h6>;
 
     const showForm = this.state.showForm ? 
-      <QuestionForm 
+      <PostForm 
         formType={this.state.postType}
         handleHideForm={this.onClickPost}
         handleSubmitPost={this.handleSubmitPost}
