@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :like, :dislike, :undislike, :unlike]
-  #before_action :set_question_id, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :update, :like, :dislike, :undislike, :unlike]
+  before_action :set_answer_for_edit_and_destroy, only: [:edit, :destroy]
+  
 
   def new
     @answer = Answer.new
@@ -8,7 +9,7 @@ class AnswersController < ApplicationController
 
   def show
     set_question_id
-    # render json: @answer
+    render json: @answer
   end
 
   def edit
@@ -69,6 +70,10 @@ class AnswersController < ApplicationController
 
     def answer_to_json
       render json: @answer
+    end
+
+    def set_answer_for_edit_and_destroy
+      current_user.answers.find(params[:id])
     end
 
 end
