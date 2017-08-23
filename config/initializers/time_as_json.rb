@@ -9,7 +9,7 @@ module ActiveSupport
       if ActiveSupport::JSON::Encoding.use_standard_json_time_format
         xmlschema
       else
-        %(#{time.strftime("%B %d, %Y, %l:%M %P")} #{formatted_offset(false)})
+        "#{time.strftime("%B %d, %Y, %l:%M %P")}"
       end
     end
   end

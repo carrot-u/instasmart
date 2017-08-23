@@ -1,4 +1,4 @@
-<%= form_for(question) do |q| %>
+<%= form_for(@question) do |q| %>
   <label for="question_summary" class="h3"><b>Question</b></label>
   <%= q.text_area :summary, class: "form-control mb-4", id: "question_summary", rows: "3", placeholder: "Ask your question" %>
 
