@@ -16,7 +16,7 @@ export function loadQuestions(){
   };
 }
 
-export function loadSearchResults(){
+export function loadSearchResults(search){
   return dispatch => {
     dispatch(api.getQuestionsBySearch(search));
     dispatch(loadQuestionsStart());
