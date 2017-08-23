@@ -72,7 +72,7 @@ class AnswerDetail extends React.Component{
       : null;
 
     if(this.props.answer.user){
-      answerBy = `${this.props.answer.user.first_name} ${this.props.answer.user.last_name}`;
+      answerBy = `${this.props.answer.user.name}`;
       authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
