@@ -12,4 +12,8 @@ class Question < ActiveRecord::Base
   scope :by_join_date, -> {
     order("created_at DESC")
   }
+
+  def self.search(search)
+    where("summary ILIKE ? OR body ILIKE ?", "%#{search}%", "%#{search}%") 
+  end
 end
