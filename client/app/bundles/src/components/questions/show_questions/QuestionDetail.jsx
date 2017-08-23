@@ -11,7 +11,6 @@ import QuestionCreatorOptions from "../QuestionCreatorOptions";
 import QuestionForm from './QuestionForm';
 
 
-
 class QuestionDetail extends React.Component {
   constructor(props){
     super(props);
