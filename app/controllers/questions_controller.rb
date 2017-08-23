@@ -12,8 +12,6 @@ class QuestionsController < ApplicationController
 
     if params[:search]
       @questions = Question.search(params[:search]).order("created_at DESC")
-    else
-      @questions = Question.all.order("created_at DESC")
     end
 
     # if params[:sort_by] == 'most_comments'
@@ -64,6 +62,7 @@ class QuestionsController < ApplicationController
       format.json { render json: @question }
     end
   end
+
   # change / edit / update
   def edit
   end

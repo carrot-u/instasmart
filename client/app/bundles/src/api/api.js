@@ -97,6 +97,15 @@ export function getUserById(id){
   };
 }
 
+export function getQuestionsBySearch(search){
+  return function(dispatch){
+    return utils.get(`/questions/${search}`).then(questions =>{
+      dispatch(questionActions.loadQuestionsSuccess(questions));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
 
 
 

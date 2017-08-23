@@ -1,4 +1,10 @@
+// Modules
 import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+// Project File
+import * as questionActions from "../../actions/questionActions";
 
 const NavbarSearchField = props => {
   return (
@@ -10,6 +16,7 @@ const NavbarSearchField = props => {
           placeholder="Search"
           onFocus={props.handleOnSearchFocus}
           onBlur={props.handleOnSearchBlur}
+          onSearch={props.handleOnSearchSearch}
         />
       </form>
     </div>

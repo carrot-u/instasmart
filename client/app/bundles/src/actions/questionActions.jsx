@@ -16,6 +16,13 @@ export function loadQuestions(){
   };
 }
 
+export function loadSearchResults(){
+  return dispatch => {
+    dispatch(api.getQuestionsBySearch(search));
+    dispatch(loadQuestionsStart());
+  };
+}
+
 export function loadQuestionByIdSuccess(question){
   return { type: types.LOAD_QUESTIONS_BY_ID_SUCCESS, question};
 }

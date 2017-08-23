@@ -1,5 +1,14 @@
 
-  <div class="container mt-4">
+ <div class="container">
+ 	<div class="card">
+ 		<%= form_tag(questions_path, :method => "get", id: "search-form") do %>
+    	<%= text_field_tag :search, params[:search], placeholder: "Search Questions" %>
+    <%= submit_tag "Search", :name => nil %>
+	<% end %>
+ 	<div>
+ </div>
+
+ <div class="container mt-4">
   	<div class="row">
   		<div class="col-md-12">
   		<%= link_to "Back", questions_path, type: "button", class: "btn btn-outline-secondary mr-1 mb-1" %>
