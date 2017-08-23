@@ -280,8 +280,8 @@ li.hide-nav {
 
   .banner-image{
     flex: 1;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
   }
 
   .banner-text{
@@ -371,6 +371,16 @@ li.hide-nav {
   }
   .question-detail {
     color: #666666;
+  }
+}
+
+.edit-question-form{
+  .form-group{
+    margin-bottom: 0px;
+    padding: {
+      top: 8px;
+      bottom: 0px;
+    }
   }
 }
 

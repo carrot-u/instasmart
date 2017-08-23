@@ -4,7 +4,7 @@ import AnswerButtons from './AnswerButtons';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 // Import project files
-import QuestionForm from "../questions/QuestionForm";
+import PostForm from "../questions/PostForm";
 import AllComments from '../comments/AllComments';
 
 
@@ -63,7 +63,7 @@ class AnswerDetail extends React.Component{
 
 
     const showForm = this.state.showForm ? 
-      <QuestionForm 
+      <PostForm 
         formType="comment"
         handleHideForm={this.onClickComment}
         handleSubmitPost={this.handleSubmitComment}
