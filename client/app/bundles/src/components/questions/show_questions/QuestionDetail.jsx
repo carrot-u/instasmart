@@ -17,7 +17,7 @@ const QuestionDetail = props => {
   return (
     <div className="row pt-1 pl-1 mr-0 show-question-detail bg-faded">
     <Link to="/questions">
-      <button id="back-btn" className="btn m-2">Back</button>
+      <button id="back-btn" className="btn m-2">Back to All Questions</button>
     </Link>
       <div className="question-summary col-md-12 pb-2 ml-2">
         <h3 className="py-1 question-summary">{props.question.summary}</h3>

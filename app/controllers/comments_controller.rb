@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update]
+  before_action :set_comment, only: [:update]
+  before_action :set_comment_for_edit_and_destroy, only: [:edit, :destroy]
 
   def new
   	@context = context
@@ -61,5 +62,9 @@ class CommentsController < ApplicationController
       else
         question_path(Question.find(context.question_id))
       end
+    end
+
+    def set_comment_for_edit_and_destroy
+      current_user.comments.find(params[:id])
     end
 end

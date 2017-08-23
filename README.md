@@ -119,12 +119,12 @@ A Q&A Forum for Instacart Employees
 - [ ] Nav item font size should be bigger in sm/md width
 - [ ] Remove text-decoration on hovered links (replace with darken of main instacart color?)
 - [ ] change tagging delimiter from comma to space
+- [x] Rename "Back" to "Back to All Questions" on show page.
 
 ### Back End
 - [ ] Remove Landing Page/Home Controllers and Views? @logan I'm assuming we need these now with the new client setup.
 - [ ] Only author can edit/delete
 - [ ] Format date in serializer: making changes to the initializer file is not changing the date format
-- [ ] limit on user activity array length (take(n) not working)
 - [ ] QuestionController
     - [ ] Can question sorts be done in the serializer or as a case statement?
     - [ ] which is better? `render json: @questions` or `respond_to { |format| format.json {render json: @questions}}`?
@@ -136,6 +136,7 @@ A Q&A Forum for Instacart Employees
 - [ ] change tagging delimiter from comma to space
 - [x] should tagging convention be hyphens or underscore?
 - [x] ~~Do we need an "activity_count" or "up_votes_count" column on the user model, for user default scope stuffs?~~ Using user activity array instead
+- [x] ~~limit on user activity array length (take(n) not working)~~ User activity is grouped by object, so no ned for a limit at present
 - [ ] answers_controller.rb: why do we need `answer_to_json`? Isn't this handled in 
 - [ ] Can secrets.yml and application.yml be consolidated?
 - [ ] Can we delete the test dir?
