@@ -33,6 +33,15 @@ export function postOnQuestion(questionId, payload, type){
   };
 }
 
+export function editPostOnQuestion(questionId, postId, payload, type){
+  console.log("editPostOnQuestion(questionId, postId, payload, type)", questionId, postId, payload, type);
+  return function(dispatch){
+      utils.put(`/questions/${questionId}/${type}/${postId}`, "", payload).then(question => {
+        dispatch(questionActions.editPostSuccess(question));
+      });
+  };
+}
+
 export function newQuestion(payload){
   return function(dispatch){
       utils.post(`/questions`, payload).then(question => {

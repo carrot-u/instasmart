@@ -39,13 +39,12 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
-    case types.CREATE_POST_ON_QUESTION_SUCCESS:
-      const newQuestions = [
+    case types.POST_ON_QUESTION_SUCCESS:
+      return {
+        questions: [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
-      ];
-      return {
-        questions: newQuestions,
+        ],
         showQuestion: action.updatedQuestion,
         isLoading: state.isLoading,
         error: state.error

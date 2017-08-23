@@ -100,19 +100,19 @@ class QuestionIndexRow extends React.Component {
 
           <div className="row">
             <div className="col-sm-4">
-              <IconStats question={this.props.question} />
-              {createdByCurrent && <QuestionCreatorOptions 
+              {!this.state.showForm && <IconStats question={this.props.question} />}
+              {createdByCurrent && !this.state.showForm && <QuestionCreatorOptions 
                 onDeleteQuestion={this.onDeleteQuestion}
                 onEditQuestion={this.props.onEditQuestion}
                 question={this.props.question}/>}
             </div>
             <div className="col-sm-8">
-              <QuestionButtons 
+              {!this.state.showForm && <QuestionButtons 
                 onClickPost={this.onClickPost} 
                 onClickLike={this.onClickLike}
                 liked={this.props.liked}
                 pullRight={true}
-              />
+              />}
             </div>
           </div>
           
