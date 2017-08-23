@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // Project File
+import NavbarContainer from "./NavbarContainer";
 import * as questionActions from "../../actions/questionActions";
 import * as utils from "../common/utils";
 
@@ -11,19 +12,15 @@ class NavbarSearchField extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: null,
+      search: null
     };
-  this.onSearch = this.onSearch.bind(this);
+    this.loadSearchResults = this.loadSearchResults.bind(this);
   }
 
   onSearch(search){
     this.props.questionActions.loadSearchResults(search);
   }
 
-  // onSearch: function(){
-    // let search = this.refs.search.getDOMNode().value;
-    // this.props.onSearch(search);
-  // },
   render() {
     return (
       <div className="">
@@ -35,7 +32,7 @@ class NavbarSearchField extends React.Component {
             ref="search"
             onFocus={props.handleOnSearchFocus}
             onBlur={props.handleOnSearchBlur}
-            onSearch={props.loadSearchResults(search)}
+            onChange={props.onSearch(search)}
           />
         </form>
       </div>
