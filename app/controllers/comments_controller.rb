@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.find(params[:id])
     @comment.destroy
    
-    redirect_to context_url(context), notice: "The comment has been deleted"
+    # redirect_to context_url(context), notice: "The comment has been deleted"
   end
 
   private

@@ -30,7 +30,11 @@ class AnswerDetail extends React.Component{
   /************** Post Functions *********************/
   onToggleForm(e) {
     e.preventDefault();
+    if(this.state.editPost && this.state.showForm){
+      this.setState({ editPost: !this.state.editPost });
+    }
     this.setState({ showForm: !this.state.showForm });
+
   }
 
   toggleEditPost(){
@@ -68,15 +72,21 @@ class AnswerDetail extends React.Component{
     this.setState({ answerLiked: !this.state.answerliked });
   }
 
-  onDeletePost(e){
-    // e.preventDefault();
-    this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, "answers");
+  onDeletePost(post, type){
+    if(type === "answers"){
+      this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, type);
+    }else{
+      this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
+    }
   }
 
   render(){
     let authorImage, answerBy, creatorOptions = "";
     let comments = this.props.answer.comments && this.props.answer.comments.length>0  ? 
-      <AllComments comments={this.props.answer.comments} /> : "";
+      <AllComments 
+        comments={this.props.answer.comments} 
+        currentUser={this.props.currentUser}
+        onDeletePost={this.onDeletePost}/> : "";
 
 
     const showForm = this.state.showForm ? 
@@ -97,7 +107,8 @@ class AnswerDetail extends React.Component{
         <PostCreatorOptions 
           editPost={this.toggleEditPost} 
           post={this.props.answer} 
-          onDeletePost={this.onDeletePost}/> : null;
+          onDeletePost={this.onDeletePost}
+          type="answers"/> : null;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
 
@@ -115,7 +126,7 @@ class AnswerDetail extends React.Component{
               {answerBy} on {this.props.answer.created_at}
             </i></small>
               <p>{this.props.answer.response}</p>
-              {creatorOptions}
+              {!this.state.editPost && creatorOptions}
               <ReactCSSTransitionGroup
                 transitionName="form-transition"
                 transitionEnterTimeout={300}
@@ -124,11 +135,11 @@ class AnswerDetail extends React.Component{
               </ReactCSSTransitionGroup>
             </div>
             <div className="align-self-end pl-3" style={{width: "100%"}}>
-              <AnswerButtons 
+              {!this.state.editPost && <AnswerButtons 
                 onClickComment={this.onToggleForm}
                 onClickLike={this.onClickLike}
                 cached_votes_score={this.props.answer.cached_votes_score}
-                commentCount={commentCount}/>
+                commentCount={commentCount}/>}
               {comments}
 
             </div>

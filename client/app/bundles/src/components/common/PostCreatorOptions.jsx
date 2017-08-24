@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 
 const PostCreatorOptions = props => {
   return (
-    <div className="container">
-      <div className="row mt-2">
+    <div className="">
+      <div className="row mt-0 pl-3">
         <small>
-          <ul className="list-inline">
+          <ul className="list-inline mb-1">
             <li className="list-inline-item">
               <span
                 className="creator-links"
@@ -19,7 +19,7 @@ const PostCreatorOptions = props => {
               </span>
             </li>
             <li className="list-inline-item">
-              <span className="creator-links" onClick={props.onDeletePost}>Delete</span>
+              <span className="creator-links" onClick={() => props.onDeletePost(props.post, props.type)}>Delete</span>
             </li>
           </ul>
         </small>

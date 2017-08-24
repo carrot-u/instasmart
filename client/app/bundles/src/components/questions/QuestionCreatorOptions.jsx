@@ -9,7 +9,7 @@ const QuestionCreatorOptions = props => {
           <ul className="list-inline">
             <li className="list-inline-item">
               <a
-                href=""
+                href="" className="creator-links"
                 onClick={e => {
                   e.preventDefault();
                   props.onEditQuestion(props.question);
@@ -19,7 +19,7 @@ const QuestionCreatorOptions = props => {
               </a>
             </li>
             <li className="list-inline-item">
-              <Link to="/questions" onClick={props.onDeleteQuestion}>Delete</Link>
+              <Link to="/questions" className="creator-links" onClick={props.onDeleteQuestion}>Delete</Link>
             </li>
           </ul>
         </small>

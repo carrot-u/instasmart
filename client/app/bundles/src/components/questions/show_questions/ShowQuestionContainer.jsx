@@ -123,7 +123,9 @@ class ShowQuestionConatiner extends React.Component {
           <QuestionAuthor question={this.props.showQuestion}/> 
         </Link> : "";
       comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
-        <AllComments comments={this.props.showQuestion.comments} /> : "";
+        <AllComments 
+        comments={this.props.showQuestion.comments} 
+        currentUser={this.props.currentUser}/> : "";
 
     }
 

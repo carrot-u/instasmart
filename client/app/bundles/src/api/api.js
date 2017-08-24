@@ -49,6 +49,13 @@ export function deletePostOnQuestion(postId, questionId, type){
   };
 }
 
+export function deletePostOnAnswer(postId, answerId, type){
+  return function(dispatch){
+      utils.deleteRequest(`/answers/${answerId}/${type}/${postId}`).then(() => {
+        dispatch(questionActions.deleteAnswerPostSuccess(postId, answerId, type));
+      });
+  };
+}
 
 export function newQuestion(payload){
   return function(dispatch){
