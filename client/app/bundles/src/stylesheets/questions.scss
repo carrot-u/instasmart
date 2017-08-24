@@ -257,14 +257,12 @@ li.hide-nav {
 /******************* Questions Index Banner **********************************/
 
 .banner{
-  background: url("../images/carrots.jpg")no-repeat center center fixed;
-  background-size: cover;
 
   .overlay{
     padding-bottom: 1em;
     padding-left: 2em;
     padding-top: $banner-top-padding-sm;
-    background-color: rgba(0,0,0,0.3);
+    background-color: white;
   }
 
   .page-title{
@@ -278,10 +276,14 @@ li.hide-nav {
     justify-content: center;
   }
 
-  .banner-image{
-    flex: 1;
-    width: 30px;
-    height: 30px;
+  #banner {
+    width: 100%;
+  }
+
+  .banner-image {
+  }
+
+  #logo {
   }
 
   .banner-text{
