@@ -34,10 +34,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @commentable.comments.find(params[:id])
+    @context = context
+    @comment = @context.comments.find(params[:id])
     @comment.destroy
-   
-    # redirect_to context_url(context), notice: "The comment has been deleted"
+    render json: @context
   end
 
   private
