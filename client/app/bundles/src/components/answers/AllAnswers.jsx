@@ -23,7 +23,6 @@ class AllAnswers extends React.Component {
               currentUser={this.props.currentUser}/>
           </div>);
       }else{
-        console.log(" not making it");
         <div />
       }
     });

@@ -12,18 +12,16 @@ const PostForm = props => {
   let placeholder, defaultValue = "";
   let label = props.formType;
   if(props.formType === "comment"){
-    label = "Add Comment:"
+    label = "Add Comment"
     placeholder = "Comment on the question...";
   }else{
     placeholder = "Answer the question...";
-    label = "Add Answer:"
+    label = "Add Answer"
     if(props.post){
       defaultValue = props.post;
-      label = "Edit Answer:"
+      label = "Edit Answer"
     }
   }
-  console.log("props in post form", props);
-
   return(
     <form onSubmit={props.handleSubmitPost} className="mt-4">
       <label htmlFor="response" className={formatter.labelClass} style={formatter.labelStyle}><b>{label}:</b></label>

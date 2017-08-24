@@ -49,7 +49,13 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
-
+    case types.DELETE_POST_ON_QUESTION_SUCCESS:
+        let newShowQuestion = Object.assign({}, state.showQuestion);
+        newShowQuestion[action.postType] = [...state.showQuestion[action.postType].filter(post => post.id !== action.postId)]
+        return {
+          ...state,
+          showQuestion: newShowQuestion,
+        };
     case types.DELETE_QUESTION_SUCCESS:
       return {
         questions: [...state.questions.filter(question => question.id !== action.questionId)],

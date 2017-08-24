@@ -39,7 +39,8 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.destroy
    
-    redirect_to :back
+   render json: @question
+    # redirect_to :back
   end
 
   def like

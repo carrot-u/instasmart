@@ -24,9 +24,10 @@ class AnswerDetail extends React.Component{
     this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
     this.toggleEditPost = this.toggleEditPost.bind(this);
+    this.onDeletePost = this.onDeletePost.bind(this);
   }
 
-  /************** Comment Functions *********************/
+  /************** Post Functions *********************/
   onToggleForm(e) {
     e.preventDefault();
     this.setState({ showForm: !this.state.showForm });
@@ -51,11 +52,12 @@ class AnswerDetail extends React.Component{
     e.preventDefault();
     let payload = this.state.editPost ? {answer: {response: this.state.answerResponse}}
       :{comment: {body: this.state.comment}};
-    console.log("payload", payload);
-    this.state.editPost ? this.props.actions.editPostOnQuestion(this.props.questionId, this.props.answer.id, payload, "answers") 
+    this.state.editPost ? this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers") 
       : this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
     this.setState({ showForm: !this.state.showForm });
   }
+
+
 
   onClickLike(){
     if(this.props.answer.liked){
@@ -66,7 +68,10 @@ class AnswerDetail extends React.Component{
     this.setState({ answerLiked: !this.state.answerliked });
   }
 
-
+  onDeletePost(e){
+    // e.preventDefault();
+    this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, "answers");
+  }
 
   render(){
     let authorImage, answerBy, creatorOptions = "";
@@ -89,7 +94,10 @@ class AnswerDetail extends React.Component{
       answerBy = `${this.props.answer.user.first_name} ${this.props.answer.user.last_name}`;
       authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
       creatorOptions = this.props.answer.user.id === this.props.currentUser.id ?
-        <PostCreatorOptions editPost={this.toggleEditPost} post={this.props.answer} /> : null;
+        <PostCreatorOptions 
+          editPost={this.toggleEditPost} 
+          post={this.props.answer} 
+          onDeletePost={this.onDeletePost}/> : null;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
 

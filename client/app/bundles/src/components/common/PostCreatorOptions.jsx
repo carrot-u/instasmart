@@ -8,18 +8,18 @@ const PostCreatorOptions = props => {
         <small>
           <ul className="list-inline">
             <li className="list-inline-item">
-              <a
-                href=""
+              <span
+                className="creator-links"
                 onClick={e => {
                   e.preventDefault();
                   props.editPost();
                 }}
               >
                 Edit
-              </a>
+              </span>
             </li>
             <li className="list-inline-item">
-              <a href="" onClick={props.onDeletePost}>Delete</a>
+              <span className="creator-links" onClick={props.onDeletePost}>Delete</span>
             </li>
           </ul>
         </small>

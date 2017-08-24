@@ -33,14 +33,22 @@ export function postOnQuestion(questionId, payload, type){
   };
 }
 
-export function editPostOnQuestion(questionId, postId, payload, type){
-  console.log("editPostOnQuestion(questionId, postId, payload, type)", questionId, postId, payload, type);
+export function editPostOnQuestion(postId, questionId, payload, type){
   return function(dispatch){
       utils.put(`/questions/${questionId}/${type}/${postId}`, "", payload).then(question => {
         dispatch(questionActions.editPostSuccess(question));
       });
   };
 }
+
+export function deletePostOnQuestion(postId, questionId, type){
+  return function(dispatch){
+      utils.deleteRequest(`/questions/${questionId}/${type}/${postId}`).then(() => {
+        dispatch(questionActions.deletePostSuccess(postId, questionId, type));
+      });
+  };
+}
+
 
 export function newQuestion(payload){
   return function(dispatch){

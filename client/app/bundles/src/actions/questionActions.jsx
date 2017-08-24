@@ -53,6 +53,17 @@ export function editPostOnQuestion(questionId, postId, payload, type){
   };
 }
 
+
+export function deletePostSuccess(postId, questionId, postType){
+    return { type: types.DELETE_POST_ON_QUESTION_SUCCESS, postId, questionId, postType };
+  } 
+
+export function deletePostOnQuestion(postId, questionId, type){
+  return dispatch => {
+    dispatch(api.deletePostOnQuestion(postId, questionId, type));
+  };
+}
+
 export function createQuestionSuccess(newQuestion){
   return { type: types.CREATE_QUESTION_SUCCESS, newQuestion };
 } 
