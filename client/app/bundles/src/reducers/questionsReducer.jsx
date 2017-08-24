@@ -11,6 +11,7 @@ const initialState = {
 
 
 export default function questionsReducer(state = initialState, action){
+  console.log("question reducer actions", action);
   switch(action.type){
     case types.LOAD_QUESTIONS_SUCCESS:
       return {...state,
@@ -58,7 +59,15 @@ export default function questionsReducer(state = initialState, action){
         };
     case types.DELETE_POST_ON_ANSWER_SUCCESS:
         let newShowQ = Object.assign({}, state.showQuestion);
-        newShowQ.answers[action.postType] = [...state.showQuestion.answers[action.postType].filter(post => post.id !== action.postId)]
+        newShowQ.answers = newShowQ.answers.map(answer =>{
+          if(answer.id === action.answerId){
+            return Object.assign( {}, {...answer,
+              [action.postType]: answer[action.postType].filter(post => post.id !== action.postId)
+            });
+          }else{
+            return Object.assign({}, answer);
+          }
+        });
         return {
           ...state,
           showQuestion: newShowQ,

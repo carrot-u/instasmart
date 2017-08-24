@@ -65,7 +65,7 @@ export function deletePostOnQuestion(postId, questionId, type){
 }
 
 export function deleteAnswerPostSuccess(postId, answerId, postType){
-    return { type: types.DELETE_POST_ON_QUESTION_SUCCESS, postId, answerId, postType };
+    return { type: types.DELETE_POST_ON_ANSWER_SUCCESS, postId, answerId, postType };
   } 
 
 export function deletePostOnAnswer(postId, answerId, type){
