@@ -349,6 +349,14 @@ li.hide-nav {
   border-radius: 10px;
 }
 
+.creator-links{
+  color: darkgreen;
+  &:hover{
+    cursor:pointer;
+    color: green;
+  }
+}
+
 .stat-tags-col{
   margin-top: 10px;
   border: 1px solid grey;

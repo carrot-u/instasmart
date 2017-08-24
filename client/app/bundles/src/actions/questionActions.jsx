@@ -39,13 +39,35 @@ export function loadQuestionById(id){
 }
 
 export function createPostSuccess(updatedQuestion){
-  return { type: types.CREATE_POST_ON_QUESTION_SUCCESS, updatedQuestion };
+  return { type: types.POST_ON_QUESTION_SUCCESS, updatedQuestion };
 } 
 
 
 export function createPostOnQuestion(questionId, payload, type){
   return dispatch => {
     dispatch(api.postOnQuestion(questionId, payload, type));
+  };
+}
+
+export function editPostSuccess(updatedQuestion){
+  return { type: types.POST_ON_QUESTION_SUCCESS, updatedQuestion };
+} 
+
+
+export function editPostOnQuestion(questionId, postId, payload, type){
+  return dispatch => {
+    dispatch(api.editPostOnQuestion(questionId, postId, payload, type));
+  };
+}
+
+
+export function deletePostSuccess(postId, questionId, postType){
+    return { type: types.DELETE_POST_ON_QUESTION_SUCCESS, postId, questionId, postType };
+  } 
+
+export function deletePostOnQuestion(postId, questionId, type){
+  return dispatch => {
+    dispatch(api.deletePostOnQuestion(postId, questionId, type));
   };
 }
 

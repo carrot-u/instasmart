@@ -1,12 +1,12 @@
 // Import modules
 import React from 'react';
-import AnswerButtons from './AnswerButtons';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 // Import project files
 import PostForm from "../questions/PostForm";
 import AllComments from '../comments/AllComments';
-
+import AnswerButtons from './AnswerButtons';
+import PostCreatorOptions from '../common/PostCreatorOptions';
 
 class AnswerDetail extends React.Component{
   constructor(props){
@@ -15,34 +15,49 @@ class AnswerDetail extends React.Component{
       comment: null,
       showForm: false,
       answerLiked: false,
+      answerResponse: this.props.answer.response,
+      editPost: false,
+
     }
-    this.onClickComment = this.onClickComment.bind(this);
-    this.handleSubmitComment = this.handleSubmitComment.bind(this);
-    this.updateCommentState = this.updateCommentState.bind(this);
+    this.onToggleForm = this.onToggleForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
+    this.toggleEditPost = this.toggleEditPost.bind(this);
+    this.onDeletePost = this.onDeletePost.bind(this);
   }
 
-  /************** Comment Functions *********************/
-  onClickComment(e) {
+  /************** Post Functions *********************/
+  onToggleForm(e) {
     e.preventDefault();
     this.setState({ showForm: !this.state.showForm });
   }
 
-  updateCommentState(e){
-    this.setState({comment: e.target.value});
+  toggleEditPost(){
+    this.setState({ 
+      editPost: !this.state.editPost,
+      showForm: !this.state.showForm
+    });
   }
 
-  handleSubmitComment(e){
+  updatePostState(e){
+    if(!this.state.editPost){
+      this.setState({comment: e.target.value});
+    }else{
+      this.setState({answerResponse: e.target.value});
+    }
+  }
+
+  handleSubmit(e){
     e.preventDefault();
-    let payload = {
-      comment: {
-        body: this.state.comment
-      }
-    };
-    console.log("payload", payload);
-    this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
+    let payload = this.state.editPost ? {answer: {response: this.state.answerResponse}}
+      :{comment: {body: this.state.comment}};
+    this.state.editPost ? this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers") 
+      : this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
     this.setState({ showForm: !this.state.showForm });
   }
+
+
 
   onClickLike(){
     if(this.props.answer.liked){
@@ -53,27 +68,36 @@ class AnswerDetail extends React.Component{
     this.setState({ answerLiked: !this.state.answerliked });
   }
 
-
+  onDeletePost(e){
+    // e.preventDefault();
+    this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, "answers");
+  }
 
   render(){
-    let answerBy = "";
-    let authorImage = "";
-    let comments = this.props.answer.comments ? 
+    let authorImage, answerBy, creatorOptions = "";
+    let comments = this.props.answer.comments && this.props.answer.comments.length>0  ? 
       <AllComments comments={this.props.answer.comments} /> : "";
 
 
     const showForm = this.state.showForm ? 
       <PostForm 
-        formType="comment"
-        handleHideForm={this.onClickComment}
-        handleSubmitPost={this.handleSubmitComment}
-        updatePostState={this.updateCommentState}
+        formType={this.state.editPost ? "answer" : "comment"}
+        handleHideForm={this.onToggleForm}
+        handleSubmitPost={this.handleSubmit}
+        updatePostState={this.updatePostState}
+        editPost={this.state.editPost}
+        post={this.state.answerResponse}
         /> 
       : null;
 
     if(this.props.answer.user){
       answerBy = `${this.props.answer.user.name}`;
       authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
+      creatorOptions = this.props.answer.user.id === this.props.currentUser.id ?
+        <PostCreatorOptions 
+          editPost={this.toggleEditPost} 
+          post={this.props.answer} 
+          onDeletePost={this.onDeletePost}/> : null;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
 
@@ -91,6 +115,7 @@ class AnswerDetail extends React.Component{
               {answerBy} on {this.props.answer.created_at}
             </i></small>
               <p>{this.props.answer.response}</p>
+              {creatorOptions}
               <ReactCSSTransitionGroup
                 transitionName="form-transition"
                 transitionEnterTimeout={300}
@@ -100,7 +125,7 @@ class AnswerDetail extends React.Component{
             </div>
             <div className="align-self-end pl-3" style={{width: "100%"}}>
               <AnswerButtons 
-                onClickComment={this.onClickComment}
+                onClickComment={this.onToggleForm}
                 onClickLike={this.onClickLike}
                 cached_votes_score={this.props.answer.cached_votes_score}
                 commentCount={commentCount}/>

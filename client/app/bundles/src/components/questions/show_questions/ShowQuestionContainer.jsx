@@ -26,13 +26,11 @@ class ShowQuestionConatiner extends React.Component {
       showForm: false,
       postType: null,
       postResponse: null,
-
     }
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
     this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
-
   }
 
   componentWillMount() {
@@ -90,8 +88,7 @@ class ShowQuestionConatiner extends React.Component {
         formType={this.state.postType}
         handleHideForm={this.onClickPost}
         handleSubmitPost={this.handleSubmitPost}
-        updatePostState={this.updatePostState}
-        /> 
+        updatePostState={this.updatePostState}/> 
       : null;
     if (this.props.isLoading || !this.props.showQuestion) {
       showQuestion = (
@@ -113,7 +110,9 @@ class ShowQuestionConatiner extends React.Component {
       showAnswers = this.props.showQuestion.answers ? 
         <AllAnswers 
           answers={this.props.showQuestion.answers} 
-          questionId={this.props.showQuestion.id}/> : "";
+          questionId={this.props.showQuestion.id}
+          toggleEditPost={this.toggleEditPost}
+          currentUser={this.props.currentUser}/> : "";
       tags = this.props.showQuestion.tags ? (
         <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />
@@ -123,7 +122,8 @@ class ShowQuestionConatiner extends React.Component {
         <Link to={`/users/${this.props.showQuestion.user.id}`} style={{color: "#555544", textDecoration: "none"}} >
           <QuestionAuthor question={this.props.showQuestion}/> 
         </Link> : "";
-      comments = this.props.showQuestion.comments ? <AllComments comments={this.props.showQuestion.comments} /> : "";
+      comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
+        <AllComments comments={this.props.showQuestion.comments} /> : "";
 
     }
 

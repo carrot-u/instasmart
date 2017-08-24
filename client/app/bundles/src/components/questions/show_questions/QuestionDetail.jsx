@@ -52,7 +52,6 @@ class QuestionDetail extends React.Component {
   }
 
   onDeleteQuestion(e){
-    // e.preventDefault();
     this.props.actions.deleteQuestion(this.props);
   }
 
