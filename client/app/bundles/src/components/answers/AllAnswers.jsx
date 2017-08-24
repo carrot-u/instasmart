@@ -18,10 +18,11 @@ class AllAnswers extends React.Component {
               answer={answer} 
               actions={this.props.actions}
               onClickComment={this.onClickComment}
-              questionId={this.props.questionId}/>
+              questionId={this.props.questionId}
+              toggleEditPost={this.props.toggleEditPost}
+              currentUser={this.props.currentUser}/>
           </div>);
       }else{
-        console.log(" not making it");
         <div />
       }
     });
