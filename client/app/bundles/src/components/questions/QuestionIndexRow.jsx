@@ -2,7 +2,7 @@ import React from "react";
 import TopAnswer from "../answers/TopAnswer";
 import IconStats from "../common/IconStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
-import QuestionForm from "./QuestionForm";
+import PostForm from "./PostForm";
 import QuestionButtons from "./QuestionButtons";
 import QuestionCreatorOptions from "./QuestionCreatorOptions";
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
@@ -82,7 +82,7 @@ class QuestionIndexRow extends React.Component {
       : <h6><i>No answers submitted yet. Be the first!</i></h6>;
 
     const showForm = this.state.showForm ? 
-      <QuestionForm 
+      <PostForm 
         formType={this.state.postType}
         handleHideForm={this.onClickPost}
         handleSubmitPost={this.handleSubmitPost}
@@ -100,19 +100,19 @@ class QuestionIndexRow extends React.Component {
 
           <div className="row">
             <div className="col-sm-4">
-              <IconStats question={this.props.question} />
-              {createdByCurrent && <QuestionCreatorOptions 
+              {!this.state.showForm && <IconStats question={this.props.question} />}
+              {createdByCurrent && !this.state.showForm && <QuestionCreatorOptions 
                 onDeleteQuestion={this.onDeleteQuestion}
                 onEditQuestion={this.props.onEditQuestion}
                 question={this.props.question}/>}
             </div>
             <div className="col-sm-8">
-              <QuestionButtons 
+              {!this.state.showForm && <QuestionButtons 
                 onClickPost={this.onClickPost} 
                 onClickLike={this.onClickLike}
                 liked={this.props.liked}
                 pullRight={true}
-              />
+              />}
             </div>
           </div>
           

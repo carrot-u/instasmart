@@ -13,9 +13,10 @@ import * as questionActions from "../../../actions/questionActions";
 import ScrollToTopOnMount from "../../common/ScrollToTop";
 import AllAnswers from "../../answers/AllAnswers";
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
-import QuestionForm from "../QuestionForm";
+import PostForm from "../PostForm";
 import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
+
 
 
 class ShowQuestionConatiner extends React.Component {
@@ -25,7 +26,6 @@ class ShowQuestionConatiner extends React.Component {
       showForm: false,
       postType: null,
       postResponse: null,
-      questionliked: false
     }
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
@@ -84,12 +84,11 @@ class ShowQuestionConatiner extends React.Component {
   render() {
     let showQuestion, showAnswers, stats, tags, author, comments = null;
     const showForm = this.state.showForm ? 
-      <QuestionForm 
+      <PostForm 
         formType={this.state.postType}
         handleHideForm={this.onClickPost}
         handleSubmitPost={this.handleSubmitPost}
-        updatePostState={this.updatePostState}
-        /> 
+        updatePostState={this.updatePostState}/> 
       : null;
     if (this.props.isLoading || !this.props.showQuestion) {
       showQuestion = (
@@ -105,11 +104,15 @@ class ShowQuestionConatiner extends React.Component {
         <QuestionDetail 
           question={this.props.showQuestion} 
           onClickLike={this.onClickLike}
-          onClickPost={this.onClickPost}/>);
+          onClickPost={this.onClickPost}
+          currentUser={this.props.currentUser}
+          actions={this.props.actions}/>);
       showAnswers = this.props.showQuestion.answers ? 
         <AllAnswers 
           answers={this.props.showQuestion.answers} 
-          questionId={this.props.showQuestion.id}/> : "";
+          questionId={this.props.showQuestion.id}
+          toggleEditPost={this.toggleEditPost}
+          currentUser={this.props.currentUser}/> : "";
       tags = this.props.showQuestion.tags ? (
         <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />
@@ -119,7 +122,8 @@ class ShowQuestionConatiner extends React.Component {
         <Link to={`/users/${this.props.showQuestion.user.id}`} style={{color: "#555544", textDecoration: "none"}} >
           <QuestionAuthor question={this.props.showQuestion}/> 
         </Link> : "";
-      comments = this.props.showQuestion.comments ? <AllComments comments={this.props.showQuestion.comments} /> : "";
+      comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
+        <AllComments comments={this.props.showQuestion.comments} /> : "";
 
     }
 
@@ -154,12 +158,13 @@ class ShowQuestionConatiner extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     isLoading: state.questions.isLoading,
-    showQuestion: state.questions.showQuestion
+    showQuestion: state.questions.showQuestion,
+    currentUser: state.users.currentUser,
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(questionActions, dispatch)
+    actions: bindActionCreators(questionActions, dispatch),
   };
 }
 

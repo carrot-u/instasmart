@@ -10,8 +10,6 @@ import * as questionActions from "../../actions/questionActions";
 class AllAnswers extends React.Component {
 
   render(){
-    console.log(" this.props.answer", this.props.answers);
-
     const answersListing = this.props.answers.map(answer => {
       if(answer){
         return (
@@ -20,10 +18,11 @@ class AllAnswers extends React.Component {
               answer={answer} 
               actions={this.props.actions}
               onClickComment={this.onClickComment}
-              questionId={this.props.questionId}/>
+              questionId={this.props.questionId}
+              toggleEditPost={this.props.toggleEditPost}
+              currentUser={this.props.currentUser}/>
           </div>);
       }else{
-        console.log(" not making it");
         <div />
       }
     });

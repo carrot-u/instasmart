@@ -33,6 +33,23 @@ export function postOnQuestion(questionId, payload, type){
   };
 }
 
+export function editPostOnQuestion(postId, questionId, payload, type){
+  return function(dispatch){
+      utils.put(`/questions/${questionId}/${type}/${postId}`, "", payload).then(question => {
+        dispatch(questionActions.editPostSuccess(question));
+      });
+  };
+}
+
+export function deletePostOnQuestion(postId, questionId, type){
+  return function(dispatch){
+      utils.deleteRequest(`/questions/${questionId}/${type}/${postId}`).then(() => {
+        dispatch(questionActions.deletePostSuccess(postId, questionId, type));
+      });
+  };
+}
+
+
 export function newQuestion(payload){
   return function(dispatch){
       utils.post(`/questions`, payload).then(question => {
@@ -97,6 +114,15 @@ export function getUserById(id){
   };
 }
 
+export function getQuestionsBySearch(search){
+  return function(dispatch){
+    return utils.get(`/questions/${search}`).then(questions =>{
+      dispatch(questionActions.loadQuestionsSuccess(questions));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
 
 
 

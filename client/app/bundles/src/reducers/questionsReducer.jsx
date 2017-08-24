@@ -39,18 +39,23 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
-    case types.CREATE_POST_ON_QUESTION_SUCCESS:
-      const newQuestions = [
+    case types.POST_ON_QUESTION_SUCCESS:
+      return {
+        questions: [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
-      ];
-      return {
-        questions: newQuestions,
+        ],
         showQuestion: action.updatedQuestion,
         isLoading: state.isLoading,
         error: state.error
       };
-
+    case types.DELETE_POST_ON_QUESTION_SUCCESS:
+        let newShowQuestion = Object.assign({}, state.showQuestion);
+        newShowQuestion[action.postType] = [...state.showQuestion[action.postType].filter(post => post.id !== action.postId)]
+        return {
+          ...state,
+          showQuestion: newShowQuestion,
+        };
     case types.DELETE_QUESTION_SUCCESS:
       return {
         questions: [...state.questions.filter(question => question.id !== action.questionId)],
@@ -61,7 +66,8 @@ export default function questionsReducer(state = initialState, action){
       return {
         questions:[...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)],
-        isLoading: state.isLoading,
+        isLoading: false,
+        showQuestion: Object.assign({}, action.question),
         error: state.error,
       };
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:

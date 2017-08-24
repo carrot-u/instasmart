@@ -1,25 +1,25 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-const QuestionCreatorOptions = props => {
+const PostCreatorOptions = props => {
   return (
     <div className="container">
       <div className="row mt-2">
         <small>
-          <ul className="edit-delete list-inline">
+          <ul className="list-inline">
             <li className="list-inline-item">
-              <a
-                href=""
+              <span
+                className="creator-links"
                 onClick={e => {
                   e.preventDefault();
-                  props.onEditQuestion(props.question);
+                  props.editPost();
                 }}
               >
                 Edit
-              </a>
+              </span>
             </li>
             <li className="list-inline-item">
-              <Link to="/questions" onClick={props.onDeleteQuestion}>Delete</Link>
+              <span className="creator-links" onClick={props.onDeletePost}>Delete</span>
             </li>
           </ul>
         </small>
@@ -28,4 +28,4 @@ const QuestionCreatorOptions = props => {
   );
 };
 
-export default QuestionCreatorOptions;
+export default PostCreatorOptions;
