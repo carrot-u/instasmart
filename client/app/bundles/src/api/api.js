@@ -2,7 +2,7 @@ import * as utils from './apiUtils';
 import * as questionActions from '../actions/questionActions';
 import * as userActions from '../actions/userActions';
 
-
+/************** GET ACTIONS *****************************/
 export function getQuestions(){
   return function(dispatch){
     return utils.get('/questions').then(questions =>{
@@ -13,7 +13,6 @@ export function getQuestions(){
   };
 }
 
-// return question with answers and comments
 export function getQuestionById(id){
   return function(dispatch){
     return utils.get(`/questions/${id}`).then(question =>{
@@ -24,11 +23,36 @@ export function getQuestionById(id){
   };
 }
 
+export function getCommentsByAnswerID(id){
+  utils.get(`/answers/${id}/comments`).then(json=>{
+    return json;
+  });
+}
+
+export function getUserById(id){
+  return function(dispatch){
+    return utils.get(`/users/${id}`).then(user =>{
+      dispatch(userActions.loadUserByIdSuccess(user));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+/************** POST & PUT ACTIONS *****************************/
 
 export function postOnQuestion(questionId, payload, type){
   return function(dispatch){
       utils.post(`/questions/${questionId}/${type}`, payload).then(question => {
         dispatch(questionActions.createPostSuccess(question));
+      });
+  };
+}
+
+export function editQuestion(payload){
+  return function(dispatch){
+      utils.put(`/questions/${payload.id}/update`, "", payload).then((question) => {
+        dispatch(questionActions.editQuestionSuccess(question));
       });
   };
 }
@@ -40,6 +64,40 @@ export function editPostOnQuestion(postId, questionId, payload, type){
       });
   };
 }
+
+export function editPostOnAnswer(postId, answerId, payload, type){
+  return function(dispatch){
+      utils.put(`/answers/${answerId}/${type}/${postId}`, "", payload).then(answer => {
+        dispatch(questionActions.editPostOnAnswerSuccess(answer));
+      });
+  };
+}
+
+export function likeUnlikeQuestion(questionId, type){
+  return function(dispatch){
+      utils.put(`/questions/${questionId}/${type}`).then(question => {
+        dispatch(questionActions.likeUnlikeQuestionSuccess(question));
+      });
+  };
+}
+
+export function likeUnlikeQuestionAnswer(answerId, questionId, type){
+  return function(dispatch){
+      utils.put(`/questions/${questionId}/answers/${answerId}/${type}`).then(question => {
+        dispatch(questionActions.likeUnlikeQuestionSuccess(question));
+      });
+  };
+}
+
+export function commentOnAnswer(answerId, questionId, payload){
+  return function(dispatch){
+    utils.post(`/answers/${answerId}/comments`, payload).then(() => {
+      dispatch(getQuestionById(questionId));
+    });
+  };
+}
+
+/************** DELETE ACTIONS *****************************/
 
 export function deletePostOnQuestion(postId, questionId, type){
   return function(dispatch){
@@ -73,53 +131,9 @@ export function deleteQuestion(payload){
   };
 }
 
-export function editQuestion(payload){
-  return function(dispatch){
-      utils.put(`/questions/${payload.id}/update`, "", payload).then((question) => {
-        dispatch(questionActions.editQuestionSuccess(question));
-      });
-  };
-}
 
-export function likeUnlikeQuestion(questionId, type){
-  return function(dispatch){
-      utils.put(`/questions/${questionId}/${type}`).then(question => {
-        dispatch(questionActions.likeUnlikeQuestionSuccess(question));
-      });
-  };
-}
 
-export function likeUnlikeQuestionAnswer(answerId, questionId, type){
-  return function(dispatch){
-      utils.put(`/questions/${questionId}/answers/${answerId}/${type}`).then(question => {
-        dispatch(questionActions.likeUnlikeQuestionSuccess(question));
-      });
-  };
-}
 
-export function commentOnAnswer(answerId, questionId, payload){
-  return function(dispatch){
-    utils.post(`/answers/${answerId}/comments`, payload).then(() => {
-      dispatch(getQuestionById(questionId));
-    });
-  };
-}
-
-export function getCommentsByAnswerID(id){
-  utils.get(`/answers/${id}/comments`).then(json=>{
-    return json;
-  });
-}
-
-export function getUserById(id){
-  return function(dispatch){
-    return utils.get(`/users/${id}`).then(user =>{
-      dispatch(userActions.loadUserByIdSuccess(user));
-    }).catch(error => {
-      throw(error);
-    });
-  };
-}
 
 
 

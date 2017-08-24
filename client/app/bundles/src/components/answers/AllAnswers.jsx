@@ -10,7 +10,6 @@ import * as questionActions from "../../actions/questionActions";
 class AllAnswers extends React.Component {
 
   render(){
-    console.log("all answers props", this.props);
     const answersListing = this.props.answers.map(answer => {
       if(answer){
         return (

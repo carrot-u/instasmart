@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update]
+  # before_action :set_comment, only: [:edit, :update]
 
   def new
   	@context = context
@@ -29,7 +29,8 @@ class CommentsController < ApplicationController
   	@context = context
     @comment = @context.comments.find(params[:id])
     if @comment.update_attributes(comment_params)
-      redirect_to context_url(context), notice: "The comment has been updated"
+      render json: @context
+      # redirect_to context_url(context), notice: "The comment has been updated"
     end
   end
 

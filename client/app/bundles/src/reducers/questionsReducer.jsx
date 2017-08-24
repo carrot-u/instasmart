@@ -13,6 +13,8 @@ const initialState = {
 export default function questionsReducer(state = initialState, action){
   console.log("question reducer actions", action);
   switch(action.type){
+
+    //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
       return {...state,
         questions: action.questions,
@@ -31,6 +33,13 @@ export default function questionsReducer(state = initialState, action){
         showQuestion: action.question,
         isLoading: false,
       };
+    case types.SORT_QUESTIONS_SUCCESS:
+      return {
+        ...state,
+        questions: utils.sort(action.sortType, state.questions),
+      };
+
+    //****************** CREATE ACTIONS ****************************//
     case types.CREATE_QUESTION_SUCCESS:
       return {
         questions: [
@@ -50,6 +59,13 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
+    case types.CREATE_ANSWER_COMMENT_SUCCESS:
+      return {...state,
+        showQuestion: action.question,
+        isLoading: false,
+      };
+
+    //****************** DELETE ACTIONS ****************************//
     case types.DELETE_POST_ON_QUESTION_SUCCESS:
         let newShowQuestion = Object.assign({}, state.showQuestion);
         newShowQuestion[action.postType] = [...state.showQuestion[action.postType].filter(post => post.id !== action.postId)]
@@ -78,6 +94,8 @@ export default function questionsReducer(state = initialState, action){
         isLoading: state.isLoading,
         error: state.error
       };
+    
+    //****************** EDIT ACTIONS ****************************//
     case types.EDIT_QUESTION_SUCCESS:
       return {
         questions:[...state.questions.filter(question => question.id !== action.question.id),
@@ -86,6 +104,15 @@ export default function questionsReducer(state = initialState, action){
         showQuestion: Object.assign({}, action.question),
         error: state.error,
       };
+    case types.EDIT_POST_ON_ANSWER_SUCCESS:
+      return {
+        ...state,
+        showQuestion: {
+          ...state.showQuestion,
+          answers: [...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
+            Object.assign({}, action.updatedAnswer)]
+        }
+      }
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
       return {
         questions:[...state.questions.filter(question => question.id !== action.question.id),
@@ -95,16 +122,7 @@ export default function questionsReducer(state = initialState, action){
         error: state.error,
       };
 
-    case types.SORT_QUESTIONS_SUCCESS:
-      return {
-        ...state,
-        questions: utils.sort(action.sortType, state.questions),
-      };
-    case types.CREATE_ANSWER_COMMENT_SUCCESS:
-      return {...state,
-        showQuestion: action.question,
-        isLoading: false,
-      };
+
 
     default:
       return state;

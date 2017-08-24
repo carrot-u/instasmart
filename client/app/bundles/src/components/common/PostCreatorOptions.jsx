@@ -12,7 +12,7 @@ const PostCreatorOptions = props => {
                 className="creator-links"
                 onClick={e => {
                   e.preventDefault();
-                  props.editPost();
+                  props.editPost(props.type, props.post);
                 }}
               >
                 Edit

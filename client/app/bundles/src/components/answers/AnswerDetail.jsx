@@ -17,6 +17,7 @@ class AnswerDetail extends React.Component{
       answerLiked: false,
       answerResponse: this.props.answer.response,
       editPost: false,
+      editType: "comments",
 
     }
     this.onToggleForm = this.onToggleForm.bind(this);
@@ -37,16 +38,28 @@ class AnswerDetail extends React.Component{
 
   }
 
-  toggleEditPost(){
+  toggleEditPost(type, post = {}){
+    if(post && type === "comments"){
+      this.setState({ 
+          comment: {
+            id: post.id,
+            body: post.body
+          }
+      });
+    }
     this.setState({ 
       editPost: !this.state.editPost,
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      editType: type,
     });
   }
 
   updatePostState(e){
-    if(!this.state.editPost){
-      this.setState({comment: e.target.value});
+    if(this.state.editType !== "answers"){
+      this.setState({comment: {
+        body: e.target.value,
+        id: this.state.comment ? this.state.comment.id : null,
+      }});
     }else{
       this.setState({answerResponse: e.target.value});
     }
@@ -54,11 +67,22 @@ class AnswerDetail extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    let payload = this.state.editPost ? {answer: {response: this.state.answerResponse}}
-      :{comment: {body: this.state.comment}};
-    this.state.editPost ? this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers") 
-      : this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
-    this.setState({ showForm: !this.state.showForm });
+    let payload = this.state.editType === "answers" ? {answer: {response: this.state.answerResponse}}
+      :{comment: {body: this.state.comment.body, id: this.state.comment.id ? this.state.comment.id : null}};
+    if(this.state.editPost){
+      if(this.state.editType === "answers"){
+        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers") 
+      }else{
+        this.props.actions.editPostOnAnswer(this.state.comment.id, this.props.answer.id, payload, "comments") 
+      }
+    }else{
+      this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
+    }
+    this.setState({ 
+      showForm: !this.state.showForm,
+      editPost: false,
+      editType: "comments",
+    });
   }
 
 
@@ -86,17 +110,18 @@ class AnswerDetail extends React.Component{
       <AllComments 
         comments={this.props.answer.comments} 
         currentUser={this.props.currentUser}
-        onDeletePost={this.onDeletePost}/> : "";
+        onDeletePost={this.onDeletePost}
+        toggleEditPost={this.toggleEditPost}/> : "";
 
 
     const showForm = this.state.showForm ? 
       <PostForm 
-        formType={this.state.editPost ? "answer" : "comment"}
+        formType={this.state.editType}
         handleHideForm={this.onToggleForm}
         handleSubmitPost={this.handleSubmit}
         updatePostState={this.updatePostState}
         editPost={this.state.editPost}
-        post={this.state.answerResponse}
+        post={this.state.editType === "comments" ? this.state.comment : this.state.answerResponse}
         /> 
       : null;
 
@@ -140,7 +165,7 @@ class AnswerDetail extends React.Component{
                 onClickLike={this.onClickLike}
                 cached_votes_score={this.props.answer.cached_votes_score}
                 commentCount={commentCount}/>}
-              {comments}
+              {!this.state.editPost && comments}
 
             </div>
           </div>

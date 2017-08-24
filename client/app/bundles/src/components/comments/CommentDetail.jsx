@@ -2,7 +2,6 @@ import React from 'react';
 import PostCreatorOptions from '../common/PostCreatorOptions';
 
 const CommentDetail = props => {
-  console.log("CommentDetail Props", props);
   let creatorOptions = "";
   const commentAuthor = props.comment.user_name ? props.comment.user_name : "";
   if(props.comment.commentable_type === "Answer"){
