@@ -100,7 +100,11 @@ class AnswerDetail extends React.Component{
     if(type === "answers"){
       this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, type);
     }else{
-      this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
+      if(post.commentable_type === "Answer"){
+        this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
+      }else{
+        this.props.actions.deletePostOnQuestion(post.id, this.props.questionId, type);
+      }
     }
   }
 

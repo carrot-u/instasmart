@@ -31,6 +31,7 @@ class ShowQuestionConatiner extends React.Component {
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
     this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
+    this.onDeleteComment = this.onDeleteComment.bind(this);
   }
 
   componentWillMount() {
@@ -80,6 +81,10 @@ class ShowQuestionConatiner extends React.Component {
     this.setState({ questionLiked: !this.state.questionliked });
   }
 
+  onDeleteComment(post, type){
+    this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
+  }
+
 
   render() {
     let showQuestion, showAnswers, stats, tags, author, comments = null;
@@ -125,7 +130,8 @@ class ShowQuestionConatiner extends React.Component {
       comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
         <AllComments 
         comments={this.props.showQuestion.comments} 
-        currentUser={this.props.currentUser}/> : "";
+        currentUser={this.props.currentUser}
+        onDeletePost={this.onDeleteComment}/> : "";
 
     }
 
