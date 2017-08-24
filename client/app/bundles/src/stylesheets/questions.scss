@@ -121,7 +121,7 @@ body.fixed-nav nav {
       }
     }
     .active{
-      color: darkorange;
+      color: $instacart-orange;
     }
   }
 
@@ -138,14 +138,14 @@ body.fixed-nav nav {
   }
   input[type=search]:focus{
     width: 350px;
-    background-color: #fff;
-    border-color: #66CC75;
+    background-color: white;
+    border-color: $instacart-green;
     box-shadow: 0 0 5px rgba(109,207,246,.5);
     transition:  ease-out 0.2s; 
 
   }
   input[type=search]:hover{
-    background-color: #fff;
+    background-color: white;
   }
 }
 
@@ -211,10 +211,10 @@ li.hide-nav {
 }
 
 .nav-link{
-  color: green;
-  transition: ease-out 0.4s;
+  color: $instacart-green;
+  transition: ease-out 0.2s;
   &:hover{
-    color: rgb(15, 79, 26);
+    color: $instacart-orange;
   }
 }
 .navbar, .ask-button, input[type=search] {
@@ -257,14 +257,12 @@ li.hide-nav {
 /******************* Questions Index Banner **********************************/
 
 .banner{
-  background: url("../images/carrots.jpg")no-repeat center center fixed;
-  background-size: cover;
 
   .overlay{
     padding-bottom: 1em;
     padding-left: 2em;
     padding-top: $banner-top-padding-sm;
-    background-color: rgba(0,0,0,0.3);
+    background-color: white;
   }
 
   .page-title{
@@ -278,10 +276,14 @@ li.hide-nav {
     justify-content: center;
   }
 
-  .banner-image{
-    flex: 1;
-    width: 30px;
-    height: 30px;
+  #banner {
+    width: 100%;
+  }
+
+  .banner-image {
+  }
+
+  #logo {
   }
 
   .banner-text{
@@ -309,7 +311,7 @@ li.hide-nav {
 
 .loading-questions{
   font-size: 2em;
-  color: green;
+  color: $instacart-green;
 
 }
 
@@ -320,8 +322,12 @@ li.hide-nav {
   }
 
   .question-summary{
-    color: green;
+    color: $dark-green;
   }
+}
+
+.edit-delete li a {
+  color: $instacart-orange;
 }
 
 @media(min-width: 768px){
@@ -350,10 +356,10 @@ li.hide-nav {
 }
 
 .creator-links{
-  color: darkgreen;
+  color: $instacart-green;
   &:hover{
     cursor:pointer;
-    color: green;
+    color: $instacart-green;
   }
 }
 
@@ -395,7 +401,7 @@ li.hide-nav {
 .question-author-container{
   .profile-image{
     border-radius: 10px;
-    border: 1px solid darkgreen;
+    border: 1px solid $instacart-green;
     width: 40px;
     height: 40px;
   }
@@ -405,21 +411,17 @@ li.hide-nav {
   color:black;
 }
 
-.show-action-buttons button {
-  color: #43b02a;
+.action-buttons button {
+  color: $instacart-green;
   font-weight: 200;
-  border: 1px solid #43b02a;
-  background-color: #ffffff;
+  border: 1px solid $instacart-green;
+  background-color: white;
 } // Applies to both question-detail AND answer/comments
 
-.show-action-buttons button:hover {
-  background-color: #d9efd4;
-  color: #2E7B1D;
+.action-buttons button:hover {
+  background-color: $light-green;
+  color: $instacart-green;
   font-weight: 400;
-}
-#back-btn {
-  color: white;
-  background-color: #ff9b32;
 }
 
 .list-inline-item{
@@ -427,24 +429,20 @@ li.hide-nav {
 }
 
 .list-inline-item button {
-  color: #43b02a;
+  color: $instacart-green;
   font-weight: 200;
-  border: 1px solid #43b02a;
-  background-color: #ffffff;
+  border: 1px solid $instacart-green;
+  background-color: white;
 }
 
 .list-inline-item button:hover {
   background-color: #d9efd4;
-  color: #2E7B1D;
+  color: $instacart-green;
   font-weight: 400;
-}
-#back-btn {
-  color: white;
-  background-color: #ff9b32;
 }
 
 .badge{
-  background-color: #28a745;
+  background-color: $instacart-green;
   margin-left: 4px;
   padding: 1px 5px;
   font-size: 0.8em;
@@ -452,7 +450,7 @@ li.hide-nav {
 
 .profile-image{
   border-radius: 10px;
-  border: 1px solid darkgreen;
+  border: 1px solid $instacart-green;
   width: 40px;
   height: 40px;
 }

@@ -6,7 +6,7 @@ const QuestionCreatorOptions = props => {
     <div className="container">
       <div className="row mt-2">
         <small>
-          <ul className="list-inline">
+          <ul className="edit-delete list-inline">
             <li className="list-inline-item">
               <a
                 href=""
