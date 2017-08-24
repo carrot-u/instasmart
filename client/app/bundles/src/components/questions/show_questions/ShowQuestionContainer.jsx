@@ -24,7 +24,7 @@ class ShowQuestionConatiner extends React.Component {
     super(props);
     this.state = {
       showForm: false,
-      postType: null,
+      postType: "comments",
       postResponse: null,
     }
     this.onClickPost = this.onClickPost.bind(this);
@@ -55,7 +55,7 @@ class ShowQuestionConatiner extends React.Component {
   handleSubmitPost(e){
     e.preventDefault();
     let payload= '';
-    if(this.state.postType === "comment"){
+    if(this.state.postType === "comments"){
       payload = {
         comment: {
           body: this.state.postResponse
@@ -68,7 +68,7 @@ class ShowQuestionConatiner extends React.Component {
         }
       };
     }
-    this.props.actions.createPostOnQuestion(this.props.showQuestion.id, payload, `${this.state.postType}s`);
+    this.props.actions.createPostOnQuestion(this.props.showQuestion.id, payload, this.state.postType );
     this.setState({ showForm: !this.state.showForm });
   }
 
@@ -131,7 +131,8 @@ class ShowQuestionConatiner extends React.Component {
         <AllComments 
         comments={this.props.showQuestion.comments} 
         currentUser={this.props.currentUser}
-        onDeletePost={this.onDeleteComment}/> : "";
+        onDeletePost={this.onDeleteComment}
+        toggleEditPost={this.toggleEditPost}/> : "";
 
     }
 

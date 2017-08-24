@@ -9,6 +9,7 @@ const PostForm = props => {
     },
     textareaClass: "form-control mb-3"
   };
+  console.log("postform props", props);
   let placeholder = "Comment on the question...";
   let defaultValue = "";
   let label = props.formType;
