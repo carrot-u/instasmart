@@ -79,7 +79,7 @@ class QuestionDetail extends React.Component {
     const questionDetails = this.state.showEditQuestionForm ? null : (
       <div> 
         <h3 className="py-1 question-summary">{this.props.question.summary}</h3>
-        <i><h6 className="py-1 question-detail">{this.props.question.body}</h6></i>
+        <i><h6 className="mx-1 py-1 question-detail text-muted">{this.props.question.body}</h6></i>
       </div>);
     const questionForm = this.state.showEditQuestionForm  ? 
       (<QuestionForm 
@@ -90,12 +90,13 @@ class QuestionDetail extends React.Component {
         onSubmit={this.onSubmitEditQuestion}/>) : null;
 
     return (
-      <div className="row pt-1 pl-1 mr-0 show-question-detail bg-faded">
-        <div className="question-summary col-md-12 pb-2 ml-2">
+      <div className="row pt-1 pl-1 mr-0 show-question-detail">
+        <div className="card-block question-summary col-md-12 pb-2 ml-2">
           {questionDetails}
 
           {questionForm}
-          <div className="row pb-0 mb-0">
+          <hr></hr>
+          <div className="card-block row pb-0 mb-0">
              {!this.state.showEditQuestionForm && <QuestionStatButtons 
               question={this.props.question} 
               onClickLike={this.props.onClickLike}

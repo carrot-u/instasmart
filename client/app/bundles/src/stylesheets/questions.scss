@@ -167,7 +167,7 @@ body.fixed-nav nav {
 
 
 nav {
-  background-color: #fff;
+  background-color: white;
   top:0;
   width: 100%;
   transition:all 0.5s;
@@ -219,6 +219,15 @@ li.hide-nav {
 }
 .navbar, .ask-button, input[type=search] {
   font-size: 12px !important;
+}
+
+.ask-button {
+  color: white;
+  background-color: $instacart-green;
+}
+
+.ask-button:hover {
+  background-color: $dark-green;
 }
 
 @media (min-width: 1200px){
@@ -315,19 +324,46 @@ li.hide-nav {
 
 }
 
+.card-header {
+  background-color: white;
+}
+
+.top-answer {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
 .question-index{
   margin-top: 60px;
   .card{
-    border-radius: 0px;
+    border-radius: 5px;
   }
 
   .question-summary{
+    color: $instacart-green;
+  }
+  .question-summary:hover {
     color: $dark-green;
+    text-decoration: none;
   }
 }
 
+.question-author {
+  font-size: small;
+}
 .edit-delete li a {
   color: $instacart-orange;
+}
+
+.edit-delete li a:hover {
+  color: $dark-orange;
+  text-decoration: none;
+}
+
+.tag span {
+  background-color: $light-green;
+  color: $dark-green;
+  font-weight: 700;
 }
 
 @media(min-width: 768px){
@@ -336,6 +372,9 @@ li.hide-nav {
   }
 }
 
+i {
+  font-style: normal;
+}
 /******************************** Show Question *********************************************/
 
 .center-items{
@@ -346,8 +385,7 @@ li.hide-nav {
 
 .show-question{
   margin-top: 10px;
-  border: 1px solid #358c21;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
 }
 
@@ -377,14 +415,11 @@ li.hide-nav {
 
 }
 .show-question-detail{
-  background-color: rgba(0,0,0,.03); // Why does this round the edges?
-  border-radius: 10px;
-  border-bottom: 2px solid lightgrey; 
   .question-summary {
-    color: #323232;
+    color: $instacart-green;
   }
   .question-detail {
-    color: #666666;
+    font-weight: 400;
   }
 }
 
@@ -420,23 +455,6 @@ li.hide-nav {
 
 .action-buttons button:hover {
   background-color: $light-green;
-  color: $instacart-green;
-  font-weight: 400;
-}
-
-.list-inline-item{
-  color:black;
-}
-
-.list-inline-item button {
-  color: $instacart-green;
-  font-weight: 200;
-  border: 1px solid $instacart-green;
-  background-color: white;
-}
-
-.list-inline-item button:hover {
-  background-color: #d9efd4;
   color: $instacart-green;
   font-weight: 400;
 }
