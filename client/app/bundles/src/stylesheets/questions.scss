@@ -167,7 +167,7 @@ body.fixed-nav nav {
 
 
 nav {
-  background-color: #fff;
+  background-color: white;
   top:0;
   width: 100%;
   transition:all 0.5s;
@@ -219,6 +219,15 @@ li.hide-nav {
 }
 .navbar, .ask-button, input[type=search] {
   font-size: 12px !important;
+}
+
+.ask-button {
+  color: white;
+  background-color: $instacart-green;
+}
+
+.ask-button:hover {
+  background-color: $dark-green;
 }
 
 @media (min-width: 1200px){
@@ -328,6 +337,10 @@ li.hide-nav {
 
 .edit-delete li a {
   color: $instacart-orange;
+}
+
+.tag span {
+  background-color: $light-orange;
 }
 
 @media(min-width: 768px){
