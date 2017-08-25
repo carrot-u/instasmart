@@ -328,7 +328,7 @@ li.hide-nav {
   background-color: white;
 }
 
-.card-title {
+.top-answer {
   text-transform: lowercase;
   font-variant: small-caps;
 }
@@ -341,6 +341,10 @@ li.hide-nav {
 
   .question-summary{
     color: $instacart-green;
+  }
+  .question-summary:hover {
+    color: $dark-green;
+    text-decoration: none;
   }
 }
 
@@ -357,9 +361,9 @@ li.hide-nav {
 }
 
 .tag span {
-  background-color: $light-orange;
-  color: white;
-  font-weight: 800;
+  background-color: $light-green;
+  color: $dark-green;
+  font-weight: 700;
 }
 
 @media(min-width: 768px){
@@ -371,7 +375,6 @@ li.hide-nav {
 i {
   font-style: normal;
 }
-
 /******************************** Show Question *********************************************/
 
 .center-items{
@@ -382,8 +385,7 @@ i {
 
 .show-question{
   margin-top: 10px;
-  border: 1px solid #358c21;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
 }
 
@@ -413,14 +415,11 @@ i {
 
 }
 .show-question-detail{
-  background-color: rgba(0,0,0,.03); // Why does this round the edges?
-  border-radius: 10px;
-  border-bottom: 2px solid lightgrey; 
   .question-summary {
-    color: #323232;
+    color: $instacart-green;
   }
   .question-detail {
-    color: #666666;
+    font-weight: 400;
   }
 }
 
@@ -460,23 +459,6 @@ i {
   font-weight: 400;
 }
 
-// .list-inline-item{
-//   color:black;
-// }
-
-// .list-inline-item button {
-//   color: $instacart-green;
-//   font-weight: 200;
-//   border: 1px solid $instacart-green;
-//   background-color: white;
-// }
-
-// .list-inline-item button:hover {
-//   background-color: #d9efd4;
-//   color: $instacart-green;
-//   font-weight: 400;
-// }
-
 .badge{
   background-color: $instacart-green;
   margin-left: 4px;
@@ -489,9 +471,4 @@ i {
   border: 1px solid $instacart-green;
   width: 40px;
   height: 40px;
-}
-
-h5, h3 {
-  text-transform: lowercase;
-  font-variant: small-caps;
 }
