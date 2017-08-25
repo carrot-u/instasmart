@@ -43,7 +43,6 @@ class ShowQuestionConatiner extends React.Component {
 
   /************** Comment/Answer Functions *********************/
   onClickPost(type, post = "") {
-    console.log("onClickPost post.id", type, post, post.id);
     this.setState({ 
       showForm: !this.state.showForm, 
       postType: type,

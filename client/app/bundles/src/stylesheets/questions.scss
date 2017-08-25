@@ -53,268 +53,59 @@
   }
 }
 
-/******************* Questions Index Navbar **********************************/
-
-
-body.fixed-nav nav {
-  position: fixed;
-  top: 0;
-  box-shadow:0 5px 0 rgba(0,0,0,0.1);
-  width: 100%
-}
-
-.navbar{
-  background-color: white;
-  width:100%;
-  position: relative;
-  box-shadow: 2px -5px 24px -6px rgba(0,0,0,0.75);
-
-  .hidden-nav {
-    opacity: 0;
-    overflow: hidden;
-    max-width:0;
-    padding: 0;
-    background: white;
-    transition: ease-out 0.2s;
-  }
-
-  .hide-nav {
-    opacity: 1;
-    max-width:500px;
-    padding-right: 2rem;
-    transition: ease-out 0.2s;
-  }
-
-  .fixed-nav a.hide-nav  {
-    opacity: 0;
-    overflow: hidden;
-    max-width:0;
-    padding: 0;
-    background: white;
-    transition: ease-out 0.2s;
-    font-size: 1px
-  }
-
-  .navbar-logo{
-    background-color: white;
-    padding: 3px;
-    border-radius: 5px;
-    border-right: 0.5px solid rgba(20,50,40,.6);
-    border-bottom: 1px solid rgba(20,50,40,.6);
-    border-top: 0.5px solid rgba(20,50,40,.3);
-    border-left: 0.5px solid rgba(20,50,40,.3);
-    box-shadow: 2px 2px 4px -2px rgba(20,50,40,.5);
-    max-width: 40px;
-    max-height: 40px;
-    &:hover{
-      box-shadow: 4px 4px 4px -2px rgba(20,50,40,.5);
-    }
-  }
-
-  .navbar-nav{
-    display: flex;
-    flex-direction: row;
-    .nav-item{
-      padding: {
-        left: 5px;
-        right: 5px;
-      }
-    }
-    .active{
-      color: $instacart-orange;
-    }
-  }
-
-  input {
-    outline: none;
-  }
-  input[type=search]{
-    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-    border: solid 1px #ccc;
-    padding: 9px 10px 9px 32px;
-    width: 0px;
-    // border-radius: 15px;
-    transition:  0.2s ease-out;
-  }
-  input[type=search]:focus{
-    width: 350px;
-    background-color: white;
-    border-color: $instacart-green;
-    box-shadow: 0 0 5px rgba(109,207,246,.5);
-    transition:  ease-out 0.2s; 
-
-  }
-  input[type=search]:hover{
-    background-color: white;
-  }
-}
-
-.fixed-nav{
-  input[type=search]{
-    width: 0px;
-    border-radius: 15px;
-  }
-}
-.condense-nav{
-  .nav-link{
-    font-size: 0px;
-    transition: ease-out 0.2s;
-  }
-  .navbar-logo{
-    margin-right: 0.5em;
-  }
-}
-
-
-nav {
-  background-color: white;
-  top:0;
-  width: 100%;
-  transition:all 0.5s;
-  position: relative;
-  z-index: 1;
-}
-
-body.fixed-nav .container {
-  transform: scale(1);
-}
-
-body.fixed-nav nav {
-  position: fixed;
-  box-shadow:0 5px 0 rgba(0,0,0,0.1);
-}
-
-li.hidden-nav {
-  opacity: 0;
-  overflow: hidden;
-  max-width:0;
-  padding: 0;
-  background: white;
-  transition: ease-out 0.4s;
-}
-
-li.hide-nav {
-  opacity: 1;
-  max-width:500px;
-  transition: ease-out 0.4s;
-}
-
-.fixed-nav li.hide-nav  {
-  opacity: 0;
-  overflow: hidden;
-  max-width:0;
-  padding: 0;
-  background: white;
-  transition: ease-out 0.2s;
-  font-size: 1px
-
-}
-
-.nav-link{
-  color: $instacart-green;
-  transition: ease-out 0.2s;
-  &:hover{
-    color: $instacart-orange;
-  }
-}
-.navbar, .ask-button, input[type=search] {
-  font-size: 12px !important;
-}
-
-.ask-button {
-  color: white;
-  background-color: $instacart-green;
-}
-
-.ask-button:hover {
-  background-color: $dark-green;
-}
-
-@media (min-width: 1200px){
-  input[type=search]:focus{
-    width: 1100px  !important;
-  }
-}
-
-@media (min-width: 1096px){
-  .navbar, .ask-button, input[type=search]{
-    font-size: 18px !important;
-  }
-
-  input[type=search]{
-    width: 110px !important;
-    border-radius: .25rem !important;
-  }
-  input[type=search]:focus{
-    width: 800px  !important;
-  }
-}
-@media (min-width: 900px){
-  input[type=search]:focus{
-    width: 700px ;
-  }
-}
-
-@media (min-width: 700px){
-  input[type=search]:focus{
-    width: 500px;
-  }
-}
-
-
-
 /******************* Questions Index Banner **********************************/
 
-.banner{
 
-  .overlay{
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-top: $banner-top-padding-sm;
-    background-color: white;
-  }
 
-  .page-title{
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row; /* works with row or column */
-    flex-direction: row;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
+// .banner{
 
-  #banner {
-    width: 100%;
-  }
+//   .overlay{
+//     padding-bottom: 1em;
+//     padding-left: 2em;
+//     padding-top: $banner-top-padding-sm;
+//     background-color: white;
+//   }
 
-  .banner-image {
-  }
+//   .page-title{
+//     display: -webkit-flex;
+//     display: flex;
+//     -webkit-flex-direction: row; /* works with row or column */
+//     flex-direction: row;
+//     -webkit-align-items: center;
+//     align-items: center;
+//     -webkit-justify-content: center;
+//     justify-content: center;
+//   }
 
-  #logo {
-  }
+//   #banner {
+//     // width: 100%;
+//   }
 
-  .banner-text{
-      flex: 8;
-      font-family: 'Muli', sans-serif;
-      font-weight: 300;
-      color: white;
-      text-shadow: 1.5px 1.5px 0 black; 
-      margin-bottom: 0px;
-      font-size: $banner-text-sm;
-  }
+//   .banner-image {
+//   }
 
-  @media(min-width: 768px){
-    .banner-text{
-      font-size: $banner-text-lg;
-    }
-    .banner-image{
-      width: $banner-width-lg;
-      height: $banner-height-lg;
-    }
-  }
-}
+
+
+//   .banner-text{
+//       flex: 8;
+//       font-family: 'Muli', sans-serif;
+//       font-weight: 300;
+//       color: white;
+//       text-shadow: 1.5px 1.5px 0 black; 
+//       margin-bottom: 0px;
+//       font-size: $banner-text-sm;
+//   }
+
+//   @media(min-width: 768px){
+//     .banner-text{
+//       font-size: $banner-text-lg;
+//     }
+//     .banner-image{
+//       width: $banner-width-lg;
+//       height: $banner-height-lg;
+//     }
+//   }
+// }
 
 /******************************** Question index Content ***********************************/
 
@@ -334,7 +125,7 @@ li.hide-nav {
 }
 
 .question-index{
-  margin-top: 60px;
+  margin-top: 32px;
   .card{
     border-radius: 5px;
   }
@@ -368,7 +159,7 @@ li.hide-nav {
 
 @media(min-width: 768px){
   .question-index{
-    margin-top: 65px;
+    margin-top: 32px;
   }
 }
 
