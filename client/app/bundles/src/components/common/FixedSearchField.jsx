@@ -9,14 +9,15 @@ import searchButton from "../../images/search_button.svg";
 
 const FixedSearchField = props => {
   return(
-    <form className="form-inline ">
+    <form className="form-inline" onSubmit={props.onSearch}>
       <input
         className="form-control"
         type="search"
         placeholder="Search"
+        onChange={props.updatedSearchQuery}
       />
       <button className="search-button btn">
-        <img src={searchButton} />
+        <img src={searchButton} onClick={props.onSearch}/>
       </button>
     </form>
   )

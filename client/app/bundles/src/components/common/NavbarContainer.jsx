@@ -47,7 +47,10 @@ class NavbarContainer extends React.Component {
         <div className="row navbar-row-1">
           <img id="logo" src={logo} alt="Carrot With Monocle" className="pull-left"/>
           <div className="search-field-container center-items">
-            <FixedSearchField />
+            <FixedSearchField 
+              updatedSearchQuery={this.props.updatedSearchQuery}  
+              onSearch={this.props.onSearch}  
+            />
           </div>
         </div>
         <QuestionsNavContent 

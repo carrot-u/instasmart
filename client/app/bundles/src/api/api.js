@@ -39,9 +39,9 @@ export function getUserById(id){
   };
 }
 
-export function getQuestionsBySearch(search){
+export function getQuestionsBySearch(searchQuery){
   return function(dispatch){
-    return utils.get(`/questions/${search}`).then(questions =>{
+    return utils.post('/questions/search', searchQuery).then(questions =>{
       dispatch(questionActions.loadQuestionsSuccess(questions));
     }).catch(error => {
       throw(error);

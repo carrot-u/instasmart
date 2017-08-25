@@ -19,11 +19,14 @@ class QuestionIndex extends React.Component {
     super(props);
     this.state = {
       questions: null,
-      sortedBy: "recent"
+      sortedBy: "recent",
+      searchQuery: null,
     };
 
     this.onEditQuestion = this.onEditQuestion.bind(this);
     this.sortQuestions = this.sortQuestions.bind(this);
+    this.updatedSearchQuery = this.updatedSearchQuery.bind(this);
+    this.onSearch = this.onSearch.bind(this);
   }
 
   componentWillMount(){
@@ -39,6 +42,17 @@ class QuestionIndex extends React.Component {
     this.props.actions.sortQuestions(sortType);
   }
 
+  updatedSearchQuery(e){
+    e.preventDefault();
+    this.setState({searchQuery: e.target.value});
+  }
+
+  onSearch(){
+    if(this.state.searchQuery){
+      this.props.actions.getSearchResults({search: this.state.searchQuery});
+    }
+  }
+
   render() {
     let listQuestions = null;
     if (this.props.isLoading){
@@ -51,7 +65,7 @@ class QuestionIndex extends React.Component {
 
     } else { 
       console.log("questions props", this.props.questions);
-
+      const noResults = this.state.searchQuery ? "No Results Found" : "No Questions Loaded"; 
       listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {
           const liked = utils.checkLikedByUser(question.votes_for, this.props.currentUser.id);
@@ -67,13 +81,17 @@ class QuestionIndex extends React.Component {
               />
           );
         })
-      : <i>No Questions available</i>;
+      : <h2><i style={{color: "white"}}>{noResults}</i></h2>;
     }
 
 
     return (
       <div>
-        <NavbarContainer sort={this.sortQuestions} sortedBy={this.state.sortedBy} />
+        <NavbarContainer 
+          sort={this.sortQuestions} 
+          sortedBy={this.state.sortedBy} 
+          updatedSearchQuery={this.updatedSearchQuery}
+          onSearch={this.onSearch}/>
         <div className="container question-index">
           {listQuestions}
         </div>
