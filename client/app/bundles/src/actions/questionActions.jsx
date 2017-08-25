@@ -26,6 +26,13 @@ export function commentOnAnswerSuccess(question){
   return { type: types.CREATE_ANSWER_COMMENT_SUCCESS, question };
 }
 
+export function loadSearchResults(search){
+  return dispatch => {
+    dispatch(api.getQuestionsBySearch(search));
+    dispatch(loadQuestionsStart());
+  };
+}
+
 export function createCommentOnAnswer(answerId, questionId, payload){
   return dispatch => {
     dispatch(api.commentOnAnswer(answerId, questionId, payload));

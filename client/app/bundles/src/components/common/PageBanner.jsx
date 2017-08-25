@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/carrot.png";
+import logo from "../../images/logo.jpg";
 import NavbarContainer from './NavbarContainer';
 import { Link } from 'react-router-dom';
 
@@ -11,10 +11,9 @@ class PageBanner extends React.Component {
       <div className="banner">
         <div className="overlay">
           <div className="page-title">
-            <Link to="/">
-              <img src={logo} alt="carrot icon" className="banner-image" />
+            <Link to="/" id="banner" className="container-fluid">
+              <img id="logo" src={logo} alt="Carrot With Monocle"/>
             </Link>
-            <p className="banner-text"><i>Questions</i></p>
           </div>
         </div>
         <NavbarContainer 

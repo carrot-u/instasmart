@@ -71,7 +71,7 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <PageBanner sort={this.sortQuestions} sortedBy={this.state.sortedBy}/>
+        <PageBanner sort={this.sortQuestions} sortedBy={this.state.sortedBy} />
         <div className="container question-index">
           {listQuestions}
         </div>

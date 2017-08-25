@@ -11,7 +11,6 @@ import QuestionCreatorOptions from "../QuestionCreatorOptions";
 import QuestionForm from './QuestionForm';
 
 
-
 class QuestionDetail extends React.Component {
   constructor(props){
     super(props);
@@ -92,9 +91,6 @@ class QuestionDetail extends React.Component {
 
     return (
       <div className="row pt-1 pl-1 mr-0 show-question-detail bg-faded">
-      <Link to="/questions">
-        <button id="back-btn" className="btn m-2">Back</button>
-      </Link>
         <div className="question-summary col-md-12 pb-2 ml-2">
           {questionDetails}
 

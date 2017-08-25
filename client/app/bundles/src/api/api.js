@@ -39,6 +39,17 @@ export function getUserById(id){
   };
 }
 
+export function getQuestionsBySearch(search){
+  return function(dispatch){
+    return utils.get(`/questions/${search}`).then(questions =>{
+      dispatch(questionActions.loadQuestionsSuccess(questions));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+
 /************** POST & PUT ACTIONS *****************************/
 
 export function postOnQuestion(questionId, payload, type){
@@ -97,6 +108,15 @@ export function commentOnAnswer(answerId, questionId, payload){
   };
 }
 
+export function newQuestion(payload){
+  return function(dispatch){
+      utils.post(`/questions`, payload).then(question => {
+        dispatch(questionActions.createQuestionSuccess(question));
+      });
+  };
+}
+
+
 /************** DELETE ACTIONS *****************************/
 
 export function deletePostOnQuestion(postId, questionId, type){
@@ -111,14 +131,6 @@ export function deletePostOnAnswer(postId, answerId, type){
   return function(dispatch){
       utils.deleteRequest(`/answers/${answerId}/${type}/${postId}`).then(() => {
         dispatch(questionActions.deleteAnswerPostSuccess(postId, answerId, type));
-      });
-  };
-}
-
-export function newQuestion(payload){
-  return function(dispatch){
-      utils.post(`/questions`, payload).then(question => {
-        dispatch(questionActions.createQuestionSuccess(question));
       });
   };
 }
