@@ -2,30 +2,79 @@
 
 /******************* Questions Index Navbar **********************************/
 
+
+
 .navbar-row-1{
   width: 100%;
+  min-width: 650px;
+}
+
+.search-button{
+  // background-image: url("../images/search_button.svg");
+  border-radius: 0px 4px 4px 0px !important;
+  border: 1px solid #E3E2DE !important;
+  border-left: 0px !important;
+  background-color: white;
+  height: 38px;
 }
 
 .search-field-container{
-  margin: auto;
-  // width: 40%;
-}
-input[type="search"]{
-  width: 250px;
+  margin: {
+    left: auto;
+    right: auto;
+    bottom: 4px;
+  };
+  .form-control{
+    width: 200px;
+    height: 20px;
+  }
+  .form-inline{
+    min-width: 320px;
+  }
 }
 
-@media(min-width: 1200px){
-  input[type="search"]{
-    width: 900px !important;
+@media (min-width: 776px){
+  .search-field-container{
+    .form-inline .form-control{
+      min-width: 200px;
+      border-radius: 4px 0px 0px 4px !important;
+    }
+    .form-inline{
+      margin-right: 200px - 32px -30px; //remove container padding for offset
+    }
   }
-  @media(min-width: 900px){
-    input[type="search"]{
-      width: 650px;
+  .search-button{
+    width: 60px;
+  }
+}
+@media(min-width: 900px){
+  .search-field-container{
+    .form-inline .form-control{
+      width: 320px !important;
     }
   }
 }
-
-
+@media(min-width: 1000px){
+  .search-field-container{
+    .form-inline .form-control{
+      width: 440px !important;
+    }
+  }
+}
+@media(min-width: 1100px){
+  .search-field-container{
+    .form-inline .form-control{
+      width: 500px !important;
+    }
+  }
+}
+@media(min-width: 1200px){
+  .search-field-container{
+    .form-inline .form-control{
+      width: 700px !important;
+    }
+  }
+}
 
 #logo {
   margin:0;

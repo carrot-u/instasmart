@@ -4,16 +4,23 @@ import { bindActionCreators } from "redux";
 
 // Import Project files
 import * as questionsActions from '../../actions/questionActions';
+import searchButton from "../../images/search_button.svg";
 
-const FixedSearchField props => {
+
+const FixedSearchField = props => {
   return(
-    <form className="form-inline my-sm-0">
+    <form className="form-inline ">
       <input
-        className="form-control nav-search-bar"
+        className="form-control"
         type="search"
         placeholder="Search"
       />
+      <button className="search-button btn">
+        <img src={searchButton} />
+      </button>
     </form>
   )
 }
 
+
+export default FixedSearchField;
