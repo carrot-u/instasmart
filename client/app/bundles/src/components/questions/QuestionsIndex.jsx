@@ -10,6 +10,8 @@ import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
 import * as utils from "../common/utils";
 import ScrollToTopOnMount from '../common/ScrollToTop';
+import NavbarContainer from '../common/NavbarContainer';
+
 
 
 class QuestionIndex extends React.Component {
@@ -71,7 +73,7 @@ class QuestionIndex extends React.Component {
 
     return (
       <div>
-        <PageBanner sort={this.sortQuestions} sortedBy={this.state.sortedBy} />
+        <NavbarContainer sort={this.sortQuestions} sortedBy={this.state.sortedBy} />
         <div className="container question-index">
           {listQuestions}
         </div>

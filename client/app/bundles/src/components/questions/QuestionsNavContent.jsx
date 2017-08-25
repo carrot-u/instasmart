@@ -55,12 +55,6 @@ const QuestionsNavContent = props => {
           </a>
         </li>
       <li className=" navbar-nav pull-right nav-item ml-auto">
-        <div className="nav-item padding-3">
-          <NavbarSearchField 
-            handleOnSearchFocus={props.handleOnSearchFocus}
-            handleOnSearchBlur={props.handleOnSearchBlur}
-          />
-        </div>
         <div className="nav-item">
           <button
             onClick={props.onClickNewQuestion}

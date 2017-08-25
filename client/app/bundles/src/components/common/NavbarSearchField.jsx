@@ -5,7 +5,7 @@ const NavbarSearchField = props => {
     <div className="">
       <form className="form-inline my-sm-0">
         <input
-          className="form-control mr-sm-2 nav-search-bar"
+          className="form-control mr-sm-2 search-bar"
           type="search"
           placeholder="Search"
           onFocus={props.handleOnSearchFocus}

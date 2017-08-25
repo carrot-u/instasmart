@@ -1,0 +1,172 @@
+
+
+/******************* Questions Index Navbar **********************************/
+
+.navbar-row-1{
+  width: 100%;
+}
+
+.search-field-container{
+  margin: auto;
+  // width: 40%;
+}
+input[type="search"]{
+  width: 250px;
+}
+
+@media(min-width: 1200px){
+  input[type="search"]{
+    width: 900px !important;
+  }
+  @media(min-width: 900px){
+    input[type="search"]{
+      width: 650px;
+    }
+  }
+}
+
+
+
+#logo {
+  margin:0;
+  width: auto;
+  height: 40px;
+}
+
+body.fixed-nav nav {
+  position: fixed;
+  top: 0;
+  box-shadow:0 5px 0 rgba(0,0,0,0.1);
+  width: 100%
+}
+
+.navbar{
+  background-color: white;
+  width:100%;
+  position: relative;
+  box-shadow: 2px -5px 24px -6px rgba(0,0,0,0.75);
+
+  .hidden-nav {
+    opacity: 0;
+    overflow: hidden;
+    max-width:0;
+    padding: 0;
+    background: white;
+    transition: ease-out 0.2s;
+  }
+
+  .hide-nav {
+    opacity: 1;
+    max-width:500px;
+    padding-right: 2rem;
+    transition: ease-out 0.2s;
+  }
+
+  .fixed-nav a.hide-nav  {
+    opacity: 0;
+    overflow: hidden;
+    max-width:0;
+    padding: 0;
+    background: white;
+    transition: ease-out 0.2s;
+    font-size: 1px
+  }
+
+  .navbar-logo{
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+    border-right: 0.5px solid rgba(20,50,40,.6);
+    border-bottom: 1px solid rgba(20,50,40,.6);
+    border-top: 0.5px solid rgba(20,50,40,.3);
+    border-left: 0.5px solid rgba(20,50,40,.3);
+    box-shadow: 2px 2px 4px -2px rgba(20,50,40,.5);
+    max-width: 40px;
+    max-height: 40px;
+    &:hover{
+      box-shadow: 4px 4px 4px -2px rgba(20,50,40,.5);
+    }
+  }
+
+  .navbar-nav{
+    display: flex;
+    flex-direction: row;
+    .nav-item{
+      padding: {
+        left: 5px;
+        right: 5px;
+      }
+    }
+    .active{
+      color: $instacart-orange;
+    }
+  }
+
+  input {
+    outline: none;
+  }
+}
+
+.condense-nav{
+  .nav-link{
+    font-size: 0px;
+    transition: ease-out 0.2s;
+  }
+  .navbar-logo{
+    margin-right: 0.5em;
+  }
+}
+
+
+nav {
+  background-color: #fff;
+  top:0;
+  width: 100%;
+  transition:all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixed-nav .container {
+  transform: scale(1);
+}
+
+body.fixed-nav nav {
+  position: fixed;
+  box-shadow:0 5px 0 rgba(0,0,0,0.1);
+}
+
+li.hidden-nav {
+  opacity: 0;
+  overflow: hidden;
+  max-width:0;
+  padding: 0;
+  background: white;
+  transition: ease-out 0.4s;
+}
+
+li.hide-nav {
+  opacity: 1;
+  max-width:500px;
+  transition: ease-out 0.4s;
+}
+
+.fixed-nav li.hide-nav  {
+  opacity: 0;
+  overflow: hidden;
+  max-width:0;
+  padding: 0;
+  background: white;
+  transition: ease-out 0.2s;
+  font-size: 1px
+
+}
+
+.nav-link{
+  color: $instacart-green;
+  transition: ease-out 0.2s;
+  &:hover{
+    color: $instacart-orange;
+  }
+}
+
