@@ -17,7 +17,7 @@ const QuestionAuthor = props => {
           {userInfo}
         </div>
         <div>
-          <small><i>Asked on {props.question.created_at}</i></small>
+          <small><i>Asked {props.question.created_at} ago</i></small>
         </div>
       </div>
     </div>

@@ -4,9 +4,9 @@ import React from 'react';
 const TopAnswer = props => {
   const showTopAnswer = 'response' in props.answer ? true : false;
   const answerBy = 'user' in props.answer ? 
-      (props.answer.user && <div>Answered by {props.answer.user.name} on {props.answer.created_at}
+      (props.answer.user && <div>Answered by {props.answer.user.name} {props.answer.created_at} ago
        </div>) : 
-      (<div> Answered {props.answer.created_at}</div>);
+      (<div> Answered {props.answer.created_at} ago</div>);
   return(
     <div>
       {showTopAnswer &&

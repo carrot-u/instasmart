@@ -25,7 +25,7 @@ const CommentDetail = props => {
       {props.comment.body}
       <div className="comment-author">
           <div><i>
-            {' - '} {commentAuthor} {' on '} {props.comment.created_at}
+            {' - '} {commentAuthor} {props.comment.created_at} {' ago'}
           </i></div>
           {creatorOptions}
       </div>

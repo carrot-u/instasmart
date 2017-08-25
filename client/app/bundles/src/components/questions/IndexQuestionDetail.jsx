@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import IndexQuestionTags from "../tags/IndexQuestionTags";
+import QuestionCreatorOptions from "./QuestionCreatorOptions";
 
 
 const IndexQuestionDetail = props => {
@@ -11,12 +12,12 @@ const IndexQuestionDetail = props => {
           <img src={props.question.user.image} className="profile-image mr-1"/>
         </div>
         <div className="col-md-9">
-          <p className="my-0">Asked {props.question.created_at}</p>
+          <p className="my-0">Asked {props.question.created_at} ago</p>
           <p className="my-0">{props.question.user.name}</p>
         </div>
       </div>) 
     :
-    (<i>Asked {props.question.created_at}</i>);
+    (<i>Asked {props.question.created_at} ago</i>);
 
   return (
     <div className="row">
@@ -27,9 +28,17 @@ const IndexQuestionDetail = props => {
           <IndexQuestionTags question={props.question} />
         </div>
       <div className="col-md-3 pull-right question-author">
-        <small className="pl-3 pull-right">
-          {askedBy}
-        </small>
+        <div className="row">
+          <small className="pl-3 pull-right">
+            {askedBy}
+          </small>
+        </div>
+        <div className="row pl-3 center-items">
+          {props.createdByCurrent && <QuestionCreatorOptions 
+            onDeleteQuestion={props.onDeleteQuestion}
+            onEditQuestion={props.onEditQuestion}
+            question={props.question}/>}
+        </div>
       </div>
     </div>
   );

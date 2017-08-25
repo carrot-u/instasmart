@@ -1,10 +1,9 @@
 import React from "react";
 import TopAnswer from "../answers/TopAnswer";
-import IconStats from "../common/IconStats";
+import IndexStats from "../common/IndexStats";
 import IndexQuestionDetail from "./IndexQuestionDetail";
 import PostForm from "./PostForm";
 import QuestionButtons from "./QuestionButtons";
-import QuestionCreatorOptions from "./QuestionCreatorOptions";
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 class QuestionIndexRow extends React.Component {
@@ -93,21 +92,22 @@ class QuestionIndexRow extends React.Component {
     return (
       <div className="card d-block img-fluid mb-2">
         <div className="card-block px-5 pb-1">
-            <IndexQuestionDetail question={this.props.question} />
-            <hr></hr>
+            <IndexQuestionDetail 
+              onDeleteQuestion={this.onDeleteQuestion}
+              onEditQuestion={this.props.onEditQuestion}
+              question={this.props.question} 
+              createdByCurrent={createdByCurrent}/>
+            <hr />
         </div>
         <div className="card-block px-5 pt-1">
           {showAnswer}
-
+          <hr />
           <div className="row">
-            <div className="col-sm-4">
-              {!this.state.showForm && <IconStats question={this.props.question} />}
-              {createdByCurrent && !this.state.showForm && <QuestionCreatorOptions 
-                onDeleteQuestion={this.onDeleteQuestion}
-                onEditQuestion={this.props.onEditQuestion}
-                question={this.props.question}/>}
+            <div className="col-sm-6">
+              {!this.state.showForm && <IndexStats question={this.props.question} />}
+
             </div>
-            <div className="col-sm-8">
+            <div className="col-sm-6">
               {!this.state.showForm && <QuestionButtons 
                 onClickPost={this.onClickPost} 
                 onClickLike={this.onClickLike}
