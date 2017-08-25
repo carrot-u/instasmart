@@ -324,10 +324,15 @@ li.hide-nav {
 
 }
 
+.card-title {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
 .question-index{
   margin-top: 60px;
   .card{
-    border-radius: 0px;
+    border-radius: 10px;
   }
 
   .question-summary{
@@ -340,7 +345,9 @@ li.hide-nav {
 }
 
 .tag span {
-  background-color: $light-orange;
+  background-color: $light-green;
+  color: $instacart-green;
+  font-weight: 400;
 }
 
 @media(min-width: 768px){
@@ -466,4 +473,9 @@ li.hide-nav {
   border: 1px solid $instacart-green;
   width: 40px;
   height: 40px;
+}
+
+h5, h3 {
+  text-transform: lowercase;
+  font-variant: small-caps;
 }
