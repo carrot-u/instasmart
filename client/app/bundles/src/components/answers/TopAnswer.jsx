@@ -11,7 +11,7 @@ const TopAnswer = props => {
     <div>
       {showTopAnswer &&
         (<div>
-          <h6 className="card-title">Top Answer</h6>
+          <h6 className="card-title top-answer">Top Answer</h6>
           <div className="card-text" role="tab" id="headingOne">
             <div className="row ml-2 pb-2">
               {props.answer.response}
@@ -23,7 +23,6 @@ const TopAnswer = props => {
                 </i>
               </small>
             </div>
-            <small><a href=""> See All Answers</a></small>
           </div>
          </div>)
       }

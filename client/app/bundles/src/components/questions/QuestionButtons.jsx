@@ -11,7 +11,7 @@ const QuestionButtons = props => {
           Answer 
         </button>
         {(!props.liked && <button className={"btn btn-sm mr-1" + (props.pullRight ? " pull-right" : "")} onClick={props.onClickLike}> Like </button>)}
-        {(props.liked && <button className={"btn btn-primary mr-1" + (props.pullRight ? " pull-right" : "")}onClick={props.onClickLike}> Unlike </button>)}
+        {(props.liked && <button className={"btn btn-sm mr-1" + (props.pullRight ? " pull-right" : "")}onClick={props.onClickLike}> Unlike </button>)}
 
     </div>
   );

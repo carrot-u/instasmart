@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:update]
-  before_action :set_comment_for_edit_and_destroy, only: [:edit, :destroy]
+
+  # before_action :set_comment, only: [:update]
+  # before_action :set_comment_for_edit_and_destroy, only: [:edit, :destroy]
 
   def new
   	@context = context
@@ -30,15 +31,16 @@ class CommentsController < ApplicationController
   	@context = context
     @comment = @context.comments.find(params[:id])
     if @comment.update_attributes(comment_params)
-      redirect_to context_url(context), notice: "The comment has been updated"
+      render json: @context
+      # redirect_to context_url(context), notice: "The comment has been updated"
     end
   end
 
   def destroy
-    @comment = @commentable.comments.find(params[:id])
+    @context = context
+    @comment = @context.comments.find(params[:id])
     @comment.destroy
-   
-    redirect_to context_url(context), notice: "The comment has been deleted"
+    render json: @context
   end
 
   private

@@ -6,12 +6,16 @@ const AllComments = props => {
   const commentsListing = props.comments.map(comment => {
       return (
         <div key={comment.id}>
-          <CommentDetail  comment={comment} />
+          <CommentDetail  
+            comment={comment} 
+            currentUser={props.currentUser}
+            onDeletePost={props.onDeletePost}
+            toggleEditPost={props.toggleEditPost}/>
         </div>);
     });
 
   return(
-    <div className="mx-5">
+    <div className="card-block mx-5">
       <h5 className="mt-2">Comments ({props.comments.length})</h5>
       {commentsListing}
     </div>

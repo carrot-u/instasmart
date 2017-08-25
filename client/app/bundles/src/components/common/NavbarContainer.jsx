@@ -8,6 +8,9 @@ import QuestionsNavContent from "../questions/QuestionsNavContent";
 import QuestionModalContainer from "./QuestionModalContainer";
 import * as modalActions from "../../actions/modalActions";
 import * as questionActions from "../../actions/questionActions";
+import logo from "../../images/logo.jpg";
+import FixedSearchField from './FixedSearchField';
+
 
 
 class NavbarContainer extends React.Component {
@@ -41,6 +44,15 @@ class NavbarContainer extends React.Component {
       <StickyNavbar
         isCondensed={this.state.condenseNav}
       >
+        <div className="row navbar-row-1">
+          <img id="logo" src={logo} alt="Carrot With Monocle" className="pull-left"/>
+          <div className="search-field-container center-items">
+            <FixedSearchField 
+              updatedSearchQuery={this.props.updatedSearchQuery}  
+              onSearch={this.props.onSearch}  
+            />
+          </div>
+        </div>
         <QuestionsNavContent 
           handleOnSearchFocus={this.handleOnSearchFocus}
           handleOnSearchBlur={this.handleOnSearchBlur}

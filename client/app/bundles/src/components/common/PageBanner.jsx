@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../images/logo.jpg";
 import NavbarContainer from './NavbarContainer';
+import FixedSearchField from './FixedSearchField';
 import { Link } from 'react-router-dom';
 
 
@@ -11,9 +12,10 @@ class PageBanner extends React.Component {
       <div className="banner">
         <div className="overlay">
           <div className="page-title">
-            <Link to="/" id="banner" className="container-fluid">
-              <img id="logo" src={logo} alt="Carrot With Monocle"/>
-            </Link>
+            <img id="logo" src={logo} alt="Carrot With Monocle" className="pull-left"/>
+            <div className="search-field-container center-items">
+              <FixedSearchField />
+            </div>
           </div>
         </div>
         <NavbarContainer 

@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   get 'questions', to: 'questions#index'
 
+  post 'questions/search', to: 'questions#search'
+
+
   put "questions/:id/update" => "questions#update"
   resources :questions do
 

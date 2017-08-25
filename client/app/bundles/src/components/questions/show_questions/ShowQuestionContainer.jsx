@@ -24,13 +24,16 @@ class ShowQuestionConatiner extends React.Component {
     super(props);
     this.state = {
       showForm: false,
-      postType: null,
+      postType: "comments",
       postResponse: null,
+      postId: null,
     }
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
+    this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
+    this.onDeleteComment = this.onDeleteComment.bind(this);
   }
 
   componentWillMount() {
@@ -39,25 +42,33 @@ class ShowQuestionConatiner extends React.Component {
 
 
   /************** Comment/Answer Functions *********************/
-  onClickPost(e, type) {
-    e.preventDefault();
+  onClickPost(type, post = "") {
     this.setState({ 
       showForm: !this.state.showForm, 
       postType: type,
+      postResponse: post ? post.body : null,
+      postId: post ? post.id : null,
     });
+
+  }
+
+  toggleShowForm(){
+    this.setState({showForm: !this.state.showForm});
   }
 
   updatePostState(e){
     this.setState({postResponse: e.target.value});
+
   }
 
   handleSubmitPost(e){
     e.preventDefault();
     let payload= '';
-    if(this.state.postType === "comment"){
+    if(this.state.postType === "comments"){
       payload = {
         comment: {
-          body: this.state.postResponse
+          body: this.state.postResponse,
+          id: this.state.postId,
         }
       };
     }else{
@@ -67,7 +78,11 @@ class ShowQuestionConatiner extends React.Component {
         }
       };
     }
-    this.props.actions.createPostOnQuestion(this.props.showQuestion.id, payload, `${this.state.postType}s`);
+    if(this.state.postId){
+        this.props.actions.editPostOnQuestion(this.state.postId, this.props.showQuestion.id, payload, "comments") 
+    }else{
+      this.props.actions.createPostOnQuestion(this.props.showQuestion.id, payload, this.state.postType );
+    }
     this.setState({ showForm: !this.state.showForm });
   }
 
@@ -80,15 +95,21 @@ class ShowQuestionConatiner extends React.Component {
     this.setState({ questionLiked: !this.state.questionliked });
   }
 
+  onDeleteComment(post, type){
+    this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
+  }
+
 
   render() {
     let showQuestion, showAnswers, stats, tags, author, comments = null;
     const showForm = this.state.showForm ? 
       <PostForm 
         formType={this.state.postType}
-        handleHideForm={this.onClickPost}
+        handleHideForm={this.toggleShowForm}
         handleSubmitPost={this.handleSubmitPost}
-        updatePostState={this.updatePostState}/> 
+        updatePostState={this.updatePostState}
+        post={ {body: this.state.postResponse}}
+        editPost={this.state.postId ? true : false}/> 
       : null;
     if (this.props.isLoading || !this.props.showQuestion) {
       showQuestion = (
@@ -123,7 +144,12 @@ class ShowQuestionConatiner extends React.Component {
           <QuestionAuthor question={this.props.showQuestion}/> 
         </Link> : "";
       comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
-        <AllComments comments={this.props.showQuestion.comments} /> : "";
+        <AllComments 
+        comments={this.props.showQuestion.comments} 
+        currentUser={this.props.currentUser}
+        onDeletePost={this.onDeleteComment}
+        toggleEditPost={this.onClickPost}
+        /> : "";
 
     }
 

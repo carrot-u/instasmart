@@ -44,7 +44,7 @@ class StickyNavbar extends React.Component{
 
   render(){
     return(
-      <nav className={"navbar navbar-toggleable-md " + (this.props.isCondensed ? " condense-nav" : '')}>
+      <nav className={"navbar navbar-toggleable-md" + (this.props.isCondensed ? " condense-nav" : '')}>
         <div className="container-fluid" ref="stickyNavRef">
             {this.props.children}
         </div>
