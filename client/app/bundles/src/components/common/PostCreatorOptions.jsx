@@ -6,7 +6,7 @@ const PostCreatorOptions = props => {
     <div className="">
       <div className="row mt-0 pl-3">
         <small>
-          <ul className="list-inline mb-1">
+          <ul className="list-inline mb-1 edit-delete">
             <li className="list-inline-item">
               <span
                 className="creator-links"

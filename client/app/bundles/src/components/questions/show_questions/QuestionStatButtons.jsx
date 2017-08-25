@@ -2,8 +2,8 @@ import React from "react";
 
 const QuestionStatButtons = props => {
   const classInput = props.pullRight
-    ? "btn mr-1 pull-right"
-    : "btn mr-1";
+    ? "btn btn-sm mr-1 pull-right"
+    : "btn btn-sm mr-1";
 
   const views = <div> Views: <span className="badge">{props.question.views_count}</span> </div>;
   const commentCount = props.question.comments
@@ -16,7 +16,7 @@ const QuestionStatButtons = props => {
   return (
     <div>
       <ul className="list-inline pb-0">
-        <li className="list-inline-item show-action-buttons">
+        <li className="list-inline-item action-buttons">
           <button
             className={classInput}
             onClick={() => props.onClickPost("comments")}
@@ -25,7 +25,7 @@ const QuestionStatButtons = props => {
             Comment <span className="badge"> {commentCount} </span>
           </button>
         </li>
-        <li className="list-inline-item">
+        <li className="list-inline-item action-buttons">
           <button
             className={classInput}
             onClick={() => props.onClickPost("answers")}
@@ -34,7 +34,7 @@ const QuestionStatButtons = props => {
             Answer <span className="badge"> {answerCount} </span>
           </button>
         </li>
-        <li className="list-inline-item">
+        <li className="list-inline-item action-buttons">
           {!props.liked &&
             <button className={classInput} onClick={props.onClickLike}>
               {" "}

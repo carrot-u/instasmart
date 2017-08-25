@@ -4,7 +4,7 @@ const AnswerButtons = props => {
   const classInput = "btn btn-sm mr-1 py-0";
 
   return (
-    <div className="p-0 col mb-2 show-action-buttons">
+    <div className="p-0 col mb-2 action-buttons">
       <button className={classInput} onClick={props.onClickComment}>
         {" "}
         Comment{" "}
