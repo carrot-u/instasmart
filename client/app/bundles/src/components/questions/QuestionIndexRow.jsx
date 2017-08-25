@@ -92,10 +92,11 @@ class QuestionIndexRow extends React.Component {
 
     return (
       <div className="card d-block img-fluid mb-2">
-        <div className="card-header">
-            <IndexQuestionDetail question={this.props.question} addClass="pb-2"/>
+        <div className="card-block px-5 pb-1">
+            <IndexQuestionDetail question={this.props.question} />
+            <hr></hr>
         </div>
-        <div className="card-block">
+        <div className="card-block px-5 pt-1">
           {showAnswer}
 
           <div className="row">

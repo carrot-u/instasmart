@@ -324,6 +324,10 @@ li.hide-nav {
 
 }
 
+.card-header {
+  background-color: white;
+}
+
 .card-title {
   text-transform: lowercase;
   font-variant: small-caps;
@@ -332,28 +336,40 @@ li.hide-nav {
 .question-index{
   margin-top: 60px;
   .card{
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   .question-summary{
-    color: $dark-green;
+    color: $instacart-green;
   }
 }
 
+.question-author {
+  font-size: small;
+}
 .edit-delete li a {
   color: $instacart-orange;
 }
 
+.edit-delete li a:hover {
+  color: $dark-orange;
+  text-decoration: none;
+}
+
 .tag span {
-  background-color: $light-green;
-  color: $instacart-green;
-  font-weight: 400;
+  background-color: $light-orange;
+  color: white;
+  font-weight: 800;
 }
 
 @media(min-width: 768px){
   .question-index{
     margin-top: 65px;
   }
+}
+
+i {
+  font-style: normal;
 }
 
 /******************************** Show Question *********************************************/
