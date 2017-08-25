@@ -26,9 +26,11 @@ class ShowQuestionConatiner extends React.Component {
       showForm: false,
       postType: "comments",
       postResponse: null,
+      postId: null,
     }
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
+    this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
     this.onDeleteComment = this.onDeleteComment.bind(this);
@@ -40,16 +42,24 @@ class ShowQuestionConatiner extends React.Component {
 
 
   /************** Comment/Answer Functions *********************/
-  onClickPost(e, type) {
-    e.preventDefault();
+  onClickPost(type, post = "") {
+    console.log("onClickPost post.id", type, post, post.id);
     this.setState({ 
       showForm: !this.state.showForm, 
       postType: type,
+      postResponse: post ? post.body : null,
+      postId: post ? post.id : null,
     });
+
+  }
+
+  toggleShowForm(){
+    this.setState({showForm: !this.state.showForm});
   }
 
   updatePostState(e){
     this.setState({postResponse: e.target.value});
+
   }
 
   handleSubmitPost(e){
@@ -58,7 +68,8 @@ class ShowQuestionConatiner extends React.Component {
     if(this.state.postType === "comments"){
       payload = {
         comment: {
-          body: this.state.postResponse
+          body: this.state.postResponse,
+          id: this.state.postId,
         }
       };
     }else{
@@ -68,7 +79,11 @@ class ShowQuestionConatiner extends React.Component {
         }
       };
     }
-    this.props.actions.createPostOnQuestion(this.props.showQuestion.id, payload, this.state.postType );
+    if(this.state.postId){
+        this.props.actions.editPostOnQuestion(this.state.postId, this.props.showQuestion.id, payload, "comments") 
+    }else{
+      this.props.actions.createPostOnQuestion(this.props.showQuestion.id, payload, this.state.postType );
+    }
     this.setState({ showForm: !this.state.showForm });
   }
 
@@ -91,9 +106,11 @@ class ShowQuestionConatiner extends React.Component {
     const showForm = this.state.showForm ? 
       <PostForm 
         formType={this.state.postType}
-        handleHideForm={this.onClickPost}
+        handleHideForm={this.toggleShowForm}
         handleSubmitPost={this.handleSubmitPost}
-        updatePostState={this.updatePostState}/> 
+        updatePostState={this.updatePostState}
+        post={ {body: this.state.postResponse}}
+        editPost={this.state.postId ? true : false}/> 
       : null;
     if (this.props.isLoading || !this.props.showQuestion) {
       showQuestion = (
@@ -132,7 +149,8 @@ class ShowQuestionConatiner extends React.Component {
         comments={this.props.showQuestion.comments} 
         currentUser={this.props.currentUser}
         onDeletePost={this.onDeleteComment}
-        toggleEditPost={this.toggleEditPost}/> : "";
+        toggleEditPost={this.onClickPost}
+        /> : "";
 
     }
 

@@ -9,7 +9,6 @@ const PostForm = props => {
     },
     textareaClass: "form-control mb-3"
   };
-  console.log("postform props", props);
   let placeholder = "Comment on the question...";
   let defaultValue = "";
   let label = props.formType;
@@ -20,7 +19,6 @@ const PostForm = props => {
       label = "Edit Comment"
     }
   }else{
-    console.log("PostForm", props);
     placeholder = "Answer the question...";
     label = "Add Answer"
     if(props.editPost){
@@ -30,7 +28,7 @@ const PostForm = props => {
   }
   
   return(
-    <form onSubmit={props.handleSubmitPost} className="mt-4">
+    <form className="mt-4">
       <label htmlFor="response" className={formatter.labelClass} style={formatter.labelStyle}><b>{label}:</b></label>
       <textarea 
         className={formatter.textareaClass} 

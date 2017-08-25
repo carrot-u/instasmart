@@ -11,7 +11,6 @@ const initialState = {
 
 
 export default function questionsReducer(state = initialState, action){
-  console.log("question reducer actions", action);
   switch(action.type){
 
     //****************** LOAD ACTIONS ****************************//
