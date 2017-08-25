@@ -6,7 +6,11 @@ const AllComments = props => {
   const commentsListing = props.comments.map(comment => {
       return (
         <div key={comment.id}>
-          <CommentDetail  comment={comment} />
+          <CommentDetail  
+            comment={comment} 
+            currentUser={props.currentUser}
+            onDeletePost={props.onDeletePost}
+            toggleEditPost={props.toggleEditPost}/>
         </div>);
     });
 
