@@ -19,7 +19,7 @@ const QuestionStatButtons = props => {
         <li className="list-inline-item action-buttons">
           <button
             className={classInput}
-            onClick={e => props.onClickPost(e, "comment")}
+            onClick={() => props.onClickPost("comments")}
           >
             {" "}
             Comment <span className="badge"> {commentCount} </span>
@@ -28,7 +28,7 @@ const QuestionStatButtons = props => {
         <li className="list-inline-item action-buttons">
           <button
             className={classInput}
-            onClick={e => props.onClickPost(e, "answer")}
+            onClick={() => props.onClickPost("answers")}
           >
             {" "}
             Answer <span className="badge"> {answerCount} </span>
