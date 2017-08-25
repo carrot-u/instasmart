@@ -58,7 +58,7 @@ const QuestionsNavContent = props => {
         <div className="nav-item">
           <button
             onClick={props.onClickNewQuestion}
-            className="btn ask-button"
+            className="btn ask-button btn-success"
           >
             Ask a Question
           </button>
