@@ -16,7 +16,7 @@ const QuestionStatButtons = props => {
   return (
     <div>
       <ul className="list-inline pb-0">
-        <li className="list-inline-item show-action-buttons">
+        <li className="list-inline-item action-buttons">
           <button
             className={classInput}
             onClick={e => props.onClickPost(e, "comment")}
@@ -25,7 +25,7 @@ const QuestionStatButtons = props => {
             Comment <span className="badge"> {commentCount} </span>
           </button>
         </li>
-        <li className="list-inline-item">
+        <li className="list-inline-item action-buttons">
           <button
             className={classInput}
             onClick={e => props.onClickPost(e, "answer")}
@@ -34,7 +34,7 @@ const QuestionStatButtons = props => {
             Answer <span className="badge"> {answerCount} </span>
           </button>
         </li>
-        <li className="list-inline-item">
+        <li className="list-inline-item action-buttons">
           {!props.liked &&
             <button className={classInput} onClick={props.onClickLike}>
               {" "}
