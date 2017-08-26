@@ -120,7 +120,10 @@ export default function questionsReducer(state = initialState, action){
         questions:  utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)]),
         isLoading: state.isLoading,
-        showQuestion: action.question,
+        showQuestion: Object.assign({}, 
+            {...action.question,
+              answers: utils.sort("votes", action.question.answers)
+            }),
         error: state.error,
       };
 

@@ -7,6 +7,7 @@ import PostForm from "../questions/PostForm";
 import AllComments from '../comments/AllComments';
 import AnswerButtons from './AnswerButtons';
 import PostCreatorOptions from '../common/PostCreatorOptions';
+import * as utils from '../common/utils';
 
 class AnswerDetail extends React.Component{
   constructor(props){
@@ -14,7 +15,7 @@ class AnswerDetail extends React.Component{
     this.state = {
       comment: null,
       showForm: false,
-      answerLiked: false,
+      answerLiked: utils.checkLikedByUser(this.props.answer.votes_for, this.props.currentUser.id),
       answerResponse: this.props.answer.response,
       editPost: false,
       editType: "comments",
@@ -88,12 +89,13 @@ class AnswerDetail extends React.Component{
 
 
   onClickLike(){
-    if(this.props.answer.liked){
+    console.log("this.props.answer.liked ", this.state.answerLiked);
+    if(this.state.answerLiked){
       this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "unlike");
     }else{
       this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "like");
     }
-    this.setState({ answerLiked: !this.state.answerliked });
+    this.setState({ answerLiked: !this.state.answerLiked });
   }
 
   onDeletePost(post, type){
@@ -136,13 +138,19 @@ class AnswerDetail extends React.Component{
           type="answers"/> : null;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
-
+    console.log("answer liked?", this.state.answerLiked);
 
     return (
       <div className="show-answer pr-4 row">
         <div className="col-sm-1 pt-2">
-            {authorImage} <br />
-            
+          <div className="row center-items">
+              {authorImage} <br />
+          </div>
+          <div className="row center-items pt-2">
+              <span className="top-answer-star">
+                <i className="fa fa-star" aria-hidden="true"></i>
+              </span>
+          </div>
         </div>
         <div className="col-sm-11 pt-2 container">
           <div className="row" style={{height: "100%"}}>
@@ -164,9 +172,9 @@ class AnswerDetail extends React.Component{
                 onClickComment={this.onToggleForm}
                 onClickLike={this.onClickLike}
                 cached_votes_score={this.props.answer.cached_votes_score}
-                commentCount={commentCount}/>}
+                commentCount={commentCount}
+                liked={this.state.answerLiked}/>}
               {!this.state.editPost && comments}
-
             </div>
           </div>
         </div>
