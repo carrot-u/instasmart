@@ -77,7 +77,7 @@ export default function questionsReducer(state = initialState, action){
         };
     case types.DELETE_POST_ON_ANSWER_SUCCESS:
         let newShowQ = Object.assign({}, state.showQuestion);
-        newShowQ.answers = newShowQ.answers.map(answer =>{
+        newShowQ.answers = utils.sort(state.sortType, newShowQ.answers.map(answer =>{
           if(answer.id === action.answerId){
             return Object.assign( {}, {...answer,
               [action.postType]: answer[action.postType].filter(post => post.id !== action.postId)
@@ -85,7 +85,7 @@ export default function questionsReducer(state = initialState, action){
           }else{
             return Object.assign({}, answer);
           }
-        });
+        }));
         return {
           ...state,
           showQuestion: newShowQ,
@@ -111,8 +111,8 @@ export default function questionsReducer(state = initialState, action){
         ...state,
         showQuestion: {
           ...state.showQuestion,
-          answers: [...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
-            Object.assign({}, action.updatedAnswer)]
+          answers: utils.sort(state.sortType,[...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
+            Object.assign({}, action.updatedAnswer)])
         }
       }
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
