@@ -148,7 +148,7 @@ class AnswerDetail extends React.Component{
           <div className="row" style={{height: "100%"}}>
             <div className="pl-3" style={{width: "100%"}}>
               <small className=""><i>
-              {answerBy} on {this.props.answer.created_at}
+              {answerBy} {this.props.answer.created_at} ago
             </i></small>
               <p>{this.props.answer.response}</p>
               {!this.state.editPost && creatorOptions}

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { Link } from 'react-router-dom';
-
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import classnames from 'classnames';
 
 
 // project files
@@ -27,6 +28,7 @@ class ShowQuestionConatiner extends React.Component {
       postType: "comments",
       postResponse: null,
       postId: null,
+      activeTab: '1',
     }
     this.onClickPost = this.onClickPost.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
@@ -34,6 +36,7 @@ class ShowQuestionConatiner extends React.Component {
     this.updatePostState = this.updatePostState.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
     this.onDeleteComment = this.onDeleteComment.bind(this);
+    this.toggleTab = this.toggleTab.bind(this);
   }
 
   componentWillMount() {
@@ -99,9 +102,16 @@ class ShowQuestionConatiner extends React.Component {
     this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
   }
 
+  toggleTab(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
 
   render() {
-    let showQuestion, showAnswers, stats, tags, author, comments = null;
+    let showQuestion, showAnswers, stats, tags, author, comments, tabs, tabContent = null;
     const showForm = this.state.showForm ? 
       <PostForm 
         formType={this.state.postType}
@@ -150,7 +160,34 @@ class ShowQuestionConatiner extends React.Component {
         onDeletePost={this.onDeleteComment}
         toggleEditPost={this.onClickPost}
         /> : "";
-
+      tabs = (  
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => { this.toggleTab('1'); }}
+            >
+              Answers
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => { this.toggleTab('2'); }}
+            >
+              Comments
+            </NavLink>
+          </NavItem>
+        </Nav>);
+      tabContent = (
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="1">
+            {showAnswers}
+          </TabPane>
+          <TabPane tabId="2">
+            {comments}
+          </TabPane>
+        </TabContent>);
     }
 
     return (
@@ -165,8 +202,8 @@ class ShowQuestionConatiner extends React.Component {
               transitionLeaveTimeout={200}>
               {showForm}
             </ReactCSSTransitionGroup>
-            {comments}
-            {showAnswers}
+            {tabs}
+            {tabContent}
           </div>
           <div id= "author-info" className="col-md-2 stat-tags-col">
             <div className="pt-2">
