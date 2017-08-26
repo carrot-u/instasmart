@@ -134,7 +134,7 @@ class ShowQuestionConatiner extends React.Component {
           questionId={this.props.showQuestion.id}
           toggleEditPost={this.toggleEditPost}
           currentUser={this.props.currentUser}
-          questionAuthorFlag={this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
+          questionAuthorFlag={this.props.showQuestion.user && this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
       tags = this.props.showQuestion.tags ? (
         <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />

@@ -33,6 +33,8 @@ export function sort(sortType, array){
       return sortByCommentCount(array);
     case "votes":
       return sortByVotes(array);
+    case "accepted":
+      return sortByVotesAndAccepted(array);
     default:
       return sortByCreatedDate(array);
   }
@@ -95,4 +97,15 @@ function sortByVotes(array){
   return newArray.sort((a, b) => {
       return (b.cached_votes_score - a.cached_votes_score);
   });
+}
+
+function sortByVotesAndAccepted(array){
+  console.log("pre sort", array);
+  const newArray = [...sortByVotes(array)];
+  console.log("sort by votes", newArray);
+  const sortArray = newArray.sort((a, b) => {
+      return (b.accepted - a.accepted);
+  });
+  console.log("accepted, sorted", sortArray);
+  return sortArray;
 }

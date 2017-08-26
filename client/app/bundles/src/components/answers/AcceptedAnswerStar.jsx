@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AcceptedAnswerStar = props => {
-  console.log("questionAuthorFlag props", props);
   let acceptedStar = props.questionAuthorFlag ? 
     (<span className={props.answerAccepted ?  "top-answer-star-author active" : "top-answer-star-author"} 
       onClick={() => props.onAcceptAnswer(props.answer)}>

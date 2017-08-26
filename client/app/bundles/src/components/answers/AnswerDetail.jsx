@@ -105,7 +105,6 @@ class AnswerDetail extends React.Component{
   }
 
   render(){
-    console.log("props:",this.props)
     let authorImage, answerBy, creatorOptions = "";
     let comments = this.props.answer.comments && this.props.answer.comments.length>0  ? 
       <AllComments 

@@ -12,7 +12,8 @@ const CommentDetail = props => {
           onDeletePost={props.onDeletePost}
           type="comments"/> : null;
   } else {
-    creatorOptions = props.comment.user.id && props.currentUser && (props.comment.user.id === props.currentUser.id) ?
+    creatorOptions = props.comment.user && props.comment.user.id 
+      && props.currentUser && (props.comment.user.id === props.currentUser.id) ?
     <PostCreatorOptions 
       editPost={props.toggleEditPost} 
       post={props.comment} 

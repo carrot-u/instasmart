@@ -19,13 +19,10 @@ class AllAnswers extends React.Component {
   }
 
   onAcceptAnswer(answer){
-    if(answer.id === this.state.acceptedId){
-      return;
-    }
     const payload = {
       id: answer.id,
       response: answer.response,
-      accepted: true
+      accepted: answer.id !== this.state.acceptedId, //if already accepted toggle to false
     };
     const previousAnswer = this.state.acceptedId > 0 ? {
         id: this.state.acceptedId,
@@ -34,7 +31,7 @@ class AllAnswers extends React.Component {
       } : null;
     this.props.actions.acceptAnswerOnQuestion(this.props.questionId, 
       payload, previousAnswer);
-    this.setState({acceptedId: answer.id});
+    this.setState({acceptedId: answer.id !== this.state.acceptedId ? answer.id : 0}); //only add new accepted id. Otherwise remove accepted
   }
 
   render(){

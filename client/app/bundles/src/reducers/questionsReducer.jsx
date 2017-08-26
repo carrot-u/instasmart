@@ -31,7 +31,10 @@ export default function questionsReducer(state = initialState, action){
       };
     case types.LOAD_QUESTIONS_BY_ID_SUCCESS:
       return {...state,
-        showQuestion: action.question,
+        showQuestion: {
+          ...action.question,
+              answers: utils.sort("accepted", action.question.answers)
+        },
         isLoading: false,
       };
     case types.SORT_QUESTIONS_SUCCESS:
@@ -57,7 +60,10 @@ export default function questionsReducer(state = initialState, action){
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
         ]),
-        showQuestion: action.updatedQuestion,
+        showQuestion: {
+          ...action.updatedQuestion,
+          answers: utils.sort("accepted", [...action.updatedQuestion.answers])
+        },
         isLoading: state.isLoading,
         error: state.error
       };
@@ -111,18 +117,18 @@ export default function questionsReducer(state = initialState, action){
         ...state,
         showQuestion: {
           ...state.showQuestion,
-          answers: utils.sort(state.sortType,[...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
+          answers: utils.sort(state.sortType, [...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
             Object.assign({}, action.updatedAnswer)])
         }
       }
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
       return {
-        questions:  utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
+        questions: utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)]),
         isLoading: state.isLoading,
         showQuestion: Object.assign({}, 
             {...action.question,
-              answers: utils.sort("votes", action.question.answers)
+              answers: utils.sort("accepted", action.question.answers)
             }),
         error: state.error,
       };
