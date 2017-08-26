@@ -6,6 +6,7 @@ import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import PostForm from "../questions/PostForm";
 import AllComments from '../comments/AllComments';
 import AnswerButtons from './AnswerButtons';
+import AcceptedAnswerStar from './AcceptedAnswerStar';
 import PostCreatorOptions from '../common/PostCreatorOptions';
 import * as utils from '../common/utils';
 
@@ -72,9 +73,9 @@ class AnswerDetail extends React.Component{
       :{comment: {body: this.state.comment.body, id: this.state.comment.id ? this.state.comment.id : null}};
     if(this.state.editPost){
       if(this.state.editType === "answers"){
-        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers") 
+        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers"); 
       }else{
-        this.props.actions.editPostOnAnswer(this.state.comment.id, this.props.answer.id, payload, "comments") 
+        this.props.actions.editPostOnAnswer(this.state.comment.id, this.props.answer.id, payload, "comments"); 
       }
     }else{
       this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
@@ -85,8 +86,6 @@ class AnswerDetail extends React.Component{
       editType: "comments",
     });
   }
-
-
 
   onClickLike(){
     if(this.state.answerLiked){
@@ -106,6 +105,7 @@ class AnswerDetail extends React.Component{
   }
 
   render(){
+    console.log("props:",this.props)
     let authorImage, answerBy, creatorOptions = "";
     let comments = this.props.answer.comments && this.props.answer.comments.length>0  ? 
       <AllComments 
@@ -137,7 +137,7 @@ class AnswerDetail extends React.Component{
           type="answers"/> : null;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
-    
+
     return (
       <div className="show-answer pr-4 row">
         <div className="col-sm-1 pt-2">
@@ -145,9 +145,11 @@ class AnswerDetail extends React.Component{
               {authorImage} <br />
           </div>
           <div className="row center-items pt-2">
-              <span className="top-answer-star">
-                <i className="fa fa-star" aria-hidden="true"></i>
-              </span>
+            <AcceptedAnswerStar 
+              answerAccepted={this.props.answerAccepted} 
+              onAcceptAnswer={this.props.onAcceptAnswer}
+              answer={this.props.answer}
+              questionAuthorFlag={this.props.questionAuthorFlag}/>
           </div>
         </div>
         <div className="col-sm-11 pt-2 container">

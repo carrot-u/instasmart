@@ -6,12 +6,41 @@ import { bindActionCreators } from "redux";
 // Project Files
 import AnswerDetail from './AnswerDetail';
 import * as questionActions from "../../actions/questionActions";
+import * as utils from '../common/utils';
 
 class AllAnswers extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      acceptedId: utils.getAcceptedAnswerId(props.answers),
+    }
+    this.onAcceptAnswer = this.onAcceptAnswer.bind(this);
+
+  }
+
+  onAcceptAnswer(answer){
+    if(answer.id === this.state.acceptedId){
+      return;
+    }
+    const payload = {
+      id: answer.id,
+      response: answer.response,
+      accepted: true
+    };
+    const previousAnswer = this.state.acceptedId > 0 ? {
+        id: this.state.acceptedId,
+        response: utils.findById(this.props.answers, this.state.acceptedId).response,
+        accepted: false
+      } : null;
+    this.props.actions.acceptAnswerOnQuestion(this.props.questionId, 
+      payload, previousAnswer);
+    this.setState({acceptedId: answer.id});
+  }
 
   render(){
     const answersListing = this.props.answers.map(answer => {
       if(answer){
+        const accepted = this.state.acceptedId === answer.id;
         return (
           <div key={answer.id}>
             <AnswerDetail  
@@ -20,7 +49,10 @@ class AllAnswers extends React.Component {
               onClickComment={this.onClickComment}
               questionId={this.props.questionId}
               toggleEditPost={this.props.toggleEditPost}
-              currentUser={this.props.currentUser}/>
+              currentUser={this.props.currentUser}
+              answerAccepted={accepted}
+              onAcceptAnswer={this.onAcceptAnswer}
+              questionAuthorFlag={this.props.questionAuthorFlag}/>
           </div>);
       }else{
         <div />

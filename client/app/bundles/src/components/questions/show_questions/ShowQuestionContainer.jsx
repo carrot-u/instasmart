@@ -17,6 +17,7 @@ import IndexQuestionTags from "../../tags/IndexQuestionTags";
 import PostForm from "../PostForm";
 import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
+import * as utils from '../../common/utils';
 
 
 
@@ -132,7 +133,8 @@ class ShowQuestionConatiner extends React.Component {
           answers={this.props.showQuestion.answers} 
           questionId={this.props.showQuestion.id}
           toggleEditPost={this.toggleEditPost}
-          currentUser={this.props.currentUser}/> : "";
+          currentUser={this.props.currentUser}
+          questionAuthorFlag={this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
       tags = this.props.showQuestion.tags ? (
         <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />

@@ -26,13 +26,21 @@
   color: $dark-green;
 }
 
+.top-answer-star-author.active{
+  color: #F7A700;
+}
+
+.top-answer-star-author{
+  color: lightgrey;
+  &:hover{
+   color: #F7A700;
+  }
+}
+
 .top-answer-star.active{
   color: #F7A700;
 }
 
 .top-answer-star{
   color: lightgrey;
-  &:hover{
-   color: #F7A700;
-  }
 }
