@@ -34,7 +34,6 @@ class ShowQuestionConatiner extends React.Component {
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
     this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updatePostState = this.updatePostState.bind(this);
-    this.onClickLike = this.onClickLike.bind(this);
     this.onDeleteComment = this.onDeleteComment.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
   }
@@ -89,15 +88,6 @@ class ShowQuestionConatiner extends React.Component {
     this.setState({ showForm: !this.state.showForm });
   }
 
-  onClickLike(){
-    if(this.props.showQuestion.liked){
-      this.props.actions.likeUnlikeQuestion(this.props.showQuestion.id, "unlike");
-    }else{
-      this.props.actions.likeUnlikeQuestion(this.props.showQuestion.id, "like");
-    }
-    this.setState({ questionLiked: !this.state.questionliked });
-  }
-
   onDeleteComment(post, type){
     this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
   }
@@ -134,7 +124,6 @@ class ShowQuestionConatiner extends React.Component {
       showQuestion = (
         <QuestionDetail 
           question={this.props.showQuestion} 
-          onClickLike={this.onClickLike}
           onClickPost={this.onClickPost}
           currentUser={this.props.currentUser}
           actions={this.props.actions}/>);

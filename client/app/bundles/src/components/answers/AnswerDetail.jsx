@@ -89,7 +89,6 @@ class AnswerDetail extends React.Component{
 
 
   onClickLike(){
-    console.log("this.props.answer.liked ", this.state.answerLiked);
     if(this.state.answerLiked){
       this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "unlike");
     }else{
@@ -138,8 +137,7 @@ class AnswerDetail extends React.Component{
           type="answers"/> : null;
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
-    console.log("answer liked?", this.state.answerLiked);
-
+    
     return (
       <div className="show-answer pr-4 row">
         <div className="col-sm-1 pt-2">
