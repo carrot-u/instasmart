@@ -10,7 +10,6 @@ const AcceptedAnswerStar = props => {
       <i className="fa fa-star" aria-hidden="true"></i>
     </span>)
 
-
   return (
     <div>
      {acceptedStar}

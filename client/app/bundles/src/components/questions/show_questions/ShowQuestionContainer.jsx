@@ -18,7 +18,7 @@ import PostForm from "../PostForm";
 import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
 import * as utils from '../../common/utils';
-
+import FixedNav from '../../common/FixedNav';
 
 
 class ShowQuestionConatiner extends React.Component {
@@ -182,25 +182,28 @@ class ShowQuestionConatiner extends React.Component {
     }
 
     return (
-      <div className="show-question-top-container">
-        <ScrollToTopOnMount />
-        <div className="row">
-          <div className="col-md-10 show-question pr-0">
-            {showQuestion}
-            <ReactCSSTransitionGroup
-              transitionName="form-transition"
-              transitionEnterTimeout={300}
-              transitionLeaveTimeout={200}>
-              {showForm}
-            </ReactCSSTransitionGroup>
-            {tabs}
-            {tabContent}
-          </div>
-          <div id= "author-info" className="col-md-2 stat-tags-col">
-            <div className="pt-2">
-              {author}
-              <hr />
-              {tags}
+      <div>
+        <FixedNav includeSort={false}/>
+        <div className="show-question-top-container">
+          <ScrollToTopOnMount />
+          <div className="row">
+            <div className="col-md-10 show-question pr-0">
+              {showQuestion}
+              <ReactCSSTransitionGroup
+                transitionName="form-transition"
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={200}>
+                {showForm}
+              </ReactCSSTransitionGroup>
+              {tabs}
+              {tabContent}
+            </div>
+            <div id= "author-info" className="col-md-2 stat-tags-col">
+              <div className="pt-2">
+                {author}
+                <hr />
+                {tags}
+              </div>
             </div>
           </div>
         </div>

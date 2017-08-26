@@ -16,7 +16,6 @@ export default function questionsReducer(state = initialState, action){
 
     //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
-      console.log("LOAD_QUESTIONS_SUCCESS questions", state.questions);
       return {...state,
         questions: utils.sort(state.sortType, action.questions),
         isLoading: false,
