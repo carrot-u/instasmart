@@ -8,10 +8,10 @@ import QuestionCreatorOptions from "./QuestionCreatorOptions";
 const IndexQuestionDetail = props => {
   const askedBy = props.question.user ? 
     ( <div className="row text-muted">
-        <div className="col-md-3">
+        <div className="col-xs-3">
           <img src={props.question.user.image} className="profile-image mr-1"/>
         </div>
-        <div className="col-md-9">
+        <div className="col-xs-9">
           <p className="my-0">Asked {props.question.created_at} ago</p>
           <p className="my-0">{props.question.user.name}</p>
         </div>
