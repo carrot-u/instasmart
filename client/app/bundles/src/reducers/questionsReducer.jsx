@@ -6,6 +6,7 @@ const initialState = {
   showQuestion: null,
   isLoading: false,
   error: null, 
+  sortType: "recent",
   sort: 'recent',
 };
 
@@ -15,8 +16,9 @@ export default function questionsReducer(state = initialState, action){
 
     //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
+      console.log("LOAD_QUESTIONS_SUCCESS questions", state.questions);
       return {...state,
-        questions: action.questions,
+        questions: utils.sort(state.sortType, action.questions),
         isLoading: false,
       };
     case types.LOAD_QUESTIONS_START:
@@ -35,25 +37,26 @@ export default function questionsReducer(state = initialState, action){
     case types.SORT_QUESTIONS_SUCCESS:
       return {
         ...state,
+        sortType: action.sortType,
         questions: utils.sort(action.sortType, state.questions),
       };
 
     //****************** CREATE ACTIONS ****************************//
     case types.CREATE_QUESTION_SUCCESS:
       return {
-        questions: [
+        questions:  utils.sort(state.sortType, [
           ...state.questions,
           Object.assign({}, action.newQuestion)
-        ],
+        ]),
         isLoading: state.isLoading,
         error: state.error
       };
     case types.POST_ON_QUESTION_SUCCESS:
       return {
-        questions: [
+        questions: utils.sort(action.sortType, [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
-        ],
+        ]),
         showQuestion: action.updatedQuestion,
         isLoading: state.isLoading,
         error: state.error
@@ -89,7 +92,7 @@ export default function questionsReducer(state = initialState, action){
         };
     case types.DELETE_QUESTION_SUCCESS:
       return {
-        questions: [...state.questions.filter(question => question.id !== action.questionId)],
+        questions: utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.questionId)]),
         isLoading: state.isLoading,
         error: state.error
       };
@@ -97,8 +100,8 @@ export default function questionsReducer(state = initialState, action){
     //****************** EDIT ACTIONS ****************************//
     case types.EDIT_QUESTION_SUCCESS:
       return {
-        questions:[...state.questions.filter(question => question.id !== action.question.id),
-          Object.assign({}, action.question)],
+        questions:  utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)]),
         isLoading: false,
         showQuestion: Object.assign({}, action.question),
         error: state.error,
@@ -114,14 +117,12 @@ export default function questionsReducer(state = initialState, action){
       }
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
       return {
-        questions:[...state.questions.filter(question => question.id !== action.question.id),
-          Object.assign({}, action.question)],
+        questions:  utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)]),
         isLoading: state.isLoading,
         showQuestion: action.question,
         error: state.error,
       };
-
-
 
     default:
       return state;

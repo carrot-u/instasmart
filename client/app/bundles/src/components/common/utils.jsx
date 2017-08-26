@@ -15,8 +15,16 @@ export function sort(sortType, array){
     case "votes":
       return sortByVotes(array);
     default:
-      return sortByUpdateDate(array);
+      return sortByCreatedDate(array);
   }
+}
+
+
+function sortByCreatedDate(array){
+  const newArray = [...array];
+  return newArray.sort((a, b) => {
+    return (new Date(b.created_at_unformatted) - new Date(a.created_at_unformatted));
+  });
 }
 
 function sortByUpdateDate(array){

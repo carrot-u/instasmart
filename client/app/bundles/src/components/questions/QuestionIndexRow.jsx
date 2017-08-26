@@ -11,7 +11,7 @@ class QuestionIndexRow extends React.Component {
     super(props);
     this.state = {
       showForm: false,
-      postType: null,
+      postType: "comments",
       postResponse: null,
     };
     this.onClickPost = this.onClickPost.bind(this);
@@ -38,7 +38,7 @@ class QuestionIndexRow extends React.Component {
   handleSubmitPost(e){
     e.preventDefault();
     let payload= '';
-    if(this.state.postType === "comment"){
+    if(this.state.postType === "comments"){
       payload = {
         comment: {
           body: this.state.postResponse
@@ -51,7 +51,7 @@ class QuestionIndexRow extends React.Component {
         }
       };
     }
-    this.props.actions.createPostOnQuestion(this.props.question.id, payload, `${this.state.postType}s`);
+    this.props.actions.createPostOnQuestion(this.props.question.id, payload, this.state.postType);
     this.setState({ showForm: !this.state.showForm });
   }
 
