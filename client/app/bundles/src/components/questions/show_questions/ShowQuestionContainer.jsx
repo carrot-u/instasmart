@@ -191,11 +191,12 @@ class ShowQuestionConatiner extends React.Component {
     }
 
     return (
-      <div className="show-question-top-container">
+      <div className="container show-question-top-container">
         <ScrollToTopOnMount />
         <div className="row">
-          <div className="col-md-10 show-question pr-0">
+          <div className="col-md-8 show-question">
             {showQuestion}
+            <hr />
             <ReactCSSTransitionGroup
               transitionName="form-transition"
               transitionEnterTimeout={300}
@@ -205,11 +206,15 @@ class ShowQuestionConatiner extends React.Component {
             {tabs}
             {tabContent}
           </div>
-          <div id= "author-info" className="col-md-2 stat-tags-col">
-            <div className="pt-2">
-              {author}
-              <hr />
-              {tags}
+
+          <div className="col-md-4 stat-tags-col">
+            <div id="show-author-tags" className="card">
+                <div className="card-block bg-faded">
+                {author}
+                <hr />
+                Tags
+                {tags}
+              </div>
             </div>
           </div>
         </div>
