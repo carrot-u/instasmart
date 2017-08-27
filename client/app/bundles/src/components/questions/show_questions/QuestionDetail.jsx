@@ -103,8 +103,8 @@ class QuestionDetail extends React.Component {
         onSubmit={this.onSubmitEditQuestion}/>) : null;
 
     return (
-      <div className="row pt-1 pl-1 mr-0 show-question-detail">
-        <div className="card-block question-summary col-md-12 pb-2 ml-2">
+      <div className="show-question-detail">
+        <div className="question-summary col-md-12 pb-2 ml-2">
           {questionDetails}
 
           {questionForm}

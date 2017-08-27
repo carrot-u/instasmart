@@ -184,10 +184,10 @@ class ShowQuestionConatiner extends React.Component {
     return (
       <div>
         <FixedNav includeSort={false}/>
-        <div className="show-question-top-container">
+        <div className="show-question-top-container card mt-5">
           <ScrollToTopOnMount />
-          <div className="row">
-            <div className="col-md-10 show-question pr-0">
+          <div className="container py-3 px-0">
+            <div className="show-question">
               {showQuestion}
               <ReactCSSTransitionGroup
                 transitionName="form-transition"
@@ -197,13 +197,6 @@ class ShowQuestionConatiner extends React.Component {
               </ReactCSSTransitionGroup>
               {tabs}
               {tabContent}
-            </div>
-            <div id= "author-info" className="col-md-2 stat-tags-col">
-              <div className="pt-2">
-                {author}
-                <hr />
-                {tags}
-              </div>
             </div>
           </div>
         </div>
