@@ -188,7 +188,9 @@ class ShowQuestionConatiner extends React.Component {
           <ScrollToTopOnMount />
           <div className="container py-3 px-0">
             <div className="show-question">
+              {author}
               {showQuestion}
+              {tags}
               <ReactCSSTransitionGroup
                 transitionName="form-transition"
                 transitionEnterTimeout={300}

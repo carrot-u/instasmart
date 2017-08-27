@@ -12,7 +12,7 @@ const QuestionIndexTags = props => {
 
   return (
     <div className={`row pl-3 ${addClass}`}>
-      {tags}
+        {tags}
     </div>
   );
 };
