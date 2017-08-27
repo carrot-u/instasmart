@@ -80,10 +80,8 @@ class FixedNav extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    // questions: state.questions.questions,
-    // isLoading: state.questions.isLoading,
-    // showQuestionModal: state.modal.showQuestionModal,
-    // currentUser: state.users.currentUser,
+    showQuestionModal: state.modal.showQuestionModal,
+
   };
 }
 function mapDispatchToProps(dispatch) {

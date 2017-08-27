@@ -14,7 +14,6 @@ export function getAcceptedAnswerId(answerArray){
 
 export function findById(array, searchId) { 
     const newArray = array.filter(item => (item.id === searchId));
-    console.log("newArray", newArray);
     if(newArray){
       return newArray[0];
     }else{
@@ -100,12 +99,8 @@ function sortByVotes(array){
 }
 
 function sortByVotesAndAccepted(array){
-  console.log("pre sort", array);
-  const newArray = [...sortByVotes(array)];
-  console.log("sort by votes", newArray);
-  const sortArray = newArray.sort((a, b) => {
+  const sortArray = sortByVotes(array).sort((a, b) => {
       return (b.accepted - a.accepted);
   });
-  console.log("accepted, sorted", sortArray);
   return sortArray;
 }

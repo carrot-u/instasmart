@@ -34,7 +34,6 @@ class QuestionIndex extends React.Component {
             </div>);
 
     } else { 
-      console.log("questions props", this.props.questions);
       const noResults = "No Questions Loaded"; 
       listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {

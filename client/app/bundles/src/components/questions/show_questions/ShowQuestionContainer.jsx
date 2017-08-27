@@ -131,7 +131,7 @@ class ShowQuestionConatiner extends React.Component {
       showAnswers = this.props.showQuestion.answers ? 
         <AllAnswers 
           answers={this.props.showQuestion.answers} 
-          questionId={this.props.showQuestion.id}
+          question={this.props.showQuestion}
           toggleEditPost={this.toggleEditPost}
           currentUser={this.props.currentUser}
           questionAuthorFlag={this.props.showQuestion.user && this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";

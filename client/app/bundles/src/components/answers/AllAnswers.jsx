@@ -29,7 +29,7 @@ class AllAnswers extends React.Component {
         response: utils.findById(this.props.answers, this.state.acceptedId).response,
         accepted: false
       } : null;
-    this.props.actions.acceptAnswerOnQuestion(this.props.questionId, 
+    this.props.actions.acceptAnswerOnQuestion(this.props.question.id, 
       payload, previousAnswer);
     this.setState({acceptedId: answer.id !== this.state.acceptedId ? answer.id : 0}); //only add new accepted id. Otherwise remove accepted
   }
@@ -44,7 +44,7 @@ class AllAnswers extends React.Component {
               answer={answer} 
               actions={this.props.actions}
               onClickComment={this.onClickComment}
-              questionId={this.props.questionId}
+              question={this.props.question}
               toggleEditPost={this.props.toggleEditPost}
               currentUser={this.props.currentUser}
               answerAccepted={accepted}

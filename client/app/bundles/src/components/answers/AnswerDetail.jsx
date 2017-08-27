@@ -1,6 +1,8 @@
 // Import modules
 import React from 'react';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import { Link } from 'react-router-dom';
+
 
 // Import project files
 import PostForm from "../questions/PostForm";
@@ -73,12 +75,12 @@ class AnswerDetail extends React.Component{
       :{comment: {body: this.state.comment.body, id: this.state.comment.id ? this.state.comment.id : null}};
     if(this.state.editPost){
       if(this.state.editType === "answers"){
-        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers"); 
+        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.question.id, payload, "answers"); 
       }else{
         this.props.actions.editPostOnAnswer(this.state.comment.id, this.props.answer.id, payload, "comments"); 
       }
     }else{
-      this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
+      this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.question.id, payload);
     }
     this.setState({ 
       showForm: !this.state.showForm,
@@ -89,16 +91,16 @@ class AnswerDetail extends React.Component{
 
   onClickLike(){
     if(this.state.answerLiked){
-      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "unlike");
+      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.question.id, "unlike");
     }else{
-      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "like");
+      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.question.id, "like");
     }
     this.setState({ answerLiked: !this.state.answerLiked });
   }
 
   onDeletePost(post, type){
     if(type === "answers"){
-      this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, type);
+      this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.question.id, type);
     }else{
       this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
     }
@@ -127,7 +129,10 @@ class AnswerDetail extends React.Component{
 
     if(this.props.answer.user){
       answerBy = `${this.props.answer.user.name}`;
-      authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
+      authorImage =  (
+        <Link to={`/users/${this.props.question.user.id}`}>
+          <img src={this.props.answer.user.image} className="profile-image mr-1"/>
+        </Link>);
       creatorOptions = this.props.answer.user.id === this.props.currentUser.id ?
         <PostCreatorOptions 
           editPost={this.toggleEditPost} 
