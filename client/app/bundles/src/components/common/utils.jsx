@@ -21,6 +21,14 @@ export function findById(array, searchId) {
     }
 }
 
+export function formatTagsArray(array){
+  console.log(array);
+  const newArray = array.map((item, index) => {
+    return {id: index, text: item};
+  });
+  console.log("newArray", newArray);
+}
+
 
 
 // HELPER SORT FUNCTIONS
