@@ -7,6 +7,8 @@ import * as userActions from "../../actions/userActions";
 import ScrollToTopOnMount from "../common/ScrollToTop";
 import UserProfile from './UserProfile';
 import UserStats from './UserStats';
+import FixedNav from '../common/FixedNav';
+
 
 class UserProfileContainer extends React.Component {
 
@@ -30,13 +32,17 @@ class UserProfileContainer extends React.Component {
       stats = <UserStats user={this.props.showUser} user={this.props.showUser} />;
     }
     return(
-      <div className="show-question-top-container container">
-        <ScrollToTopOnMount />
-        <div className="row">
-          <div className="col-md-12 show-question pr-0">
-            {showProfile}
-            {profileInfo}
-            {stats}
+      <div>
+        <FixedNav includeSort={false}/>
+
+        <div className="show-question-top-container container">
+          <ScrollToTopOnMount />
+          <div className="row">
+            <div className="col-md-12 show-question pr-0">
+              {showProfile}
+              {profileInfo}
+              {stats}
+            </div>
           </div>
         </div>
       </div>

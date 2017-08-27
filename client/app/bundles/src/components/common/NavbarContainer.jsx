@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from 'react-router-dom';
+
 
 //Project imports
 import StickyNavbar from "./StickyNavBar";
@@ -45,7 +47,9 @@ class NavbarContainer extends React.Component {
         isCondensed={this.state.condenseNav}
       >
         <div className="row navbar-row-1">
-          <img id="logo" src={logo} alt="Carrot With Monocle" className="pull-left"/>
+          <Link to="/questions">
+            <img id="logo" src={logo} alt="Carrot With Monocle" className="pull-left"/>
+          </Link>
           <div className="search-field-container center-items">
             <FixedSearchField 
               updatedSearchQuery={this.props.updatedSearchQuery}  

@@ -76,6 +76,20 @@ export function editPostOnQuestion(postId, questionId, payload, type){
   };
 }
 
+export function acceptAnswerOnQuestion(questionId, acceptedAnswer, previousAcceptedAnswer){
+  return function(dispatch){
+      utils.put(`/questions/${questionId}/answers/${acceptedAnswer.id}`, "", acceptedAnswer).then(question => {
+        if(previousAcceptedAnswer){
+          utils.put(`/questions/${questionId}/answers/${previousAcceptedAnswer.id}`, "", previousAcceptedAnswer).then(question => {
+            dispatch(questionActions.editPostSuccess(question));
+          });
+        }else{
+          dispatch(questionActions.editPostSuccess(question));
+        }
+      });
+  };
+}
+
 export function editPostOnAnswer(postId, answerId, payload, type){
   return function(dispatch){
       utils.put(`/answers/${answerId}/${type}/${postId}`, "", payload).then(answer => {
