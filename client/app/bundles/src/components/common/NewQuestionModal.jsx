@@ -2,6 +2,7 @@ import React from "react";
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { WithContext as ReactTags } from 'react-tag-input';
 
 class NewQuestionModal extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class NewQuestionModal extends React.Component {
     };
     this.changeBackdrop = this.changeBackdrop.bind(this);
     this.tagsString = this.tagsString.bind(this);
+
   }
 
   changeBackdrop(e) {
@@ -22,10 +24,11 @@ class NewQuestionModal extends React.Component {
   }
 
   tagsString(tags){
-    return tags.map(tag => {
+    return tags.map((tag, index) => {
       return `${tag.name}`;
     });
   }
+
 
   render() {
     let tagsValue = '';
@@ -85,6 +88,7 @@ class NewQuestionModal extends React.Component {
                 error={this.props.errors.tags}
 
               />
+
             </form>
           </ModalBody>
           <ModalFooter>

@@ -81,6 +81,7 @@ class FixedNav extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     showQuestionModal: state.modal.showQuestionModal,
+    editQuestion: state.modal.editQuestion,
 
   };
 }
