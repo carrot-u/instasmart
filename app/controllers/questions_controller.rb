@@ -10,9 +10,10 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.order("id DESC")
 
-    if params[:search]
-      @questions = Question.search(params[:search]).order("created_at DESC")
-    end
+    # if params[:search]
+    #   @questions = Question.search(params[:search]).order("created_at DESC")
+    #   @questions += Question.tagged_with(params[:search]).order("created_at DESC")
+    # end
 
     respond_to do |format|
       format.json { render json: @questions }
@@ -24,6 +25,7 @@ class QuestionsController < ApplicationController
 
     if params[:search]
       @questions = Question.search(params[:search]).order("created_at DESC")
+      @questions += Question.tagged_with(params[:search]).order("created_at DESC")
     end
 
     respond_to do |format|
