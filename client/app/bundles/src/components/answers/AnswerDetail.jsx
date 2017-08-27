@@ -130,7 +130,7 @@ class AnswerDetail extends React.Component{
     if(this.props.answer.user){
       answerBy = `${this.props.answer.user.name}`;
       authorImage =  (
-        <Link to={`/users/${this.props.question.user.id}`}>
+        <Link to={`/users/${this.props.answer.user.id}`}>
           <img src={this.props.answer.user.image} className="profile-image mr-1"/>
         </Link>);
       creatorOptions = this.props.answer.user.id === this.props.currentUser.id ?
