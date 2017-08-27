@@ -17,7 +17,8 @@ import IndexQuestionTags from "../../tags/IndexQuestionTags";
 import PostForm from "../PostForm";
 import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
-
+import * as utils from '../../common/utils';
+import FixedNav from '../../common/FixedNav';
 
 
 class ShowQuestionConatiner extends React.Component {
@@ -34,7 +35,6 @@ class ShowQuestionConatiner extends React.Component {
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
     this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updatePostState = this.updatePostState.bind(this);
-    this.onClickLike = this.onClickLike.bind(this);
     this.onDeleteComment = this.onDeleteComment.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
   }
@@ -89,15 +89,6 @@ class ShowQuestionConatiner extends React.Component {
     this.setState({ showForm: !this.state.showForm });
   }
 
-  onClickLike(){
-    if(this.props.showQuestion.liked){
-      this.props.actions.likeUnlikeQuestion(this.props.showQuestion.id, "unlike");
-    }else{
-      this.props.actions.likeUnlikeQuestion(this.props.showQuestion.id, "like");
-    }
-    this.setState({ questionLiked: !this.state.questionliked });
-  }
-
   onDeleteComment(post, type){
     this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
   }
@@ -134,16 +125,16 @@ class ShowQuestionConatiner extends React.Component {
       showQuestion = (
         <QuestionDetail 
           question={this.props.showQuestion} 
-          onClickLike={this.onClickLike}
           onClickPost={this.onClickPost}
           currentUser={this.props.currentUser}
           actions={this.props.actions}/>);
       showAnswers = this.props.showQuestion.answers ? 
         <AllAnswers 
           answers={this.props.showQuestion.answers} 
-          questionId={this.props.showQuestion.id}
+          question={this.props.showQuestion}
           toggleEditPost={this.toggleEditPost}
-          currentUser={this.props.currentUser}/> : "";
+          currentUser={this.props.currentUser}
+          questionAuthorFlag={this.props.showQuestion.user && this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
       tags = this.props.showQuestion.tags ? (
         <div className="tags-container center-items">
            <IndexQuestionTags question={this.props.showQuestion} />
@@ -191,28 +182,26 @@ class ShowQuestionConatiner extends React.Component {
     }
 
     return (
-      <div className="container show-question-top-container">
-        <ScrollToTopOnMount />
-        <div className="row">
-          <div className="col-md-8 show-question">
-            {showQuestion}
-            <hr />
-            <ReactCSSTransitionGroup
-              transitionName="form-transition"
-              transitionEnterTimeout={300}
-              transitionLeaveTimeout={200}>
-              {showForm}
-            </ReactCSSTransitionGroup>
-            {tabs}
-            {tabContent}
-          </div>
-
-          <div className="col-md-4 stat-tags-col">
-            <div id="show-author-tags" className="card">
-                <div className="card-block bg-faded">
+      <div>
+        <FixedNav includeSort={false}/>
+        <div className="show-question-top-container">
+          <ScrollToTopOnMount />
+          <div className="row">
+            <div className="col-md-10 show-question pr-0">
+              {showQuestion}
+              <ReactCSSTransitionGroup
+                transitionName="form-transition"
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={200}>
+                {showForm}
+              </ReactCSSTransitionGroup>
+              {tabs}
+              {tabContent}
+            </div>
+            <div id= "author-info" className="col-md-2 stat-tags-col">
+              <div className="pt-2">
                 {author}
                 <hr />
-                Tags
                 {tags}
               </div>
             </div>

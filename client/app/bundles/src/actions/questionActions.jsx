@@ -43,6 +43,13 @@ export function editPostOnQuestion(questionId, postId, payload, type){
   };
 }
 
+export function acceptAnswerOnQuestion(questionId, acceptedAnswer, previousAcceptedAnswer){
+  return dispatch => {
+    dispatch(api.acceptAnswerOnQuestion(questionId, acceptedAnswer, previousAcceptedAnswer));
+  };
+}
+
+
 export function editPostOnAnswerSuccess(updatedAnswer){
   return { type: types.EDIT_POST_ON_ANSWER_SUCCESS, updatedAnswer };
 } 

@@ -1,6 +1,24 @@
-// HELPER LIKE FUNCTIONS
+// HELPER FUNCTIONS
 export function checkLikedByUser(likesArray, UserId){
   return (likesArray.filter(like => (like.voter_id === UserId)).length > 0);
+}
+
+export function getAcceptedAnswerId(answerArray){
+  const accepted = answerArray.filter(answer => (answer.accepted))[0];
+  if(accepted){
+    return accepted.id;
+  }else{
+    return 0;
+  }
+}
+
+export function findById(array, searchId) { 
+    const newArray = array.filter(item => (item.id === searchId));
+    if(newArray){
+      return newArray[0];
+    }else{
+      return null;
+    }
 }
 
 
@@ -14,9 +32,19 @@ export function sort(sortType, array){
       return sortByCommentCount(array);
     case "votes":
       return sortByVotes(array);
+    case "accepted":
+      return sortByVotesAndAccepted(array);
     default:
-      return sortByUpdateDate(array);
+      return sortByCreatedDate(array);
   }
+}
+
+
+function sortByCreatedDate(array){
+  const newArray = [...array];
+  return newArray.sort((a, b) => {
+    return (new Date(b.created_at_unformatted) - new Date(a.created_at_unformatted));
+  });
 }
 
 function sortByUpdateDate(array){
@@ -68,4 +96,11 @@ function sortByVotes(array){
   return newArray.sort((a, b) => {
       return (b.cached_votes_score - a.cached_votes_score);
   });
+}
+
+function sortByVotesAndAccepted(array){
+  const sortArray = sortByVotes(array).sort((a, b) => {
+      return (b.accepted - a.accepted);
+  });
+  return sortArray;
 }

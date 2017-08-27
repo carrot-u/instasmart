@@ -6,6 +6,7 @@ const initialState = {
   showQuestion: null,
   isLoading: false,
   error: null, 
+  sortType: "recent",
   sort: 'recent',
 };
 
@@ -16,7 +17,7 @@ export default function questionsReducer(state = initialState, action){
     //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
       return {...state,
-        questions: action.questions,
+        questions: utils.sort(state.sortType, action.questions),
         isLoading: false,
       };
     case types.LOAD_QUESTIONS_START:
@@ -29,32 +30,39 @@ export default function questionsReducer(state = initialState, action){
       };
     case types.LOAD_QUESTIONS_BY_ID_SUCCESS:
       return {...state,
-        showQuestion: action.question,
+        showQuestion: {
+          ...action.question,
+              answers: utils.sort("accepted", action.question.answers)
+        },
         isLoading: false,
       };
     case types.SORT_QUESTIONS_SUCCESS:
       return {
         ...state,
+        sortType: action.sortType,
         questions: utils.sort(action.sortType, state.questions),
       };
 
     //****************** CREATE ACTIONS ****************************//
     case types.CREATE_QUESTION_SUCCESS:
       return {
-        questions: [
+        questions:  utils.sort(state.sortType, [
           ...state.questions,
           Object.assign({}, action.newQuestion)
-        ],
+        ]),
         isLoading: state.isLoading,
         error: state.error
       };
     case types.POST_ON_QUESTION_SUCCESS:
       return {
-        questions: [
+        questions: utils.sort(action.sortType, [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
-        ],
-        showQuestion: action.updatedQuestion,
+        ]),
+        showQuestion: {
+          ...action.updatedQuestion,
+          answers: utils.sort("accepted", [...action.updatedQuestion.answers])
+        },
         isLoading: state.isLoading,
         error: state.error
       };
@@ -74,7 +82,7 @@ export default function questionsReducer(state = initialState, action){
         };
     case types.DELETE_POST_ON_ANSWER_SUCCESS:
         let newShowQ = Object.assign({}, state.showQuestion);
-        newShowQ.answers = newShowQ.answers.map(answer =>{
+        newShowQ.answers = utils.sort(state.sortType, newShowQ.answers.map(answer =>{
           if(answer.id === action.answerId){
             return Object.assign( {}, {...answer,
               [action.postType]: answer[action.postType].filter(post => post.id !== action.postId)
@@ -82,14 +90,14 @@ export default function questionsReducer(state = initialState, action){
           }else{
             return Object.assign({}, answer);
           }
-        });
+        }));
         return {
           ...state,
           showQuestion: newShowQ,
         };
     case types.DELETE_QUESTION_SUCCESS:
       return {
-        questions: [...state.questions.filter(question => question.id !== action.questionId)],
+        questions: utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.questionId)]),
         isLoading: state.isLoading,
         error: state.error
       };
@@ -97,8 +105,8 @@ export default function questionsReducer(state = initialState, action){
     //****************** EDIT ACTIONS ****************************//
     case types.EDIT_QUESTION_SUCCESS:
       return {
-        questions:[...state.questions.filter(question => question.id !== action.question.id),
-          Object.assign({}, action.question)],
+        questions:  utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)]),
         isLoading: false,
         showQuestion: Object.assign({}, action.question),
         error: state.error,
@@ -108,20 +116,21 @@ export default function questionsReducer(state = initialState, action){
         ...state,
         showQuestion: {
           ...state.showQuestion,
-          answers: [...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
-            Object.assign({}, action.updatedAnswer)]
+          answers: utils.sort(state.sortType, [...state.showQuestion.answers.filter(ans => ans.id !== action.updatedAnswer.id), 
+            Object.assign({}, action.updatedAnswer)])
         }
       }
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
       return {
-        questions:[...state.questions.filter(question => question.id !== action.question.id),
-          Object.assign({}, action.question)],
+        questions: utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
+          Object.assign({}, action.question)]),
         isLoading: state.isLoading,
-        showQuestion: action.question,
+        showQuestion: Object.assign({}, 
+            {...action.question,
+              answers: utils.sort("accepted", action.question.answers)
+            }),
         error: state.error,
       };
-
-
 
     default:
       return state;

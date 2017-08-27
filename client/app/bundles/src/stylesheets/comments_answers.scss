@@ -1,29 +1,19 @@
 @import '_variables.scss'; // colors, fonts etc...
 
-
 .all-answers{
   .show-answer{
-    
     border-top: 1px solid lightgrey;
-
   }
 }
 
-// .comment-row:nth-child(odd){
-//   background-color: #ecf7e9;
-// }
-
 .comment-row{
-
   flex: 1;
   flex-direction: row;
   border-bottom: 1px solid #CCC;
   padding-top: 8px;
-  // background-color: rgba(244, 246, 250, .99) !important;
   background-color: #ecf7e9;
   padding-left: 10px;
   font-size: .75em;
-
   .comment-author{
     padding-left: 10px;
     padding-bottom: 3px;
@@ -34,4 +24,23 @@
 
 .edit-delete li span {
   color: $dark-green;
+}
+
+.top-answer-star-author.active{
+  color: #F7A700;
+}
+
+.top-answer-star-author{
+  color: lightgrey;
+  &:hover{
+   color: #F7A700;
+  }
+}
+
+.top-answer-star.active{
+  color: #F7A700;
+}
+
+.top-answer-star{
+  color: lightgrey;
 }

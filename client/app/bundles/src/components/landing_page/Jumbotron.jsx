@@ -7,7 +7,7 @@ const Jumbotron = props => {
     <div className="jumbotron text_color">
       <h1 className="display-3">Welcome to InstaSmart</h1>
       <p>InstaSmart is an online forum created by the CarrotU className of Spring 2017. We welcome all carrots to submit, answer or comment on questions in order to share knowledge and enable discussions that make our company even better. Start asking and answering questions now!</p>
-      <div className="text-center">
+      <div className="text-center pt-5">
        <button 
         type="button" 
         className="btn btn-primary btn-lg px-5" 

@@ -10,23 +10,14 @@ import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
 import * as utils from "../common/utils";
 import ScrollToTopOnMount from '../common/ScrollToTop';
-import NavbarContainer from '../common/NavbarContainer';
-
+import FixedNav from '../common/FixedNav';
 
 
 class QuestionIndex extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = {
-      questions: null,
-      sortedBy: "recent",
-      searchQuery: null,
-    };
 
     this.onEditQuestion = this.onEditQuestion.bind(this);
-    this.sortQuestions = this.sortQuestions.bind(this);
-    this.updatedSearchQuery = this.updatedSearchQuery.bind(this);
-    this.onSearch = this.onSearch.bind(this);
   }
 
   componentWillMount(){
@@ -34,23 +25,8 @@ class QuestionIndex extends React.Component {
   }
 
   onEditQuestion(question){
+    console.log("onEditQuestion", question);
     this.props.modalActions.selectEditQuestion(question);
-  }
-
-  sortQuestions(sortType = "recent"){
-    this.setState({sortedBy: sortType});
-    this.props.actions.sortQuestions(sortType);
-  }
-
-  updatedSearchQuery(e){
-    e.preventDefault();
-    this.setState({searchQuery: e.target.value});
-  }
-
-  onSearch(){
-    if(this.state.searchQuery){
-      this.props.actions.getSearchResults({search: this.state.searchQuery});
-    }
   }
 
   render() {
@@ -64,8 +40,7 @@ class QuestionIndex extends React.Component {
             </div>);
 
     } else { 
-      console.log("questions props", this.props.questions);
-      const noResults = this.state.searchQuery ? "No Results Found" : "No Questions Loaded"; 
+      const noResults = "No Questions Loaded"; 
       listQuestions = (this.props.questions && this.props.questions.length > 0)
       ? this.props.questions.map(question => {
           const liked = utils.checkLikedByUser(question.votes_for, this.props.currentUser.id);
@@ -84,14 +59,9 @@ class QuestionIndex extends React.Component {
       : <h2><i style={{color: "white"}}>{noResults}</i></h2>;
     }
 
-
     return (
       <div>
-        <NavbarContainer 
-          sort={this.sortQuestions} 
-          sortedBy={this.state.sortedBy} 
-          updatedSearchQuery={this.updatedSearchQuery}
-          onSearch={this.onSearch}/>
+        <FixedNav includeSort={true}/>
         <div className="container question-index">
           {listQuestions}
         </div>
