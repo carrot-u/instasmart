@@ -1,12 +1,16 @@
 // Import modules
 import React from 'react';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import { Link } from 'react-router-dom';
+
 
 // Import project files
 import PostForm from "../questions/PostForm";
 import AllComments from '../comments/AllComments';
 import AnswerButtons from './AnswerButtons';
+import AcceptedAnswerStar from './AcceptedAnswerStar';
 import PostCreatorOptions from '../common/PostCreatorOptions';
+import * as utils from '../common/utils';
 
 class AnswerDetail extends React.Component{
   constructor(props){
@@ -14,7 +18,7 @@ class AnswerDetail extends React.Component{
     this.state = {
       comment: null,
       showForm: false,
-      answerLiked: false,
+      answerLiked: utils.checkLikedByUser(this.props.answer.votes_for, this.props.currentUser.id),
       answerResponse: this.props.answer.response,
       editPost: false,
       editType: "comments",
@@ -71,12 +75,12 @@ class AnswerDetail extends React.Component{
       :{comment: {body: this.state.comment.body, id: this.state.comment.id ? this.state.comment.id : null}};
     if(this.state.editPost){
       if(this.state.editType === "answers"){
-        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.questionId, payload, "answers") 
+        this.props.actions.editPostOnQuestion(this.props.answer.id, this.props.question.id, payload, "answers"); 
       }else{
-        this.props.actions.editPostOnAnswer(this.state.comment.id, this.props.answer.id, payload, "comments") 
+        this.props.actions.editPostOnAnswer(this.state.comment.id, this.props.answer.id, payload, "comments"); 
       }
     }else{
-      this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.questionId, payload);
+      this.props.actions.createCommentOnAnswer(this.props.answer.id, this.props.question.id, payload);
     }
     this.setState({ 
       showForm: !this.state.showForm,
@@ -85,20 +89,18 @@ class AnswerDetail extends React.Component{
     });
   }
 
-
-
   onClickLike(){
-    if(this.props.answer.liked){
-      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "unlike");
+    if(this.state.answerLiked){
+      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.question.id, "unlike");
     }else{
-      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.questionId, "like");
+      this.props.actions.likeUnlikeQuestionAnswer(this.props.answer.id, this.props.question.id, "like");
     }
-    this.setState({ answerLiked: !this.state.answerliked });
+    this.setState({ answerLiked: !this.state.answerLiked });
   }
 
   onDeletePost(post, type){
     if(type === "answers"){
-      this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.questionId, type);
+      this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.question.id, type);
     }else{
       this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
     }
@@ -127,7 +129,10 @@ class AnswerDetail extends React.Component{
 
     if(this.props.answer.user){
       answerBy = `${this.props.answer.user.name}`;
-      authorImage =  <img src={this.props.answer.user.image} className="profile-image mr-1"/>;
+      authorImage =  (
+        <Link to={`/users/${this.props.answer.user.id}`}>
+          <img src={this.props.answer.user.image} className="profile-image mr-1"/>
+        </Link>);
       creatorOptions = this.props.answer.user.id === this.props.currentUser.id ?
         <PostCreatorOptions 
           editPost={this.toggleEditPost} 
@@ -137,12 +142,19 @@ class AnswerDetail extends React.Component{
     }
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
 
-
     return (
       <div className="show-answer pr-4 row">
         <div className="col-sm-1 pt-2">
-            {authorImage} <br />
-            
+          <div className="row center-items">
+              {authorImage} <br />
+          </div>
+          <div className="row center-items pt-2">
+            <AcceptedAnswerStar 
+              answerAccepted={this.props.answerAccepted} 
+              onAcceptAnswer={this.props.onAcceptAnswer}
+              answer={this.props.answer}
+              questionAuthorFlag={this.props.questionAuthorFlag}/>
+          </div>
         </div>
         <div className="col-sm-11 pt-2 container">
           <div className="row" style={{height: "100%"}}>
@@ -164,9 +176,9 @@ class AnswerDetail extends React.Component{
                 onClickComment={this.onToggleForm}
                 onClickLike={this.onClickLike}
                 cached_votes_score={this.props.answer.cached_votes_score}
-                commentCount={commentCount}/>}
+                commentCount={commentCount}
+                liked={this.state.answerLiked}/>}
               {!this.state.editPost && comments}
-
             </div>
           </div>
         </div>

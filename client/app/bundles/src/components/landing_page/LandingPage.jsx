@@ -23,19 +23,17 @@ class LandingPage extends React.Component{
     return(
       <div className="landing-page">
         <ScrollToTopOnMount />
-        <div className="overlay">
+        <div className="pt-4">
           <Jumbotron 
             onClickNewQuestion={this.props.modalActions.showModal}
           />
+        </div>
           <QuestionModalContainer
             onClickNewQuestion={this.props.modalActions.showModal}
             onToggleModal={this.props.modalActions.toggleModal}
             showNewQuestionModal={this.props.showQuestionModal}
             actions={this.props.actions}
           />
-          <LandingPageCardsContainer />
-
-        </div>
       </div>
     );
   }

@@ -9,7 +9,7 @@ import QuestionButtons from "../QuestionButtons";
 import QuestionAuthor from './QuestionAuthor'
 import QuestionCreatorOptions from "../QuestionCreatorOptions";
 import QuestionForm from './QuestionForm';
-
+import * as utils from '../../common/utils';
 
 class QuestionDetail extends React.Component {
   constructor(props){
@@ -22,12 +22,15 @@ class QuestionDetail extends React.Component {
         body: props.question.body,
         tags: props.question.tags
       },
+      questionLiked: utils.checkLikedByUser(this.props.question.votes_for, this.props.currentUser.id),
       errors: {},
     }
     this.onSubmitEditQuestion = this.onSubmitEditQuestion.bind(this);
     this.onDeleteQuestion = this.onDeleteQuestion.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.updateQuestionState = this.updateQuestionState.bind(this);
+    this.onClickLike = this.onClickLike.bind(this);
+
   }
 
   onSubmitEditQuestion(e){
@@ -73,6 +76,16 @@ class QuestionDetail extends React.Component {
     return formIsValid;
   }
 
+
+  onClickLike(){
+    if(this.state.questionLiked){
+      this.props.actions.likeUnlikeQuestion(this.props.question.id, "unlike");
+    }else{
+      this.props.actions.likeUnlikeQuestion(this.props.question.id, "like");
+    }
+    this.setState({ questionLiked: !this.state.questionLiked });
+  }
+
   render(){
     const createdByCurrent =(this.props.question.user && 
       this.props.currentUser.id === this.props.question.user.id) ? true : false;
@@ -99,7 +112,7 @@ class QuestionDetail extends React.Component {
           <div className="card-block row pb-0 mb-0">
              {!this.state.showEditQuestionForm && <QuestionStatButtons 
               question={this.props.question} 
-              onClickLike={this.props.onClickLike}
+              onClickLike={this.onClickLike}
               onClickPost={this.props.onClickPost}/>}
           </div>
           {createdByCurrent && !this.state.showEditQuestionForm &&
