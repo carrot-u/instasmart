@@ -24,8 +24,7 @@ class QuestionsController < ApplicationController
     @questions = Question.order("id DESC")
 
     if params[:search]
-      @questions = Question.search(params[:search]).order("created_at DESC")
-      @questions += Question.tagged_with(params[:search]).order("created_at DESC")
+      @questions = Question.search(params[:search]).order("created_at DESC") + Question.tagged_with(params[:search]).order("created_at DESC")
     end
 
     respond_to do |format|
