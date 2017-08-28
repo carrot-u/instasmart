@@ -11,6 +11,7 @@ import classnames from 'classnames';
 // project files
 import QuestionDetail from "./QuestionDetail";
 import * as questionActions from "../../../actions/questionActions";
+import * as modalActions from "../../../actions/modalActions";
 import ScrollToTopOnMount from "../../common/ScrollToTop";
 import AllAnswers from "../../answers/AllAnswers";
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
@@ -127,7 +128,13 @@ class ShowQuestionConatiner extends React.Component {
           question={this.props.showQuestion} 
           onClickPost={this.onClickPost}
           currentUser={this.props.currentUser}
-          actions={this.props.actions}/>);
+          actions={this.props.actions}
+          handleDeleteTag={this.props.modalActions.deleteTagOnEditQuesion}
+          handleAdditionTag={this.props.modalActions.addTagOnEditQuesion}
+          handleDragTag={this.props.modalActions.swapTagsOnEditQuesion}
+          unformattedTags={this.props.editQuestion ? this.props.editQuestion.tags : null}
+          tags={this.props.editQuestion ? this.props.editQuestion.formattedTags : []}
+          />);
       showAnswers = this.props.showQuestion.answers ? 
         <AllAnswers 
           answers={this.props.showQuestion.answers} 
@@ -217,11 +224,14 @@ function mapStateToProps(state, ownProps) {
     isLoading: state.questions.isLoading,
     showQuestion: state.questions.showQuestion,
     currentUser: state.users.currentUser,
+    editQuestion: state.modal.editQuestion,
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(questionActions, dispatch),
+    modalActions: bindActionCreators(modalActions, dispatch),
+
   };
 }
 

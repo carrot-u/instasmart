@@ -91,7 +91,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(questionActions, dispatch),
-    modalActions: bindActionCreators(modalActions, dispatch)
+    modalActions: bindActionCreators(modalActions, dispatch),
   };
 }
 

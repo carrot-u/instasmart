@@ -38,6 +38,8 @@ class QuestionDetail extends React.Component {
     if (!this.questionFormIsValid()) {
       return;
     }
+    console.log("Tags", this.props.unformattedTags);
+    this.state.editQuestion.tag_list = utils.formatTagsForServer(this.props.unformattedTags);
     this.props.actions.editQuestion(this.state.editQuestion);
     this.toggleEdit();
   }
@@ -100,7 +102,11 @@ class QuestionDetail extends React.Component {
         onChange={this.updateQuestionState}
         question={this.props.question}
         toggleEdit={this.toggleEdit}
-        onSubmit={this.onSubmitEditQuestion}/>) : null;
+        onSubmit={this.onSubmitEditQuestion}
+        handleDeleteTag={this.props.handleDeleteTag}
+        handleAdditionTag={this.props.handleAdditionTag}
+        handleDragTag={this.props.handleDragTag}
+        tags={this.props.tags}/>) : null;
 
     return (
       <div className="row pt-1 pl-1 mr-0 show-question-detail">
