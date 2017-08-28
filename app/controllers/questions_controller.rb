@@ -77,16 +77,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    # respond_to do |format|
     if @question.user == current_user
       @question.destroy
     end
-        # format.html { questions_path }
-        # format.json { render json: "success!"}
-      # else
-      #   format.html { questions_path }
-      #   format.json { render result: "failure!"}
-   # end
   end
 
   def like
