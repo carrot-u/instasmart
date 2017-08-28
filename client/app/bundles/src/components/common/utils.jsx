@@ -30,14 +30,10 @@ export function formatTagsForClient(array){
 }
 
 export function formatTagsForServer(tags){
-  console.log("tags", tags);
-
   let tagString = "";
   for(let i = 0; i < tags.length; i++){
     tagString = tagString + ", " + tags[i].name;
-    console.log("tags[i].name", tags[i].name);
   }
-  console.log("tagString", tagString);
   return tagString;
 }
 
