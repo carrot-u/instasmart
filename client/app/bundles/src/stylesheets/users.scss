@@ -1,0 +1,17 @@
+@import '_variables.scss'; // colors, fonts etc...
+
+.profile-image-large {
+	width: 90%;
+}
+
+h2 i {
+	color: $instacart-green;
+}
+
+.activity-header h3 {
+	color: $instacart-green;
+}
+
+h7 .fa-plus-square-o:hover {
+	color: $instacart-orange;
+}
