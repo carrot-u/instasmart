@@ -29,6 +29,8 @@ export default function questionsReducer(state = initialState, action){
           formattedTags: formatTagsForClient(action.question.tags)
         }
       };
+
+    //****************** TAG ACTIONS ****************************//
     case types.DELETE_TAG:  
         if(!state.editQuestion.tags){
           return state;
@@ -58,19 +60,14 @@ export default function questionsReducer(state = initialState, action){
           showQuestionModal: true,
         };
     case types.SWAP_TAGS:
-        let tagsFormatted = Object.assign([], state.editQuestion.formattedTags);
-        // mutate array
-        tagsFormatted.splice(action.currPos, 1);
-        tagsFormatted.splice(action.newPos, 0, action.tag);
-        let tag_list = Object.assign([], state.editQuestion.tag_list);
-        // mutate array
-        tag_list.splice(action.currPos, 1);
-        tag_list.splice(action.newPos, 0, action.tag);
+        let tag_list = Object.assign([], state.editQuestion.tags);
+        let tempTag = tag_list.splice(action.currPos, 1);
+        tag_list.splice(action.newPos, 0, tempTag[0]);
         return {
           editQuestion: {
             ...state.editQuestion,
             tags: tag_list,
-            formattedTags: tagsFormatted
+            formattedTags: formatTagsForClient(tag_list)
           },
           showQuestionModal: true,
         };
