@@ -1,6 +1,8 @@
 import React from 'react';
 import TextArea from '../../common/TextArea';
 import TextInput from '../../common/TextInput';
+import TagsInput from '../../common/TagsInput';
+
 
 const QuestionForm = props => {
 
@@ -14,6 +16,7 @@ const QuestionForm = props => {
   if(props.question){
     tagsValue = tagsString(props.question.tags);
   } 
+
   return (
     <form className="edit-question-form">
       <TextArea
@@ -44,19 +47,22 @@ const QuestionForm = props => {
 
       />
 
-      <TextInput
+
+
+      <TagsInput 
         label="Tags"
         labelClass="h5"
-        optional={true}
-        style={props.question && {color: "darkgreen"}}
-        className="form-control"
+        placeholder="Press tab to add additional tags"
         name="tag_list"
-        placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."
-        onChange={props.onChange}
-        defaultValue={tagsValue}
-        error={props.errors.tags}
+        optional={true}
+        tags={props.tags}
+        suggestions={props.suggestions}
+        handleDeleteTag={props.handleDeleteTag}
+        handleAdditionTag={props.handleAdditionTag}
+        handleDragTag={props.handleDragTag}
+        error={props.errors.tags} />
 
-      />
+
       <div className='form-group'>
         <div className="text-right">
           <button className="btn btn-success mr-1" onClick={props.onSubmit}>Submit</button>

@@ -16,16 +16,15 @@ import FixedNav from '../common/FixedNav';
 class QuestionIndex extends React.Component {
   constructor(props){
     super(props);
-
     this.onEditQuestion = this.onEditQuestion.bind(this);
   }
+
 
   componentWillMount(){
     this.props.actions.loadQuestions();
   }
 
   onEditQuestion(question){
-    console.log("onEditQuestion", question);
     this.props.modalActions.selectEditQuestion(question);
   }
 

@@ -68,7 +68,9 @@ class QuestionIndexRow extends React.Component {
   onDeleteQuestion(e){
     e.preventDefault();
     const payload = {
-      question: this.props.question
+      question: { 
+        id: this.props.question.id,
+      }
     }
     this.props.actions.deleteQuestion(payload);
   }

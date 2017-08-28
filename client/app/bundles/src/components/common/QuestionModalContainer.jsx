@@ -1,5 +1,7 @@
 import React from "react";
+
 import NewQuestionModal from "./NewQuestionModal";
+import * as utils from './utils';
 
 
 class QuestionModalContainer extends React.Component {
@@ -8,6 +10,7 @@ class QuestionModalContainer extends React.Component {
     this.state = {
       saving: false,
       question: Object.assign({}, this.props.editQuestion),
+      tags: [],
       errors: {},
     };
     this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
@@ -59,18 +62,16 @@ class QuestionModalContainer extends React.Component {
       return;
     }
     this.setState({saving: true});
-      console.log("question", this.state.question);
-
+    let payload={
+      tag_list: this.props.editQuestion ? utils.formatTagsForServer(this.props.editQuestion.tags) : null,
+      ...this.state.question,
+    };
     //Check if this is a new question or an edit
-    if(this.props.editQuestion){
-      const payload={
-        id: this.props.editQuestion.id,
-        ...this.state.question,
-      };
-
+    if(this.props.editQuestion.id){
+      payload.id = this.props.editQuestion.id
       this.props.actions.editQuestion(payload);
     }else{
-      this.props.actions.createQuestion(this.state.question);
+      this.props.actions.createQuestion(payload);
     }
     this.onToggleModal();
   }
@@ -84,6 +85,10 @@ class QuestionModalContainer extends React.Component {
           onSubmit={this.submitQuestion}
           errors={this.state.errors}
           question={this.props.editQuestion}
+          handleDeleteTag={this.props.handleDeleteTag}
+          handleAdditionTag={this.props.handleAdditionTag}
+          handleDragTag={this.props.handleDragTag}
+          tags={this.props.editQuestion ? this.props.editQuestion.formattedTags : []}
         />
     );
   }

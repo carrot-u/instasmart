@@ -62,7 +62,7 @@ class FixedNav extends React.Component {
             <QuestionsNavContent 
               onClickNewQuestion={this.props.modalActions.showModal}
               sort={this.sortQuestions}
-              sortedBy={this.state.sortedBy}
+              sortedBy={this.props.sortedBy}
             />}
         {this.props.includeSort && 
           <QuestionModalContainer
@@ -71,6 +71,9 @@ class FixedNav extends React.Component {
               showNewQuestionModal={this.props.showQuestionModal}
               actions={this.props.actions}
               editQuestion={this.props.editQuestion}
+              handleDeleteTag={this.props.modalActions.deleteTagOnEditQuesion}
+              handleAdditionTag={this.props.modalActions.addTagOnEditQuesion}
+              handleDragTag={this.props.modalActions.swapTagsOnEditQuesion}
             />
         }
       </StickyNavbar>
@@ -88,7 +91,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(questionActions, dispatch),
-    modalActions: bindActionCreators(modalActions, dispatch)
+    modalActions: bindActionCreators(modalActions, dispatch),
   };
 }
 

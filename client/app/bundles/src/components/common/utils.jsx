@@ -21,6 +21,24 @@ export function findById(array, searchId) {
     }
 }
 
+export function formatTagsForClient(array){
+  console.log(array);
+  const newArray = array.map((item, index) => {
+    return {id: index, text: item.name};
+  });
+  return newArray;
+}
+
+export function formatTagsForServer(tags){
+  let tagString = "";
+  for(let i = 0; i < tags.length; i++){
+    tagString = tagString + ", " + tags[i].name;
+  }
+  return tagString;
+}
+
+
+
 
 
 // HELPER SORT FUNCTIONS
