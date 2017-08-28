@@ -6,7 +6,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   gauth_client_secret = ENV["INSTASMART_GAUTH_CLIENT_SECRET"]
   gauth_config = {
       image_aspect_ratio: "square",
-      image_size: 100,
+      image_size: 500,
       client_id: gauth_client_id,
       hd: "instacart.com",
       access_type: "offline",

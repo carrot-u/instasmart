@@ -71,12 +71,13 @@ class UserStats extends React.Component {
     });
 
     return(
-      <div className="container mb-5">
-        <div className="col-12 activity-header">
-          <h3 className="mt-2 center-items">Activity</h3>
+      <div className="container card-block">
+        <div className="activity-header">
+          <h3 className="card-block">User Activity</h3>
         </div>
-
-        {activityOutput}
+        <div className="card-block">
+          {activityOutput}
+        </div>
       </div>
     );
   }
