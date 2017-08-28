@@ -45,6 +45,7 @@ class QuestionDetail extends React.Component {
   }
 
   toggleEdit(){
+    !this.state.showEditQuestionForm ? this.props.selectEditQuestion(this.props.question, false) : "";
     this.setState({showEditQuestionForm: !this.state.showEditQuestionForm});
   } 
 
@@ -89,6 +90,7 @@ class QuestionDetail extends React.Component {
   }
 
   render(){
+    console.log("Question Detail props", this.props);
     const createdByCurrent =(this.props.question.user && 
       this.props.currentUser.id === this.props.question.user.id) ? true : false;
     const questionDetails = this.state.showEditQuestionForm ? null : (

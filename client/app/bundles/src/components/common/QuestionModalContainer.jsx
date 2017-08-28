@@ -18,9 +18,6 @@ class QuestionModalContainer extends React.Component {
     this.updateQuestionState = this.updateQuestionState.bind(this);
     this.submitQuestion = this.submitQuestion.bind(this);
     this.questionFormIsValid = this.questionFormIsValid.bind(this);
-    this.handleDeleteTag = this.handleDeleteTag.bind(this);
-    this.handleAdditionTag = this.handleAdditionTag.bind(this);
-    this.handleDragTag = this.handleDragTag.bind(this);
   }
 
 
@@ -78,40 +75,6 @@ class QuestionModalContainer extends React.Component {
     }
     this.onToggleModal();
   }
-
-  handleDeleteTag(i) {
-      let tags = this.state.question.tags;
-      tags.splice(i, 1);
-      this.setState({question: {
-         tags: tags
-        }
-      });
-  }
-
-  handleAdditionTag(tag) {
-      let tags = this.state.question.tags;
-      tags.push({
-          id: tags.length + 1,
-          text: tag
-      });
-      this.setState({question: {
-         tags: tags
-        }
-      });
-  }
-
-  handleDragTag(tag, currPos, newPos) {
-      let tags = this.state.question.tags;
-      // mutate array
-      tags.splice(currPos, 1);
-      tags.splice(newPos, 0, tag);
-      // re-render
-      this.setState({question: {
-         tags: tags
-        }
-      });
-  }
-
 
   render() {
     return (

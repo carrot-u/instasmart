@@ -132,8 +132,9 @@ class ShowQuestionConatiner extends React.Component {
           handleDeleteTag={this.props.modalActions.deleteTagOnEditQuesion}
           handleAdditionTag={this.props.modalActions.addTagOnEditQuesion}
           handleDragTag={this.props.modalActions.swapTagsOnEditQuesion}
+          selectEditQuestion={this.props.modalActions.selectEditQuestion}
           unformattedTags={this.props.editQuestion ? this.props.editQuestion.tags : null}
-          tags={this.props.editQuestion ? this.props.editQuestion.formattedTags : []}
+          tags={this.props.editQuestion ? utils.formatTagsForClient(this.props.editQuestion.tags) : [] }
           />);
       showAnswers = this.props.showQuestion.answers ? 
         <AllAnswers 
