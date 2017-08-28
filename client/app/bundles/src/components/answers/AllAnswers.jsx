@@ -57,8 +57,7 @@ class AllAnswers extends React.Component {
     });
 
     return (
-      <div className="card-block mt-5 all-answers">
-        <h3>Answers ({this.props.answers.length}) </h3> 
+      <div className="card-block mt-2 all-answers">
         {answersListing}
       </div>
     );

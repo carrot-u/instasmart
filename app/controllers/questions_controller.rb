@@ -77,16 +77,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    respond_to do |format|
-      if @question.user == current_user
-        @question.destroy
-        format.html { questions_path }
-        format.json { render json: "success!"}
-      else
-        format.html { questions_path }
-        format.json { render result: "failure!"}
-      end
-   end
+    if @question.user == current_user
+      @question.destroy
+    end
   end
 
   def like
@@ -113,6 +106,6 @@ class QuestionsController < ApplicationController
     end
 
     def set_question_for_edit_and_destroy
-      current_user.questions.find(params[:id])
+      @question = current_user.questions.find(params[:id])
     end
 end
