@@ -1,6 +1,8 @@
 import React from "react";
 import TextArea from './TextArea';
 import TextInput from './TextInput';
+import TagsInput from './TagsInput';
+
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { WithContext as ReactTags } from 'react-tag-input';
 
@@ -11,8 +13,6 @@ class NewQuestionModal extends React.Component {
       backdrop: true
     };
     this.changeBackdrop = this.changeBackdrop.bind(this);
-    this.tagsString = this.tagsString.bind(this);
-
   }
 
   changeBackdrop(e) {
@@ -23,18 +23,7 @@ class NewQuestionModal extends React.Component {
     this.setState({ backdrop: value });
   }
 
-  tagsString(tags){
-    return tags.map((tag, index) => {
-      return `${tag.name}`;
-    });
-  }
-
-
   render() {
-    let tagsValue = '';
-    if(this.props.question){
-      tagsValue = this.tagsString(this.props.question.tags);
-    } 
     return (
       <div>
         <Modal
@@ -75,19 +64,18 @@ class NewQuestionModal extends React.Component {
 
               />
 
-              <TextInput
+              <TagsInput 
                 label="Tags"
                 labelClass="h5"
-                optional={true}
-                style={this.props.question && {color: "darkgreen"}}
-                className="form-control"
+                placeholder="Press tab to add additional tags"
                 name="tag_list"
-                placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."
-                onChange={this.props.onChange}
-                defaultValue={tagsValue}
-                error={this.props.errors.tags}
-
-              />
+                optional={true}
+                tags={this.props.tags}
+                suggestions={this.props.suggestions}
+                handleDeleteTag={this.props.handleDeleteTag}
+                handleAdditionTag={this.props.handleAdditionTag}
+                handleDragTag={this.props.handleDragTag}
+                error={this.props.errors.tags} />
 
             </form>
           </ModalBody>

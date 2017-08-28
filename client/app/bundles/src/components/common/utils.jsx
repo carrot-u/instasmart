@@ -21,13 +21,27 @@ export function findById(array, searchId) {
     }
 }
 
-export function formatTagsArray(array){
+export function formatTagsForClient(array){
   console.log(array);
   const newArray = array.map((item, index) => {
-    return {id: index, text: item};
+    return {id: index, text: item.name};
   });
-  console.log("newArray", newArray);
+  return newArray;
 }
+
+export function formatTagsForServer(tags){
+  console.log("tags", tags);
+
+  let tagString = "";
+  for(let i = 0; i < tags.length; i++){
+    tagString = tagString + ", " + tags[i].name;
+    console.log("tags[i].name", tags[i].name);
+  }
+  console.log("tagString", tagString);
+  return tagString;
+}
+
+
 
 
 

@@ -12,3 +12,15 @@ export function toggleModal(){
 export function selectEditQuestion(question){
   return { type: types.SELECT_EDIT_QUESTION, question};
 }
+
+export function swapTagsOnEditQuesion(tag, currPos, newPos){
+  return { type: types.SWAP_TAGS, tag, currPos, newPos};
+}
+
+export function addTagOnEditQuesion(addTag){
+  return { type: types.ADD_TAG, addTag};
+}
+
+export function deleteTagOnEditQuesion(removeTagIndex){
+  return { type: types.DELETE_TAG, removeTagIndex};
+}

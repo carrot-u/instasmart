@@ -17,7 +17,12 @@ export default function questionsReducer(state = initialState, action){
     //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
       return {...state,
-        questions: utils.sort(state.sortType, action.questions),
+        questions: utils.sort(state.sortType, action.questions.map(question => {
+          return {
+            ...question,
+            answers: utils.sort("accepted", question.answers)
+          }
+        })),
         isLoading: false,
       };
     case types.LOAD_QUESTIONS_START:
