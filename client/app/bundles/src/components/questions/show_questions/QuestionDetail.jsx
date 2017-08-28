@@ -38,7 +38,6 @@ class QuestionDetail extends React.Component {
     if (!this.questionFormIsValid()) {
       return;
     }
-    console.log("Tags", this.props.unformattedTags);
     this.state.editQuestion.tag_list = utils.formatTagsForServer(this.props.unformattedTags);
     this.props.actions.editQuestion(this.state.editQuestion);
     this.toggleEdit();
@@ -90,7 +89,6 @@ class QuestionDetail extends React.Component {
   }
 
   render(){
-    console.log("Question Detail props", this.props);
     const createdByCurrent =(this.props.question.user && 
       this.props.currentUser.id === this.props.question.user.id) ? true : false;
     const questionDetails = this.state.showEditQuestionForm ? null : (
