@@ -43,7 +43,7 @@ export default function questionsReducer(state = initialState, action){
             tags: newTagsArray,
             formattedTags: formatTagsForClient(newTagsArray),
           },
-          showQuestionModal: true,
+          showQuestionModal: state.showQuestionModal,
         };
     case types.ADD_TAG:  
          newTagsArray = state.editQuestion ? Object.assign([], state.editQuestion.tags) : [];
@@ -57,7 +57,7 @@ export default function questionsReducer(state = initialState, action){
            newQuestion: !state.editQuestion, 
            formattedTags: formatTagsForClient(newTagsArray),
           },
-          showQuestionModal: true,
+          showQuestionModal: state.showQuestionModal,
         };
     case types.SWAP_TAGS:
         let tag_list = Object.assign([], state.editQuestion.tags);
@@ -69,7 +69,7 @@ export default function questionsReducer(state = initialState, action){
             tags: tag_list,
             formattedTags: formatTagsForClient(tag_list)
           },
-          showQuestionModal: true,
+          showQuestionModal: state.showQuestionModal,
         };
 
 
