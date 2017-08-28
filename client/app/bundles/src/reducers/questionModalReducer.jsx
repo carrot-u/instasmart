@@ -23,7 +23,7 @@ export default function questionsReducer(state = initialState, action){
       };
     case types.SELECT_EDIT_QUESTION:
       return {
-        showQuestionModal: true,
+        showQuestionModal: action.showModal,
         editQuestion: {
           ...action.question,
           formattedTags: formatTagsForClient(action.question.tags)

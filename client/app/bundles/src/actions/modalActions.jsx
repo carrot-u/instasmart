@@ -9,8 +9,8 @@ export function toggleModal(){
   return { type: types.TOGGLE_MODAL_SUCCESS};
 }
 
-export function selectEditQuestion(question){
-  return { type: types.SELECT_EDIT_QUESTION, question};
+export function selectEditQuestion(question, showModal = true){
+  return { type: types.SELECT_EDIT_QUESTION, question, showModal};
 }
 
 export function swapTagsOnEditQuesion(tag, currPos, newPos){
