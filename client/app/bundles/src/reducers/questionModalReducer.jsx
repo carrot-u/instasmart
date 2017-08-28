@@ -9,7 +9,6 @@ const initialState = {
 let newTagsArray = "";
 
 export default function questionsReducer(state = initialState, action){
-  console.log("questionsReducer(state = initialState, action) ", state, action);
   switch(action.type){
     case types.SHOW_MODAL_SUCCESS:
       return {

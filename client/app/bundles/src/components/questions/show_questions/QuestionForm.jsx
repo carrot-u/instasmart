@@ -74,17 +74,3 @@ const QuestionForm = props => {
 }
 
 export default QuestionForm;
-
-// <TextInput
-//   label="Tags"
-//   labelClass="h5"
-//   optional={true}
-//   style={props.question && {color: "darkgreen"}}
-//   className="form-control"
-//   name="tag_list"
-//   placeholder="&quot;Happiness&quot;, &quot;Culture&quot;, etc..."
-//   onChange={props.onChange}
-//   defaultValue={tagsValue}
-//   error={props.errors.tags}
-
-// />
