@@ -25,7 +25,6 @@ class QuestionIndex extends React.Component {
   }
 
   onEditQuestion(question){
-    console.log("onEditQuestion", question);
     this.props.modalActions.selectEditQuestion(question);
   }
 
