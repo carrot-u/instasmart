@@ -53,8 +53,8 @@ class FixedNav extends React.Component {
           </Link>
           <div className="search-field-container center-items">
             {this.props.includeSort && <FixedSearchField 
-              updatedSearchQuery={this.props.updatedSearchQuery}  
-              onSearch={this.props.onSearch}  
+              updatedSearchQuery={this.updatedSearchQuery}  
+              onSearch={this.onSearch}  
             />}
           </div>
         </div>
