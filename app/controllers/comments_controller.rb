@@ -67,6 +67,6 @@ class CommentsController < ApplicationController
     end
 
     def set_comment_for_edit_and_destroy
-      current_user.comments.find(params[:id])
+      @comment = current_user.comments.find(params[:id])
     end
 end

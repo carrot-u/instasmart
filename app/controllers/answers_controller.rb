@@ -74,7 +74,7 @@ class AnswersController < ApplicationController
     end
 
     def set_answer_for_edit_and_destroy
-      current_user.answers.find(params[:id])
+      @answer = current_user.answers.find(params[:id])
     end
 
 end
