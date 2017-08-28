@@ -10,7 +10,7 @@ const QuestionAuthor = props => {
   return (
     <div>
       <div className="question-author-container row">
-        <div className="col-md-5 offset-md-7">
+        <div className="col-lg-5 offset-lg-7">
             {image} <small><i>Asked {props.question.created_at} ago by {userInfo}</i></small> 
         </div>
       </div>

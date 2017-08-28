@@ -184,21 +184,31 @@ class ShowQuestionConatiner extends React.Component {
     return (
       <div>
         <FixedNav includeSort={false}/>
-        <div className="show-question-top-container card mt-5">
-          <ScrollToTopOnMount />
-          <div className="container py-3 px-0">
-            <div className="show-question">
-              {author}
-              {showQuestion}
-              {tags}
-              <ReactCSSTransitionGroup
-                transitionName="form-transition"
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={200}>
-                {showForm}
-              </ReactCSSTransitionGroup>
-              {tabs}
-              {tabContent}
+        <div className="container">
+          <div className="show-question-top-container card mt-5">
+            <ScrollToTopOnMount />
+            <div className="container py-3 px-0">
+              <div className="show-question">
+                <div className="card-block">
+                  {author}
+                </div>
+                <div className="card-text">
+                  {tags}
+                </div>
+                <div className="card-block">
+                  {showQuestion}
+                </div>
+                <ReactCSSTransitionGroup
+                  transitionName="form-transition"
+                  transitionEnterTimeout={300}
+                  transitionLeaveTimeout={200}>
+                  {showForm}
+                </ReactCSSTransitionGroup>
+                <div className="card-block">
+                  {tabs}
+                  {tabContent}
+                </div>
+              </div>
             </div>
           </div>
         </div>
