@@ -61,7 +61,7 @@ class FixedNav extends React.Component {
         {this.props.includeSort &&
             <QuestionsNavContent 
               onClickNewQuestion={this.props.modalActions.showModal}
-              sort={this.props.sort}
+              sort={this.sortQuestions}
               sortedBy={this.props.sortedBy}
             />}
         {this.props.includeSort && 
