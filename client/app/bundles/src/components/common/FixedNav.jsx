@@ -71,6 +71,9 @@ class FixedNav extends React.Component {
               showNewQuestionModal={this.props.showQuestionModal}
               actions={this.props.actions}
               editQuestion={this.props.editQuestion}
+              handleDeleteTag={this.props.modalActions.deleteTagOnEditQuesion}
+              handleAdditionTag={this.props.modalActions.addTagOnEditQuesion}
+              handleDragTag={this.props.modalActions.swapTagsOnEditQuesion}
             />
         }
       </StickyNavbar>

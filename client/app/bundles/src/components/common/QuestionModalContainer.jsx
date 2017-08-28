@@ -10,7 +10,7 @@ class QuestionModalContainer extends React.Component {
     this.state = {
       saving: false,
       question: Object.assign({}, this.props.editQuestion),
-      tags: null,
+      tags: [],
       errors: {},
     };
     this.onClickNewQuestion = this.onClickNewQuestion.bind(this);
@@ -67,49 +67,57 @@ class QuestionModalContainer extends React.Component {
     this.setState({saving: true});
       console.log("question", this.state.question);
 
-    //Check if this is a new question or an edit
-    if(this.props.editQuestion){
-      const payload={
-        id: this.props.editQuestion.id,
-        ...this.state.question,
-      };
+    let payload={
+      tag_list: this.props.editQuestion ? utils.formatTagsForServer(this.props.editQuestion.tags) : null,
+      ...this.state.question,
+    };
 
+    //Check if this is a new question or an edit
+    if(this.props.editQuestion.id){
+      payload.id = this.props.editQuestion.id
       this.props.actions.editQuestion(payload);
     }else{
-      this.props.actions.createQuestion(this.state.question);
+
+      this.props.actions.createQuestion(payload);
     }
     this.onToggleModal();
   }
 
   handleDeleteTag(i) {
-      let tags = this.state.tags;
+      let tags = this.state.question.tags;
       tags.splice(i, 1);
-      this.setState({tags: tags});
+      this.setState({question: {
+         tags: tags
+        }
+      });
   }
 
   handleAdditionTag(tag) {
-      let tags = this.state.tags;
+      let tags = this.state.question.tags;
       tags.push({
           id: tags.length + 1,
           text: tag
       });
-      this.setState({tags: tags});
+      this.setState({question: {
+         tags: tags
+        }
+      });
   }
 
   handleDragTag(tag, currPos, newPos) {
-      let tags = this.state.tags;
+      let tags = this.state.question.tags;
       // mutate array
       tags.splice(currPos, 1);
       tags.splice(newPos, 0, tag);
       // re-render
-      this.setState({ tags: tags });
+      this.setState({question: {
+         tags: tags
+        }
+      });
   }
 
 
   render() {
-    if(this.props.editQuestion && this.props.editQuestion.tags) {
-      utils.tagsArrayToObjectArray(this.props.editQuestion.tags);
-    }
     return (
         <NewQuestionModal 
           isOpen={this.props.showNewQuestionModal} 
@@ -118,6 +126,10 @@ class QuestionModalContainer extends React.Component {
           onSubmit={this.submitQuestion}
           errors={this.state.errors}
           question={this.props.editQuestion}
+          handleDeleteTag={this.props.handleDeleteTag}
+          handleAdditionTag={this.props.handleAdditionTag}
+          handleDragTag={this.props.handleDragTag}
+          tags={this.props.editQuestion ? this.props.editQuestion.formattedTags : []}
         />
     );
   }
