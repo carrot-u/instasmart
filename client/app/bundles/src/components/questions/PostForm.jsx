@@ -28,22 +28,24 @@ const PostForm = props => {
   }
   
   return(
-    <form className="mt-4">
-      <label htmlFor="response" className={formatter.labelClass} style={formatter.labelStyle}><b>{label}:</b></label>
-      <textarea 
-        className={formatter.textareaClass} 
-        id="response" rows={formatter.rows} 
-        placeholder={placeholder}  
-        defaultValue={defaultValue}
-        onChange={props.updatePostState}
-      />
-      <div className='form-group'>
-        <div className="text-right">
-          <button className="btn btn-success mr-1" onClick={props.handleSubmitPost}>Submit</button>
-          <button className="btn btn-outline-secondary" onClick={props.handleHideForm} >Close</button>
+    <div className="container">
+      <form className="card-block py-0 mx-3">
+        <label id="add-answer-comment" className="h6" htmlFor="response"><b>{label}:</b></label>
+        <textarea 
+          className={formatter.textareaClass} 
+          id="response" rows={formatter.rows} 
+          placeholder={placeholder}  
+          defaultValue={defaultValue}
+          onChange={props.updatePostState}
+        />
+        <div className='form-group'>
+          <div className="text-right">
+            <button className="btn btn-success mr-1" onClick={props.handleSubmitPost}>Submit</button>
+            <button className="btn btn-outline-secondary" onClick={props.handleHideForm} >Close</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
