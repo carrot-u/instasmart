@@ -26,8 +26,6 @@ class WarningModal extends React.Component {
   }
 
   render() {
-   console.log("WarningModal", this.props);
-
     return (
       <div>
         <Modal isOpen={this.props.showModal} toggle={this.props.toggleWarningModal} className={this.props.className} backdrop={this.state.backdrop}>

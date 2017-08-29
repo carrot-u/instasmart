@@ -100,9 +100,13 @@ class AnswerDetail extends React.Component{
 
   onDeletePost(post, type){
     if(type === "answers"){
-      this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.question.id, type);
+      this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deletePostOnQuestion, [this.props.answer.id, this.props.question.id, type]);
+      this.props.warningModalActions.setWarningText("Are you sure you want to delete this answer?", "Confirm Deletion");
+      // this.props.actions.deletePostOnQuestion(this.props.answer.id, this.props.question.id, type);
     }else{
-      this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
+      this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deletePostOnAnswer, [post.id, this.props.answer.id, type]);
+      this.props.warningModalActions.setWarningText("Are you sure you want to delete this comment?", "Confirm Deletion");
+      // this.props.actions.deletePostOnAnswer(post.id, this.props.answer.id, type);
     }
   }
 
