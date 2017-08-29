@@ -11,7 +11,6 @@ const state = {
 }
 
 export default function warningModalReducer(state = {}, action){
-  console.log("warningModalReducer : ", state, action);
   switch (action.type){
     case types.SHOW_WARNING_SUCCESS:
       return {
@@ -52,7 +51,6 @@ export default function warningModalReducer(state = {}, action){
 
 
     case types.WARNING_PROCEED_SUCCESS:
-      console.log("...state.proceedArguments", state.proceedArguments)
       if(state.proceedArguments){
         if(state.proceedArguments instanceof Array){
           state.proceedActions(...state.proceedArguments);
