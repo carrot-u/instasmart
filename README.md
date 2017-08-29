@@ -144,3 +144,11 @@ A Q&A Forum for Instacart Employees
 ### Which end is up?
 - [ ] slugs in the show page urls?
 - [ ] Direct root_path to sign in page
+- [ ] 
+
+### REAL TODO
+- [ ] Change time format for user created_at
+- [ ] add answer/ add comment styling
+- [ ] move tags on show page to above comment/answer/like buttons
+- [ ] replace placeholder on question modal
+- [ ] modal styling

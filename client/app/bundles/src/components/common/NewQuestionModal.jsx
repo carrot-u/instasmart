@@ -42,8 +42,8 @@ class NewQuestionModal extends React.Component {
                 className="form-control"
                 style={this.props.question && {color: "darkgreen"}}
                 name="summary"
-                rows="3"
-                placeholder={"Ask your question..."}
+                rows="5"
+                placeholder={"Instasmart is a question and answer forum for Instacart employees. You can ask about anything Instacart from how to access a quip document to the history of our company values."}
                 onChange={this.props.onChange}
                 defaultValue={this.props.question ? this.props.question.summary : ''}
                 error={this.props.errors.summary}
@@ -80,7 +80,7 @@ class NewQuestionModal extends React.Component {
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="success" onClick={this.props.onSubmit}>Submit</Button>{" "}
+            <Button id="submit-button" onClick={this.props.onSubmit}>Submit</Button>{" "}
             <Button color="secondary" onClick={this.props.onToggleModal}>
               Cancel
             </Button>
