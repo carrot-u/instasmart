@@ -65,9 +65,7 @@ class QuestionIndex extends React.Component {
     return (
       <div>
         <FixedNav includeSort={true}/>
-        <WarningModal show={this.props.showWarning} header="Warning">
-          Are you sure you want to delete?
-        </WarningModal>
+        <WarningModal />
         <div className="container question-index">
           {listQuestions}
         </div>
@@ -82,8 +80,6 @@ function mapStateToProps(state, ownProps) {
     isLoading: state.questions.isLoading,
     showQuestionModal: state.modal.showQuestionModal,
     currentUser: state.users.currentUser,
-    showWarning: state.warningModal.showModal,
-
   };
 }
 function mapDispatchToProps(dispatch) {
@@ -91,7 +87,6 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(questionActions, dispatch),
     questionModalActions: bindActionCreators(modalActions, dispatch),
     warningModalActions: bindActionCreators(warningModalActions, dispatch),
-
   };
 }
 

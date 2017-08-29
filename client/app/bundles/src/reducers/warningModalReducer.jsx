@@ -1,11 +1,13 @@
 import * as types from '../actions/actionTypes';
+import {HashHistory } from 'react-router-dom';
 
 const state = {
   showModal: false,
-  proceedAction: null,
+  proceedActions: null,
   proceedArguments: null,
   modalText: "",
   modalHeader: "",
+  redirectTo: null,
 }
 
 export default function warningModalReducer(state = {}, action){
@@ -23,14 +25,15 @@ export default function warningModalReducer(state = {}, action){
         showModal: !state.showModal,
       }
 
-    case types.SET_WARNING_ACTION:
+    case types.SET_WARNING_ACTIONS:
       return {
         showModal: true,
-        proceedAction: action.proceedAction,
+        proceedActions: action.proceedActions,
         proceedArguments: action.actionArguments,
+        redirectTo: action.redirectTo,
       }
 
-    case types.SET_TEXT_ACTION:
+    case types.SET_TEXT_SUCCESS:
       return {
         ...state,
         modalText: action.body,
@@ -41,25 +44,28 @@ export default function warningModalReducer(state = {}, action){
      return {
        showModal: false,
        proceedArguments: null,
-       proceedAction: null,
+       proceedActions: null,
        modalText: "",
        modalHeader: "",
+       redirectTo: null,
      }     
 
 
     case types.WARNING_PROCEED_SUCCESS:
       console.log("...state.proceedArguments", state.proceedArguments)
       if(state.proceedArguments){
-        state.proceedAction(state.proceedArguments);
+        state.proceedActions(state.proceedArguments);
       }else{
-        state.proceedAction();
+        state.proceedActions();
       }
+      browserHistory.push('/questions');
       return {
         showModal: false,
         proceedArguments: null,
-        proceedAction: null,
+        proceedActions: null,
         modalText: "",
         modalHeader: "",
+        redirectTo: null,
       }
 
     default:

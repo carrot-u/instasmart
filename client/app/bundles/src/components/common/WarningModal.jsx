@@ -10,7 +10,7 @@ class WarningModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      backdrop: false
+      backdrop: 'static'
     };
 
     this.changeBackdrop = this.changeBackdrop.bind(this);

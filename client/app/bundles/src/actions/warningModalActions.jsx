@@ -16,6 +16,10 @@ export function warningModalCancel(){
   return { type: types.WARNING_CANCEL_SUCCESS};
 }
 
-export function warningModalSetProceedAction(proceedAction, actionArguments = ""){
-  return { type: types.SET_WARNING_ACTION, proceedAction, actionArguments }
+export function setWarningText(body, header){
+  return { type: types.SET_TEXT_SUCCESS, body, header};
+}
+
+export function warningModalSetProceedActions(proceedActions, actionArguments = "", redirectTo = false){
+  return { type: types.SET_WARNING_ACTIONS, proceedActions, actionArguments, redirectTo }
 }
