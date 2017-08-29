@@ -92,7 +92,7 @@ class QuestionDetail extends React.Component {
     const questionDetails = this.state.showEditQuestionForm ? null : (
       <div> 
         <h3 className="py-1 question-summary">{this.props.question.summary}</h3>
-        <i><h6 className="mx-1 py-1 question-detail text-muted">{this.props.question.body}</h6></i>
+        {this.props.question.body && <i><h6 className="mx-1 py-1 question-detail text-muted">{this.props.question.body}</h6></i> }
         <IndexQuestionTags question={this.props.question} />
       </div>);
     const questionForm = this.state.showEditQuestionForm  ? 
@@ -109,7 +109,7 @@ class QuestionDetail extends React.Component {
           {questionDetails}
           {questionForm}
           <hr></hr>
-          <div className="card-block row pb-0 mb-0">
+          <div className="card-block row py-0 my-0">
              {!this.state.showEditQuestionForm && <QuestionStatButtons 
               question={this.props.question} 
               onClickLike={this.onClickLike}
