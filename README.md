@@ -147,8 +147,9 @@ A Q&A Forum for Instacart Employees
 - [ ] 
 
 ### REAL TODO
-- [ ] Change time format for user created_at
-- [ ] add answer/ add comment styling
-- [ ] move tags on show page to above comment/answer/like buttons
-- [ ] replace placeholder on question modal
-- [ ] modal styling
+- [x] Change time format for user created_at
+- [x] add answer/ add comment styling
+- [x] move tags on show page to above comment/answer/like buttons
+- [x] less white space on show page 
+- [x] replace placeholder on question modal
+- [x] modal styling

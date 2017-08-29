@@ -193,7 +193,7 @@ class ShowQuestionConatiner extends React.Component {
             <ScrollToTopOnMount />
             <div className="container py-3 px-0">
               <div className="show-question">
-                <div className="card-block">
+                <div className="card-block py-0">
                   {author}
                 </div>
                 <div className="card-block">
