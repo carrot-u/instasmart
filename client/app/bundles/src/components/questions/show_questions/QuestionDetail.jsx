@@ -57,9 +57,9 @@ class QuestionDetail extends React.Component {
   }
 
   onDeleteQuestion(e){
-    this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deleteQuestion, this.props.question);
+    this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deleteQuestion, this.props, '/home?#/questions');
     this.props.warningModalActions.setWarningText("Are you sure you want to delete this question?", "Confirm Deletion");
-    // this.props.actions.deleteQuestion(this.props.question);
+    // this.props.actions.deleteQuestion(this.props);
   }
 
   questionFormIsValid(){

@@ -54,11 +54,17 @@ export default function warningModalReducer(state = {}, action){
     case types.WARNING_PROCEED_SUCCESS:
       console.log("...state.proceedArguments", state.proceedArguments)
       if(state.proceedArguments){
-        state.proceedActions(state.proceedArguments);
-      }else{
+        if(state.proceedArguments instanceof Array){
+          state.proceedActions(...state.proceedArguments);
+        } else {
+          state.proceedActions(state.proceedArguments);
+        }
+      } else {
         state.proceedActions();
       }
-      browserHistory.push('/questions');
+      if(state.redirectTo){
+        window.location.href = state.redirectTo;
+      }
       return {
         showModal: false,
         proceedArguments: null,

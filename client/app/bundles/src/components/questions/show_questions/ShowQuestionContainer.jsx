@@ -94,7 +94,9 @@ class ShowQuestionConatiner extends React.Component {
   }
 
   onDeleteComment(post, type){
-    this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
+    this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deletePostOnQuestion, [post.id, this.props.showQuestion.id, type]);
+    this.props.warningModalActions.setWarningText("Are you sure you want to delete this comment?", "Confirm Deletion");
+    // this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
   }
 
   toggleTab(tab) {
