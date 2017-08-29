@@ -6,11 +6,14 @@ import { bindActionCreators } from "redux";
 // Project File
 import * as questionActions from "../../actions/questionActions";
 import * as modalActions from "../../actions/modalActions";
+import * as warningModalActions from "../../actions/warningModalActions";
 import QuestionIndexRow from "./QuestionIndexRow";
 import PageBanner from "../common/PageBanner";
 import * as utils from "../common/utils";
 import ScrollToTopOnMount from '../common/ScrollToTop';
 import FixedNav from '../common/FixedNav';
+import WarningModal from '../common/WarningModal';
+
 
 
 class QuestionIndex extends React.Component {
@@ -25,7 +28,7 @@ class QuestionIndex extends React.Component {
   }
 
   onEditQuestion(question){
-    this.props.modalActions.selectEditQuestion(question);
+    this.props.questionModalActions.selectEditQuestion(question);
   }
 
   render() {
@@ -49,6 +52,7 @@ class QuestionIndex extends React.Component {
               question={question} 
               showAnswerForm={true} 
               actions={this.props.actions}
+              warningModalActions={this.props.warningModalActions}
               onEditQuestion={this.onEditQuestion}
               currentUser={this.props.currentUser}
               liked={liked}
@@ -61,6 +65,9 @@ class QuestionIndex extends React.Component {
     return (
       <div>
         <FixedNav includeSort={true}/>
+        <WarningModal show={this.props.showWarning} header="Warning">
+          Are you sure you want to delete?
+        </WarningModal>
         <div className="container question-index">
           {listQuestions}
         </div>
@@ -75,12 +82,16 @@ function mapStateToProps(state, ownProps) {
     isLoading: state.questions.isLoading,
     showQuestionModal: state.modal.showQuestionModal,
     currentUser: state.users.currentUser,
+    showWarning: state.warningModal.showModal,
+
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(questionActions, dispatch),
-    modalActions: bindActionCreators(modalActions, dispatch)
+    questionModalActions: bindActionCreators(modalActions, dispatch),
+    warningModalActions: bindActionCreators(warningModalActions, dispatch),
+
   };
 }
 

@@ -9,10 +9,11 @@ import classnames from 'classnames';
 
 
 // project files
-import QuestionDetail from "./QuestionDetail";
 import * as questionActions from "../../../actions/questionActions";
 import * as modalActions from "../../../actions/modalActions";
+import * as warningModalActions from "../../../actions/modalActions";
 import ScrollToTopOnMount from "../../common/ScrollToTop";
+import QuestionDetail from "./QuestionDetail";
 import AllAnswers from "../../answers/AllAnswers";
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
 import PostForm from "../PostForm";
@@ -20,6 +21,8 @@ import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
 import * as utils from '../../common/utils';
 import FixedNav from '../../common/FixedNav';
+import WarningModal from '../../common/WarningModal';
+
 
 
 class ShowQuestionConatiner extends React.Component {
@@ -184,7 +187,6 @@ class ShowQuestionConatiner extends React.Component {
           </TabPane>
         </TabContent>);
     }
-
     return (
       <div>
         <FixedNav includeSort={false}/>
@@ -224,6 +226,7 @@ function mapStateToProps(state, ownProps) {
     showQuestion: state.questions.showQuestion,
     currentUser: state.users.currentUser,
     editQuestion: state.modal.editQuestion,
+    showWarning: state.warningModal.showModal,
   };
 }
 function mapDispatchToProps(dispatch) {
