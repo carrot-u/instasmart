@@ -1,5 +1,11 @@
 class UserSerializer < ActiveModel::Serializer
+  include ActionView::Helpers::DateHelper
   attributes :id, :name, :image, :email, :created_at, :user_question_activity, :user_answer_activity, :user_comment_activity, :user_votes_activity
+
+
+  def created_at
+    time_ago_in_words(object.created_at)
+  end
 
   def user_votes_activity
     self.object.votes
@@ -34,8 +40,9 @@ class UserSerializer < ActiveModel::Serializer
       activity.push(vote)
     end
 
-    activity.sort_by! { |activity| activity.created_at }.reverse!
+    activity.sort_by! { |activity| activity.created_at_unformatted }.reverse!
     return activity
   end
+
 
 end

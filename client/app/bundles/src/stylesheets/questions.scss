@@ -16,8 +16,18 @@
     padding-top: 10px;
     padding-bottom: 5px;
     border: none;
-    background-color: green;
+    background-color: $instacart-green;
 
+  }
+
+  .modal-footer {
+    #submit-button {
+      background-color: $instacart-green;
+      border: none;
+    }
+    #submit-button:hover {
+      background-color: $dark-green;
+    }
   }
 
   form{
@@ -26,14 +36,15 @@
       background-color: white;    
       border-right: none;
       border-top: none; 
-      height: 30px;
+      height: 100px;
+      rows: 5;
       transition: all 0.2s linear;
 
       &:focus{
-        background-color: rgba(223, 255, 175, 0.2);
+        background-color: $light-green;
         border-left: none;
         height: 100px;
-        rows: 3;
+        rows: 5;
 
         transition: all 0.2s linear;
       }
@@ -44,7 +55,7 @@
   }
   label{
     border-bottom: 0.5px solid rgba(220, 220, 220, 0.7);
-    color: rgb(15, 119, 26);
+    color: $instacart-green;
     box-shadow: 0px 4px 5px -6px rgba(0,0,0,0.75);
   }
   input{
@@ -52,7 +63,6 @@
     border-top: none;
   }
 }
-
 /******************* Questions Index Banner **********************************/
 
 
