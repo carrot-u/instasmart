@@ -15,7 +15,7 @@ const QuestionStatButtons = props => {
 
   return (
     <div>
-      <ul className="list-inline pb-0">
+      <ul className="list-inline pb-0 mb-0">
         <li className="list-inline-item action-buttons">
           <button
             className={classInput}

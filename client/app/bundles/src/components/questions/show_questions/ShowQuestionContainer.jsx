@@ -143,11 +143,7 @@ class ShowQuestionConatiner extends React.Component {
           toggleEditPost={this.toggleEditPost}
           currentUser={this.props.currentUser}
           questionAuthorFlag={this.props.showQuestion.user && this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
-      tags = this.props.showQuestion.tags ? (
-        <div className="tags-container center-items">
-           <IndexQuestionTags question={this.props.showQuestion} />
-        </div>
-      ) : "";
+
       author = this.props.showQuestion.user ? 
         <Link to={`/users/${this.props.showQuestion.user.id}`} style={{color: "#555544", textDecoration: "none"}} >
           <QuestionAuthor question={this.props.showQuestion}/> 
@@ -199,9 +195,6 @@ class ShowQuestionConatiner extends React.Component {
               <div className="show-question">
                 <div className="card-block">
                   {author}
-                </div>
-                <div className="card-text">
-                  {tags}
                 </div>
                 <div className="card-block">
                   {showQuestion}
