@@ -93,6 +93,7 @@ class QuestionDetail extends React.Component {
       <div> 
         <h3 className="py-1 question-summary">{this.props.question.summary}</h3>
         <i><h6 className="mx-1 py-1 question-detail text-muted">{this.props.question.body}</h6></i>
+        <IndexQuestionTags question={this.props.question} />
       </div>);
     const questionForm = this.state.showEditQuestionForm  ? 
       (<QuestionForm 
@@ -106,7 +107,6 @@ class QuestionDetail extends React.Component {
       <div className="show-question-detail">
         <div className="question-summary col-md-12 pb-2 ml-2">
           {questionDetails}
-
           {questionForm}
           <hr></hr>
           <div className="card-block row pb-0 mb-0">
