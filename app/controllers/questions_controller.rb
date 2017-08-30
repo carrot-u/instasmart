@@ -106,6 +106,6 @@ class QuestionsController < ApplicationController
     end
 
     def set_question_for_edit_and_destroy
-      @question = current_user.questions.find(params[:id])
+      @question = (current_user.questions.find(params[:id])) || (Question.find(params[:id]) if current_user.admin?)
     end
 end
