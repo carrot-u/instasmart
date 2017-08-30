@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import { Link } from 'react-router-dom';
+import Linkify from 'react-linkify';
 
 
 // Import project files
@@ -164,7 +165,7 @@ class AnswerDetail extends React.Component{
               <small className=""><i>
               {answerBy} {this.props.answer.created_at} ago
             </i></small>
-              <p>{this.props.answer.response}</p>
+              <Linkify><p>{this.props.answer.response}</p></Linkify>
               {!this.state.editPost && creatorOptions}
               <ReactCSSTransitionGroup
                 transitionName="form-transition"

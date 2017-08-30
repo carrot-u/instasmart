@@ -1,4 +1,6 @@
 import React from 'react';
+import Linkify from 'react-linkify';
+
 // import star from '../../images/gold_star.svg';
 
 const TopAnswer = props => {
@@ -16,9 +18,9 @@ const TopAnswer = props => {
             </span>{' '}Top Answer
           </h6>
           <div className="card-text" role="tab" id="headingOne">
-            <div className="row ml-2 pb-2">
-              {props.answer.response}
-            </div>
+            <Linkify><div className="ml-2 pb-2">
+                {props.answer.response}
+              </div></Linkify>
             <div className="row ml-2 pb-2">
               <small className="">
                 <i>

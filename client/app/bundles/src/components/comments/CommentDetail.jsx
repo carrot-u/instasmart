@@ -1,5 +1,6 @@
 import React from 'react';
 import PostCreatorOptions from '../common/PostCreatorOptions';
+import Linkify from 'react-linkify';
 
 const CommentDetail = props => {
   let creatorOptions = "";
@@ -22,15 +23,17 @@ const CommentDetail = props => {
   }
 
   return (
-    <div className="comment-row">
-      {props.comment.body}
-      <div className="comment-author">
-          <div><i>
-            {' - '} {commentAuthor} {props.comment.created_at} {' ago'}
-          </i></div>
-          {creatorOptions}
+    <Linkify>
+      <div className="comment-row">
+        {props.comment.body}
+        <div className="comment-author">
+            <div><i>
+              {' - '} {commentAuthor} {props.comment.created_at} {' ago'}
+            </i></div>
+            {creatorOptions}
+        </div>
       </div>
-    </div>
+    </Linkify>
   );
 }
 

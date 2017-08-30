@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import Linkify from 'react-linkify';
 
 
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
@@ -94,8 +95,8 @@ class QuestionDetail extends React.Component {
       this.props.currentUser.id === this.props.question.user.id) ? true : false;
     const questionDetails = this.state.showEditQuestionForm ? null : (
       <div> 
-        <h3 className="py-1 question-summary">{this.props.question.summary}</h3>
-        {this.props.question.body && <i><h6 className="mx-1 py-1 question-detail text-muted">{this.props.question.body}</h6></i> }
+        <Linkify><h3 className="py-1 question-summary">{this.props.question.summary}</h3></Linkify>
+        {this.props.question.body && <Linkify><i><h6 className="mx-1 py-1 question-detail text-muted">{this.props.question.body}</h6></i></Linkify> }
         <IndexQuestionTags question={this.props.question} />
       </div>);
     const questionForm = this.state.showEditQuestionForm  ? 

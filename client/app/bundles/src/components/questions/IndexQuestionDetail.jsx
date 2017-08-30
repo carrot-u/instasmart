@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Linkify from 'react-linkify';
 
 import IndexQuestionTags from "../tags/IndexQuestionTags";
 import QuestionCreatorOptions from "./QuestionCreatorOptions";
@@ -25,7 +26,7 @@ const IndexQuestionDetail = props => {
     <div className="row">
         <div className="col-md-9 pr-0">
           <Link to={`/questions/${props.question.id}`} className="question-summary">
-            <h4>{props.question.summary}</h4>
+            <Linkify><h4>{props.question.summary}</h4></Linkify>
           </Link>
           <IndexQuestionTags question={props.question} />
         </div>
