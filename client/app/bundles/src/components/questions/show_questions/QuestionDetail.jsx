@@ -90,7 +90,7 @@ class QuestionDetail extends React.Component {
   }
 
   render(){
-    const createdByCurrent =utils.canEditPost(this.props.question, this.props.currentUser);
+    const createdByCurrent = utils.canEditPost(this.props.question, this.props.currentUser);
     const questionDetails = this.state.showEditQuestionForm ? null : (
       <div> 
         <Linkify><h3 className="py-1 question-summary">{this.props.question.summary}</h3></Linkify>

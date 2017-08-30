@@ -1,6 +1,8 @@
 import React from 'react';
 import PostCreatorOptions from '../common/PostCreatorOptions';
 import Linkify from 'react-linkify';
+import * as utils from '../common/utils';
+
 
 const CommentDetail = props => {
   let creatorOptions = "";
@@ -13,8 +15,7 @@ const CommentDetail = props => {
           onDeletePost={props.onDeletePost}
           type="comments"/> : null;
   } else {
-    creatorOptions = props.comment.user && props.comment.user.id 
-      && props.currentUser && (props.comment.user.id === props.currentUser.id) ?
+    creatorOptions = utils.canEditPost(props.comment, props.currentUser) ?
     <PostCreatorOptions 
       editPost={props.toggleEditPost} 
       post={props.comment} 
