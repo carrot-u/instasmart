@@ -17,7 +17,6 @@ import QuestionDetail from "./QuestionDetail";
 import AllAnswers from "../../answers/AllAnswers";
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
 import PostForm from "../PostForm";
-import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
 import * as utils from '../../common/utils';
 import FixedNav from '../../common/FixedNav';
@@ -149,10 +148,6 @@ class ShowQuestionConatiner extends React.Component {
           currentUser={this.props.currentUser}
           questionAuthorFlag={this.props.showQuestion.user && this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
 
-      author = this.props.showQuestion.user ? 
-        <Link to={`/users/${this.props.showQuestion.user.id}`} style={{color: "#555544", textDecoration: "none"}} >
-          <QuestionAuthor question={this.props.showQuestion}/> 
-        </Link> : "";
       comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
         <AllComments 
         comments={this.props.showQuestion.comments} 
@@ -193,14 +188,11 @@ class ShowQuestionConatiner extends React.Component {
       <div>
         <FixedNav includeSort={false}/>
         <WarningModal />
-        <div className="container">
+        <div className="">
           <div className="show-question-top-container card mt-5">
             <ScrollToTopOnMount />
             <div className="container py-3 px-0">
               <div className="show-question">
-                <div className="card-block py-0">
-                  {author}
-                </div>
                 <div className="card-block">
                   {showQuestion}
                 </div>

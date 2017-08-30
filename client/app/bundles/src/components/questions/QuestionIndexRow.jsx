@@ -73,8 +73,6 @@ class QuestionIndexRow extends React.Component {
     }
     this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deleteQuestion, payload);
     this.props.warningModalActions.setWarningText("Are you sure you want to delete this question?", "Confirm Deletion");
-
-    // this.props.actions.deleteQuestion(payload);
   }
 
   render() {

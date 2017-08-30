@@ -9,9 +9,12 @@ const QuestionAuthor = props => {
 
   return (
     <div>
-      <div className="question-author-container row">
-        <div className=" question-author-block col-lg-5 offset-lg-7 col-md-7 offset-md-5">
-            {image} <small><i>Asked {props.question.created_at} ago by {userInfo}</i></small> 
+      <div className="row">
+        <div className="col-md-3">
+          {image}
+        </div>
+        <div className="col-md-9">
+             <small><i>Asked {props.question.created_at} ago by {userInfo}</i></small> 
         </div>
       </div>
     </div>

@@ -109,11 +109,27 @@ class QuestionDetail extends React.Component {
         handleAdditionTag={this.props.handleAdditionTag}
         handleDragTag={this.props.handleDragTag}
         tags={this.props.tags}/>) : null;
+    const author = this.props.question.user ? 
+      <Link to={`/users/${this.props.question.user.id}`} style={{color: "#555544", textDecoration: "none"}} >
+        <QuestionAuthor question={this.props.question}/> 
+      </Link> : "";
 
     return (
       <div className="show-question-detail">
         <div className="question-summary col-md-12 pb-2 ml-2">
-          {questionDetails}
+          <div className="row">
+            <div className="col-sm-9">
+              {questionDetails}
+            </div>
+            <div className="col-sm-3">
+            {author}
+            {createdByCurrent && !this.state.showEditQuestionForm &&
+             <QuestionCreatorOptions 
+              onDeleteQuestion={this.onDeleteQuestion}
+              onEditQuestion={this.toggleEdit}
+              />}
+            </div>
+          </div>
           {questionForm}
           <hr></hr>
           <div className="card-block row py-0 my-0">
@@ -122,11 +138,7 @@ class QuestionDetail extends React.Component {
               onClickLike={this.onClickLike}
               onClickPost={this.props.onClickPost}/>}
           </div>
-          {createdByCurrent && !this.state.showEditQuestionForm &&
-           <QuestionCreatorOptions 
-            onDeleteQuestion={this.onDeleteQuestion}
-            onEditQuestion={this.toggleEdit}
-            />}
+
         </div>
       </div>
     );
