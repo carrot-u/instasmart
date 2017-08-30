@@ -13,7 +13,7 @@ class QuestionSerializer < ActiveModel::Serializer
   end
 
   def created_at_unformatted
-    object.created_at
+    object.created_at.to_datetime
   end
 
 end

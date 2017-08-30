@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 // Project Files
 import AnswerDetail from './AnswerDetail';
 import * as questionActions from "../../actions/questionActions";
+import * as warningModalActions from "../../actions/warningModalActions";
 import * as utils from '../common/utils';
 
 class AllAnswers extends React.Component {
@@ -43,6 +44,7 @@ class AllAnswers extends React.Component {
             <AnswerDetail  
               answer={answer} 
               actions={this.props.actions}
+              warningModalActions={this.props.warningModalActions}
               onClickComment={this.onClickComment}
               question={this.props.question}
               toggleEditPost={this.props.toggleEditPost}
@@ -73,7 +75,8 @@ function mapStateToProps(state, ownProps) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(questionActions, dispatch)
+    actions: bindActionCreators(questionActions, dispatch),
+    warningModalActions: bindActionCreators(warningModalActions, dispatch),
   };
 }
 

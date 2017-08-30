@@ -65,14 +65,16 @@ class QuestionIndexRow extends React.Component {
     }
   }
 
-  onDeleteQuestion(e){
-    e.preventDefault();
+  onDeleteQuestion(){
     const payload = {
       question: { 
         id: this.props.question.id,
       }
     }
-    this.props.actions.deleteQuestion(payload);
+    this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deleteQuestion, payload);
+    this.props.warningModalActions.setWarningText("Are you sure you want to delete this question?", "Confirm Deletion");
+
+    // this.props.actions.deleteQuestion(payload);
   }
 
   render() {
@@ -98,7 +100,8 @@ class QuestionIndexRow extends React.Component {
               onDeleteQuestion={this.onDeleteQuestion}
               onEditQuestion={this.props.onEditQuestion}
               question={this.props.question} 
-              createdByCurrent={createdByCurrent}/>
+              createdByCurrent={createdByCurrent}
+              />
             <hr />
         </div>
         <div className="card-block px-5 pt-1">
