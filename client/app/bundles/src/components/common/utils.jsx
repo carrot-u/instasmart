@@ -37,8 +37,15 @@ export function formatTagsForServer(tags){
   return tagString;
 }
 
-
-
+export function canEditPost(post, currentUser){
+  if(currentUser.admin){
+    return true;
+  }
+  if(post.user){
+    return (post.user.id === currentUser.id);
+  }
+  return false
+}
 
 
 // HELPER SORT FUNCTIONS

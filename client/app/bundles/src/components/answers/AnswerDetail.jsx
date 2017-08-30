@@ -136,13 +136,14 @@ class AnswerDetail extends React.Component{
         <Link to={`/users/${this.props.answer.user.id}`}>
           <img src={this.props.answer.user.image} className="profile-image mr-1"/>
         </Link>);
-      creatorOptions = this.props.answer.user.id === this.props.currentUser.id ?
-        <PostCreatorOptions 
-          editPost={this.toggleEditPost} 
-          post={this.props.answer} 
-          onDeletePost={this.onDeletePost}
-          type="answers"/> : null;
     }
+    creatorOptions =  utils.canEditPost(this.props.answer, this.props.currentUser) ?
+      <PostCreatorOptions 
+        editPost={this.toggleEditPost} 
+        post={this.props.answer} 
+        onDeletePost={this.onDeletePost}
+        type="answers"/> : null;
+  
     const commentCount = this.props.answer.comments ? this.props.answer.comments.length : 0;
 
     return (
