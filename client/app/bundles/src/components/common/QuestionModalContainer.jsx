@@ -67,7 +67,7 @@ class QuestionModalContainer extends React.Component {
       ...this.state.question,
     };
     //Check if this is a new question or an edit
-    if(this.props.editQuestion.id){
+    if(this.props.editQuestion && this.props.editQuestion.id){
       payload.id = this.props.editQuestion.id
       this.props.actions.editQuestion(payload);
     }else{

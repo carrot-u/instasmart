@@ -9,10 +9,11 @@ import classnames from 'classnames';
 
 
 // project files
-import QuestionDetail from "./QuestionDetail";
 import * as questionActions from "../../../actions/questionActions";
 import * as modalActions from "../../../actions/modalActions";
+import * as warningModalActions from "../../../actions/warningModalActions";
 import ScrollToTopOnMount from "../../common/ScrollToTop";
+import QuestionDetail from "./QuestionDetail";
 import AllAnswers from "../../answers/AllAnswers";
 import IndexQuestionTags from "../../tags/IndexQuestionTags";
 import PostForm from "../PostForm";
@@ -20,6 +21,8 @@ import QuestionAuthor from './QuestionAuthor';
 import AllComments from '../../comments/AllComments';
 import * as utils from '../../common/utils';
 import FixedNav from '../../common/FixedNav';
+import WarningModal from '../../common/WarningModal';
+
 
 
 class ShowQuestionConatiner extends React.Component {
@@ -91,7 +94,8 @@ class ShowQuestionConatiner extends React.Component {
   }
 
   onDeleteComment(post, type){
-    this.props.actions.deletePostOnQuestion(post.id, this.props.showQuestion.id, type);
+    this.props.warningModalActions.warningModalSetProceedActions(this.props.actions.deletePostOnQuestion, [post.id, this.props.showQuestion.id, type]);
+    this.props.warningModalActions.setWarningText("Are you sure you want to delete this comment?", "Confirm Deletion");
   }
 
   toggleTab(tab) {
@@ -129,6 +133,7 @@ class ShowQuestionConatiner extends React.Component {
           onClickPost={this.onClickPost}
           currentUser={this.props.currentUser}
           actions={this.props.actions}
+          warningModalActions={this.props.warningModalActions}
           handleDeleteTag={this.props.modalActions.deleteTagOnEditQuesion}
           handleAdditionTag={this.props.modalActions.addTagOnEditQuesion}
           handleDragTag={this.props.modalActions.swapTagsOnEditQuesion}
@@ -184,10 +189,10 @@ class ShowQuestionConatiner extends React.Component {
           </TabPane>
         </TabContent>);
     }
-
     return (
       <div>
         <FixedNav includeSort={false}/>
+        <WarningModal />
         <div className="container">
           <div className="show-question-top-container card mt-5">
             <ScrollToTopOnMount />
@@ -230,7 +235,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(questionActions, dispatch),
     modalActions: bindActionCreators(modalActions, dispatch),
-
+    warningModalActions: bindActionCreators(warningModalActions, dispatch),
   };
 }
 

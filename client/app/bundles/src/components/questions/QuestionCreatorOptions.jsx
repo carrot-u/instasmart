@@ -19,7 +19,10 @@ const QuestionCreatorOptions = props => {
               </a>
             </li>
             <li className="list-inline-item">
-              <Link to="/questions" className="creator-links" onClick={props.onDeleteQuestion}>Delete</Link>
+              <a href="" className="creator-links" onClick={e => {
+                e.preventDefault();
+                props.onDeleteQuestion();
+              }}>Delete</a>
             </li>
           </ul>
         </small>
