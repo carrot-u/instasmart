@@ -65,8 +65,7 @@ class QuestionDetail extends React.Component {
   questionFormIsValid(){
     let formIsValid = true;
     let errors = {};
-
-    if(this.state.editQuestion.summary === null){
+    if(!this.state.editQuestion.summary){
       errors.summary = 'Please add a question.';
       formIsValid = false;
     }else{
@@ -91,8 +90,7 @@ class QuestionDetail extends React.Component {
   }
 
   render(){
-    const createdByCurrent =(this.props.question.user && 
-      this.props.currentUser.id === this.props.question.user.id) ? true : false;
+    const createdByCurrent =utils.canEditPost(this.props.question, this.props.currentUser);
     const questionDetails = this.state.showEditQuestionForm ? null : (
       <div> 
         <Linkify><h3 className="py-1 question-summary">{this.props.question.summary}</h3></Linkify>

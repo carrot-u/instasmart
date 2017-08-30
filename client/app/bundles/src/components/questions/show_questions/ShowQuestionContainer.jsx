@@ -146,7 +146,7 @@ class ShowQuestionConatiner extends React.Component {
           question={this.props.showQuestion}
           toggleEditPost={this.toggleEditPost}
           currentUser={this.props.currentUser}
-          questionAuthorFlag={this.props.showQuestion.user && this.props.currentUser.id === this.props.showQuestion.user.id}/> : "";
+          questionAuthorFlag={utils.canEditPost(this.props.showQuestion, this.props.currentUser)}/> : "";
 
       comments = this.props.showQuestion.comments && this.props.showQuestion.comments.length>0 ? 
         <AllComments 

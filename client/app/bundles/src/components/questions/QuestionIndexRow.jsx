@@ -5,6 +5,8 @@ import IndexQuestionDetail from "./IndexQuestionDetail";
 import PostForm from "./PostForm";
 import QuestionButtons from "./QuestionButtons";
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import * as utils from '../common/utils';
+
 
 class QuestionIndexRow extends React.Component {
   constructor(props) {
@@ -76,8 +78,7 @@ class QuestionIndexRow extends React.Component {
   }
 
   render() {
-    const createdByCurrent = (this.props.question.user && 
-      this.props.currentUser.id === this.props.question.user.id) ? true : false;
+    const createdByCurrent = utils.canEditPost(this.props.question, this.props.currentUser);
     const showAnswer = (this.props.question.answers && this.props.question.answers.length > 0)
       ? <TopAnswer answer={this.props.question.answers[0]} />
       : <h6><i>No answers submitted yet. Be the first!</i></h6>;

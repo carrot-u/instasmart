@@ -46,7 +46,6 @@ class WarningModal extends React.Component {
 }
 
 function mapStateToProps(state, ownProps){
-  console.log("mapStateToProps in WarningModal", state);
   return {
     showModal: state.warningModal.showModal,
     modalText: state.warningModal.modalText,

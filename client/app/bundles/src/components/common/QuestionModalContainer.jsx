@@ -40,9 +40,10 @@ class QuestionModalContainer extends React.Component {
   questionFormIsValid(){
     let formIsValid = true;
     let errors = {};
+    console.log("this.state.question.summary", this.state.question.summary)
 
-    if(this.state.question.summary === null){
-      errors.summary = 'Please add a question.';
+    if(!this.state.question.summary){
+      errors.summary = 'Please enter a question of at least 10 characters';
       formIsValid = false;
     }else{
       if (this.state.question.summary && this.state.question.summary.length < 10) {
