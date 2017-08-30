@@ -8,4 +8,12 @@ body {
   background-size: 100%;
   color: $instacart-green;
   min-width: 650px;
+
+  a {
+  	color: $instacart-green;
+  }
+  a:hover {
+  	text-decoration: none;
+  	color: $dark-green;
+  }
 }
