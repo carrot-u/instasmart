@@ -10,7 +10,7 @@ import QuestionModalContainer from "./QuestionModalContainer";
 import * as modalActions from "../../actions/modalActions";
 import * as questionActions from "../../actions/questionActions";
 import logo from "../../images/logo.jpg";
-import FixedSearchField from './FixedSearchField';
+import FixedSearchField from '../search/FixedSearchField';
 
 
 

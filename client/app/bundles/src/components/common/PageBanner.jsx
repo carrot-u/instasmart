@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../images/logo.jpg";
 import NavbarContainer from './NavbarContainer';
-import FixedSearchField from './FixedSearchField';
+import FixedSearchField from '../search/FixedSearchField';
 import { Link } from 'react-router-dom';
 
 
