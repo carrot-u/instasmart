@@ -1,6 +1,10 @@
 import React from 'react';
 import escapeRegExp from 'lodash';
 import isString from 'lodash';
+import Radium from 'radium';
+import { Link } from 'react-router-dom';
+
+
 
 function highlightMatch(str, substr){
   let curSubStrStart = 0;
@@ -8,8 +12,8 @@ function highlightMatch(str, substr){
   const highlight = {
     color: "green",
     fontWeight: "600",
-    backgroundColor: "rgba(230, 255, 235, 1)",
-    textDecoration: "underline"
+    backgroundColor: "rgba(252, 255, 252, 1)",
+    textDecoration: "underline",
   }
 
   if (substr === '') {
@@ -31,16 +35,27 @@ function highlightMatch(str, substr){
   return result;
 }
 
-const SuggestionRow = props => {
-  const rowStyle = {
-    paddingTop: "3px"
+@Radium
+class SuggestionRow extends React.Component {
+  render(){
+    const rowStyle = {
+      paddingTop: "3px",
+      color: "black",
+      ':hover': {
+        backgroundColor: "white",
+        fontWeight: "500",
+      }
+    }
+    console.log("props in SuggestionRow", this.props);
+    return (
+      <div style={rowStyle}>
+        {this.props.suggestion &&
+          <Link to={`/${this.props.type}/${this.props.id}`}> 
+            {highlightMatch(this.props.suggestion, this.props.matchTerm)}
+          </Link>}
+      </div>
+    );
   }
-
-  return (
-    <div style={rowStyle}>
-      {highlightMatch(props.suggestion, props.matchTerm)}
-    </div>
-  );
 }
 
 export default SuggestionRow;

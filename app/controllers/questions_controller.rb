@@ -28,6 +28,24 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def search_suggestions
+    @questions = Question.order("id DESC")
+    if params[:search]
+      @questions = Question.search(params[:search]).order("created_at DESC")
+      respond_to do |format|
+        if @questions.length > 0
+          resp = []
+          @questions.each do |q| 
+            resp.push({ :id => q.id, :summary => q.summary })
+          end
+          format.json { render json: resp }
+        else
+          format.json { render json: nil }
+        end
+      end
+    end
+  end
+
   # New and create Questions
   def new
     @question = Question.new

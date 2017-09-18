@@ -54,7 +54,7 @@ export function getQuestionsBySearch(searchQuery){
 export function getSearchSuggestions(searchQuery, type){
   const params = { search: searchQuery }
   return function(dispatch){
-    utils.post(`/${type}/search`, params).then(results => {
+    utils.post(`/${type}/suggestions`, params).then(results => {
       dispatch(searchActions.loadSearchSuggestionsSuccess(results, type));
     }).catch(error => {
       throw(error);

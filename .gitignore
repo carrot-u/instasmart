@@ -15,12 +15,12 @@
 /log/*
 !/log/.keep
 /tmp
+*.DS_Store
 
 # Ignore application configuration
 /config/application.yml
 
 /client/node_modules
-
 
 package-lock.json
 public/

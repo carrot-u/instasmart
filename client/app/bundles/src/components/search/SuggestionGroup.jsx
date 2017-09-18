@@ -16,16 +16,20 @@ const SuggestionGroup = props => {
     }
   }
 
-  let groupList = null;
+  let groupList = "No Results Found";
+  if (props[props.groupType]){
     groupList = props[props.groupType].map(item => {
       return (
         <SuggestionRow 
           key={item.id} 
+          type={props.groupType}
+          id={item.id}
           suggestion={item[props.suggestionAttribute]} 
           matchTerm={props.matchTerm}
           />
       )
     });
+  }
 
   return (
     <div>

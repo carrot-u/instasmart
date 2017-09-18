@@ -11,6 +11,11 @@ export default function usersReducer(state = initialState, action){
   switch(action.type){
     case types.LOAD_SEARCH_SUGGESTIONS_SUCCESS:
       switch(action.searchType){
+        case 'users':
+          return {
+            ...state,
+            userSuggestions: action.results,
+          }
 
         default:
           return {
