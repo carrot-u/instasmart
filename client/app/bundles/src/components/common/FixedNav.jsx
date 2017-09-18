@@ -9,9 +9,10 @@ import QuestionsNavContent from "../questions/QuestionsNavContent";
 import QuestionModalContainer from "./QuestionModalContainer";
 import * as modalActions from "../../actions/modalActions";
 import * as questionActions from "../../actions/questionActions";
+import * as searchActions from "../../actions/searchActions";
 import logo from "../../images/logo.jpg";
 import FixedSearchField from '../search/FixedSearchField';
-
+import SuggestionsContainer from '../search/SuggestionsContainer';
 
 
 class FixedNav extends React.Component {
@@ -28,7 +29,14 @@ class FixedNav extends React.Component {
 
   updatedSearchQuery(e){
     e.preventDefault();
-    this.setState({searchQuery: e.target.value});
+    const query = e.target.value;
+    if (!query.length) {
+      this.props.searchActions.clearSearchSuggestions();
+      this.setState({searchQuery: query});
+      return;
+    }
+    this.setState({searchQuery: query});
+    this.props.searchActions.getSearchSuggestions(query, "questions");
   }
 
   onSearch(){
@@ -64,6 +72,11 @@ class FixedNav extends React.Component {
               sort={this.sortQuestions}
               sortedBy={this.props.sortedBy}
             />}
+        {(this.props.questionSuggestions) && this.state.searchQuery && 
+           <SuggestionsContainer 
+             questions={this.props.questionSuggestions}
+             matchTerm={this.state.searchQuery}/>}
+
         {this.props.includeSort && 
           <QuestionModalContainer
               onClickNewQuestion={this.props.modalActions.showModal}
@@ -85,13 +98,15 @@ function mapStateToProps(state, ownProps) {
   return {
     showQuestionModal: state.modal.showQuestionModal,
     editQuestion: state.modal.editQuestion,
-
+    questionSuggestions: state.search.questionSuggestions
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(questionActions, dispatch),
     modalActions: bindActionCreators(modalActions, dispatch),
+    searchActions: bindActionCreators(searchActions, dispatch),
+
   };
 }
 

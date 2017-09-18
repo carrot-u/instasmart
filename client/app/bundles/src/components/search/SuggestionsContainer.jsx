@@ -4,19 +4,22 @@ import SuggestionGroup from './SuggestionGroup';
 const SuggestionsContainer = props => {
   const style = {
     suggestionContainer: {
-      backgroundColor: "rgba(0, 100, 0, 0.02)",
+      backgroundColor: "rgba(247, 255, 242, .98)",
       border: "1px solid rgba(0, 0, 0, 0.15)",
       borderTop: "none",
       borderRadius: "4px",
       paddingLeft: "10px",
+      paddingRight: "5px",
       fontSize: ".8em",
-
+      position: "fixed",
+      top: "46px",
+      left: "216px",
+      zIndex: "999",
     }
   }
 
-
   return(
-    <div style={style.suggestionContainer} >
+    <div className="suggestions-container" style={style.suggestionContainer} >
       <SuggestionGroup 
         groupType="questions" 
         questions={props.questions} 

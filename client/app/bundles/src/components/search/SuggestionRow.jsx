@@ -8,6 +8,7 @@ function highlightMatch(str, substr){
   const highlight = {
     color: "green",
     fontWeight: "600",
+    backgroundColor: "rgba(230, 255, 235, 1)",
     textDecoration: "underline"
   }
 

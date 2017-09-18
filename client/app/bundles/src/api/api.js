@@ -1,6 +1,8 @@
 import * as utils from './apiUtils';
 import * as questionActions from '../actions/questionActions';
 import * as userActions from '../actions/userActions';
+import * as searchActions from '../actions/searchActions';
+
 
 /************** GET ACTIONS *****************************/
 export function getQuestions(){
@@ -47,6 +49,17 @@ export function getQuestionsBySearch(searchQuery){
       throw(error);
     });
   };
+}
+
+export function getSearchSuggestions(searchQuery, type){
+  const params = { search: searchQuery }
+  return function(dispatch){
+    utils.post(`/${type}/search`, params).then(results => {
+      dispatch(searchActions.loadSearchSuggestionsSuccess(results, type));
+    }).catch(error => {
+      throw(error);
+    })
+  }
 }
 
 
