@@ -32,6 +32,12 @@ const SuggestionsContainer = props => {
         suggestionAttribute="name" 
         matchTerm={props.matchTerm}
         />
+      <SuggestionGroup 
+        groupType="tags" 
+        tags={props.tags} 
+        suggestionAttribute="name" 
+        matchTerm={props.matchTerm}
+        />
     </div>
   );
 }

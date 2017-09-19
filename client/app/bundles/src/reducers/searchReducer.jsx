@@ -16,6 +16,11 @@ export default function usersReducer(state = initialState, action){
             ...state,
             userSuggestions: action.results,
           }
+        case 'tags':
+          return {
+            ...state,
+            tagSuggestions: action.results,
+          }
 
         default:
           return {

@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%")
+  end
 end

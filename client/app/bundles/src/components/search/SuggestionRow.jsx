@@ -40,13 +40,13 @@ class SuggestionRow extends React.Component {
   render(){
     const rowStyle = {
       paddingTop: "3px",
+      fontSize: "1.1em",
       color: "black",
       ':hover': {
         backgroundColor: "white",
         fontWeight: "500",
       }
     }
-    console.log("props in SuggestionRow", this.props);
     return (
       <div style={rowStyle}>
         {this.props.suggestion &&

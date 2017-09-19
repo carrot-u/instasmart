@@ -17,7 +17,6 @@ class QuestionsController < ApplicationController
 
   def search
     @questions = Question.order("id DESC")
-
     if params[:search]
       @questions = Question.search(params[:search]).order("created_at DESC") + Question.tagged_with(params[:search]).order("created_at DESC")
       @questions.sort_by! { |q| q.created_at}.reverse!
@@ -29,9 +28,8 @@ class QuestionsController < ApplicationController
   end
 
   def search_suggestions
-    @questions = Question.order("id DESC")
     if params[:search]
-      @questions = Question.search(params[:search]).order("created_at DESC")
+      @questions = Question.search_summary(params[:search]).order("created_at DESC")
       respond_to do |format|
         if @questions.length > 0
           resp = []
@@ -45,6 +43,7 @@ class QuestionsController < ApplicationController
       end
     end
   end
+
 
   # New and create Questions
   def new

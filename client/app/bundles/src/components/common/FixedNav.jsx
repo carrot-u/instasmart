@@ -38,6 +38,8 @@ class FixedNav extends React.Component {
     this.setState({searchQuery: query});
     this.props.searchActions.getSearchSuggestions(query, "questions");
     this.props.searchActions.getSearchSuggestions(query, "users");
+    this.props.searchActions.getSearchSuggestions(query, "tags");
+
   }
 
   onSearch(){
@@ -73,11 +75,12 @@ class FixedNav extends React.Component {
               sort={this.sortQuestions}
               sortedBy={this.props.sortedBy}
             />}
-        {(this.props.questionSuggestions || this.props.userSuggestions) 
+        {(this.props.questionSuggestions || this.props.userSuggestions || this.props.tagSuggestions) 
           && this.state.searchQuery 
           && <SuggestionsContainer 
              questions={this.props.questionSuggestions}
              users={this.props.userSuggestions}
+             tags={this.props.tagSuggestions}
              matchTerm={this.state.searchQuery}/>}
 
         {this.props.includeSort && 
@@ -103,6 +106,7 @@ function mapStateToProps(state, ownProps) {
     editQuestion: state.modal.editQuestion,
     questionSuggestions: state.search.questionSuggestions,
     userSuggestions: state.search.userSuggestions,
+    tagSuggestions: state.search.tagSuggestions,
   };
 }
 function mapDispatchToProps(dispatch) {

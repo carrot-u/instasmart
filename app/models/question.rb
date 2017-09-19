@@ -16,4 +16,8 @@ class Question < ActiveRecord::Base
   def self.search(search)
     where("summary ILIKE ? OR body ILIKE ?", "%#{search}%", "%#{search}%")
   end
+
+  def self.search_summary(search)
+    where("summary ILIKE ?", "%#{search}%")
+  end
 end

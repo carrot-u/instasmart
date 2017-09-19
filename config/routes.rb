@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post 'questions/search', to: 'questions#search'
   post 'questions/suggestions', to: 'questions#search_suggestions'
   post 'users/suggestions', to: 'users#search_suggestions'
-
+  post 'tags/suggestions', to: 'tags#search_suggestions'
 
 
   put "questions/:id/update" => "questions#update"
