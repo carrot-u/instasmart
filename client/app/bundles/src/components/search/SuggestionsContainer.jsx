@@ -32,6 +32,8 @@ class SuggestionsContainer extends React.Component {
         top: "46px",
         left: "216px",
         zIndex: "999",
+        overflow: "auto",
+        maxHeight: "500px",
       }
     }
 

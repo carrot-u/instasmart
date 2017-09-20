@@ -37,38 +37,42 @@ function highlightMatch(str, substr){
 @Radium
 class SuggestionRow extends React.Component {
   render(){
-    const rowStyle = {
-      paddingTop: "3px",
-      fontSize: "1.1em",
-      ':hover': {
-        backgroundColor: "white",
-        fontWeight: "500",
+    const style ={
+      rowStyle: {
+        paddingTop: "3px",
+        fontSize: "1.1em",
+        ':hover': {
+          backgroundColor: "white",
+          fontWeight: "500",
+        },
+      },
+      linkStyle: {
+        color: "black",
+        ':hover': {
+          cursor: "pointer",
+        }
       },
     }
-    const linkStyle = {
-      color: "black",
-      ':hover': {
-        cursor: "pointer",
-      }
-    }
+
 
     let suggestionRow = null;
     if(this.props.suggestion){
       if(this.props.type === 'tags'){
         suggestionRow = (
-          <div key={this.props.id} style={linkStyle} onClick={() => this.props.handleClickTag(this.props.matchTerm)}> 
+          <div key={this.props.id} style={style.linkStyle} onClick={() => this.props.handleClickTag(this.props.item.name)}> 
             {highlightMatch(this.props.suggestion, this.props.matchTerm)}
+            {' '}({this.props.item.taggings_count})
           </div>);
       }else{
         suggestionRow = (
-          <Link key={this.props.id} to={`/${this.props.type}/${this.props.id}`} style={linkStyle} > 
+          <Link key={this.props.id} to={`/${this.props.type}/${this.props.id}`} style={style.linkStyle} > 
             {highlightMatch(this.props.suggestion, this.props.matchTerm)}
           </Link>);
       }
     } 
 
     return (
-      <div style={rowStyle}>
+      <div style={style.rowStyle}>
        {suggestionRow}
       </div>
     );

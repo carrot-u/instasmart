@@ -24,6 +24,7 @@ const SuggestionGroup = props => {
           key={item.id} 
           type={props.groupType}
           id={item.id}
+          item={item}
           suggestion={item[props.suggestionAttribute]} 
           matchTerm={props.matchTerm}
           handleClickTag={props.handleClickTag}

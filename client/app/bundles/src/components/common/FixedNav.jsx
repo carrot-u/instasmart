@@ -44,7 +44,7 @@ class FixedNav extends React.Component {
   }
 
   clickOutsideSuggestions(){
-    this.setState({searchQuery: ""});
+    // this.setState({searchQuery: ""});
     this.props.searchActions.clearSearchSuggestions();
   }
 
@@ -82,8 +82,7 @@ class FixedNav extends React.Component {
               sort={this.sortQuestions}
               sortedBy={this.props.sortedBy}
             />}
-        {(this.props.questionSuggestions || this.props.userSuggestions || this.props.tagSuggestions) 
-          && this.state.searchQuery && this.props.showSuggestions
+        {this.state.searchQuery && this.props.showSuggestions
           && <SuggestionsContainer 
              questions={this.props.questionSuggestions}
              users={this.props.userSuggestions}
