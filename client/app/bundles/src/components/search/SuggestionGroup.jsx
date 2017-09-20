@@ -26,6 +26,7 @@ const SuggestionGroup = props => {
           id={item.id}
           suggestion={item[props.suggestionAttribute]} 
           matchTerm={props.matchTerm}
+          handleClickTag={props.handleClickTag}
           />
       )
     });

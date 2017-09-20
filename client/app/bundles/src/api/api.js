@@ -5,13 +5,21 @@ import * as searchActions from '../actions/searchActions';
 
 
 /************** GET ACTIONS *****************************/
-export function getQuestions(){
+export function getQuestions(tag = null){
   return function(dispatch){
-    return utils.get('/questions').then(questions =>{
-      dispatch(questionActions.loadQuestionsSuccess(questions));
-    }).catch(error => {
-      throw(error);
-    });
+    if(tag){
+      return utils.post('/questions/tagged', { tag: tag }).then(questions =>{
+        dispatch(questionActions.loadQuestionsSuccess(questions));
+      }).catch(error => {
+        throw(error);
+      });
+    }else{
+      return utils.get('/questions').then(questions =>{
+        dispatch(questionActions.loadQuestionsSuccess(questions));
+      }).catch(error => {
+        throw(error);
+      });
+    }
   };
 }
 

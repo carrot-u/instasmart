@@ -44,6 +44,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def tagged_by
+    @questions = Question.tagged_with(params[:tag])
+    respond_to do |format|
+      format.json { render json: @questions }
+    end
+  end
 
   # New and create Questions
   def new

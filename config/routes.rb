@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post 'users/suggestions', to: 'users#search_suggestions'
   post 'tags/suggestions', to: 'tags#search_suggestions'
 
-
+  post "questions/tagged" => "questions#tagged_by"
   put "questions/:id/update" => "questions#update"
   resources :questions do
 

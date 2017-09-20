@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 import * as questionsActions from '../../actions/questionActions';
 import searchButton from "../../images/search_button.svg";
 
-
 const FixedSearchField = props => {
   return(
     <form className="form-inline" onSubmit={props.onSearch}>
@@ -14,6 +13,7 @@ const FixedSearchField = props => {
         className="form-control"
         type="search"
         placeholder="Search"
+        value={props.queryValue}
         onChange={props.updatedSearchQuery}
       />
       <button className="search-button btn">
@@ -22,6 +22,5 @@ const FixedSearchField = props => {
     </form>
   )
 }
-
 
 export default FixedSearchField;

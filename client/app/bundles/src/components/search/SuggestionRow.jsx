@@ -5,7 +5,6 @@ import Radium from 'radium';
 import { Link } from 'react-router-dom';
 
 
-
 function highlightMatch(str, substr){
   let curSubStrStart = 0;
   let curSubStrLen = 0;
@@ -41,18 +40,36 @@ class SuggestionRow extends React.Component {
     const rowStyle = {
       paddingTop: "3px",
       fontSize: "1.1em",
-      color: "black",
       ':hover': {
         backgroundColor: "white",
         fontWeight: "500",
+      },
+    }
+    const linkStyle = {
+      color: "black",
+      ':hover': {
+        cursor: "pointer",
       }
     }
+
+    let suggestionRow = null;
+    if(this.props.suggestion){
+      if(this.props.type === 'tags'){
+        suggestionRow = (
+          <div key={this.props.id} style={linkStyle} onClick={() => this.props.handleClickTag(this.props.matchTerm)}> 
+            {highlightMatch(this.props.suggestion, this.props.matchTerm)}
+          </div>);
+      }else{
+        suggestionRow = (
+          <Link key={this.props.id} to={`/${this.props.type}/${this.props.id}`} style={linkStyle} > 
+            {highlightMatch(this.props.suggestion, this.props.matchTerm)}
+          </Link>);
+      }
+    } 
+
     return (
       <div style={rowStyle}>
-        {this.props.suggestion &&
-          <Link to={`/${this.props.type}/${this.props.id}`}> 
-            {highlightMatch(this.props.suggestion, this.props.matchTerm)}
-          </Link>}
+       {suggestionRow}
       </div>
     );
   }

@@ -4,6 +4,7 @@ const initialState = {
   questionSuggestions: null,
   userSuggestions: null,
   tagSuggestions: null,
+  showSuggestions: false,
   isLoading: false,
 }
 
@@ -14,17 +15,20 @@ export default function usersReducer(state = initialState, action){
         case 'users':
           return {
             ...state,
+            showSuggestions: true,
             userSuggestions: action.results,
           }
         case 'tags':
           return {
             ...state,
+            showSuggestions: true,
             tagSuggestions: action.results,
           }
 
         default:
           return {
             ...state,
+            showSuggestions: true,
             questionSuggestions: action.results,
           }
       }
@@ -34,6 +38,7 @@ export default function usersReducer(state = initialState, action){
         questionSuggestions: null,
         userSuggestions: null,
         tagSuggestions: null,
+        showSuggestions: false,
         isLoading: false,
       }
 
