@@ -15,10 +15,6 @@ class TagsController < ApplicationController
       @tags = ActsAsTaggableOn::Tag.where("name ILIKE ? AND taggings_count > 0", "%#{params[:search]}%")
       respond_to do |format|
         if @tags.length > 0
-          resp = []
-          # @tags.each do |t| 
-          #   resp.push({ :id => t.id, :name => t.name, :taggings_count => t.taggings_count })
-          # end
           format.json { render json: @tags }
         else
           format.json { render json: nil }
