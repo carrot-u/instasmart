@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'questions', to: 'questions#index'
+  get "questions/count" => "questions#count"
 
 # Search related routes
   post 'questions/search', to: 'questions#search'
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   post 'tags/suggestions', to: 'tags#search_suggestions'
 
   post "questions/tagged" => "questions#tagged_by"
+  post "questions/subset" => "questions#subset"
   put "questions/:id/update" => "questions#update"
   resources :questions do
 

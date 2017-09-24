@@ -5,7 +5,7 @@ import * as searchActions from '../actions/searchActions';
 
 
 /************** GET ACTIONS *****************************/
-export function getQuestions(tag = null){
+export function getQuestions(tag = null, offset = 0, limit = 10){
   return function(dispatch){
     if(tag){
       return utils.post('/questions/tagged', { tag: tag }).then(questions =>{
@@ -14,13 +14,23 @@ export function getQuestions(tag = null){
         throw(error);
       });
     }else{
-      return utils.get('/questions').then(questions =>{
-        dispatch(questionActions.loadQuestionsSuccess(questions));
+      return utils.post('/questions/subset', {offset: offset, limit: limit}).then(questions =>{
+        dispatch(questionActions.loadQuestionsSuccess(questions, limit));
       }).catch(error => {
         throw(error);
       });
     }
   };
+}
+
+export function getQuestionsCount(){
+  return function(dispatch){
+    return utils.get('/questions/count').then(count =>{
+      dispatch(questionActions.loadQuestionsCountSuccess(count));
+    }).catch(error => {
+      throw(error);
+    });
+  }
 }
 
 export function getQuestionById(id){

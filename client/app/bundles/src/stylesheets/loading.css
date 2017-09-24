@@ -1,0 +1,119 @@
+@keyframes lds-facebook_1 {
+  0% {
+    top: -50px;
+    height: 300px;
+  }
+  50% {
+    top: 50px;
+    height: 100px;
+  }
+  100% {
+    top: 50px;
+    height: 100px;
+  }
+}
+@-webkit-keyframes lds-facebook_1 {
+  0% {
+    top: -50px;
+    height: 300px;
+  }
+  50% {
+    top: 50px;
+    height: 100px;
+  }
+  100% {
+    top: 50px;
+    height: 100px;
+  }
+}
+@keyframes lds-facebook_2 {
+  0% {
+    top: -25px;
+    height: 250px;
+  }
+  50% {
+    top: 50px;
+    height: 100px;
+  }
+  100% {
+    top: 50px;
+    height: 100px;
+  }
+}
+@-webkit-keyframes lds-facebook_2 {
+  0% {
+    top: -25px;
+    height: 250px;
+  }
+  50% {
+    top: 50px;
+    height: 100px;
+  }
+  100% {
+    top: 50px;
+    height: 100px;
+  }
+}
+@keyframes lds-facebook_3 {
+  0% {
+    top: 0px;
+    height: 200px;
+  }
+  50% {
+    top: 50px;
+    height: 100px;
+  }
+  100% {
+    top: 50px;
+    height: 100px;
+  }
+}
+@-webkit-keyframes lds-facebook_3 {
+  0% {
+    top: 0px;
+    height: 200px;
+  }
+  50% {
+    top: 50px;
+    height: 100px;
+  }
+  100% {
+    top: 50px;
+    height: 100px;
+  }
+}
+.lds-facebook {
+  position: relative;
+}
+.lds-facebook div {
+  position: absolute;
+  width: 40px;
+}
+.lds-facebook div:nth-child(1) {
+  left: 30px;
+  background: #297d04;
+  -webkit-animation: lds-facebook_1 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_1 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 80px;
+  background: #219719;
+  -webkit-animation: lds-facebook_2 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_2 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 130px;
+  background: #89d974;
+  -webkit-animation: lds-facebook_3 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_3 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
