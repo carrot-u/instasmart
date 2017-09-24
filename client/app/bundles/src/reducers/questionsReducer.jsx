@@ -3,6 +3,7 @@ import * as utils from '../components/common/utils';
 
 const initialState = {
   questions: [],
+  questionsCount: null,
   showQuestion: null,
   isLoading: false,
   error: null, 

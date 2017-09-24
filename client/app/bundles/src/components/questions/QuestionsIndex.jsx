@@ -13,6 +13,7 @@ import * as utils from "../common/utils";
 import ScrollToTopOnMount from '../common/ScrollToTop';
 import FixedNav from '../common/FixedNav';
 import WarningModal from '../common/WarningModal';
+import LoadingIndexQuestion from './LoadingIndexQuestion';
 
 
 
@@ -34,12 +35,19 @@ class QuestionIndex extends React.Component {
   render() {
     let listQuestions = null;
     if (this.props.isLoading){
-      listQuestions = (<div className="container loading-questions row mt-4">
-              <div className="col-3 offset-5">
-                <i className="fa fa-spinner fa-spin fa-4x fa-fw mb-3"></i>
-                {' '}Loading...
-              </div>          
-            </div>);
+      listQuestions = (
+        <div>
+          <LoadingIndexQuestion />
+          <LoadingIndexQuestion />
+          <LoadingIndexQuestion />
+        </div>);
+
+        // <div className="container loading-questions row mt-4">
+        //       <div className="col-3 offset-5">
+        //         <i className="fa fa-spinner fa-spin fa-4x fa-fw mb-3"></i>
+        //         {' '}Loading...
+        //       </div>          
+        //     </div>);
 
     } else { 
       const noResults = "No Questions Loaded"; 
