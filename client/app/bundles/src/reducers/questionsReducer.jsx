@@ -3,7 +3,9 @@ import * as utils from '../components/common/utils';
 
 const initialState = {
   questions: [],
-  questionsCount: null,
+  questionsCount: 0,
+  loadSize: 10,
+  currentLastQuestion: 0,
   showQuestion: null,
   isLoading: false,
   error: null, 
@@ -17,19 +19,28 @@ export default function questionsReducer(state = initialState, action){
 
     //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
+      console.log("loading questions", action.questions);
+      const addedQuestions = utils.sort(state.sortType, action.questions.map(question => {
+        return {
+          ...question,
+          answers: utils.sort("accepted", question.answers)
+        };
+      }));
+      console.log("new questions list", [...state.questions, ...addedQuestions]);
       return {...state,
-        questions: utils.sort(state.sortType, action.questions.map(question => {
-          return {
-            ...question,
-            answers: utils.sort("accepted", question.answers)
-          }
-        })),
+        questions: [...state.questions, ...addedQuestions],
         isLoading: false,
+        currentLastQuestion: state.currentLastQuestion + action.loadedCount,
       };
     case types.LOAD_QUESTIONS_START:
       return {...state, 
         isLoading: true,
       };
+    case types.LOAD_QUESTIONS_COUNT_SUCCESS: 
+      return {
+        ...state,
+        questionsCount: action.count,
+      }
     case types.LOAD_QUESTIONS_BY_ID_START:
       return {...state, 
         isLoading: true,
