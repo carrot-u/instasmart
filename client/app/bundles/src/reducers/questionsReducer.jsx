@@ -19,21 +19,21 @@ export default function questionsReducer(state = initialState, action){
 
     //****************** LOAD ACTIONS ****************************//
     case types.LOAD_QUESTIONS_SUCCESS:
-      console.log("loading questions", action.questions);
       const addedQuestions = utils.sort(state.sortType, action.questions.map(question => {
         return {
           ...question,
           answers: utils.sort("accepted", question.answers)
         };
       }));
-      console.log("new questions list", [...state.questions, ...addedQuestions]);
-      return {...state,
+      return {
+        ...state,
         questions: [...state.questions, ...addedQuestions],
         isLoading: false,
         currentLastQuestion: state.currentLastQuestion + action.loadedCount,
       };
     case types.LOAD_QUESTIONS_START:
-      return {...state, 
+      return {
+        ...state, 
         isLoading: true,
       };
     case types.LOAD_QUESTIONS_COUNT_SUCCESS: 
@@ -42,11 +42,13 @@ export default function questionsReducer(state = initialState, action){
         questionsCount: action.count,
       }
     case types.LOAD_QUESTIONS_BY_ID_START:
-      return {...state, 
+      return {
+        ...state, 
         isLoading: true,
       };
     case types.LOAD_QUESTIONS_BY_ID_SUCCESS:
-      return {...state,
+      return {
+        ...state,
         showQuestion: {
           ...action.question,
               answers: utils.sort("accepted", action.question.answers)
@@ -63,15 +65,17 @@ export default function questionsReducer(state = initialState, action){
     //****************** CREATE ACTIONS ****************************//
     case types.CREATE_QUESTION_SUCCESS:
       return {
+        ...state,
+        questionsCount: state.questionsCount + 1,
+        currentLastQuestion: state.currentLastQuestion + 1,
         questions:  utils.sort(state.sortType, [
           ...state.questions,
           Object.assign({}, action.newQuestion)
         ]),
-        isLoading: state.isLoading,
-        error: state.error
       };
     case types.POST_ON_QUESTION_SUCCESS:
       return {
+        ...state,
         questions: utils.sort(action.sortType, [
         ...state.questions.filter(question => question.id !== action.updatedQuestion.id),
         Object.assign({}, action.updatedQuestion)
@@ -80,11 +84,10 @@ export default function questionsReducer(state = initialState, action){
           ...action.updatedQuestion,
           answers: utils.sort("accepted", [...action.updatedQuestion.answers])
         },
-        isLoading: state.isLoading,
-        error: state.error
       };
     case types.CREATE_ANSWER_COMMENT_SUCCESS:
-      return {...state,
+      return {
+        ...state,
         showQuestion: action.question,
         isLoading: false,
       };
@@ -114,19 +117,20 @@ export default function questionsReducer(state = initialState, action){
         };
     case types.DELETE_QUESTION_SUCCESS:
       return {
+        ...state,
+        questionsCount: state.questionsCount - 1,
+        currentLastQuestion: state.currentLastQuestion - 1,
         questions: utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.questionId)]),
-        isLoading: state.isLoading,
-        error: state.error
       };
     
     //****************** EDIT ACTIONS ****************************//
     case types.EDIT_QUESTION_SUCCESS:
       return {
+        ...state,
         questions:  utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)]),
         isLoading: false,
         showQuestion: Object.assign({}, action.question),
-        error: state.error,
       };
     case types.EDIT_POST_ON_ANSWER_SUCCESS:
       return {
@@ -139,6 +143,7 @@ export default function questionsReducer(state = initialState, action){
       }
     case types.LIKE_UNLIKE_QUESTION_SUCCESS:
       return {
+        ...state,
         questions: utils.sort(state.sortType, [...state.questions.filter(question => question.id !== action.question.id),
           Object.assign({}, action.question)]),
         isLoading: state.isLoading,
@@ -146,7 +151,6 @@ export default function questionsReducer(state = initialState, action){
             {...action.question,
               answers: utils.sort("accepted", action.question.answers)
             }),
-        error: state.error,
       };
 
     default:
