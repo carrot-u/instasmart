@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-
+# Comment Routes
   get 'comments/new'
-
   get 'comments/create'
-
   get 'comments/edit'
-
   get 'comments/update'
 
   root to: 'sessions#new'
@@ -17,9 +14,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:new, :create, :destroy]
-
   get 'sessions/create'
-
   get 'sessions/destroy'
 
   get 'home', to: 'home#index'
@@ -28,9 +23,13 @@ Rails.application.routes.draw do
 
   get 'questions', to: 'questions#index'
 
+# Search related routes
   post 'questions/search', to: 'questions#search'
+  post 'questions/suggestions', to: 'questions#search_suggestions'
+  post 'users/suggestions', to: 'users#search_suggestions'
+  post 'tags/suggestions', to: 'tags#search_suggestions'
 
-
+  post "questions/tagged" => "questions#tagged_by"
   put "questions/:id/update" => "questions#update"
   resources :questions do
 

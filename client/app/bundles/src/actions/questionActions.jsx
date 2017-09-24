@@ -147,9 +147,9 @@ export function loadQuestionsStart(){
   return { type: types.LOAD_QUESTIONS_START};
 }
 
-export function loadQuestions(){
+export function loadQuestions(tag = null){
   return dispatch => {
-    dispatch(api.getQuestions());
+    dispatch(api.getQuestions(tag));
     dispatch(loadQuestionsStart());
   };
 }

@@ -1,15 +1,25 @@
 import * as utils from './apiUtils';
 import * as questionActions from '../actions/questionActions';
 import * as userActions from '../actions/userActions';
+import * as searchActions from '../actions/searchActions';
+
 
 /************** GET ACTIONS *****************************/
-export function getQuestions(){
+export function getQuestions(tag = null){
   return function(dispatch){
-    return utils.get('/questions').then(questions =>{
-      dispatch(questionActions.loadQuestionsSuccess(questions));
-    }).catch(error => {
-      throw(error);
-    });
+    if(tag){
+      return utils.post('/questions/tagged', { tag: tag }).then(questions =>{
+        dispatch(questionActions.loadQuestionsSuccess(questions));
+      }).catch(error => {
+        throw(error);
+      });
+    }else{
+      return utils.get('/questions').then(questions =>{
+        dispatch(questionActions.loadQuestionsSuccess(questions));
+      }).catch(error => {
+        throw(error);
+      });
+    }
   };
 }
 
@@ -47,6 +57,17 @@ export function getQuestionsBySearch(searchQuery){
       throw(error);
     });
   };
+}
+
+export function getSearchSuggestions(searchQuery, type){
+  const params = { search: searchQuery }
+  return function(dispatch){
+    utils.post(`/${type}/suggestions`, params).then(results => {
+      dispatch(searchActions.loadSearchSuggestionsSuccess(results, type));
+    }).catch(error => {
+      throw(error);
+    })
+  }
 }
 
 

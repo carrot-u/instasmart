@@ -17,12 +17,35 @@ class QuestionsController < ApplicationController
 
   def search
     @questions = Question.order("id DESC")
-
     if params[:search]
       @questions = Question.search(params[:search]).order("created_at DESC") + Question.tagged_with(params[:search]).order("created_at DESC")
       @questions.sort_by! { |q| q.created_at}.reverse!
     end
 
+    respond_to do |format|
+      format.json { render json: @questions }
+    end
+  end
+
+  def search_suggestions
+    if params[:search]
+      @questions = Question.search_summary(params[:search]).order("created_at DESC")
+      respond_to do |format|
+        if @questions.length > 0
+          resp = []
+          @questions.each do |q| 
+            resp.push({ :id => q.id, :summary => q.summary })
+          end
+          format.json { render json: resp }
+        else
+          format.json { render json: nil }
+        end
+      end
+    end
+  end
+
+  def tagged_by
+    @questions = Question.tagged_with(params[:tag])
     respond_to do |format|
       format.json { render json: @questions }
     end

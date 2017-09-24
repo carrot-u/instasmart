@@ -19,58 +19,81 @@
 
 .search-field-container{
   margin: {
-    left: auto;
-    right: auto;
     bottom: 4px;
   };
   .form-control{
     width: 200px;
     height: 20px;
   }
-  .form-inline{
-    min-width: 320px;
-  }
 }
 
-@media (min-width: 776px){
-  .search-field-container{
-    .form-inline .form-control{
-      min-width: 200px;
-      border-radius: 4px 0px 0px 4px !important;
-    }
-    .form-inline{
-      margin-right: 200px - 32px -30px; //remove container padding for offset
-    }
-  }
-  .search-button{
-    width: 60px;
-  }
+.suggestions-container{
+  min-width: 200px + $search-button-width + $searchbar-padding !important;
 }
-@media(min-width: 900px){
+
+input[type=search]{
+  width: 100%;
+}
+
+@media (min-width: 576px){
+  .suggestions-container{
+    width: 320px +$search-button-width + $searchbar-padding !important;
+  }
   .search-field-container{
     .form-inline .form-control{
       width: 320px !important;
     }
   }
 }
-@media(min-width: 1000px){
+
+@media (min-width: 776px){
+  .suggestions-container{
+    width: 400px +$search-button-width + $searchbar-padding !important;
+  }
   .search-field-container{
     .form-inline .form-control{
-      width: 440px !important;
+      width: 400px !important;
+      border-radius: 4px 0px 0px 4px !important;
+    }
+  }
+}
+@media(min-width: 900px){
+  .suggestions-container{
+    width: 480px + $search-button-width + $searchbar-padding !important;
+  }
+  .search-field-container{
+    .form-inline .form-control{
+      width: 480px !important;
+    }
+  }
+}
+@media(min-width: 1000px){
+  .suggestions-container{
+   width: 580px +$search-button-width + $searchbar-padding !important;
+  }
+  .search-field-container{
+    .form-inline .form-control{
+      width: 580px !important;
     }
   }
 }
 @media(min-width: 1100px){
+  .suggestions-container{
+   width: 680px + $search-button-width + $searchbar-padding !important;
+  }
   .search-field-container{
     .form-inline .form-control{
-      width: 500px !important;
+      width: 680px !important;
     }
   }
 }
 @media(min-width: 1200px){
+  .suggestions-container{
+   width: 780px +$search-button-width + $searchbar-padding !important;
+  }
   .search-field-container{
     .form-inline .form-control{
-      width: 700px !important;
+      width: 780px !important;
     }
   }
 }
