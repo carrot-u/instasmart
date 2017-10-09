@@ -6,25 +6,17 @@ class QuestionsController < ApplicationController
   respond_to :html, :json
   before_action :current_user
 
-
-  def index
-    @questions = Question.order("id DESC")
+  def pagination
+    questions_subset = Question.order("id DESC").limit(params[:limit]).offset(params[:offset])
     respond_to do |format|
-      format.json { render json: @questions }
-    end
+     format.json { render json: questions_subset }
+    end   
   end
 
   def count
     respond_to do |format|
       format.json { render json: Question.count }
     end
-  end
-
-  def subset
-    subset = Question.order("id DESC").limit(params[:limit]).offset(params[:offset])
-    respond_to do |format|
-     format.json { render json: subset }
-    end   
   end
 
   def search

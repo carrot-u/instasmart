@@ -139,6 +139,17 @@ export function loadQuestionById(id){
   };
 }
 
+export function loadTaggedQuestionsSuccess(questions, loadedCount){
+  return { type: types.LOAD_TAGGED_QUESTIONS_SUCCESS, questions, loadedCount};
+}
+
+export function loadTaggedQuestions(tag){
+  return dispatch => {
+    dispatch(api.getTaggedQuestions(tag));
+    dispatch(loadQuestionsStart());
+  };
+}
+
 export function loadQuestionsSuccess(questions, loadedCount){
   return { type: types.LOAD_QUESTIONS_SUCCESS, questions, loadedCount};
 }
@@ -147,9 +158,9 @@ export function loadQuestionsStart(){
   return { type: types.LOAD_QUESTIONS_START};
 }
 
-export function loadQuestions(tag = null, offset, limit){
+export function loadQuestions(offset, limit){
   return dispatch => {
-    dispatch(api.getQuestions(tag, offset, limit));
+    dispatch(api.getQuestions(offset, limit));
     dispatch(loadQuestionsStart());
   };
 }

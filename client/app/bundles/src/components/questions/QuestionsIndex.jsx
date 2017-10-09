@@ -25,8 +25,9 @@ class QuestionIndex extends React.Component {
   }
 
   componentWillMount(){
+    // console.log("questions index will mount")
     this.props.actions.loadQuestionsCount();
-    this.props.actions.loadQuestions(null, this.props.currentLastQuestion, this.props.loadSize);
+    this.props.actions.loadQuestions(this.props.currentLastQuestion, this.props.loadSize);
   }
 
   componentDidMount() {
@@ -43,7 +44,7 @@ class QuestionIndex extends React.Component {
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300) &&
       this.props.questionsCount > this.props.currentLastQuestion && !this.props.isLoading
     ) {
-      this.props.actions.loadQuestions(null, this.props.currentLastQuestion, this.props.loadSize);
+      this.props.actions.loadQuestions(this.props.currentLastQuestion, this.props.loadSize);
     }
   }
 
@@ -52,6 +53,7 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
+    console.log("this.props.questions", this.props.questions);
     let listQuestions = null;
     if (this.props.isLoading){
       listQuestions = (

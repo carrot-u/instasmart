@@ -31,6 +31,20 @@ export default function questionsReducer(state = initialState, action){
         isLoading: false,
         currentLastQuestion: state.currentLastQuestion + action.loadedCount,
       };
+    case types.LOAD_TAGGED_QUESTIONS_SUCCESS:
+      console.log("in Tagged question reducer", state, action)
+      const taggedQuestions = utils.sort(state.sortType, action.questions.map(question => {
+        return {
+          ...question,
+          answers: utils.sort("accepted", question.answers)
+        };
+      }));
+      return {
+        ...state,
+        questions: taggedQuestions,
+        isLoading: false,
+        currentLastQuestion: action.loadedCount,
+      };
     case types.LOAD_QUESTIONS_START:
       return {
         ...state, 

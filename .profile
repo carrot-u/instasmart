@@ -1,0 +1,2 @@
+export INSTASMART_GAUTH_CLIENT_ID='602810834708-kgljrjbjf0apqrqmdmutuhej3vsgl1mp.apps.googleusercontent.com'
+export INSTASMART_GAUTH_CLIENT_SECRET='MDT201DQO8ryq1KpmFZOEGvK'

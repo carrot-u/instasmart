@@ -5,22 +5,26 @@ import * as searchActions from '../actions/searchActions';
 
 
 /************** GET ACTIONS *****************************/
-export function getQuestions(tag = null, offset = 0, limit = 10){
+export function getQuestions(offset = 0, limit = 10){
+  console.log("get questions", offset, limit);
   return function(dispatch){
-    if(tag){
-      return utils.post('/questions/tagged', { tag: tag }).then(questions =>{
-        dispatch(questionActions.loadQuestionsSuccess(questions));
-      }).catch(error => {
-        throw(error);
-      });
-    }else{
-      return utils.post('/questions/subset', {offset: offset, limit: limit}).then(questions =>{
-        dispatch(questionActions.loadQuestionsSuccess(questions, limit));
-      }).catch(error => {
-        throw(error);
-      });
-    }
+    return utils.post('questions/pagination', {offset: offset, limit: limit}).then(questions =>{
+      dispatch(questionActions.loadQuestionsSuccess(questions, limit));
+    }).catch(error => {
+      throw(error);
+    });
   };
+}
+
+export function getTaggedQuestions(tag){
+  return function(dispatch){
+    return utils.post('/questions/tagged', { tag: tag }).then(questions =>{
+      console.log("tag", tag, "questions", questions);
+      dispatch(questionActions.loadTaggedQuestionsSuccess(questions, questions.length));
+    }).catch(error => {
+      throw(error);
+    });
+  }
 }
 
 export function getQuestionsCount(){
