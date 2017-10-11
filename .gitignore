@@ -24,6 +24,7 @@
 
 package-lock.json
 public/
+.profile
 
 # React on Rails
 npm-debug.log*

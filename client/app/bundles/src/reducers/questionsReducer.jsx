@@ -42,6 +42,7 @@ export default function questionsReducer(state = initialState, action){
       return {
         ...state,
         questions: taggedQuestions,
+        questionsCount: action.loadedCount,
         isLoading: false,
         currentLastQuestion: action.loadedCount,
       };
