@@ -53,7 +53,7 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
-    console.log("this.props.questions", this.props.questions);
+    // console.log("this.props.questions", this.props.questions);
     let listQuestions = null;
     if (this.props.isLoading){
       listQuestions = (
