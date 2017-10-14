@@ -89,7 +89,7 @@ class FixedNav extends React.Component {
              tags={this.props.tagSuggestions}
              matchTerm={this.state.searchQuery}
              clickOutside={this.clickOutsideSuggestions}
-             getTaggedQuestions={this.props.actions.loadQuestions}
+             getTaggedQuestions={this.props.actions.loadTaggedQuestions}
              />}
 
         {this.props.includeSort && 

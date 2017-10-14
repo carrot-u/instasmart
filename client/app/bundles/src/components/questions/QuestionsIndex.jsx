@@ -13,6 +13,7 @@ import * as utils from "../common/utils";
 import ScrollToTopOnMount from '../common/ScrollToTop';
 import FixedNav from '../common/FixedNav';
 import WarningModal from '../common/WarningModal';
+import LoadingIndexQuestion from './LoadingIndexQuestion';
 
 
 
@@ -20,11 +21,31 @@ class QuestionIndex extends React.Component {
   constructor(props){
     super(props);
     this.onEditQuestion = this.onEditQuestion.bind(this);
+    this.onScroll = this.onScroll.bind(this);
   }
 
-
   componentWillMount(){
-    this.props.actions.loadQuestions();
+    // console.log("questions index will mount")
+    this.props.actions.loadQuestionsCount();
+    this.props.actions.loadQuestions(this.props.currentLastQuestion, this.props.loadSize);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll, false);
+  }
+
+  // check if more questions should be loaded
+  onScroll() {
+    if (
+      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300) &&
+      this.props.questionsCount > this.props.currentLastQuestion && !this.props.isLoading
+    ) {
+      this.props.actions.loadQuestions(this.props.currentLastQuestion, this.props.loadSize);
+    }
   }
 
   onEditQuestion(question){
@@ -32,15 +53,15 @@ class QuestionIndex extends React.Component {
   }
 
   render() {
+    // console.log("this.props.questions", this.props.questions);
     let listQuestions = null;
     if (this.props.isLoading){
-      listQuestions = (<div className="container loading-questions row mt-4">
-              <div className="col-3 offset-5">
-                <i className="fa fa-spinner fa-spin fa-4x fa-fw mb-3"></i>
-                {' '}Loading...
-              </div>          
-            </div>);
-
+      listQuestions = (
+        <div>
+          <LoadingIndexQuestion />
+          <LoadingIndexQuestion />
+          <LoadingIndexQuestion />
+        </div>);
     } else { 
       const noResults = "No Questions Loaded"; 
       listQuestions = (this.props.questions && this.props.questions.length > 0)
@@ -78,6 +99,9 @@ function mapStateToProps(state, ownProps) {
   return {
     questions: state.questions.questions,
     isLoading: state.questions.isLoading,
+    loadSize: state.questions.loadSize,
+    currentLastQuestion: state.questions.currentLastQuestion,
+    questionsCount: state.questions.questionsCount,
     showQuestionModal: state.modal.showQuestionModal,
     currentUser: state.users.currentUser,
   };

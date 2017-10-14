@@ -139,19 +139,40 @@ export function loadQuestionById(id){
   };
 }
 
-export function loadQuestionsSuccess(questions){
-  return { type: types.LOAD_QUESTIONS_SUCCESS, questions};
+export function loadTaggedQuestionsSuccess(questions, loadedCount){
+  return { type: types.LOAD_TAGGED_QUESTIONS_SUCCESS, questions, loadedCount};
+}
+
+export function loadTaggedQuestions(tag){
+  return dispatch => {
+    dispatch(api.getTaggedQuestions(tag));
+    dispatch(loadQuestionsStart());
+  };
+}
+
+export function loadQuestionsSuccess(questions, loadedCount){
+  return { type: types.LOAD_QUESTIONS_SUCCESS, questions, loadedCount};
 }
 
 export function loadQuestionsStart(){
   return { type: types.LOAD_QUESTIONS_START};
 }
 
-export function loadQuestions(tag = null){
+export function loadQuestions(offset, limit){
   return dispatch => {
-    dispatch(api.getQuestions(tag));
+    dispatch(api.getQuestions(offset, limit));
     dispatch(loadQuestionsStart());
   };
+}
+
+export function loadQuestionsCount(){
+  return dispatch => {
+    dispatch(api.getQuestionsCount());
+  }
+}
+
+export function loadQuestionsCountSuccess(count){
+  return { type: types.LOAD_QUESTIONS_COUNT_SUCCESS, count};
 }
 
 export function sortQuestions(sortType){

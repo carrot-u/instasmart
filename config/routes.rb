@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get 'questions', to: 'questions#index'
+  post 'questions/pagination', to: 'questions#pagination'
+  get "questions/count" => "questions#count"
 
 # Search related routes
   post 'questions/search', to: 'questions#search'
